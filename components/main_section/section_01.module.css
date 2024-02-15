@@ -1,0 +1,128 @@
+.section01__Grid {
+  position: relative;
+  height: 190vh;
+  display: grid;
+  grid-template-columns: 1fr 10rem 1fr;
+  grid-template-rows: 1px 1.2fr 15rem 1fr 2.4rem;
+  align-items: center;
+  justify-items: center;
+  padding-inline: var(--padding-inLine);
+  max-width: var(--maxWidth);
+  margin: auto;
+  gap: var(--spacing-S);
+  margin-bottom: var(--spacing-L);
+  transform: translateY(-10vh);  
+}
+
+.horizontalRule{
+    transform: translateY( var(--spacing-S));
+    width: 10rem;
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+
+.section01__mainProject {
+  grid-row: 1;
+  object-fit: cover;
+  position: relative;
+  background-color: red;
+}
+
+.imgJapPreview {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  object-fit: cover;
+}
+.kanji{
+    align-self: last baseline;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    font-weight: 400;
+    line-height: var(--font-size-Display_01);
+}
+
+
+.shadows__title{
+    align-self: last baseline;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    text-align: center;
+    line-height: var(--font-size-subTitle_01);  
+}
+.shadows__underline{
+    margin-top: 0.8rem;
+}
+
+.imgCityPreview{
+    grid-row: 4/5;
+    grid-column: 1/2;
+    object-fit: cover;
+    padding-left: var(--spacing-M);
+}
+
+.legend__shadows{
+    grid-row: 5/6;
+    grid-column: 1/2;
+    justify-self: right;
+    display:flex;
+    justify-content:center;
+    align-items: last baseline;
+    gap: var(--spacing-XS);
+}
+
+
+.verticalRule{
+    border-left: 1px solid white;
+    height: var(--spacing-M);
+}
+
+.kanji__line{
+    border-top: 1px solid white;
+}
+
+
+
+.title__box{
+    grid-row: 2/3;
+    grid-column: 3/4;
+
+    justify-self: end;
+
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    justify-items: left;
+}
+
+.title__box_txt{
+    font-weight: 300;
+}
+.title__box_line01{
+    grid-row: 1/2;
+    grid-column: 1/3;
+    letter-spacing: 1.6rem;
+
+}
+
+.title__box_line02{
+    letter-spacing: 1.95rem;
+    grid-row: 2/3;
+    grid-column: 1/2;
+
+}
+
+.title__box_line{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    width: 8.6rem;
+    justify-self: end;
+    margin-right: 2.8rem;
+}
+.title__box_L3{
+    grid-row: 3/4;
+    grid-column: 1/3;
+    letter-spacing: 2.8rem;
+    font-weight: 300;
+}

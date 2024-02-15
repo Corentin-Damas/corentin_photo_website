@@ -1,0 +1,50 @@
+import React from "react";
+import Link from "next/link";
+import styles from "../components/Hero.module.css";
+
+function Hero() {
+  return (
+    <section className={styles.presentation}>
+      <div className={styles.presentation__containeur}>
+        <div className={styles.presentation__sub}>
+          <p className={`${styles.presentation__sub_txt} body_02`}> Travel</p>
+          <div className={styles.dot}></div>
+          <p className={`${styles.presentation__sub_txt} body_02`}>Culture </p>
+          <div className={styles.dot}></div>
+          <p className={`${styles.presentation__sub_txt} body_02`}>
+            {" "}
+            Wondering{" "}
+          </p>
+        </div>
+        <h3 className={`${styles.presentation__main} geologicaRom`}>
+          Project Base Photographer
+        </h3>
+        <Link href={"/gallerie"} className="gallery_Link presentation_sp_link">
+          See Gallery _<span className="main-Color">&gt;</span>
+        </Link>
+      </div>
+      <div className={`${styles.img_caption__containeur} dark_mode_only`}>
+        <div className={styles.img_caption__left}>
+          <div className={styles.img_caption__up}>
+            <p className="detail_01">Rainbow Bridge</p>
+            <p className= {`${styles.sec_color_txt} detail_02 japanese`}>東京港連絡橋 - レインボーブリッジ</p>
+          </div>
+          <div className={styles.img_caption__down}>
+            <p className="detail_01">
+              Minato
+              <br />
+              Tokyo Metropolis
+              <br />
+              Japan
+            </p>
+          </div>
+        </div>
+        <div className={styles.img_caption__right}>
+          
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;
