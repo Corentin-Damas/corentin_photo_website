@@ -1,0 +1,72 @@
+.section03__Grid {
+    position: relative;
+    height: 100vh;
+    max-height: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 9fr 1fr 4rem;
+    align-items: center;
+    justify-items: center;
+    padding-inline: var(--padding-inLine);
+    max-width: var(--maxWidth);
+    margin: auto;
+    column-gap: var(--spacing-M);
+    row-gap: var(--spacing-S);
+    margin-bottom: var(--spacing-L);
+  }
+
+  .verticalRule {
+    border-left: 1px solid var(--font-color-main);
+    height: var(--spacing-M);
+  }
+
+  .imgLandPreview{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    object-fit: cover;
+    /* padding-left: var(--spacing-LM); */
+  }
+
+  .imgInfraPreview{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    object-fit: cover;
+  }
+
+  .imgBandWPreview{
+    grid-row: 1/2;
+    grid-column: 3/4;
+    object-fit: cover;
+  }
+  .legend__Landscape,
+  .legend__infra,
+  .legend__BandW{
+    justify-self: right;
+    display: flex;
+    justify-content: center;
+    align-items: last baseline;
+    gap: var(--spacing-XS);
+  }
+
+  .legend__Landscape{
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+
+  .legend__infra{
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  .legend__BandW{
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+
+  .part03__link{
+    grid-row: 3/4;
+    grid-column: 3/4;
+    justify-self: right;
+    align-self: last baseline;
+  }
+
+

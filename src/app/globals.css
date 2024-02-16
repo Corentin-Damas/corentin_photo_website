@@ -10,7 +10,8 @@
   */
 
   --font-size-Display_01: 9.6rem;
-  --font-size-Display_02: 6rem;
+  --font-size-Display_02: 7.2rem;
+  --font-size-Display_03: 6rem;
 
   --font-size-Title_01: 4.8rem;
   --line-height-Title_01: 6.72rem;
@@ -47,6 +48,7 @@
   --font-color-gray: #556473;
   --font-color-body_02: #717d8a;
   --link-color-underline: #717d8a;
+  --white-bar: #eaecee;
 
   --prim-100: #f8c8c3;
   --prim-300: #ef887c;
@@ -72,6 +74,7 @@
   --window-height: 100vh;
 
   --spacing-XS: 0.8rem;
+  --spacing-SS: 1.6rem;
   --spacing-S: 2.4rem;
   --spacing-SM: 3.6rem;
   --spacing-M: 4.8rem;
@@ -232,6 +235,9 @@ p.detail_02 {
 .main-Color {
   color: var(--prim-500-main);
 }
+.prim-100 {
+  color: var(--prim-100);
+}
 
 .gallery_Link {
   font-family: var(--font-geologica-light);
@@ -245,3 +251,4 @@ p.detail_02 {
 .presentation_sp_link {
   margin-top: var(--special_link);
 }
+

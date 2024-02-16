@@ -1,0 +1,132 @@
+.sectionCta__Grid {
+  position: relative;
+  height: 100vh;
+  max-height: 800px;
+  display: grid;
+  grid-template-columns: 10rem 3fr var(--spacing-S) 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding-inline: var(--padding-inLine);
+  max-width: var(--maxWidth);
+  margin: auto;
+  margin-bottom: var(--spacing-L);
+}
+
+.presentation {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.myName {
+  padding-bottom: 2.4rem;
+}
+
+.gap {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.imgHeadS {
+  border-top: 1px solid white;
+  object-fit: contain;
+  grid-column: 4/5;
+  grid-row: 1/3;
+}
+.formular__containeur {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 100%;
+  height: 100%;
+  padding-top: 6rem;
+}
+
+.formular__grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 8rem;
+  align-items: center;
+  justify-items: left;
+  padding-right: 8rem;
+}
+
+.formular__Name {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.formular__email {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+.form__group {
+  position: relative;
+  padding: 1.6rem 0 0;
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.form__field {
+  font-family: var(--font-geologica-light);
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid white;
+  outline: 0;
+  font-size: 2rem;
+  color: white;
+  padding: 0.6rem 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field:focus::placeholder {
+  color: transparent;
+  transition: 0.4s;
+}
+.form__field:focus .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  font-family: var(--font-geologica-light);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: transparent;
+
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.3s;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 400;
+  border-bottom: 2px solid var(--prim-300);
+ 
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  color: var(--font-color-main);
+}

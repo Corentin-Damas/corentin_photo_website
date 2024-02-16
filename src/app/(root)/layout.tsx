@@ -13,7 +13,7 @@ function layout({ children }: { children: React.ReactNode }) {
         <Navbar />
         <Hero/>
         <Image
-          src="/accueil/rainbow-bridge-XL.jpg"
+          src="/landingpage/rainbow-bridge-XL.jpg"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.bgImg} dark_mode_only`}
           fill
