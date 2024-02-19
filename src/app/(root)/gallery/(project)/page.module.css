@@ -1,0 +1,34 @@
+.projects__grid {
+  position: relative;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-S);
+  justify-content: center;
+  align-items: center;
+}
+
+.projectPreview {
+  position: relative;
+  height: 30rem;
+  width: 30rem;
+
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.projectPreview__img {
+
+  object-fit: cover;
+}
+
+.projectPreview__shadows {
+    object-fit: cover;
+  object-position: 25%;
+}
+
+.projectPreview__landscape{
+    object-fit: cover;
+    object-position: 60%;
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import Hero from "../../../components/Hero";
+import Navbar from "../../../../components/Navbar";
+import Footer from "../../../../components/Footer";
+import Hero from "../../../../components/Hero";
 
 import styles from "./layout.module.css";
 
@@ -11,7 +11,7 @@ function layout({ children }: { children: React.ReactNode }) {
     <>
       <header className={styles.header}>
         <Navbar />
-        <Hero/>
+        <Hero />
         <Image
           src="/landingpage/rainbow-bridge-XL.jpg"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"

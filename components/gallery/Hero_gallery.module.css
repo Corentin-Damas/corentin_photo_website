@@ -1,0 +1,33 @@
+
+
+  .dot {
+    width: var(--font-size-bodyText_03);
+    height: var(--font-size-bodyText_03);
+    background: var(--prim-500-main);
+    border-radius: 50%;
+  }
+
+  .keywords{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    gap: var(--spacing-SS);
+  }
+
+  .horizontalRule{
+    top: 6rem;
+    right: 0;
+    position: absolute;
+    width: 40rem;
+    height: 1px;
+    align-self: center;
+  }
+
+
+  .heroSection{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
