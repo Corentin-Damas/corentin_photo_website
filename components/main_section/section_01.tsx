@@ -9,7 +9,7 @@ function section_01() {
         <hr className={styles.horizontalRule}/>
         {/* Part 1 JAPAN */}
         <Image
-          src="/02_a_year_in_japan/1-Kamogawa_River-XL.jpg"
+          src="/a_year_in_japan/01-a_year_in_japan-XL.jpg"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.imgJapPreview} dark_mode_only`}
           fill
@@ -44,7 +44,7 @@ function section_01() {
           Shadow <hr className={styles.underline} />
         </h4>
         <Image
-          src="/04_shadows/06-Morning_Shadows-XL.jpg"
+          src="/morning_shadows/06-Morning_Shadows-XL.jpg"
           alt="View on the city of london in the morning light"
           className={`${styles.imgCityPreview}`}
           fill
@@ -62,7 +62,7 @@ function section_01() {
           <hr className={styles.underline} />
         </h4>
         <Image
-          src="/05_museums/03-Museum-XL.jpg"
+          src="/museums/03-Museum-XL.jpg"
           alt="Entrance of the Natural History Museum of London (UK), statue of Charles Darwin"
           className={`${styles.imgMuseumPreview}`}
           fill

@@ -15,7 +15,7 @@ function section_02() {
         <div className={styles.verticalRule}></div>
       </div>
       <Image
-        src="/06_tsuzukitai/37-tsuzukitai-XL.jpg"
+        src="/tsuzukitai/37-tsuzukitai-XL.jpg"
         alt="Bridge named rainbow Bridge from Tokyo, Japan"
         className={`${styles.imgCovTsuzukitai}`}
         fill

@@ -5,7 +5,7 @@ import Image_grid from '../../../../../../components/gallery/Image_grid';
 function page() {
   return (
     <div className={styles.japan__grid}>
-      <Image_grid currentDir='a_year_in_japan'/>
+      <Image_grid currentDir='tsuzukitai'/>
     </div>
   )
 }

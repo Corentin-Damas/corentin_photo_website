@@ -7,9 +7,10 @@ function Navbar() {
         <nav className={styles.nav}>
             <Link href="/" className={styles.myNameLink}>Corentin Damas</Link>
             <ul className={styles.links}>
-                <Link href="/project">Project</Link>
-                <Link href="/project">Gallery</Link>
-                <Link href="/project">About</Link>
+                <Link href="/gallery">Project</Link>
+                <Link href="/gallery">Gallery</Link>
+                <Link href="/About">About</Link>
+                {/* <Link href="/your_print">Your Print</Link> */}
             </ul>
             <button>contact me</button>
         </nav>

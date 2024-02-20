@@ -1,7 +1,6 @@
-/* 1050 px 65.625em
-@media only screen and (max-width: 65.625em) {
+/* 1136 px 71em
+@media only screen and (max-width: 71em) {
 } */
-
 
 .gallery__grid {
   display: grid;
@@ -16,7 +15,7 @@
   max-width: 1600px;
   margin: auto;
 
-  @media only screen and (max-width: 65.625em) {
+  @media only screen and (max-width: 71em) {
     grid-template-columns: repeat(2, minmax(25rem, 1fr));
   }
 }
@@ -26,7 +25,7 @@
   position: fixed;
   max-width: 30rem;
 
-  @media only screen and (max-width: 65.625em) {
+  @media only screen and (max-width: 71em) {
    display: none;
   }
 }
@@ -34,11 +33,10 @@
 .gallery__grid_right {
   grid-column: 2/-1;
   grid-row: 2/3;
-  @media only screen and (max-width: 65.625em) {
+  @media only screen and (max-width: 71em) {
     grid-column: 1/-1;
    }
 }
-
 
 .gallery__grid_top{
     grid-row: 1/2;

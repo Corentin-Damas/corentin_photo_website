@@ -7,7 +7,7 @@ function section_03() {
   return (
     <div className={styles.section03__Grid}>
         <Image
-          src="/01_between_land&sky/13-sky and earth-XL.jpg"
+          src="/earth_and_sky/13-earth_and_sky-XL.jpg"
           alt="Photography of a Beach with a natural rock arch at night time"
           className={`${styles.imgLandPreview}`}
           fill
@@ -18,7 +18,7 @@ function section_03() {
           <div className={styles.verticalRule}></div>
         </div>
         <Image
-          src="/03_infra/01-infrared-XL.jpg"
+          src="/infrared/01-infrared-XL.jpg"
           alt="Infrared photoghaphy of a tree near the sea. The tree has pink leaves "
           className={`${styles.imgInfraPreview}`}
           fill
@@ -29,7 +29,7 @@ function section_03() {
           <div className={styles.verticalRule}></div>
         </div>
         <Image
-          src="/07_black_and_white/02-black_and_white-XL.jpg"
+          src="/black_and_white/02-black_and_white-XL.jpg"
           alt="Black and white photography with three trunk in the snow in front of a beach and the sea"
           className={`${styles.imgBandWPreview}`}
           fill
