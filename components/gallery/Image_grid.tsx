@@ -6,7 +6,7 @@ import style from "./../gallery/Image_grid.module.css";
 import GalleryImg from "./Gallery";
 
 const Image_grid = async ({ currentDir }: { currentDir: string }) => {
-  const imageDirectory = path.join(process.cwd(), `/public/${currentDir}`);
+  const imageDirectory = path.join(process.cwd(), `/public/${currentDir}/S`);
   const imageFilenames = await fs.readdir(imageDirectory);
 
   return (

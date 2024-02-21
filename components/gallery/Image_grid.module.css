@@ -54,15 +54,15 @@
   @media only screen and (max-width: 85em) {
     height: 250px;
   }
-  /* @media only screen and (max-width: 81.25em) {
-    height: 150px;
-  } */
   @media only screen and (max-width: 71em) {
     height: 220px;
   }
   @media only screen and (max-width: 38.5em) {
     height: 100%;
   }
+}
+.card:last-child {
+  max-width: 450px;
 }
 
 .img {
@@ -83,22 +83,65 @@
   left: 0;
 
   z-index: 100;
-  display:flex;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding-inline: 5vw;
+  background-color: var(--background-color-transparency);
   background-size: 100%;
-  backdrop-filter: blur(3px)
+  backdrop-filter: blur(3px);
 }
 
 .popUpImg__img {
-
-
   width: auto;
-  height: 90%;
+  height: min(1200px, 90%);
   z-index: 200;
   object-fit: contain;
+  cursor: default;
+}
+
+.arrows_container {
+  background-color: white;
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  z-index: 900;
+  cursor: pointer;
+}
+.arrows_right,
+.arrows_left {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 900;
+}
+.arrows_right {
+  transform: translate(-50%, -50%);
+}
+.arrows_left {
+  transform: translate(-33%, -50%);
+}
+
+.close_container{
+  position: fixed ;
+  top: 3rem;
+  right: 3rem;
+  height: 6rem;
+  width: 6rem;
+  z-index: 200;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close{
+
 }

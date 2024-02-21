@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import style from "./../gallery/Image_grid.module.css";
 
@@ -10,15 +10,80 @@ const GalleryImg = ({
   images: Array<string>;
   currentDir: string;
 }) => {
-  const [imgSelected, setImageSelected] = useState("");
+  const [dialog, setDialog] = useState(false);
+  const [imgSelected, setImageSelected] = useState(0);
+
+  // function handleImgChange(s: string) {
+  //   const idxNextImg: number = images.findIndex((el) => el == s);
+  //   console.log(idxNextImg, imgSelected);
+  //   console.log("nextImage is", images[idxNextImg]);
+  //   setImageSelected(images[idxNextImg]);
+  // }
+
+  function handlePreviewClick(idx: number) {
+    setImageSelected(idx);
+    setDialog(!dialog);
+  }
+
+  function handlePrev() {
+    if (imgSelected == 0) {
+      setImageSelected(images.length - 1);
+    } else {
+      setImageSelected(imgSelected - 1);
+    }
+  }
+  function handleNext() {
+    if (imgSelected == images.length - 1) {
+      setImageSelected(0);
+    } else {
+      setImageSelected(imgSelected + 1);
+    }
+  }
+  function handleClose() {
+    setDialog(false);
+  }
+
+  function keyDownDetected() {
+    window.addEventListener("keydown", function (e) {
+      if (e.key == "ArrowLeft") {
+        handlePrev();
+      }
+      if (e.key == "ArrowRight") {
+        handleNext();
+      }
+      if (e.key == "Escape") {
+        handleClose();
+      }
+    });
+  }
+
+  useEffect(() => {
+    keyDownDetected();
+    return window.removeEventListener("keydown", keyDownDetected);
+  });
+
+  // document.body.addEventListener('keydown', function(e){
+  //   if (e.key == "ArrowLeft") {
+
+  //     handlePrev()
+  //   }
+  //   if (e.key == "ArrowRight") {
+
+  //     handleNext()
+  //   }
+  //   if (e.key == "Escape"){
+  //     handleClose()
+  //   }
+  // })
+
   return (
     <>
       <ul className={style.grid}>
-        {images.map((el: string) => (
+        {images.map((el: string, idx: number) => (
           <li
             className={style.card}
             key={el}
-            onClick={() => setImageSelected(el)}
+            onClick={() => handlePreviewClick(idx)}
           >
             <Image
               className={style.img}
@@ -26,27 +91,63 @@ const GalleryImg = ({
               width={0}
               height={0}
               alt={`picture from the photo series ${currentDir}`}
-              src={`/${currentDir}/${el}`}
+              src={`/${currentDir}/S/${el}`}
               quality={80}
             />
           </li>
         ))}
       </ul>
-      {imgSelected != "" ? (
-        <div className={style.popUpImg__Container} onClick={() => setImageSelected("")}>
-          <Image
-            className={style.popUpImg__img}
-            sizes="100vw"
-            width={0}
-            height={0}
-            alt={`picture from the photo series ${currentDir}`}
-            src={`/${currentDir}/${imgSelected}`}
-            quality={80}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
+      <div>
+        {dialog && (
+          <>
+            <div className={style.popUpImg__Container}>
+              <div>
+                <div className={style.arrows_container}>
+                  <Image
+                    src={`./${currentDir}/../../icons/arrow_left.svg`}
+                    alt="return back arrow"
+                    height={40}
+                    width={40}
+                    className={style.arrows_left}
+                    onClick={handlePrev}
+                  />
+                </div>
+              </div>
+              <Image
+                className={style.popUpImg__img}
+                sizes="100vw"
+                width={0}
+                height={0}
+                alt={`picture from the photo series ${currentDir}`}
+                src={`/${currentDir}/L/${images[imgSelected]}`}
+                quality={100}
+              />
+              <div>
+                <div className={style.arrows_container}>
+                  <Image
+                    src={`./${currentDir}/../../icons/arrow_right.svg`}
+                    alt="return back arrow"
+                    height={40}
+                    width={40}
+                    className={style.arrows_right}
+                    onClick={handleNext}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className={style.close_container}>
+                <Image
+                  src={`./${currentDir}/../../icons/close.svg`}
+                  alt="return back arrow"
+                  height={40}
+                  width={40}
+                  className={style.close}
+                  onClick={handleClose}
+                />
+              </div>
+          </>
+        )}
+      </div>
     </>
   );
 };

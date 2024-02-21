@@ -33,6 +33,7 @@
 
   /* --neutral-00-white: #f8fafc; */
   --background-color: #f8fafc;
+  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --neutral-50: #eaecee;
   --netral-200: #9da6af;
   --netral-300: #717d8a;
@@ -93,13 +94,14 @@
   :root {
     /* --netral-900: #121a22; */
     --background-color: #121a22;
+    --background-color-transparency: hsla(208, 29%, 10%, 0.9);
+
     --font-color-main: #eaecee;
     --font-color-sec: #f8fafc;
     --font-color-gray: #9da6af;
     --font-color-body_02: #bcd7e9;
 
     --link-color-underline: #717d8a;
-
 
     --special_link: 50vh;
   }
@@ -251,4 +253,3 @@ p.detail_02 {
 .presentation_sp_link {
   margin-top: var(--special_link);
 }
-
