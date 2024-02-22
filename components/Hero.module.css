@@ -62,6 +62,10 @@
   border-right: 1px solid var(--font-color-sec);
   height: var(--spacing-L);
 }
+.img_caption__down p{
+  color: var( --font-color-sec);
+}
+
 
 .sec_color_txt {
   color: var(--font-color-body_02);

@@ -1,5 +1,4 @@
 
-
   .dot {
     width: var(--font-size-bodyText_03);
     height: var(--font-size-bodyText_03);
@@ -14,20 +13,17 @@
     gap: var(--spacing-SS);
   }
 
-  .horizontalRule{
-    top: 6rem;
-    right: 0;
-    position: absolute;
-    width: 40rem;
-    height: 1px;
-    align-self: center;
-  }
-
 
   .heroSection{
+    position: relative;
     width: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .switchTheme{
+    position: absolute;
+    right: 0;
   }

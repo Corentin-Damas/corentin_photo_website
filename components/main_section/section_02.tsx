@@ -9,7 +9,7 @@ function section_02() {
       <div className={styles.section02__left}>
         <div className={styles.verticalRule}></div>
 
-        <h1 className={` ${styles.display_02} japanese`}><span className={styles.firstKanji}>続</span>きたい</h1>
+        <h1 className={` ${styles.display_02}  japanese`}><span className={styles.firstKanji}>続</span>きたい</h1>
 
         <p className={` ${styles.engTitle} `}>Trapped Memories</p>
         <div className={styles.verticalRule}></div>

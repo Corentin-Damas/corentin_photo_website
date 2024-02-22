@@ -7,14 +7,11 @@ function Hero() {
     <section className={styles.presentation}>
       <div className={styles.presentation__containeur}>
         <div className={styles.presentation__sub}>
-          <p className={`${styles.presentation__sub_txt} body_02`}> Travel</p>
+          <p className={`${styles.presentation__sub_txt} body_02`}>Wondering</p>
           <div className={styles.dot}></div>
-          <p className={`${styles.presentation__sub_txt} body_02`}>Culture </p>
+          <p className={`${styles.presentation__sub_txt} body_02`}>Travel</p>
           <div className={styles.dot}></div>
-          <p className={`${styles.presentation__sub_txt} body_02`}>
-            {" "}
-            Wondering{" "}
-          </p>
+          <p className={`${styles.presentation__sub_txt} body_02`}>Culture</p>
         </div>
         <h3 className={`${styles.presentation__main} geologicaRom`}>
           Project Base Photographer
@@ -27,7 +24,9 @@ function Hero() {
         <div className={styles.img_caption__left}>
           <div className={styles.img_caption__up}>
             <p className="detail_01">Rainbow Bridge</p>
-            <p className= {`${styles.sec_color_txt} detail_02 japanese`}>東京港連絡橋 - レインボーブリッジ</p>
+            <p className={`${styles.sec_color_txt} detail_02 japanese`}>
+              東京港連絡橋 - レインボーブリッジ
+            </p>
           </div>
           <div className={styles.img_caption__down}>
             <p className="detail_01">
@@ -39,9 +38,27 @@ function Hero() {
             </p>
           </div>
         </div>
-        <div className={styles.img_caption__right}>
-          
+        <div className={styles.img_caption__right}></div>
+      </div>
+      <div className={`${styles.img_caption__containeur} light_mode_only`}>
+        <div className={styles.img_caption__left}>
+          <div className={styles.img_caption__up}>
+            <p className="detail_01">Itsukushima-jinja</p>
+            <p className={`${styles.sec_color_txt} detail_02 japanese`}>
+              厳島神社
+            </p>
+          </div>
+          <div className={styles.img_caption__down}>
+            <p className="detail_01">
+              Itsukushima (Miyajima)
+              <br />
+              Hiroshima Prefecture
+              <br />
+              Japan
+            </p>
+          </div>
         </div>
+        <div className={styles.img_caption__right}></div>
       </div>
     </section>
   );

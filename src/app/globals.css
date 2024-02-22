@@ -47,9 +47,11 @@
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
   --font-color-gray: #556473;
-  --font-color-body_02: #717d8a;
+  --font-color-body_02: #2b3d50;
   --link-color-underline: #717d8a;
+  --section-2-band: #121a22;
 
+  --rules-color: #2b3d50;
   --white-bar: #eaecee;
 
   --prim-100: #f8c8c3;
@@ -88,7 +90,7 @@
   --border-radius: 12px;
   --footerSize: 45rem;
 
-  --special_link: 2.4rem;
+  --special_link: 0.8rem;
 }
 
 html.dark {
@@ -99,6 +101,9 @@ html.dark {
   --font-color-sec: #f8fafc;
   --font-color-gray: #9da6af;
   --font-color-body_02: #bcd7e9;
+  --rules-color: #f8fafc;
+  --section-2-band: #612019;
+
 
   --link-color-underline: #717d8a;
 

@@ -14,8 +14,8 @@
 }
 
 .presentation {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 1px solid var(--rules-color);
+  border-bottom: 1px solid var(--rules-color);
   grid-column: 2/3;
   grid-row: 1/2;
   height: 100%;
@@ -37,15 +37,24 @@
   height: 100%;
   grid-column: 3/4;
   grid-row: 1/3;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
+  border-top: 1px solid var(--rules-color);
+  border-left: 1px solid var(--rules-color);
+}
+
+.right__container {
+  position: relative;
+  grid-column: 4/5;
+  grid-row: 1/3;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid var(--rules-color);
 }
 
 .imgHeadS {
-  border-top: 1px solid white;
+  height: 10rem;
+
+  width: 100%;
   object-fit: contain;
-  grid-column: 4/5;
-  grid-row: 1/3;
 }
 .formular__containeur {
   grid-column: 2/3;
@@ -93,15 +102,45 @@
   padding: 0.6rem 0;
   background: transparent;
   transition: border-color 0.2s;
+  position: relative;
+}
+.form__field > *{
+  border: 0;
+  outline: 0;
 }
 .form__field:focus::placeholder {
   color: transparent;
   transition: 0.4s;
 }
+
 .form__field:focus .form__label {
   font-size: 1.3rem;
   cursor: text;
   top: 20px;
+}
+
+.informationBlock{
+  position: relative;
+}
+.informationBlock > *{
+  position: absolute;
+  width: 100%;
+  bottom: -3rem;
+  left: 0;
+}
+/* .informationBuble {
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+} */
+.form__invalid {
+  background-color: red;
+}
+.form__field_valid {
+  border-bottom: 2px solid var(--success);
+}
+.form__field_inValid {
+  border-bottom: 2px solid var(--warning);
 }
 
 .form__label {
@@ -120,25 +159,23 @@
   padding-bottom: 6px;
   font-weight: 400;
   border-bottom: 2px solid var(--white-bar);
- 
 }
 .form__field:focus ~ .form__label {
   position: absolute;
-  top: 0;
+  top: -1rem;
   display: block;
   transition: 0.2s;
   color: var(--netral-200);
 }
 
-
-.proposition{
-  display:flex;
+.proposition {
+  display: flex;
   justify-content: left;
   align-items: center;
-  gap: var(--spacing-S)
+  gap: var(--spacing-S);
 }
 
-.proposition__txt{
+.proposition__txt {
   font-family: var(--font-geologica-light);
   font-weight: 400;
 }
@@ -150,11 +187,10 @@
   border-radius: 50%;
 }
 
-
-.link__container{
-  display:flex;
+.link__container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: var( --spacing-M);
-  padding-bottom: var( --spacing-L);
+  padding-top: var(--spacing-M);
+  padding-bottom: var(--spacing-L);
 }

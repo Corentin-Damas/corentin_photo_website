@@ -10,8 +10,15 @@ function section_01() {
         {/* Part 1 JAPAN */}
         <Image
           src="/a_year_in_japan/01-a_year_in_japan-XL.jpg"
-          alt="Bridge named rainbow Bridge from Tokyo, Japan"
+          alt="Couples sitting by the Kamo River at night Kyoto, Japan"
           className={`${styles.imgJapPreview} dark_mode_only`}
+          fill
+          quality={80}
+        />
+        <Image
+          src="/a_year_in_japan/24-a_year_in_japan-XL.jpg"
+          alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
+          className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
           fill
           quality={80}
         />

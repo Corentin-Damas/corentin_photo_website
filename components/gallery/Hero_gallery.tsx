@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../gallery/Hero_gallery.module.css";
 import Link from "next/link";
+import ThemeSwitch from "../ThemeSwitch";
 function Hero_gallery() {
   return (
     <>
@@ -17,8 +18,11 @@ function Hero_gallery() {
             Wondering{" "}
           </p>
         </div>
+        <div className={styles.switchTheme}>
+
+          <ThemeSwitch/>
+        </div>
       </div>
-      <hr className={styles.horizontalRule} />
     </>
   );
 }
