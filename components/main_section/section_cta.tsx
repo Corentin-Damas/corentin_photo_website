@@ -79,7 +79,7 @@ function section_cta() {
         <div className={styles.gap}></div>
         <div className={styles.right__container}>
           <Image
-            src="/landingpage/01-color_headS-XL.jpg"
+            src="/landingpage/color_headS.jpg"
             alt="Photography of Corentin Damas author of the website and photographies "
             className={`${styles.imgHeadS}`}
             fill

@@ -13,9 +13,16 @@ function layout({ children }: { children: React.ReactNode }) {
         <Navbar />
         <Hero />
         <Image
-          src="/landingpage/rainbow-bridge-XL.jpg"
+          src="/landingpage/XL/rainbow-bridge-XL.jpg"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.bgImg} dark_mode_only`}
+          fill
+          quality={100}
+        />
+        <Image
+          src="/landingpage/XL/landscapes-Landing2-XL.png"
+          alt="Bridge named rainbow Bridge from Tokyo, Japan"
+          className={`${styles.bgImg} ${styles.bglight} light_mode_only`}
           fill
           quality={100}
         />

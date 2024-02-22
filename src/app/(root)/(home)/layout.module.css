@@ -1,9 +1,12 @@
+.header{
+  position: relative;
+  height: var(--window-height);
+}
 
 .bgImg {
   object-fit: cover;
   height: var(--window-height);
 }
-
-.header{
-  height: var(--window-height);
+.bglight{
+  object-position:50% 20%;
 }

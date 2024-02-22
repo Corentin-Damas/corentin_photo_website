@@ -32,8 +32,6 @@
   --font-size-detail_02: 0.8rem;
 
   /* --neutral-00-white: #f8fafc; */
-  --background-color: #f8fafc;
-  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --neutral-50: #eaecee;
   --netral-200: #9da6af;
   --netral-300: #717d8a;
@@ -43,12 +41,15 @@
   --netral-900: #121a22;
   --netral-black: #1a1a1a;
 
-  --font-color-main: #1f2b39;
+  --background-color: #f8fafc;
 
+  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+  --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
   --font-color-gray: #556473;
   --font-color-body_02: #717d8a;
   --link-color-underline: #717d8a;
+
   --white-bar: #eaecee;
 
   --prim-100: #f8c8c3;
@@ -90,9 +91,41 @@
   --special_link: 2.4rem;
 }
 
+html.dark {
+  --background-color: #121a22;
+  --background-color-transparency: hsla(208, 29%, 10%, 0.9);
+
+  --font-color-main: #eaecee;
+  --font-color-sec: #f8fafc;
+  --font-color-gray: #9da6af;
+  --font-color-body_02: #bcd7e9;
+
+  --link-color-underline: #717d8a;
+
+  --special_link: 50vh;
+}
+html.dark .light_mode_only{
+  display: none;
+}
+html.light .dark_mode_only{
+  display: none;
+}
+
+/* html.light {
+  --background-color: #ff0202;
+  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+
+  --font-color-main: #eeeaea;
+  --font-color-sec: #f8fafc;
+  --font-color-gray: #9da6af;
+  --font-color-body_02: #bcd7e9;
+
+  --link-color-underline: #717d8a;
+} */
+
+/*
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* --netral-900: #121a22; */
+  html:not([data-them]) {
     --background-color: #121a22;
     --background-color-transparency: hsla(208, 29%, 10%, 0.9);
 
@@ -104,25 +137,24 @@
     --link-color-underline: #717d8a;
 
     --special_link: 50vh;
+
   }
-  .light_mode_only {
+   .light_mode_only {
     display: none;
-  }
-}
+  } */
+
+/* 
 @media (prefers-color-scheme: light) {
+  
   .dark_mode_only {
     display: none;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-:root {
-  --main-color: black;
-  /* color: var(--main-color) */
 }
 
 *,
@@ -155,12 +187,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 h1 {
