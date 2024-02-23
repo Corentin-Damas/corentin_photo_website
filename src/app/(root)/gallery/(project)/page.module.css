@@ -18,17 +18,19 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
-.projectPreview__img {
-
+.projectPreview__img,
+.projectPreview__shadows,
+.projectPreview__landscape {
+  width: 100%;
+  height: 100%;
+  position: relative;
   object-fit: cover;
 }
 
 .projectPreview__shadows {
-    object-fit: cover;
   object-position: 25%;
 }
 
-.projectPreview__landscape{
-    object-fit: cover;
-    object-position: 60%;
+.projectPreview__landscape {
+  object-position: 60%;
 }

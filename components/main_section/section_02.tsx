@@ -15,10 +15,12 @@ function section_02() {
         <div className={styles.verticalRule}></div>
       </div>
       <Image
-        src="/tsuzukitai/37-tsuzukitai-XL.jpg"
+        src="/tsuzukitai/XL/37-tsuzukitai.jpg"
         alt="Bridge named rainbow Bridge from Tokyo, Japan"
         className={`${styles.imgCovTsuzukitai}`}
-        fill
+        sizes="100vw"
+        width={0}
+        height={0}
         quality={80}
       />
       <Link

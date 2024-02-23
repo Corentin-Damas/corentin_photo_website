@@ -6,7 +6,7 @@ function section_01() {
   return (
     <>
       <section className={styles.section01__Grid}>
-        <hr className={styles.horizontalRule}/>
+        <hr className={styles.horizontalRule} />
         {/* Part 1 JAPAN */}
         <Image
           src="/a_year_in_japan/01-a_year_in_japan-XL.jpg"
@@ -16,10 +16,12 @@ function section_01() {
           quality={80}
         />
         <Image
-          src="/a_year_in_japan/24-a_year_in_japan-XL.jpg"
+          src="/a_year_in_japan/L/24-a_year_in_japan.jpg"
           alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
           className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
-          fill
+          sizes="100vw"
+          width={0}
+          height={0}
           quality={80}
         />
 
@@ -51,10 +53,12 @@ function section_01() {
           Shadow <hr className={styles.underline} />
         </h4>
         <Image
-          src="/morning_shadows/06-Morning_Shadows-XL.jpg"
+          src="/morning_shadows/L/06-Morning_Shadows.jpg"
           alt="View on the city of london in the morning light"
           className={`${styles.imgCityPreview}`}
-          fill
+          sizes="100vw"
+          width={0}
+          height={0}
           quality={80}
         />
         <div className={styles.legend__shadows}>
@@ -69,17 +73,22 @@ function section_01() {
           <hr className={styles.underline} />
         </h4>
         <Image
-          src="/museums/03-Museum-XL.jpg"
+          src="/museums/L/03-museums.jpg"
           alt="Entrance of the Natural History Museum of London (UK), statue of Charles Darwin"
           className={`${styles.imgMuseumPreview}`}
-          fill
+          sizes="100vw"
+          width={0}
+          height={0}
           quality={80}
         />
         <div className={styles.legend__museums}>
           <h6 className={styles.legend__museums_txt}> London & Amsterdam</h6>
           <div className={styles.verticalRule}></div>
         </div>
-        <Link href={"/gallerie"} className={`${styles.grid__link} gallery_Link`}>
+        <Link
+          href={"/gallerie"}
+          className={`${styles.grid__link} gallery_Link`}
+        >
           See Gallery _<span className="main-Color">&gt;</span>
         </Link>
       </section>
