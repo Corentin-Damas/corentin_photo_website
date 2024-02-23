@@ -61,7 +61,7 @@ export default function RootLayout({
         className={`${geologicaRomMedium.variable} ${geologicaRomLight.variable} ${geologicaRomRegular.variable} ${geologicaLight.variable} ${geologicaRegular.variable} ${geologicaCursiveRegu.variable} ${lateefRegular.variable} ${sawarabiMincho.variable}`}
       >
         {" "}
-        <ChakraProviders>
+        <ChakraProviders >
           <Providers>{children}</Providers>
         </ChakraProviders>
       </body>

@@ -14,7 +14,7 @@ function Navbar() {
       <ul className={styles.links}>
         <Link href="/gallery">Project</Link>
         <Link href="/gallery">Gallery</Link>
-        <Link href="/About">About</Link>
+        <Link href="/about">About</Link>
         {/* <Link href="/your_print">Your Print</Link> */}
       </ul>
       <ThemeSwitch />
