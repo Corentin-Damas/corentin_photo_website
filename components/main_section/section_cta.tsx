@@ -36,7 +36,9 @@ function section_cta() {
             src="/landingpage/color_headS.jpg"
             alt="Photography of Corentin Damas author of the website and photographies "
             className={`${styles.imgHeadS}`}
-            fill
+            sizes="100vw"
+            width={0}
+            height={0}
             quality={80}
           />
         </div>

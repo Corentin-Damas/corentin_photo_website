@@ -9,14 +9,16 @@ function section_01() {
         <hr className={styles.horizontalRule} />
         {/* Part 1 JAPAN */}
         <Image
-          src="/a_year_in_japan/01-a_year_in_japan-XL.jpg"
+          src="/a_year_in_japan/XL/01-a_year_in_japan-XL.jpg"
           alt="Couples sitting by the Kamo River at night Kyoto, Japan"
           className={`${styles.imgJapPreview} dark_mode_only`}
-          fill
+          sizes="100vw"
+          width={0}
+          height={0}
           quality={80}
         />
         <Image
-          src="/a_year_in_japan/L/24-a_year_in_japan.jpg"
+          src="/a_year_in_japan/XL/24-a_year_in_japan-XL.jpg"
           alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
           className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
           sizes="100vw"

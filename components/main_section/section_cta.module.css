@@ -51,9 +51,9 @@
 }
 
 .imgHeadS {
-  height: 10rem;
-
   width: 100%;
+  height: 100%;
+  position: relative;
   object-fit: contain;
 }
 .formular__containeur {
@@ -133,8 +133,9 @@
   bottom: -3rem;
   left: 0;
 } */
-.form__invalid {
-  background-color: red;
+
+.form__field_initial {
+  border-bottom: 2px solid var(--netral-400);
 }
 .form__field_valid {
   border-bottom: 2px solid var(--success);

@@ -1,31 +1,59 @@
 "use client";
-
 import React, { FormEvent, useState } from "react";
 import styles from "../main_section/section_cta.module.css";
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Input,
-  Textarea,
-} from "@chakra-ui/react";
+import { FormControl, FormErrorMessage } from "@chakra-ui/react";
+import { sendEmail } from "../helpers/sendMail";
 
-const initValues = { name: "", email: "", message: "" };
+interface Values {
+  name: string;
+  email: string;
+  message: string;
+}
+interface ValuesExist {
+  name: boolean;
+  email: boolean;
+  message: boolean;
+}
+
+const initValues: Values = { name: "", email: "", message: "" };
 const initState = { values: initValues };
+
+const possibleStates = {
+  valid: "valid",
+  initial: "initial",
+  invalid: "invalid",
+  loading: "loading",
+};
 
 function Form() {
   const [state, setState] = useState(initState);
-  const [isValidName, setIsValidName] = useState(false);
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [touched, setTouched] = useState({});
 
-  const onBLur = (e) =>
+  const [isValidName, setIsValidName] = useState(possibleStates.initial);
+  const [isValidEmail, setIsValidEmail] = useState(possibleStates.initial);
+
+  const [touched, setTouched] = useState<ValuesExist>({
+    name: false,
+    email: false,
+    message: false,
+  });
+
+  const test = true;
+
+  const { values } = state;
+
+  const onBLur = function (e) {
     setTouched((prev) => ({
       ...prev,
       [e.target.name]: true,
     }));
+    values.name != "" && touched.name
+      ? setIsValidName(possibleStates.initial)
+      : setIsValidName(possibleStates.loading);
+    values.email != ""
+      ? setIsValidEmail(possibleStates.initial)
+      : setIsValidEmail(possibleStates.loading);
+  };
 
-  const { values } = state;
   const handleChange = function (e) {
     setState((prev) => ({
       ...prev,
@@ -34,41 +62,41 @@ function Form() {
         [e.target.name]: e.target.value,
       },
     }));
-    values.name == "" ? setIsValidName(false) : setIsValidName(true);
-    values.email == "" ? setIsValidEmail(false) : setIsValidEmail(true);
-  };
-
-  const onSubmit = async (e: FormEvent) => {
-    console.log(values.name, values.email);
-    e.preventDefault();
-
-    if (values.name == "") {
-      setIsValidName(false);
-    }
-    if (values.name != "") {
-      setIsValidName(true);
-    }
-    if (values.email == "") {
-      setIsValidEmail(false);
-    }
-    if (values.email != "") {
-      setIsValidEmail(true);
-    }
+    values.name == ""
+      ? setIsValidName(possibleStates.invalid)
+      : setIsValidName(possibleStates.valid);
+    values.email == ""
+      ? setIsValidEmail(possibleStates.invalid)
+      : setIsValidEmail(possibleStates.valid);
   };
 
   return (
     <form
       className={styles.formular__grid}
       autoComplete="false"
-      onSubmit={onSubmit}
+      action={async (formData) => {
+        if (test) {
+          console.log(state.values, isValidEmail, isValidName);
+          if (
+            isValidEmail == possibleStates.valid &&
+            isValidName == possibleStates.valid
+          ) {
+            console.log("a may have been sent");
+          }
+        } else if (isValidEmail && isValidName && !test) {
+          await sendEmail(formData);
+        }
+      }}
     >
       <div className={`${styles.form__group} `}>
         <FormControl isRequired isInvalid={touched.name && !values.name}>
           <input
             className={`${styles.formular__Name} ${styles.form__field}  ${
-              isValidName
+              isValidName == possibleStates.valid
                 ? styles.form__field_valid
-                : styles.form__field_inValid
+                : isValidName == possibleStates.invalid
+                ? styles.form__field_inValid
+                : styles.form__field_initial
             } `}
             type="text"
             placeholder="Your Name"
@@ -96,9 +124,11 @@ function Form() {
         <FormControl isRequired isInvalid={touched.email && !values.email}>
           <input
             className={`${styles.email} ${styles.form__field} ${
-              isValidEmail
+              isValidEmail == possibleStates.valid
                 ? styles.form__field_valid
-                : styles.form__field_inValid
+                : isValidEmail == possibleStates.invalid
+                ? styles.form__field_inValid
+                : styles.form__field_initial
             } `}
             type="text"
             placeholder="Your Email"
@@ -141,7 +171,6 @@ function Form() {
         className={styles.formular__submit}
         disabled={!values.name || !values.email}
         type="submit"
-        onClick={onSubmit}
       >
         Submit
       </button>
