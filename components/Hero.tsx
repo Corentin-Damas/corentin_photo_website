@@ -16,7 +16,11 @@ function Hero() {
         <h3 className={`${styles.presentation__main} geologicaRom`}>
           Project Base Photographer
         </h3>
-        <Link href={"/gallerie"} className="gallery_Link presentation_sp_link">
+        <Link
+          href={"/gallery"}
+          tabIndex={0}
+          className="gallery_Link presentation_sp_link"
+        >
           See Gallery _<span className="main-Color">&gt;</span>
         </Link>
       </div>

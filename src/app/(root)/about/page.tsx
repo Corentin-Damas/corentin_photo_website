@@ -60,12 +60,12 @@ function page() {
             - 2020: At Vannes festival photo in Vannes, France /<br />
           </p>
         </article>
-          <Link
-            href={"/gallerie"}
-            className={`${styles.about__link} gallery_Link`}
-          >
-            See Gallery _<span className="main-Color">&gt;</span>
-          </Link>
+        <Link
+          href={"/gallerie"}
+          className={`${styles.about__link} gallery_Link`}
+        >
+          See Gallery _<span className="main-Color">&gt;</span>
+        </Link>
       </section>
       <Footer />
     </>

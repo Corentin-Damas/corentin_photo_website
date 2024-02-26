@@ -4,21 +4,26 @@ import styles from "../components/Navbar.module.css";
 
 import ThemeSwitch from "./ThemeSwitch";
 
-
 function Navbar() {
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.myNameLink}>
+      <Link tabIndex={1} href="/" className={styles.myNameLink}>
         Corentin Damas
       </Link>
       <ul className={styles.links}>
-        <Link href="/gallery">Project</Link>
-        <Link href="/gallery">Gallery</Link>
-        <Link href="/about">About</Link>
+        <Link className={styles.link} tabIndex={2} href="/gallery">
+          Project
+        </Link>
+        <Link className={styles.link} tabIndex={3} href="/gallery">
+          Gallery
+        </Link>
+        <Link className={styles.link} tabIndex={4} href="/about">
+          About
+        </Link>
         {/* <Link href="/your_print">Your Print</Link> */}
       </ul>
       <ThemeSwitch />
-      <button>contact me</button>
+      <button tabIndex={6}>contact me</button>
     </nav>
   );
 }

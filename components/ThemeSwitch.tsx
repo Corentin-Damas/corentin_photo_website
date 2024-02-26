@@ -24,10 +24,10 @@ function ThemeSwitch() {
     );
   if (resolvedTheme === "dark") {
 
-    return <FiSun className={styles.icone} onClick={() => setTheme("light")} />;
+    return <FiSun tabIndex={5} className={styles.icone} onClick={() => setTheme("light")} />;
   }
   if (resolvedTheme === "light") {
-    return <FiMoon className={styles.icone} onClick={() => setTheme("dark")} />;
+    return <FiMoon tabIndex={5} className={styles.icone} onClick={() => setTheme("dark")} />;
   }
 }
 

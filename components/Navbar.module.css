@@ -28,3 +28,7 @@
   gap: var(--spacing-LM);
 }
 
+.link:hover,
+.link:focus{
+  background-color: red ;
+}
