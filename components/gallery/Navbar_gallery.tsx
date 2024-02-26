@@ -37,13 +37,13 @@ function Navbar_gallery() {
             <p className={styles.number}>
               _6 <span className={styles.bar}>|</span>{" "}
             </p>
-            <Link href="/gallery/infrared">the world in Inrared</Link>
+            <Link href="/gallery/infrared">the world in Infrared</Link>
             <p className={styles.number}>
               _7 <span className={styles.bar}>|</span>{" "}
             </p>
             <Link href="/gallery/black_and_white">Work in black and white</Link>
           </ul>
-          <Link href="/project">About</Link>
+          <Link href="/about">About</Link>
         </ul>
         <button className={styles.contactMe}>contact me</button>
       </nav>

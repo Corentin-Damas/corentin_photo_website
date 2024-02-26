@@ -61,7 +61,7 @@ function page() {
           </p>
         </article>
         <Link
-          href={"/gallerie"}
+          href={"/gallery"}
           className={`${styles.about__link} gallery_Link`}
         >
           See Gallery _<span className="main-Color">&gt;</span>

@@ -11,7 +11,7 @@
   max-width: var(--maxWidth);
   margin: auto;
   column-gap: var(--spacing-M);
-  row-gap: var(--spacing-S);
+  row-gap: var(--spacing-XS);
   margin-bottom: var(--spacing-L);
 }
 
@@ -63,9 +63,11 @@
 .legend__infra,
 .legend__BandW {
   justify-self: right;
+  align-self: first baseline;
+
   display: flex;
-  justify-content: center;
-  align-items: last baseline;
+  justify-content: flex-start;
+  align-items: baseline;
   gap: var(--spacing-XS);
 }
 
@@ -96,5 +98,5 @@
 .link_txt:hover {
   transform: scale(1.05);
   border-bottom: 1px solid var(--rules-color);
-  transform-origin: bottom right
+  transform-origin: bottom right;
 }

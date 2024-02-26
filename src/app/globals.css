@@ -44,6 +44,8 @@
   --background-color: #f8fafc;
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+  --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
+  /* --gallery-title-transparency: hsla(6, 59%, 24%, 0.9); */
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
   --font-color-gray: #556473;
@@ -65,6 +67,7 @@
   --sec-300: #6fa9cf;
   --sec-500-main: #287fb8;
   --sec-700: #1c5a83;
+  --sec-900: #11354d;
 
   --success: #10b981;
   --warning: #fcd34d;
@@ -155,11 +158,10 @@ html.light .dark_mode_only {
   margin: 0;
   padding: 0;
 }
-*:focus-visible{
+*:focus-visible {
   outline-color: var(--information);
   outline-offset: 4px;
   box-shadow: none;
-
 }
 
 html {

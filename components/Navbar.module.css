@@ -28,7 +28,15 @@
   gap: var(--spacing-LM);
 }
 
+.link {
+  transition: all 0.2s;
+  color: var(--font-color-main);
+}
+
 .link:hover,
-.link:focus{
-  background-color: red ;
+.link:focus {
+  text-decoration: underline;
+  transition: all 0.2s;
+  transform: scale(1.05);
+  transform-origin: bottom;
 }

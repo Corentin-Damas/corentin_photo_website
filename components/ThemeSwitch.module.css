@@ -1,27 +1,23 @@
-.themeSwitch{
-    position: relative;
-    display: block;
-    width: 10rem;
-    height: 5rem;
-    border-radius: 16rem;
-    background-color: red;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  
-  .switch{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    background-color: blue;
-    transform: scale(0.9);
-    transition: 0.5s;
-  }
+.icone {
+  height: 5rem;
+  width: 5rem;
+  color: var(--font-color-main);
+}
 
-  .icone{
-    height: 5rem;
-    width: 5rem;
-  }
+.icone:hover,
+.icone:focus {
+  color: var(--font-color-gray);
+  cursor: pointer;
+}
+
+.icone__container {
+  position: relative;
+}
+
+.icone__txt {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+}
