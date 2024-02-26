@@ -9,25 +9,30 @@ function section_02() {
       <div className={styles.section02__left}>
         <div className={styles.verticalRule}></div>
 
-        <h1 className={` ${styles.display_02}  japanese`}><span className={styles.firstKanji}>続</span>きたい</h1>
+        <h1 className={` ${styles.display_02}  japanese`}>
+          <span className={styles.firstKanji}>続</span>きたい
+        </h1>
 
         <p className={` ${styles.engTitle} `}>Trapped Memories</p>
         <div className={styles.verticalRule}></div>
       </div>
-      <Image
-        src="/tsuzukitai/XL/37-tsuzukitai.jpg"
-        alt="Bridge named rainbow Bridge from Tokyo, Japan"
-        className={`${styles.imgCovTsuzukitai}`}
-        sizes="100vw"
-        width={0}
-        height={0}
-        quality={80}
-      />
+      <Link href={"gallery/tsuzukitai"} className={styles.img__link}>
+        <Image
+          src="/tsuzukitai/XL/37-tsuzukitai.jpg"
+          alt="Bridge named rainbow Bridge from Tokyo, Japan"
+          className={`${styles.imgCovTsuzukitai}`}
+          sizes="100vw"
+          width={0}
+          height={0}
+          quality={80}
+        />
+      </Link>
       <Link
-        href={"/gallerie"}
+        href={"/gallery/tsuzukitai"}
         className={`${styles.section02__link} gallery_Link`}
       >
-        See Gallery _<span className="main-Color light_mode_only">&gt;</span><span className="prim-100 dark_mode_only">&gt;</span>
+        See Gallery _<span className="main-Color light_mode_only">&gt;</span>
+        <span className="prim-100 dark_mode_only">&gt;</span>
       </Link>
     </section>
   );

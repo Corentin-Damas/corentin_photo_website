@@ -10,9 +10,7 @@ function section_cta() {
         <div className={styles.presentation}>
           <h4 className={styles.myName}>Corentin Damas</h4>
           <div className={styles.proposition}>
-            <p >
-              Digital & Films
-            </p>
+            <p>Digital & Films</p>
             <div className={styles.dot}></div>
             <p className={styles.proposition__txt}>
               Numeric and film. Film are developed and print in my darkroom.{" "}
@@ -27,25 +25,33 @@ function section_cta() {
           </div>
         </div>
         <div className={styles.formular__containeur}>
-          <h5>Ask me anything</h5>
-          <Form/>
+          <h5 className={styles.form__title}>Ask me anything</h5>
+          <Form />
         </div>
         <div className={styles.gap}></div>
         <div className={styles.right__container}>
-          <Image
-            src="/landingpage/color_headS.jpg"
-            alt="Photography of Corentin Damas author of the website and photographies "
-            className={`${styles.imgHeadS}`}
-            sizes="100vw"
-            width={0}
-            height={0}
-            quality={80}
-          />
+          <Link href={"/about"}>
+            <Image
+              src="/landingpage/color_headS.jpg"
+              alt="Photography of Corentin Damas author of the website and photographies "
+              className={`${styles.imgHeadS}`}
+              sizes="100vw"
+              width={0}
+              height={0}
+              quality={80}
+            />
+          </Link>
+          <Link
+            href={"/about"}
+            className={`${styles.about__link} gallery_Link`}
+          >
+            About _<span className="main-Color">&gt;</span>
+          </Link>
         </div>
       </section>
       <div className={styles.link__container}>
         <Link
-          href={"/gallerie"}
+          href={"/gallery"}
           className={`${styles.final__link} gallery_Link`}
         >
           Check the Gallery _<span className="main-Color">&gt;</span>

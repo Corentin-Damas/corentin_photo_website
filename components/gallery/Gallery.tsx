@@ -106,8 +106,9 @@ const GalleryImg = ({
                   <Image
                     src={`./${currentDir}/../../icons/arrow_left.svg`}
                     alt="return back arrow"
-                    height={40}
-                    width={40}
+                    sizes="100vw"
+                    width={0}
+                    height={0}
                     className={style.arrows_left}
                     onClick={handlePrev}
                   />
@@ -127,8 +128,9 @@ const GalleryImg = ({
                   <Image
                     src={`./${currentDir}/../../icons/arrow_right.svg`}
                     alt="return back arrow"
-                    height={40}
-                    width={40}
+                    sizes="100vw"
+                    width={0}
+                    height={0}
                     className={style.arrows_right}
                     onClick={handleNext}
                   />
@@ -139,8 +141,9 @@ const GalleryImg = ({
                 <Image
                   src={`./${currentDir}/../../icons/close.svg`}
                   alt="return back arrow"
-                  height={40}
-                  width={40}
+                  sizes="100vw"
+                  width={0}
+                  height={0}
                   className={style.close}
                   onClick={handleClose}
                 />

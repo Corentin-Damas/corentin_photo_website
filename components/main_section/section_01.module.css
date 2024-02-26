@@ -31,23 +31,30 @@
   position: relative;
 }
 
+.img_caption__containeur{
+  grid-row: 2/3;
+  grid-column: 1/2;
+  z-index: 400;
+}
+
 .link__img {
   grid-row: 2/3;
   grid-column: 1/2;
   width: 100%;
   height: 100%;
-  transition: filter 0.3s;
   position: relative;
-
   z-index: 300;
+  overflow: hidden;
 }
 .link__img:hover > *,
 .link__img_museum:hover > *,
 .link__img_city:hover > * {
   filter: saturate(0.3);
-  transition: filter 0.3s;
+  transition: all 0.3s;
+}
 
-
+.link__img:hover > * {
+  transform: scale(1.1);
 }
 
 .imgJapPreview {
@@ -57,6 +64,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  transition: all 0.3s;
 }
 .imgJapPreview__position {
   object-position: 50%;
@@ -69,6 +77,7 @@
   font-weight: 400;
   line-height: var(--font-size-Display_01);
   margin-bottom: 12rem;
+  cursor: default;
 }
 .title__box {
   grid-row: 2/3;
@@ -82,6 +91,7 @@
   align-items: center;
   justify-items: left;
   position: relative;
+  cursor: default;
 }
 
 .title__box_txt {
@@ -124,6 +134,7 @@
   grid-row: 3/4;
   text-align: center;
   line-height: var(--font-size-subTitle_01);
+  cursor: default;
 }
 
 .shadows__title {
@@ -144,6 +155,7 @@
   height: 100%;
   position: relative;
   padding-inline: var(--spacing-M);
+  transition: all 0.3s;
 }
 
 .img_caption__containeur_city,
@@ -204,17 +216,17 @@
   grid-column: 1/4;
 }
 
-.link__img:hover .img_caption__containeur {
-  right: -24rem;
+.link__img:hover ~ .img_caption__containeur {
+  transform: translateX(24rem);
   opacity: 100;
-  transition: all 0.2s;
+
 }
 
 .img_caption__containeur {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  align-self:self-end;
+  justify-self: right;
   opacity: 0;
+
   width: 24rem;
   padding-left: 0.8rem;
 
@@ -276,4 +288,13 @@
 }
 .img_caption__down p {
   color: var(--font-color-sec);
+}
+
+.link_txt {
+  transition: all 0.2s;
+}
+.link_txt:hover {
+  transform: scale(1.05);
+  border-bottom: 1px solid var(--rules-color);
+  transform-origin: bottom right
 }

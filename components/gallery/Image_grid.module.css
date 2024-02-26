@@ -71,9 +71,10 @@
   height: 100%;
   object-fit: cover;
   transition: all 0.2s;
+  
 }
 .img:hover {
-  cursor: pointer;
+  cursor: zoom-in;
   transform: scale(1.1);
 }
 
@@ -118,6 +119,8 @@
   top: 50%;
   left: 50%;
   z-index: 900;
+  height: 100%;
+  width: 100%;
 }
 .arrows_right {
   transform: translate(-50%, -50%);
@@ -126,14 +129,15 @@
   transform: translate(-33%, -50%);
 }
 
-.close_container{
-  position: fixed ;
+.close_container {
+  position: fixed;
+
   top: 3rem;
   right: 3rem;
   height: 6rem;
   width: 6rem;
   z-index: 200;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -142,6 +146,7 @@
   cursor: pointer;
 }
 
-/* .close{
-
-} */
+.close {
+  height: 100%;
+  width: 100%;
+}

@@ -6,43 +6,60 @@ import Link from "next/link";
 function section_03() {
   return (
     <div className={styles.section03__Grid}>
-      <Image
-        src="/earth_and_sky/L/13-earth_and_sky.jpg"
-        alt="Photography of a Beach with a natural rock arch at night time"
-        className={`${styles.imgLandPreview}`}
-        sizes="100vw"
-        width={0}
-        height={0}
-        quality={80}
-      />
+      <Link href={"/gallery/earth_and_sky"} className={styles.img__link_earth}>
+        <Image
+          src="/earth_and_sky/L/13-earth_and_sky.jpg"
+          alt="Photography of a Beach with a natural rock arch at night time"
+          className={`${styles.imgLandPreview}`}
+          sizes="100vw"
+          width={0}
+          height={0}
+          quality={80}
+        />
+      </Link>
       <div className={styles.legend__Landscape}>
-        <h6 className={styles.legend__Landscape_txt}>Between earth and sky</h6>
+        <Link href={"/gallery/earth_and_sky"} className={styles.link_txt}>
+          <h6 className={styles.legend__Landscape_txt}>
+            Between earth and sky
+          </h6>
+        </Link>
         <div className={styles.verticalRule}></div>
       </div>
-      <Image
-        src="/infrared/L/01-infrared.jpg"
-        alt="Infrared photoghaphy of a tree near the sea. The tree has pink leaves "
-        className={`${styles.imgInfraPreview}`}
-        sizes="100vw"
-        width={0}
-        height={0}
-        quality={80}
-      />
+      <Link href={"/gallery/infrared"} className={styles.img__link_infra}>
+        <Image
+          src="/infrared/L/01-infrared.jpg"
+          alt="Infrared photoghaphy of a tree near the sea. The tree has pink leaves "
+          className={`${styles.imgInfraPreview}`}
+          sizes="100vw"
+          width={0}
+          height={0}
+          quality={80}
+        />
+      </Link>
       <div className={styles.legend__infra}>
-        <h6 className={styles.legend__infra_txt}>World in Infrared</h6>
+        <Link href={"/gallery/infrared"} className={styles.link_txt}>
+          <h6 className={styles.legend__infra_txt}>World in Infrared</h6>
+        </Link>
         <div className={styles.verticalRule}></div>
       </div>
-      <Image
-        src="/black_and_white/L/02-black_and_white.jpg"
-        alt="Black and white photography with three trunk in the snow in front of a beach and the sea"
-        className={`${styles.imgBandWPreview}`}
-        sizes="100vw"
-        width={0}
-        height={0}
-        quality={80}
-      />
+      <Link
+        href={"/gallery/black_and_white"}
+        className={styles.img__link_bandwhite}
+      >
+        <Image
+          src="/black_and_white/L/02-black_and_white.jpg"
+          alt="Black and white photography with three trunk in the snow in front of a beach and the sea"
+          className={`${styles.imgBandWPreview}`}
+          sizes="100vw"
+          width={0}
+          height={0}
+          quality={80}
+        />
+      </Link>
       <div className={styles.legend__BandW}>
-        <h6 className={styles.legend__BandW_txt}>Black and White</h6>
+        <Link href={"/gallery/black_and_white"} className={styles.link_txt}>
+          <h6 className={styles.legend__BandW_txt}>Black and White</h6>
+        </Link>
         <div className={styles.verticalRule}></div>
       </div>
 

@@ -18,7 +18,18 @@ function section_01() {
             height={0}
             quality={80}
           />
-          <div className={`${styles.img_caption__containeur} dark_mode_only`}>
+
+          <Image
+            src="/a_year_in_japan/XL/24-a_year_in_japan-XL.jpg"
+            alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
+            className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
+            sizes="100vw"
+            width={0}
+            height={0}
+            quality={80}
+          />
+        </Link>
+        <div className={`${styles.img_caption__containeur} dark_mode_only`}>
             <div className={styles.img_caption__left}></div>
             <div className={styles.img_caption__right}>
               <div className={styles.img_caption__up}>
@@ -38,15 +49,6 @@ function section_01() {
               </div>
             </div>
           </div>
-          <Image
-            src="/a_year_in_japan/XL/24-a_year_in_japan-XL.jpg"
-            alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
-            className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
-            sizes="100vw"
-            width={0}
-            height={0}
-            quality={80}
-          />
           <div className={`${styles.img_caption__containeur} light_mode_only`}>
             <div className={styles.img_caption__left}></div>
             <div className={styles.img_caption__right}>
@@ -67,7 +69,6 @@ function section_01() {
               </div>
             </div>
           </div>
-        </Link>
 
         <h1 className={`${styles.kanji} japanese`}>
           日 <br /> 本
@@ -106,7 +107,7 @@ function section_01() {
           Shadow <hr className={styles.underline} />
         </h4>
         <Link
-          href={"/gallery/a_year_in_japan"}
+          href={"/gallery/morning_shadows"}
           className={styles.link__img_city}
         >
           <Image
@@ -140,7 +141,9 @@ function section_01() {
           </div>
         </Link>
         <div className={styles.legend__shadows}>
-          <h6 className={styles.legend__shadows_txt}> The city</h6>
+          <Link href={"/gallery/morning_shadows"} className={styles.link_txt}>
+            <h6 className={styles.legend__shadows_txt}> The city</h6>
+          </Link>
           <div className={styles.verticalRule}></div>
         </div>
 
@@ -150,10 +153,7 @@ function section_01() {
           <br />
           <hr className={styles.underline} />
         </h4>
-        <Link
-          href={"/gallery/a_year_in_japan"}
-          className={styles.link__img_museum}
-        >
+        <Link href={"/gallery/museums"} className={styles.link__img_museum}>
           <Image
             src="/museums/L/03-museums.jpg"
             alt="Entrance of the Natural History Museum of London (UK), statue of Charles Darwin"
@@ -183,16 +183,11 @@ function section_01() {
           </div>
         </Link>
         <div className={styles.legend__museums}>
-          <h6 className={styles.legend__museums_txt}> London & Amsterdam</h6>
+          <Link href={"/gallery/museums"} className={styles.link_txt}>
+            <h6 className={styles.legend__museums_txt}> London & Amsterdam</h6>
+          </Link>
           <div className={styles.verticalRule}></div>
         </div>
-        <Link
-          href={"/gallery"}
-          tabIndex={8}
-          className={`${styles.grid__link} gallery_Link`}
-        >
-          See Gallery _<span className="main-Color">&gt;</span>
-        </Link>
       </section>
     </>
   );
