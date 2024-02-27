@@ -9,6 +9,9 @@ function Navbar_gallery() {
           Corentin Damas
         </Link>
         <ul className={styles.links__List}>
+          <Link href="/gallery" className={styles.normal__link}>
+            Gallery
+          </Link>
           <h6 className={styles.link__group_name}>Projects</h6>
           <ul className={styles.link__group}>
             <p className={styles.number}>
@@ -43,11 +46,14 @@ function Navbar_gallery() {
             </p>
             <Link href="/gallery/black_and_white">Work in black and white</Link>
           </ul>
-          <Link href="/about">About</Link>
+          <Link href="/about" className={styles.normal__link}>
+            About
+          </Link>
         </ul>
-        <button className={styles.contactMe}>contact me</button>
+        <Link href="/contact">
+          <button className={`${styles.contactMe} btn`}>contact me</button>
+        </Link>
       </nav>
-      <div>Project Base photographer</div>
     </>
   );
 }

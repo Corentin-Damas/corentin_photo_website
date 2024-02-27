@@ -9,7 +9,7 @@ function page() {
   return (
     <>
       <header className={styles.header}>
-        <Navbar />
+        <Navbar  linkMyName=""/>
         <div className={styles.heroSection}>
           <h3>About me</h3>
           <h2>Project base photographer</h2>

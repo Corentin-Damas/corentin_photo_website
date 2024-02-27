@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../main_section/section_01.module.css";
 import Image from "next/image";
 import Link from "next/link";
+
 function section_01() {
   return (
     <>
@@ -10,7 +11,7 @@ function section_01() {
         {/* Part 1 JAPAN */}
         <Link href={"/gallery/a_year_in_japan"} className={styles.link__img}>
           <Image
-            src="/a_year_in_japan/XL/01-a_year_in_japan-XL.jpg"
+            src="/a_year_in_japan/L/01-a_year_in_japan.jpg"
             alt="Couples sitting by the Kamo River at night Kyoto, Japan"
             className={`${styles.imgJapPreview} dark_mode_only`}
             sizes="100vw"

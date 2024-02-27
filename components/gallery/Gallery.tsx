@@ -13,13 +13,6 @@ const GalleryImg = ({
   const [dialog, setDialog] = useState(false);
   const [imgSelected, setImageSelected] = useState(0);
 
-  // function handleImgChange(s: string) {
-  //   const idxNextImg: number = images.findIndex((el) => el == s);
-  //   console.log(idxNextImg, imgSelected);
-  //   console.log("nextImage is", images[idxNextImg]);
-  //   setImageSelected(images[idxNextImg]);
-  // }
-
   function handlePreviewClick(idx: number) {
     setImageSelected(idx);
     setDialog(!dialog);
@@ -61,21 +54,6 @@ const GalleryImg = ({
     keyDownDetected();
     return window.removeEventListener("keydown", keyDownDetected);
   });
-
-  // document.body.addEventListener('keydown', function(e){
-  //   if (e.key == "ArrowLeft") {
-
-  //     handlePrev()
-  //   }
-  //   if (e.key == "ArrowRight") {
-
-  //     handleNext()
-  //   }
-  //   if (e.key == "Escape"){
-  //     handleClose()
-  //   }
-  // })
-
   return (
     <>
       <ul className={style.grid}>
@@ -86,12 +64,12 @@ const GalleryImg = ({
             onClick={() => handlePreviewClick(idx)}
           >
             <Image
+              src={`/${currentDir}/S/${el}`}
               className={style.img}
               sizes="100vw"
               width={0}
               height={0}
               alt={`picture from the photo series ${currentDir}`}
-              src={`/${currentDir}/S/${el}`}
               quality={80}
             />
           </li>
@@ -122,6 +100,7 @@ const GalleryImg = ({
                 alt={`picture from the photo series ${currentDir}`}
                 src={`/${currentDir}/L/${images[imgSelected]}`}
                 quality={100}
+
               />
               <div>
                 <div className={style.arrows_container}>
@@ -138,16 +117,16 @@ const GalleryImg = ({
               </div>
             </div>
             <div className={style.close_container}>
-                <Image
-                  src={`./${currentDir}/../../icons/close.svg`}
-                  alt="return back arrow"
-                  sizes="100vw"
-                  width={0}
-                  height={0}
-                  className={style.close}
-                  onClick={handleClose}
-                />
-              </div>
+              <Image
+                src={`./${currentDir}/../../icons/close.svg`}
+                alt="return back arrow"
+                sizes="100vw"
+                width={0}
+                height={0}
+                className={style.close}
+                onClick={handleClose}
+              />
+            </div>
           </>
         )}
       </div>

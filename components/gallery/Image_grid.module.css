@@ -20,7 +20,7 @@
 
 .grid {
   position: relative;
-  padding-top: var(--spacing-S) ;
+  padding-top: var(--spacing-S);
 
   margin: 0 auto;
   display: flex;
@@ -72,7 +72,6 @@
   height: 100%;
   object-fit: cover;
   transition: all 0.2s;
-  
 }
 .img:hover {
   cursor: zoom-in;

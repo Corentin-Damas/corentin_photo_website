@@ -90,6 +90,7 @@ function Form() {
   };
 
   const sendEmail = async (e: any) => {
+    e.preventDefault();
     console.log("sendEmail");
     values.name == ""
       ? setIsValidName(possibleStates.invalid)
@@ -161,7 +162,6 @@ function Form() {
               id="name"
               value={values.name}
               onChange={handleChange}
-              onBlur={onBlur}
             />
             <label htmlFor="name" className={`${styles.form__label}`}>
               Your name
@@ -223,13 +223,12 @@ function Form() {
             value={values.message}
             onChange={handleChange}
             className={`${styles.formular__message} ${styles.form__field}`}
-            onBlur={onBlur}
           ></textarea>
           <label htmlFor="message" className={`${styles.form__label}`}>
             Your Message
           </label>
         </div>
-        <button className={styles.formular__submit} type="submit">
+        <button className={`${styles.formular__submit} btn`} type="submit">
           Submit
         </button>
       </form>

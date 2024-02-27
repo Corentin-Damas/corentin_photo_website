@@ -19,7 +19,9 @@ function Footer() {
             </p>
             <p className={styles.footer__text}>corentin.damasphoto@gmail.com</p>
           </div>
-          <button className={styles.footer__btn}>Contact me</button>
+          <Link href="/contact">
+            <button className={`${styles.footer__btn} btn`}>Contact me</button>
+          </Link>
         </div>
         <div className={styles.right}>
           <h5
@@ -40,7 +42,6 @@ function Footer() {
               <Link href="/gallery/morning_shadows">Morning shadows</Link>
               <Link href="/gallery/earth_and_sky">Earth & sky</Link>
               <Link href="/gallery/black_and_white">Black & white</Link>
-              
             </ul>
           </div>
         </div>

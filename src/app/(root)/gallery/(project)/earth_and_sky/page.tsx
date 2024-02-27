@@ -2,12 +2,14 @@ import React from "react";
 
 import Image_grid from "../../../../../../components/gallery/Image_grid";
 import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-
+import styles from "../../layout.module.css";
+import Link from "next/link";
+import Image from "next/image";
 const date = new Date().getFullYear();
 
 function page() {
   return (
-    <div>
+    <div className={styles.page}>
       <Hero_gallery
         title="Between earth and sky"
         c1="Time"
@@ -15,6 +17,35 @@ function page() {
         c3="Planet earth"
       />
       <Image_grid currentDir="earth_and_sky" />
+      <h4 className={styles.seeMore__title}>Also recommended:</h4>
+      <div className={styles.seeMore__container}>
+        <Link href="/gallery/museums" className={`${styles.projectPreview}`}>
+          <Image
+            src="/museums/S/02-museums.jpg"
+            alt="Visitors in form of the painting called the Night Watch from Rembrandt in the rijksmuseum, Amsterdam, Netherlands"
+            sizes="100vw"
+            width={0}
+            height={0}
+            quality={80}
+            className={`${styles.projectPreview_img} ${styles.project_img} `}
+          />
+          <h5 className={styles.project_title}>Museums</h5>
+        </Link>
+        <Link href="/gallery/infrared" className={`${styles.projectPreview}`}>
+          <Image
+            src="/infrared/S/12-infrared.jpg"
+            alt="Infrared picture of a field with few Menhir standing up and others on the ground "
+            sizes="100vw"
+            width={0}
+            height={0}
+            quality={80}
+            className={`${styles.projectPreview_img} ${styles.project_img} `}
+          />
+          <h5 className={styles.project_title}>
+            World in <br /> Infrared
+          </h5>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -24,8 +24,10 @@ function Hero_gallery({
           <div className={styles.dot}></div>
           <p className={`${styles.presentation__sub_txt} body_02`}>{c3}</p>
         </div>
-        <div className={styles.switchTheme}>
+        <div className={styles.theme_container}>
           <ThemeSwitch />
+          <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
+          <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
         </div>
       </div>
     </>

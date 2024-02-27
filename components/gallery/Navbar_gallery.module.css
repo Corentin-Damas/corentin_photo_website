@@ -4,8 +4,9 @@
   flex-direction: column;
   align-items: left;
   justify-content: space-between;
-  gap: var(--spacing-L);
+  gap: var(--spacing-M);
   letter-spacing: 1px;
+  max-height: 100vh;
 
   z-index: 100;
 }
@@ -16,6 +17,12 @@
   line-height: var(--line-height-Title_01);
   letter-spacing: 3px;
   color: var(--font-color-body_02);
+  transition: all 0.2s;
+}
+
+.myNameLink:hover {
+  color: var(--font-color-gray);
+  transform: scale(1.05);
 }
 
 .links__List {
@@ -28,34 +35,45 @@
   gap: var(--spacing-SS);
 }
 
-.contactMe{
-    max-width: max-content;
+.link__group_name {
+  font-family: var(--font-geologica-Cursive-Regular);
+  font-size: var(--font-size-bodyText_01);
+  border-bottom: 1px solid var(--link-color-underline);
+  color: var(--prim-500-main);
+  margin-bottom: var(--spacing-XS);
 }
 
-.link__group_name{
-    font-family: var(--font-geologica-Cursive-Regular);
-    font-size: var(--font-size-bodyText_01);
-    border-bottom: 1px solid var(--link-color-underline);
-    color:  var(--prim-500-main);
-    margin-bottom: var(--spacing-XS);
+.link__group {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: left;
+  margin-bottom: var(--spacing-M);
+  gap: var(--spacing-SS);
+  padding-left: var(--spacing-SS);
+}
+.bar {
+  color: var(--link-color-underline);
 }
 
-.link__group{
-    display:grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto;
-    align-items: center;
-    justify-items: left;
-    margin-bottom: var(--spacing-M);
-    gap: var(--spacing-SS);
-    padding-left: var(--spacing-SS);
-}
-.bar{
-    color: var(--link-color-underline)
+.number {
+  justify-self: right;
 }
 
+.normal__link {
+  width: max-content;
+}
 
+.link__group > *,
+.normal__link {
+  transition: all 0.2s;
+  transform-origin: left;
+}
 
-.number{
-    justify-self: right;
+.link__group > *:hover,
+.normal__link:hover {
+  transform: scale(1.05);
+  text-decoration: underline;
+  text-decoration-color: var(--prim-500-main);
 }

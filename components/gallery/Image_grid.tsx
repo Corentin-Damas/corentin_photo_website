@@ -19,5 +19,3 @@ const Image_grid = async ({ currentDir }: { currentDir: string }) => {
 };
 
 export default Image_grid;
-
-

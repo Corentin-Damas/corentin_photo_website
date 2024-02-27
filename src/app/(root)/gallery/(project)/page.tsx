@@ -61,7 +61,7 @@ function page() {
             </h5>
           </Link>
 
-          <Link href="/gallery/museum" className={styles.projectPreview}>
+          <Link href="/gallery/museums" className={styles.projectPreview}>
             <Image
               src="/museums/S/02-museums.jpg"
               alt="Visitors in form of the painting called the Night Watch from Rembrandt in the rijksmuseum, Amsterdam, Netherlands"
@@ -84,8 +84,7 @@ function page() {
               className={`${styles.projectPreview__landscape} ${styles.project_img}`}
             />
             <h5 className={styles.project_title}>
-              Earth & <br />
-              sky
+              Earth & <br /> sky
             </h5>
           </Link>
 

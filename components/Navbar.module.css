@@ -4,6 +4,11 @@
   line-height: var(--line-height-Title_01);
   letter-spacing: 3px;
   color: var(--font-color-body_02);
+  transition: all 0.2s;
+}
+.myNameLink:hover {
+  color: var(--font-color-gray);
+  transform: scale(1.05);
 }
 
 .nav {

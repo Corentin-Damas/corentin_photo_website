@@ -15,6 +15,7 @@ function section_03() {
           width={0}
           height={0}
           quality={80}
+
         />
       </Link>
       <div className={styles.legend__Landscape}>
@@ -34,6 +35,7 @@ function section_03() {
           width={0}
           height={0}
           quality={80}
+
         />
       </Link>
       <div className={styles.legend__infra}>
@@ -54,6 +56,7 @@ function section_03() {
           width={0}
           height={0}
           quality={80}
+
         />
       </Link>
       <div className={styles.legend__BandW}>
