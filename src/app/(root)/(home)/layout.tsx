@@ -18,15 +18,17 @@ function layout({ children }: { children: React.ReactNode }) {
           className={`${styles.bgImg} dark_mode_only`}
           quality={100}
           fill
-          loading="lazy"
+          sizes="100vw"
+          priority
         />
         <Image
           src="/landingpage/XL/landscapes-Landing2-XL.png"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.bgImg} ${styles.bglight} light_mode_only`}
           fill
+          sizes="100vw"
           quality={100}
-          loading="lazy"
+          priority
         />
       </header>
       {children}

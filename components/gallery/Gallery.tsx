@@ -71,6 +71,7 @@ const GalleryImg = ({
               height={0}
               alt={`picture from the photo series ${currentDir}`}
               quality={80}
+              loading="lazy"
             />
           </li>
         ))}

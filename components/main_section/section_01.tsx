@@ -14,7 +14,7 @@ function section_01() {
             src="/a_year_in_japan/L/01-a_year_in_japan.jpg"
             alt="Couples sitting by the Kamo River at night Kyoto, Japan"
             className={`${styles.imgJapPreview} dark_mode_only`}
-            sizes="100vw"
+            sizes="33vw"
             width={0}
             height={0}
             quality={80}
