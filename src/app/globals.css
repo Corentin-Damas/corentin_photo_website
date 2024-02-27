@@ -45,6 +45,8 @@
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
+  --active-link-transparency: hsla(204, 64%, 18%, 0.3);
+
   /* --gallery-title-transparency: hsla(6, 59%, 24%, 0.9); */
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
@@ -162,6 +164,9 @@ html.light .dark_mode_only {
   outline-color: var(--information);
   outline-offset: 4px;
   box-shadow: none;
+}
+*:active {
+  outline: none;
 }
 
 html {
@@ -282,6 +287,26 @@ p.detail_02 {
   border-bottom: 1px solid var(--prim-500-main);
 }
 
+.gallery_Link:active {
+  transform: scale(1.03);
+  transition: transform 0.1s;
+}
+
 .presentation_sp_link {
   margin-top: var(--special_link);
+}
+
+.btn {
+  user-select: none;
+
+  font-family: var(--font-geologica-Cursive-Regular);
+  font-size: var( --font-size-subTitle_03);
+
+  background-color: var(--prim-500-main);
+  outline: none;
+  border: none;
+  width: var(--spacing-XL);
+  height: var(--spacing-M);
+  border-radius: 8px;
+  
 }

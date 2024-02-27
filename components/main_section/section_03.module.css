@@ -58,6 +58,12 @@
   transition: all 0.2s;
   transform: scale(1.05);
 }
+.imgLandPreview:active,
+.imgInfraPreview:active,
+.imgBandWPreview:active {
+  transition: all 0.1s;
+  transform: scale(1);
+}
 
 .legend__Landscape,
 .legend__infra,
@@ -99,4 +105,9 @@
   transform: scale(1.05);
   border-bottom: 1px solid var(--rules-color);
   transform-origin: bottom right;
+}
+.link_txt:active {
+  transform: scale(1.03);
+  transition: all 0.1s;
+  border-bottom: 1px solid var(--prim-500-main);
 }

@@ -25,16 +25,30 @@
   border-color: var(--rules-color);
 }
 
+/* === part 1 === */
+
 .section01__mainProject {
   grid-row: 1;
   object-fit: cover;
   position: relative;
 }
 
-.img_caption__containeur{
+.img_caption__containeur {
   grid-row: 2/3;
   grid-column: 1/2;
-  z-index: 400;
+  align-self: self-end;
+  justify-self: right;
+  opacity: 0;
+
+  width: 24rem;
+  padding-left: 0.8rem;
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: var(--spacing-XS);
+  transition: all 0.2s;
+  z-index: 100;
 }
 
 .link__img {
@@ -47,14 +61,21 @@
   overflow: hidden;
 }
 .link__img:hover > *,
-.link__img_museum:hover > *,
-.link__img_city:hover > * {
+.link__museum:hover > *,
+.link__city:hover > * {
   filter: saturate(0.3);
   transition: all 0.3s;
+  transform: scale(1.1);
 }
 
-.link__img:hover > * {
-  transform: scale(1.1);
+.link__img:hover ~ .img_caption__containeur {
+  transform: translateX(24rem);
+  opacity: 100;
+}
+
+.link__img:active > * {
+  transform: scale(1.03);
+  transition: all 0.1s;
 }
 
 .imgJapPreview {
@@ -65,6 +86,7 @@
   height: 100%;
   position: relative;
   transition: all 0.3s;
+  z-index: 200;
 }
 .imgJapPreview__position {
   object-position: 50%;
@@ -124,9 +146,15 @@
   font-weight: 300;
 }
 
+.kanji__line {
+  border-top: 1px solid var(--font-color-main);
+}
+
 .p1__link__containeur {
   margin-top: var(--spacing-L);
 }
+
+/* === part 2 === */
 
 .shadows__title,
 .museums__title {
@@ -136,49 +164,58 @@
   line-height: var(--font-size-subTitle_01);
   cursor: default;
 }
-
 .shadows__title {
   grid-column: 1/2;
 }
 .museums__title {
   grid-column: 3/4;
 }
-
 .underline {
   margin-top: 0.8rem;
+}
+
+.link__city,
+.link__museum {
+  grid-row: 4/5;
+
+  width: auto;
+  height: 100%;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-inline: var(--spacing-S) solid var(--background-color);
+  z-index: 400;
+}
+.link__city {
+  grid-column: 1/2;
+
+}
+.link__museum {
+  grid-column: 3/4;
+
+}
+
+.img__container_city,
+.img__container_museum {
+  overflow: hidden;
+  width: auto;
+  height: 100%;
+  transition: all 0.3s;
+
 }
 
 .imgCityPreview,
 .imgMuseumPreview {
   object-fit: cover;
-  width: 100%;
+  width: auto;
   height: 100%;
   position: relative;
-  padding-inline: var(--spacing-M);
+
   transition: all 0.3s;
+  
 }
 
-.img_caption__containeur_city,
-.link__img_city {
-  grid-row: 4/5;
-  grid-column: 1/2;
-}
-
-.link__img_city,
-.link__img_museum {
-  width: 100%;
-  height: 100%;
-  transition: filter 0.3s;
-  position: relative;
-}
-
-.link__img_museum {
-  grid-row: 4/5;
-  grid-column: 3/5;
-  padding-right: var(--spacing-S);
-}
-
-.legend__shadows,
+.legend__city,
 .legend__museums {
   grid-row: 5/6;
 
@@ -189,17 +226,15 @@
   align-items: last baseline;
   gap: var(--spacing-XS);
 }
-
-.legend__shadows {
+.legend__city {
   grid-column: 1/2;
   position: relative;
-  padding-right: var(--spacing-M);
+  padding-right: var(--spacing-S);
 }
-
 .legend__museums {
   grid-column: 3/4;
   padding-right: 0;
-  padding-right: var(--spacing-M);
+  padding-right: var(--spacing-S);
 }
 
 .verticalRule {
@@ -207,35 +242,6 @@
   height: var(--spacing-M);
 }
 
-.kanji__line {
-  border-top: 1px solid var(--font-color-main);
-}
-
-.grid__link {
-  grid-row: 5/6;
-  grid-column: 1/4;
-}
-
-.link__img:hover ~ .img_caption__containeur {
-  transform: translateX(24rem);
-  opacity: 100;
-
-}
-
-.img_caption__containeur {
-  align-self:self-end;
-  justify-self: right;
-  opacity: 0;
-
-  width: 24rem;
-  padding-left: 0.8rem;
-
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: var(--spacing-XS);
-  transition: all 0.2s;
-}
 .img_caption__containeur_city,
 .img_caption__containeur_museum {
   grid-row: 4/5;
@@ -247,33 +253,21 @@
   align-items: center;
   gap: var(--spacing-XS);
   transition: all 0.2s;
+  z-index: 100;
+  top: 0;
+
 }
 
 .img_caption__containeur_city {
   grid-column: 1/2;
-  top: 12rem;
   right: 0;
+  text-align: right;
+  padding-right: var(--spacing-S);
 }
 .img_caption__containeur_museum {
   grid-column: 3/4;
-  bottom: 12rem;
   left: 0;
-  text-align: right;
-}
-
-.link__img_city:hover .img_caption__containeur_city,
-.link__img_museum:hover .img_caption__containeur_museum {
-  opacity: 100;
-  transition: all 0.2s;
-}
-.link__img_city:hover .img_caption__containeur_city {
-  top: 12rem;
-  right: -12rem;
-}
-
-.link__img_museum:hover .img_caption__containeur_museum {
-  left: -13rem;
-  bottom: 12rem;
+  padding-left: var(--spacing-S);
 }
 
 .img_caption__right {
@@ -293,8 +287,25 @@
 .link_txt {
   transition: all 0.2s;
 }
+
+.link__city:hover ~ .img_caption__containeur_city,
+.link__museum:hover ~ .img_caption__containeur_museum {
+  opacity: 100;
+  transition: all 0.2s;
+}
+
+.link__city:hover ~ .img_caption__containeur_city,
+.link__museum:hover ~ .img_caption__containeur_museum {
+  transform: translateY(-104%);
+}
+
 .link_txt:hover {
   transform: scale(1.05);
   border-bottom: 1px solid var(--rules-color);
-  transform-origin: bottom right
+  transform-origin: bottom right;
+}
+
+.link_txt:active {
+  transform: scale(1.02);
+  border-bottom: 1px solid var(--prim-500-main);
 }

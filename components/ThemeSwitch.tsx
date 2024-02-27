@@ -24,25 +24,20 @@ function ThemeSwitch() {
     );
   if (resolvedTheme === "dark") {
     return (
-      <div className={styles.icone__container}>
-        <TbHaze
-          tabIndex={5}
-          className={styles.icone}
-          onClick={() => setTheme("light")}
-        />
-        {/* <p className={styles.icone__txt}> switch to light them</p> */}
-      </div>
+      <TbHaze
+        tabIndex={5}
+        className={styles.icone}
+        onClick={() => setTheme("light")}
+      />
     );
   }
   if (resolvedTheme === "light") {
     return (
-      <div>
-        <TbHazeMoon
-          tabIndex={5}
-          className={styles.icone}
-          onClick={() => setTheme("dark")}
-        />
-      </div>
+      <TbHazeMoon
+        tabIndex={5}
+        className={styles.icone}
+        onClick={() => setTheme("dark")}
+      />
     );
   }
 }

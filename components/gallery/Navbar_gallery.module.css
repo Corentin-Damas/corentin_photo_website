@@ -52,8 +52,10 @@
 }
 .bar{
     color: var(--link-color-underline)
-
 }
+
+
+
 .number{
     justify-self: right;
 }

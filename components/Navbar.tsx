@@ -22,8 +22,17 @@ function Navbar() {
         </Link>
         {/* <Link href="/your_print">Your Print</Link> */}
       </ul>
-      <ThemeSwitch />
-      <button tabIndex={6}>contact me</button>
+      <div className={styles.actions}>
+        <div className={styles.theme_container}>
+          
+          <ThemeSwitch />
+          <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
+          <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
+        </div>
+        <button className="btn" tabIndex={6}>
+          contact me
+        </button>
+      </div>
     </nav>
   );
 }
