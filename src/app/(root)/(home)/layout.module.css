@@ -1,6 +1,7 @@
 .header{
   position: relative;
   height: var(--window-height);
+  padding-top: 5rem;
 }
 
 .bgImg {

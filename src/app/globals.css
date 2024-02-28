@@ -47,6 +47,10 @@
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
 
+  --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
+  --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
+  --bg-nav-float-transparency-end: hsla(210, 40%, 98%, 0.3);
+
   /* --gallery-title-transparency: hsla(6, 59%, 24%, 0.9); */
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
@@ -102,6 +106,9 @@
 html.dark {
   --background-color: #121a22;
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
+  --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.9);
+  --bg-nav-transparency-end: hsla(208, 29%, 10%, 0);
+  --bg-nav-float-transparency-end: hsla(208, 29%, 10%, 0.5);
 
   --font-color-main: #eaecee;
   --font-color-sec: #f8fafc;
@@ -306,4 +313,10 @@ p.detail_02 {
   transition: all 0.1s;
   transform: scale(0.99);
   background-color: var(--prim-300);
+}
+
+.scroll-down header {
+  transform: translate3d(0, -100%, 0);
+}
+.scroll-up {
 }

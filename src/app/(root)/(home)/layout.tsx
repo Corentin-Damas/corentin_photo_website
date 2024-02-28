@@ -7,6 +7,8 @@ import Hero from "../../../../components/Hero";
 import styles from "./layout.module.css";
 
 function layout({ children }: { children: React.ReactNode }) {
+
+  
   return (
     <>
       <header className={styles.header}>
