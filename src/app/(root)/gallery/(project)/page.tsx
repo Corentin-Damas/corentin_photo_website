@@ -120,7 +120,7 @@ function page() {
             </h5>
           </Link>
           <Link
-            href="/gallery/about"
+            href="/about"
             className={`${styles.projectPreview} ${styles.aboutPreview}`}
           >
             <Image

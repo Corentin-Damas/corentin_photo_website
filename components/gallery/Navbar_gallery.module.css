@@ -65,13 +65,14 @@
   width: max-content;
 }
 
-.link__group > *,
+.link__group > :not(p),
 .normal__link {
+  color: var(--font-color-main);
   transition: all 0.2s;
   transform-origin: left;
 }
 
-.link__group > *:hover,
+.link__group > :not(p):hover ,
 .normal__link:hover {
   transform: scale(1.05);
   text-decoration: underline;

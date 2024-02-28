@@ -122,26 +122,6 @@ html.light .dark_mode_only {
   display: none;
 }
 
-/*
-@media (prefers-color-scheme: dark) {
-  html:not([data-them]) {
-    --background-color: #121a22;
-    --background-color-transparency: hsla(208, 29%, 10%, 0.9);
-
-    --font-color-main: #eaecee;
-    --font-color-sec: #f8fafc;
-    --font-color-gray: #9da6af;
-    --font-color-body_02: #bcd7e9;
-
-    --link-color-underline: #717d8a;
-
-    --special_link: 50vh;
-
-  }
-   .light_mode_only {
-    display: none;
-  } */
-
 /* 
 @media (prefers-color-scheme: light) {
   
