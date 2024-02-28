@@ -3,6 +3,7 @@
 } */
 
 .gallery__grid {
+  
   display: grid;
   grid-template-columns: repeat(4, minmax(25rem, 1fr));
   grid-template-rows: 10rem auto;
@@ -48,6 +49,7 @@
 }
 .page {
   width: 100%;
+  position: relative;
 }
 
 .seeMore__title {
@@ -125,4 +127,17 @@
 .projectPreview:hover .project_title {
   opacity: 100%;
   transition: opacity 0.3s;
+}
+
+.project_info_bubble {
+  position: absolute;
+  right: -3.6rem;
+  top: 9.7rem;
+  width: calc(100% + 3.6rem);
+  height: 70vh;
+
+
+  display:flex;
+  justify-content: right;
+  align-items: baseline;
 }

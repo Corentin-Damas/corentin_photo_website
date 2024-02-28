@@ -44,6 +44,7 @@
   --background-color: #f8fafc;
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+  --bg-txt-transparency: hsla(210, 40%, 98%, 0.95);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
 
@@ -128,14 +129,6 @@ html.dark .light_mode_only {
 html.light .dark_mode_only {
   display: none;
 }
-
-/* 
-@media (prefers-color-scheme: light) {
-  
-  .dark_mode_only {
-    display: none;
-  }
-} */
 
 * {
   box-sizing: border-box;

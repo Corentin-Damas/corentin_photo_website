@@ -1,11 +1,15 @@
 import React from "react";
 import Image_grid from "../../../../../../components/gallery/Image_grid";
 import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+
 import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import InfosBubble from "../../../../../../components/gallery/InfosBubble";
 
 function page() {
+
+
   return (
     <div className={styles.page}>
       <Hero_gallery
@@ -14,7 +18,10 @@ function page() {
         c2="2016 - 2018"
         c3="Japan"
       />
-      <Image_grid currentDir="tsuzukitai" />
+      <aside className={styles.project_info_bubble}>
+        <InfosBubble/>
+      </aside>
+      <Image_grid currentDir="tsuzukitai"  />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link
