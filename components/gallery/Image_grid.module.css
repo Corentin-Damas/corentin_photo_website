@@ -109,16 +109,16 @@
 .close_container {
   position: fixed;
 
-  top: 3rem;
-  right: 3rem;
-  height: 6rem;
-  width: 6rem;
+  top: 4rem;
+  right: 4rem;
+  height: 8rem;
+  width: 8rem;
   z-index: 200;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: white;
+
   border-radius: 50%;
   cursor: pointer;
 }
@@ -129,10 +129,17 @@
 }
 
 .icone {
-  width: 6rem;
-  height: 6rem;
-  color: black;
+  width: 8rem;
+  height: 8rem;
+  color: var(--font-color-main);
   z-index: 900;
-  background-color: var(--font-color-main);
   border-radius: 50%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.icone:hover,
+.icone:focus{
+  color: var( --prim-500-main);
+  transform: scale(1.05);
 }

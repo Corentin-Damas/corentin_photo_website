@@ -83,7 +83,10 @@ const GalleryImg = ({
             <div className={style.popUpImg__Container}>
               <div>
                 <div className={style.arrows_container}>
-                  <GrFormPrevious className={style.icone} onClick={handlePrev} />
+                  <GrFormPrevious
+                    className={style.icone}
+                    onClick={handlePrev}
+                  />
                 </div>
               </div>
               <Image
@@ -97,12 +100,12 @@ const GalleryImg = ({
               />
               <div>
                 <div className={style.arrows_container}>
-                  <GrFormNext />
+                  <GrFormNext className={style.icone} onClick={handlePrev} />
                 </div>
               </div>
             </div>
             <div className={style.close_container}>
-              <GrFormClose />
+              <GrFormClose className={style.icone} onClick={handleClose} />
             </div>
           </>
         )}
