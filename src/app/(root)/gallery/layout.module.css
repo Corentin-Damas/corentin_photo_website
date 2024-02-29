@@ -3,7 +3,6 @@
 } */
 
 .gallery__grid {
-  
   display: grid;
   grid-template-columns: repeat(4, minmax(25rem, 1fr));
   grid-template-rows: 10rem auto;
@@ -78,8 +77,8 @@
 
 .projectPreview {
   position: relative;
-  height: 30rem;
-  width: 30rem;
+  height: var(--img-preview-M);
+  width: var(--img-preview-M);
 
   aspect-ratio: 1 / 1;
 
@@ -136,8 +135,7 @@
   width: calc(100% + 3.6rem);
   height: 70vh;
 
-
-  display:flex;
+  display: flex;
   justify-content: right;
   align-items: baseline;
 }

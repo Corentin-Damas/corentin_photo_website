@@ -1,6 +1,7 @@
 .header {
   position: relative;
   height: 30rem;
+  padding-top: var(--spacing-LM);
 }
 
 .dot {
@@ -59,6 +60,10 @@
 .about__link{
   grid-column: 1/-1;
 align-self: center;
-justify-self: center;
-  
+justify-self: center; 
+}
+
+.hero_title {
+  font-family:var( --font-geologica-light);
+  font-weight: 300;
 }

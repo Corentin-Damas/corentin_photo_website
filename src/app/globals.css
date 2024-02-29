@@ -97,7 +97,11 @@
   --spacing-L: 12rem;
   --spacing-XL: 19.2rem;
 
+  --max-width-L: 2100px;
   --max-width: 1100px;
+  --img-preview-M: 30rem;
+
+  --icone-M: 8rem;
   --border-radius: 12px;
   --footerSize: 40rem;
 
@@ -307,10 +311,4 @@ p.detail_02 {
   transition: all 0.1s;
   transform: scale(0.99);
   background-color: var(--prim-300);
-}
-
-.scroll-down header {
-  transform: translate3d(0, -100%, 0);
-}
-.scroll-up {
 }

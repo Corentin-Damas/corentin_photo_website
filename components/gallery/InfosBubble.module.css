@@ -15,8 +15,9 @@
   text-orientation: upright;
   writing-mode: vertical-rl;
   letter-spacing: -6px;
-  border-top: 2px solid black;
+  border-top: 2px solid var(--rules-color);
   font-size: var(--font-size-bodyText_01);
+  color: var(--rules-color);
 
   display: flex;
   justify-content: center;
@@ -78,6 +79,7 @@
 .icone {
   width: 3rem;
   height: 3rem;
+  color: var(--rules-color);
 }
 .popUpInformation_txt {
   width: 400px;

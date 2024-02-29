@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Providers } from "../../providers/theme-provider";
 import { ChakraProviders } from "../../providers/chakra-provider";
 
+
 export const metadata: Metadata = {
   title: "Corentin Damas - Artefact",
   description: "Corentin Damas photography portfolio",
@@ -60,8 +61,7 @@ export default function RootLayout({
       <body
         className={`${geologicaRomMedium.variable} ${geologicaRomLight.variable} ${geologicaRomRegular.variable} ${geologicaLight.variable} ${geologicaRegular.variable} ${geologicaCursiveRegu.variable} ${lateefRegular.variable} ${sawarabiMincho.variable}`}
       >
-        {" "}
-        <ChakraProviders >
+        <ChakraProviders>
           <Providers>{children}</Providers>
         </ChakraProviders>
       </body>

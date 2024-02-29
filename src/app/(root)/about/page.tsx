@@ -9,20 +9,17 @@ function page() {
   return (
     <>
       <header className={styles.header}>
-        <Navbar  linkMyName=""/>
+        <Navbar linkMyName="" />
         <div className={styles.heroSection}>
-          <h3>About me</h3>
-          <h2>Project base photographer</h2>
+          <h3 className={styles.hero_title}>About me</h3>
+
           <div className={styles.keywords}>
             <p className={`${styles.presentation__sub_txt} body_02`}> Travel</p>
             <div className={styles.dot}></div>
-            <p className={`${styles.presentation__sub_txt} body_02`}>
-              Culture{" "}
-            </p>
+            <p className={`${styles.presentation__sub_txt} body_02`}>Culture</p>
             <div className={styles.dot}></div>
             <p className={`${styles.presentation__sub_txt} body_02`}>
-              {" "}
-              Wondering{" "}
+              Wondering
             </p>
           </div>
         </div>

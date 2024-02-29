@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../gallery/Hero_gallery.module.css";
-import Link from "next/link";
 import ThemeSwitch from "../ThemeSwitch";
 function Hero_gallery({
   title,

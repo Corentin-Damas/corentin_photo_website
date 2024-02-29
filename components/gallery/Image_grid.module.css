@@ -105,19 +105,17 @@
   cursor: default;
 }
 
-
 .close_container {
   position: fixed;
 
   top: 4rem;
   right: 4rem;
-  height: 8rem;
-  width: 8rem;
+  height: var(--icone-M);
+  width: var(--icone-M);
   z-index: 200;
   display: flex;
   justify-content: center;
   align-items: center;
-
 
   border-radius: 50%;
   cursor: pointer;
@@ -129,8 +127,8 @@
 }
 
 .icone {
-  width: 8rem;
-  height: 8rem;
+  width: var(--icone-M);
+  height: var(--icone-M);
   color: var(--font-color-main);
   z-index: 900;
   border-radius: 50%;
@@ -139,7 +137,7 @@
 }
 
 .icone:hover,
-.icone:focus{
-  color: var( --prim-500-main);
+.icone:focus {
+  color: var(--prim-500-main);
   transform: scale(1.05);
 }

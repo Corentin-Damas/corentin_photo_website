@@ -37,8 +37,8 @@
 
 .projectPreview {
   position: relative;
-  height: 30rem;
-  width: 30rem;
+  height: var(--img-preview-M);
+  width: var(--img-preview-M);
 
   aspect-ratio: 1 / 1;
   object-fit: cover;

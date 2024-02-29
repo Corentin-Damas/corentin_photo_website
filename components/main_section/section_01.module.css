@@ -1,7 +1,7 @@
 .section01__Grid {
   position: relative;
   height: 190vh;
-  max-height: 2100px;
+  max-height: var(--max-width-L);
   display: grid;
   grid-template-columns: 1fr 10rem 1fr;
   grid-template-rows: 1px 1.2fr 15rem 1fr 2.4rem;
@@ -98,7 +98,7 @@
   grid-column: 2/3;
   font-weight: 400;
   line-height: var(--font-size-Display_01);
-  margin-bottom: 12rem;
+  margin-bottom: var(--spacing-L);
   cursor: default;
 }
 .title__box {
@@ -188,11 +188,9 @@
 }
 .link__city {
   grid-column: 1/2;
-
 }
 .link__museum {
   grid-column: 3/4;
-
 }
 
 .img__container_city,
@@ -201,7 +199,6 @@
   width: auto;
   height: 100%;
   transition: all 0.3s;
-
 }
 
 .imgCityPreview,
@@ -212,7 +209,6 @@
   position: relative;
 
   transition: all 0.3s;
-  
 }
 
 .legend__city,
@@ -255,7 +251,6 @@
   transition: all 0.2s;
   z-index: 100;
   top: 0;
-
 }
 
 .img_caption__containeur_city {
