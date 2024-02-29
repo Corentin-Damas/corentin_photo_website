@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import Image_grid from "../../../../../../components/gallery/Image_grid";
 import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
 
@@ -6,6 +6,7 @@ import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import InfosBubble from "../../../../../../components/gallery/InfosBubble";
+import TsuzukitaiTxt from "../../../../../../components/gallery/project_text/tsuzukitaiTxt";
 
 function page() {
 
@@ -19,7 +20,7 @@ function page() {
         c3="Japan"
       />
       <aside className={styles.project_info_bubble}>
-        <InfosBubble/>
+        <InfosBubble txt={<TsuzukitaiTxt/>}/>
       </aside>
       <Image_grid currentDir="tsuzukitai"  />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>

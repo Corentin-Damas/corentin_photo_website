@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import style from "./../gallery/Image_grid.module.css";
+import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 
 const GalleryImg = ({
   images,
@@ -82,15 +83,7 @@ const GalleryImg = ({
             <div className={style.popUpImg__Container}>
               <div>
                 <div className={style.arrows_container}>
-                  <Image
-                    src={`./${currentDir}/../../icons/arrow_left.svg`}
-                    alt="return back arrow"
-                    sizes="100vw"
-                    width={0}
-                    height={0}
-                    className={style.arrows_left}
-                    onClick={handlePrev}
-                  />
+                  <GrFormPrevious className={style.icone} onClick={handlePrev} />
                 </div>
               </div>
               <Image
@@ -101,32 +94,15 @@ const GalleryImg = ({
                 alt={`picture from the photo series ${currentDir}`}
                 src={`/${currentDir}/L/${images[imgSelected]}`}
                 quality={100}
-
               />
               <div>
                 <div className={style.arrows_container}>
-                  <Image
-                    src={`./${currentDir}/../../icons/arrow_right.svg`}
-                    alt="return back arrow"
-                    sizes="100vw"
-                    width={0}
-                    height={0}
-                    className={style.arrows_right}
-                    onClick={handleNext}
-                  />
+                  <GrFormNext />
                 </div>
               </div>
             </div>
             <div className={style.close_container}>
-              <Image
-                src={`./${currentDir}/../../icons/close.svg`}
-                alt="return back arrow"
-                sizes="100vw"
-                width={0}
-                height={0}
-                className={style.close}
-                onClick={handleClose}
-              />
+              <GrFormClose />
             </div>
           </>
         )}

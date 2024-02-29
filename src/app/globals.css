@@ -107,6 +107,7 @@
 html.dark {
   --background-color: #121a22;
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
+  --bg-txt-transparency: hsla(208, 29%, 10%, 0.98);
   --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.9);
   --bg-nav-transparency-end: hsla(208, 29%, 10%, 0);
   --bg-nav-float-transparency-end: hsla(208, 29%, 10%, 0.5);

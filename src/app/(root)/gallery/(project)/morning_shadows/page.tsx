@@ -5,6 +5,8 @@ import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
 import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import InfosBubble from "../../../../../../components/gallery/InfosBubble";
+import MorningShadowsTxt from "../../../../../../components/gallery/project_text/morningShadowsTxt";
 
 function page() {
   return (
@@ -15,6 +17,9 @@ function page() {
         c2="2018"
         c3="England"
       />
+      <aside className={styles.project_info_bubble}>
+        <InfosBubble txt={<MorningShadowsTxt/>}/>
+      </aside>
       <Image_grid currentDir="morning_shadows" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>

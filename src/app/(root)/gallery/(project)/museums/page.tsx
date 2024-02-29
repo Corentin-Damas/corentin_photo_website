@@ -2,6 +2,10 @@ import React from "react";
 
 import Image_grid from "../../../../../../components/gallery/Image_grid";
 import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+
+import InfosBubble from "../../../../../../components/gallery/InfosBubble";
+import MuseumsTxt from "../../../../../../components/gallery/project_text/museumsTxt";
+
 import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,6 +19,9 @@ function page() {
         c2="2018"
         c3="England - Netherlands"
       />
+      <aside className={styles.project_info_bubble}>
+        <InfosBubble txt={<MuseumsTxt />} />
+      </aside>
       <Image_grid currentDir="museums" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>

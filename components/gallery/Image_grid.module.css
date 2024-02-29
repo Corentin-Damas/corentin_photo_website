@@ -105,30 +105,6 @@
   cursor: default;
 }
 
-.arrows_container {
-  background-color: white;
-  position: relative;
-  height: 6rem;
-  width: 6rem;
-  border-radius: 50%;
-  z-index: 900;
-  cursor: pointer;
-}
-.arrows_right,
-.arrows_left {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 900;
-  height: 100%;
-  width: 100%;
-}
-.arrows_right {
-  transform: translate(-50%, -50%);
-}
-.arrows_left {
-  transform: translate(-33%, -50%);
-}
 
 .close_container {
   position: fixed;
@@ -150,4 +126,13 @@
 .close {
   height: 100%;
   width: 100%;
+}
+
+.icone {
+  width: 6rem;
+  height: 6rem;
+  color: black;
+  z-index: 900;
+  background-color: var(--font-color-main);
+  border-radius: 50%;
 }

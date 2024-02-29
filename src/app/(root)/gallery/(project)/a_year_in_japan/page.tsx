@@ -1,9 +1,12 @@
 import React from "react";
 import Image_grid from "../../../../../../components/gallery/Image_grid";
 import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import InfosBubble from "../../../../../../components/gallery/InfosBubble";
 import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import YearInJapanTxt from "../../../../../../components/gallery/project_text/aYearInJapanTxt";
+
 
 function page() {
   return (
@@ -14,6 +17,9 @@ function page() {
         c2="2016 - 2018"
         c3="Japan"
       />
+      <aside className={styles.project_info_bubble}>
+        <InfosBubble txt={<YearInJapanTxt/>}/>
+      </aside>
       <Image_grid currentDir="a_year_in_japan" />
 
       <h4 className={styles.seeMore__title}>Also recommended:</h4>

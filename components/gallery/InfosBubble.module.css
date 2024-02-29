@@ -1,6 +1,6 @@
 .close_component,
 .info_component {
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
   z-index: 1000;
   display: flex;
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.3s ease-in-out;
 }
 .project_bubble_close {
   transform: translateY(-0.8rem);
@@ -39,7 +39,6 @@
   transform-origin: top;
   transform: scale(1.05);
 }
-
 
 .close_component:hover .icone,
 .close_component:focus .icone {
@@ -61,20 +60,19 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 10rem 3fr;
   align-items: start;
   justify-items: center;
   gap: var(--spacing-LM);
   opacity: 100;
-  transition: all 0.2s;
+  transition: all 0.3s ease-in-out;
   z-index: 300;
 }
 
-
-.close.popUpInformation{
-top: -200%;
-opacity: 0;
-z-index: 10;
+.close.popUpInformation {
+  left: 120%;
+  opacity: 0;
+  z-index: 10;
 }
 
 .icone {
