@@ -48,12 +48,14 @@
   grid-template-rows: auto;
   align-items: center;
   justify-items: center;
+
 }
 
 .project_img {
-  transition: all 0.2s;
+  transition: all 0.3s;
   grid-column: 1/2;
   grid-row: 1/2;
+
 }
 
 .projectPreview:hover .project_img {
@@ -98,4 +100,32 @@
   color: var(--neutral-50);
   text-align: center;
 }
-
+/* 
+.i01{
+  opacity: 100;
+  transition-delay: 0.4s;
+}
+.i02{
+  opacity: 100;
+  transition-delay: 0.6s;
+}
+.i03{
+  opacity: 100;
+  transition-delay: 0.8s;
+}
+.i04{
+  opacity: 100;
+  transition-delay: 0.10s;
+}
+.i06{
+  opacity: 100;
+  transition-delay: 0.12s;
+}
+.i07{
+  opacity: 100;
+  transition-delay: 0.14s;
+}
+.i08{
+  opacity: 100;
+  transition-delay: 0.16s;
+} */

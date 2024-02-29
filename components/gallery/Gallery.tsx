@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import style from "./../gallery/Image_grid.module.css";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
-
+import { motion } from "framer-motion";
 const GalleryImg = ({
   images,
   currentDir,
@@ -13,6 +13,7 @@ const GalleryImg = ({
 }) => {
   const [dialog, setDialog] = useState(false);
   const [imgSelected, setImageSelected] = useState(0);
+  const [isImageLoading, setImageLoading] = useState(true);
 
   function handlePreviewClick(idx: number) {
     setImageSelected(idx);
@@ -66,13 +67,16 @@ const GalleryImg = ({
           >
             <Image
               src={`/${currentDir}/S/${el}`}
-              className={style.img}
+              className={`${style.img} ${
+                isImageLoading ? "unLoaded" : "remove-unLoaded"
+              } `}
               sizes="100vw"
               width={0}
               height={0}
               alt={`picture from the photo series ${currentDir}`}
               quality={80}
               loading="lazy"
+              onLoad={() => setImageLoading(false)}
             />
           </li>
         ))}
@@ -80,7 +84,13 @@ const GalleryImg = ({
       <div>
         {dialog && (
           <>
-            <div className={style.popUpImg__Container}>
+            <motion.div
+              initial={{ y: 0, opacity: 0 }}
+              animate={{ y: 0, opacity: 1}}
+              exit={{ y: 0, opacity: 0, scale: 0 }}
+              transition={{ ease: "easeInOut", duration: 0.4 }}
+              className={style.popUpImg__Container}
+            >
               <div>
                 <div className={style.arrows_container}>
                   <GrFormPrevious
@@ -103,7 +113,7 @@ const GalleryImg = ({
                   <GrFormNext className={style.icone} onClick={handlePrev} />
                 </div>
               </div>
-            </div>
+            </motion.div>
             <div className={style.close_container}>
               <GrFormClose className={style.icone} onClick={handleClose} />
             </div>

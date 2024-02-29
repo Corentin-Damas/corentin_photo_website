@@ -1,11 +1,19 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import styles from "../components/Hero.module.css";
+import { motion } from "framer-motion";
 
 function Hero() {
   return (
     <section className={styles.presentation}>
-      <div className={styles.presentation__containeur}>
+      <motion.div
+        className={styles.presentation__containeur}
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 10, opacity: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.4, delay: 0.3 }}
+      >
         <div className={styles.presentation__sub}>
           <p className={`${styles.presentation__sub_txt} body_02`}>Wondering</p>
           <div className={styles.dot}></div>
@@ -23,7 +31,7 @@ function Hero() {
         >
           See Gallery _<span className="main-Color">&gt;</span>
         </Link>
-      </div>
+      </motion.div>
       <div className={`${styles.img_caption__containeur} dark_mode_only`}>
         <div className={styles.img_caption__left}>
           <div className={styles.img_caption__up}>

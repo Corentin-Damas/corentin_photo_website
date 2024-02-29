@@ -2,11 +2,10 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../components/Navbar.module.css";
-
 import ThemeSwitch from "./ThemeSwitch";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {
-  const possibeState = { fixed: "fixed", unFixed: "" , init: "init"};
+  const possibeState = { fixed: "fixed", unFixed: "", init: "init" };
   const [navState, setNavState] = useState(possibeState.init);
   const [lastScroll, setLastScoll] = useState<number>(0);
 
@@ -16,7 +15,7 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
     if (currentScroll <= 0) {
       setNavState(possibeState.init);
     } else {
-      if (currentScroll < lastScroll &&  currentScroll > 100)  {
+      if (currentScroll < lastScroll && currentScroll > 100) {
         setNavState(possibeState.fixed);
       }
       if (currentScroll > lastScroll) {
@@ -42,12 +41,12 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
       className={`${styles.nav} ${
         navState == possibeState.fixed
           ? `${styles.nav_fixed} `
-          :  navState == possibeState.unFixed
+          : navState == possibeState.unFixed
           ? `${styles.nav_unfixed}`
           : `${styles.nav_init}`
       } `}
     >
-      <div className={styles.nav__items} >
+      <div className={styles.nav__items}>
         <Link
           tabIndex={1}
           href={`/${linkMyName}`}
