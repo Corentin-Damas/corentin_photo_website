@@ -1,7 +1,7 @@
 .section02__Containeur {
   position: relative;
   height: 100vh;
-  max-height: 748px;
+  max-height: 1000px;
   display: grid;
   grid-template-columns: 2fr 4fr;
   grid-template-rows: 9fr 1fr;
@@ -10,6 +10,14 @@
   /* padding-right: calc( (100vw - var(--max-width) - (var(--padding-inLine)*2))/2); */
   background-color: var(--section-2-band);
   margin-bottom: var(--spacing-L);
+
+  @media only screen and (min-width: 187.5em) {
+  padding-inline: 20vw;
+  } 
+  @media only screen and (max-width: 75em) {
+    grid-template-columns: 1fr 1fr;
+  }  
+
 }
 
 .section02__left {
@@ -46,6 +54,7 @@
   height: 100%;
   position: relative;
   transition: transform 0.2s;
+  max-width: 2000px;
 }
 
 .imgCovTsuzukitai:hover {
@@ -88,6 +97,7 @@
   padding-top: var(--spacing-S);
   letter-spacing: 7px;
   color: var(--neutral-50);
+  text-align: center;
 }
 
 .img__link {

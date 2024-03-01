@@ -1,7 +1,7 @@
 .sectionCta__Grid {
   position: relative;
   height: 100vh;
-  max-height: 550px;
+  max-height: 750px;
   display: grid;
   grid-template-columns: 10rem 3fr var(--spacing-S) 1fr;
   grid-template-rows: repeat(2, 1fr);

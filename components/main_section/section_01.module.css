@@ -11,7 +11,7 @@
   max-width: var(--maxWidth);
   margin: auto;
   gap: var(--spacing-S);
-  margin-bottom: var(--spacing-L);
+
   transform: translateY(-10vh);
 }
 

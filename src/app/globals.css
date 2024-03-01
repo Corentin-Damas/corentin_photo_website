@@ -47,6 +47,7 @@
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
+  --bg-transparency-smallScreen: hsla(204, 64%, 18%, 0.75);
 
   --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
   --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
@@ -85,7 +86,7 @@
   /* Spacing */
   --padding-inLine: 3vw;
   --padding-vertical: 3vh;
-  --maxWidth: 1440px;
+  --maxWidth: 1900px;
   --window-height: 100vh;
 
   --spacing-XS: 0.8rem;
@@ -158,6 +159,13 @@ html.light .dark_mode_only {
 
 html {
   font-size: 62.5%;
+
+  @media only screen and (min-width: 90em) {
+    font-size: 80%;
+  }
+  @media only screen and (min-width: 90em) {
+    font-size: 80%;
+  }
 }
 
 img,
@@ -313,14 +321,36 @@ p.detail_02 {
   background-color: var(--prim-300);
 }
 
-.opaticity{
+.opaticity {
   opacity: 0;
   transform: translateY(100%);
-} 
-
-.unLoaded{
-  opacity: 0;
-  transition: all 0.4s;
-
 }
 
+.unLoaded {
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+/*
+
+
+3000 px 187.5em
+@media only screen and (min-width: 187.5em) {
+} 
+
+2000 px 125em
+@media only screen and (max-width: 125em) {
+}  
+1920 px 120em
+@media only screen and (max-width: 120em) {
+}  
+1440 px 90em
+@media only screen and (max-width: 90em) {
+}  
+1200 px 75em
+@media only screen and (max-width: 75em) {
+}  
+1040 px 65em
+@media only screen and (max-width: 65em) {
+}  
+*/

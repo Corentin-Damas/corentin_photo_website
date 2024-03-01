@@ -4,11 +4,15 @@
   max-width: var(--maxWidth);
   padding-inline: var(--padding-inLine);
   margin: auto;
-  padding-top: var(--spacing-LM);
+  padding-top: var(--spacing-L);
   height: calc(
     var(--window-height) -
       (var(--padding-vertical) + var(--line-height-Title_01))
   );
+
+  @media only screen and (max-width: 120em) {
+    padding-top: var(--spacing-LM);
+  }
 }
 
 .presentation__containeur {
@@ -16,9 +20,22 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+
+  @media only screen and (max-width: 125em) {
+    padding-left: 7vw;
+  }
+  @media only screen and (max-width: 90em) {
+    padding-left: 3vw;
+  } 
+  @media only screen and (max-width: 75em) {
+    padding-left: 0vw;
+  }
+
+
 }
 .presentation__main {
   margin-bottom: var(--spacing-XS);
+
 }
 
 .presentation__sub {

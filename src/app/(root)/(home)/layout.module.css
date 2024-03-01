@@ -7,6 +7,10 @@
 .bgImg {
   object-fit: cover;
   height: var(--window-height);
+
+  @media only screen and (min-aspect-ratio: 2/1.2) {
+    object-position: 50% 10%;
+  }  
 }
 .bglight {
   object-position: 50% 20%;
