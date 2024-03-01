@@ -13,7 +13,7 @@
 
 .nav {
   padding-top: var(--padding-vertical);
-  padding-inline: var(--padding-inLine);
+
   width: 100%;
   height: max-content;
   display: flex;
@@ -42,7 +42,13 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  max-width: var(--maxWidth);
+  max-width: var(--max-width-L);
+  padding-inline: var(--padding-inLine);
+  
+  @media only screen and (max-width: 125em) {
+
+    max-width: var(--max-width-M);
+  } 
 }
 
 .nav_init {

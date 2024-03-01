@@ -27,7 +27,7 @@ function Hero() {
         <Link
           href={"/gallery"}
           tabIndex={0}
-          className="gallery_Link presentation_sp_link"
+          className="gallery_Link"
         >
           See Gallery _<span className="main-Color">&gt;</span>
         </Link>

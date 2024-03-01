@@ -7,6 +7,7 @@ function section_01() {
   return (
     <>
       <section className={styles.section01__Grid}>
+        <div className={styles.transparency}></div>
         <hr className={styles.horizontalRule} />
         {/* Part 1 JAPAN */}
         <Link href={"/gallery/a_year_in_japan"} className={styles.link__img}>
@@ -91,14 +92,16 @@ function section_01() {
 
           <h1 className={styles.title__box_L3}>Japan</h1>
 
-          <div className={styles.p1__link__containeur}></div>
+          <div className={styles.p1__link__containeur}>
+
           <Link
             href={"/gallery/a_year_in_japan"}
             tabIndex={9}
             className="gallery_Link"
-          >
+            >
             See Gallery _<span className="main-Color">&gt;</span>
           </Link>
+            </div>
         </div>
 
         {/* Part 2 The city */}

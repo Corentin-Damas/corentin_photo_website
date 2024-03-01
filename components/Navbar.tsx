@@ -3,8 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../components/Navbar.module.css";
 import ThemeSwitch from "./ThemeSwitch";
-import { GrFormClose } from "react-icons/gr";
-import { CgMenuRightAlt } from "react-icons/cg";
 import NavbarSmallScreen from "./NavbarSmallScreen";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {

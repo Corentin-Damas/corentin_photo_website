@@ -1,7 +1,7 @@
 .presentation {
   position: relative;
   z-index: 10;
-  max-width: var(--maxWidth);
+  max-width: var(--max-width-L);
   padding-inline: var(--padding-inLine);
   margin: auto;
   padding-top: var(--spacing-L);
@@ -9,10 +9,18 @@
     var(--window-height) -
       (var(--padding-vertical) + var(--line-height-Title_01))
   );
+  @media only screen and (max-width: 125em) {
+
+    max-width: var(--max-width-M);
+  } 
 
   @media only screen and (max-width: 120em) {
     padding-top: var(--spacing-LM);
   }
+  @media only screen and (max-width: 65em) {
+    padding-top: var(--spacing-S);
+    
+  }  
 }
 
 .presentation__containeur {
@@ -20,6 +28,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  
 
   @media only screen and (max-width: 125em) {
     padding-left: 7vw;
@@ -30,11 +39,19 @@
   @media only screen and (max-width: 75em) {
     padding-left: 0vw;
   }
+  @media only screen and (max-width: 55em) {
+    padding-top: var(--spacing-S);
+    padding-left: var(--spacing-LM);
+  } 
 
 
 }
 .presentation__main {
   margin-bottom: var(--spacing-XS);
+
+  @media only screen and (max-width: 65em) {
+    font-size: var(--font-size-subTitle_01);
+  }
 
 }
 

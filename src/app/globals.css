@@ -86,7 +86,6 @@
   /* Spacing */
   --padding-inLine: 3vw;
   --padding-vertical: 3vh;
-  --maxWidth: 1900px;
   --window-height: 100vh;
 
   --spacing-XS: 0.8rem;
@@ -99,9 +98,11 @@
   --spacing-XL: 19.2rem;
 
   --max-width-L: 2100px;
-  --max-width: 1100px;
-  --img-preview-M: 30rem;
+  --max-width-ML: 1900px;
+  --max-width-M: 1600px;
+  --max-width-MS: 1100px;
 
+  --img-preview-M: 30rem;
   --icone-M: 8rem;
   --border-radius: 12px;
   --footerSize: 40rem;
@@ -160,11 +161,11 @@ html.light .dark_mode_only {
 html {
   font-size: 62.5%;
 
-  @media only screen and (min-width: 90em) {
+  @media only screen and (min-width: 125em) {
     font-size: 80%;
   }
-  @media only screen and (min-width: 90em) {
-    font-size: 80%;
+  @media only screen and (max-width: 55em) {
+    font-size: 50%;
   }
 }
 
@@ -351,6 +352,17 @@ p.detail_02 {
 @media only screen and (max-width: 75em) {
 }  
 1040 px 65em
-@media only screen and (max-width: 65em) {
+  @media only screen and (max-width: 65em) {
+    display: none;
+  }
+
+880 px 55em
+@media only screen and (max-width: 55em) {
 }  
+
+Phones
+600 px 37.5em
+@media only screen and (max-width: 37.5em) {
+}  
+
 */

@@ -3,6 +3,7 @@
   background-color: var(--netral-black);
   padding-top: var(--spacing-M);
   position: relative;
+
 }
 
 .columnsContainer {
@@ -10,6 +11,9 @@
   justify-content: center;
   align-items: self-start;
   gap: var(--spacing-XL);
+  @media only screen and (max-width: 55em) {
+    gap: var(--spacing-L);
+  }  
 }
 
 .left {

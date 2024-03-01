@@ -1,3 +1,9 @@
+.smallScreenNav {
+  @media only screen and (min-width: 65em) {
+    display: none;
+  }
+}
+
 .nav_SmallScreen {
   position: fixed;
   left: 0;
@@ -10,10 +16,6 @@
   width: 100%;
   height: 100%;
   transition: all 0.3s;
-
-  @media only screen and (min-width: 65em) {
-    display: none;
-  }
   z-index: 900;
 }
 
@@ -92,11 +94,11 @@
   left: 0;
   z-index: 900;
 
-  width: 100vw;
+  width: calc(100vw - 8rem);
   height: 10rem;
   padding-inline: var(--padding-inLine);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .actions {
@@ -106,24 +108,24 @@
   gap: var(--spacing-M);
 }
 .myNameLink {
-    font-family: var(--font-Lateef-Regular);
-    font-size: var(--font-size-Title_01);
-    line-height: var(--line-height-Title_01);
-    letter-spacing: 3px;
-    color: var(--font-color-body_02);
-    transition: all 0.2s;
-  }
+  font-family: var(--font-Lateef-Regular);
+  font-size: var(--font-size-Title_01);
+  line-height: var(--line-height-Title_01);
+  letter-spacing: 3px;
+  color: var(--font-color-body_02);
+  transition: all 0.2s;
+}
 
-  .theme_container {
-    width: 5rem;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: all 0.2s;
-  }
-  .theme_txt {
+.theme_container {
+  width: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+.theme_txt {
   position: absolute;
   width: max-content;
   text-align: center;

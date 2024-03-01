@@ -14,7 +14,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   };
 
   return (
-    <>
+    <nav className={styles.smallScreenNav}>
       <div className={styles.smallScreenTop}>
         <Link
           tabIndex={1}
@@ -74,7 +74,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
           </ul>
         </div>
       </div>
-    </>
+    </nav>
   );
 }
 export default NavbarSmallScreen;

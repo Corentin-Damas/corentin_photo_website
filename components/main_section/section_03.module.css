@@ -1,18 +1,22 @@
 .section03__Grid {
   position: relative;
   height: 100vh;
-  max-height: 800px;
+  max-height: 1000px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 9fr 1fr 4rem;
   align-items: center;
   justify-items: center;
   padding-inline: var(--padding-inLine);
-  max-width: var(--maxWidth);
+  max-width: var(--max-width-L);
   margin: auto;
   column-gap: var(--spacing-M);
   row-gap: var(--spacing-XS);
   margin-bottom: var(--spacing-L);
+  @media only screen and (max-width: 55em) {
+    column-gap: var(--spacing-S);
+    row-gap: var(0.2rem);
+  }
 }
 
 .verticalRule {
@@ -73,8 +77,12 @@
 
   display: flex;
   justify-content: flex-start;
-  align-items: baseline;
+  
+  align-items:center;
   gap: var(--spacing-XS);
+  text-align: right;
+
+
 }
 
 .legend__Landscape {
@@ -110,4 +118,12 @@
   transform: scale(1.03);
   transition: all 0.1s;
   border-bottom: 1px solid var(--prim-500-main);
+}
+
+.legend__Landscape_txt,
+.legend__infra_txt, 
+.legend__BandW_txt{
+  @media only screen and (max-width: 65em) {
+    font-size: var(--font-size-bodyText_01);
+  }
 }
