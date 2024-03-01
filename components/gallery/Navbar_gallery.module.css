@@ -78,3 +78,8 @@
   text-decoration: underline;
   text-decoration-color: var(--prim-500-main);
 }
+
+.currPage{
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+}

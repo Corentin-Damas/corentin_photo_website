@@ -14,13 +14,16 @@ const GalleryImg = ({
   const [dialog, setDialog] = useState(false);
   const [imgSelected, setImageSelected] = useState(0);
   const [isImageLoading, setImageLoading] = useState(true);
+  const [isImageBigLoading, setImageBigLoading] = useState(true);
 
   function handlePreviewClick(idx: number) {
+    setImageBigLoading(true);
     setImageSelected(idx);
     setDialog(!dialog);
   }
 
   function handlePrev() {
+    setImageBigLoading(true);
     if (imgSelected == 0) {
       setImageSelected(images.length - 1);
     } else {
@@ -28,6 +31,7 @@ const GalleryImg = ({
     }
   }
   function handleNext() {
+    setImageBigLoading(true);
     if (imgSelected == images.length - 1) {
       setImageSelected(0);
     } else {
@@ -86,7 +90,7 @@ const GalleryImg = ({
           <>
             <motion.div
               initial={{ y: 0, opacity: 0 }}
-              animate={{ y: 0, opacity: 1}}
+              animate={{ y: 0, opacity: 1 }}
               exit={{ y: 0, opacity: 0, scale: 0 }}
               transition={{ ease: "easeInOut", duration: 0.4 }}
               className={style.popUpImg__Container}
@@ -100,17 +104,20 @@ const GalleryImg = ({
                 </div>
               </div>
               <Image
-                className={style.popUpImg__img}
+                className={`${style.popUpImg__img} ${
+                  isImageBigLoading ? "unLoaded" : "remove-unLoaded"
+                }`}
                 sizes="100vw"
                 width={0}
                 height={0}
                 alt={`picture from the photo series ${currentDir}`}
                 src={`/${currentDir}/L/${images[imgSelected]}`}
                 quality={100}
+                onLoad={() => setImageBigLoading(false)}
               />
               <div>
                 <div className={style.arrows_container}>
-                  <GrFormNext className={style.icone} onClick={handlePrev} />
+                  <GrFormNext className={style.icone} onClick={handleNext} />
                 </div>
               </div>
             </motion.div>
