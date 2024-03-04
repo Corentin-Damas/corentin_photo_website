@@ -30,7 +30,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
             <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
           </div>
 
-          <Link href="/gallery">
+          <Link href="/gallery" className={styles.cta__btn}>
             <button className="btn" tabIndex={6}>
               Gallery
             </button>

@@ -17,7 +17,10 @@
   @media only screen and (max-width: 125em) {
     height: 200vh;
     max-width: var(--max-width-M);
-  } 
+  }
+  @media only screen and (max-width: 37.5em) {
+    grid-template-rows: 1px 2fr 10rem 0.8fr 2.4rem 8rem 1fr 2.4rem;
+  }  
 }
 
 .horizontalRule {
@@ -112,10 +115,7 @@
   z-index: 110;
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-Display_03);
-
   }
-
-
 }
 
 .transparency{
@@ -129,7 +129,6 @@
     backdrop-filter: blur(4px) brightness(0.4);
   }  
 }
-
 
 .title__box {
   grid-row: 2/3;
@@ -229,9 +228,17 @@
 }
 .shadows__title {
   grid-column: 1/2;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    
+  }  
 }
 .museums__title {
   grid-column: 3/4;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    grid-row: 6/7;
+  } 
 }
 .underline {
   margin-top: 0.8rem;
@@ -252,13 +259,23 @@
     width: 100%;
     border-inline: 0px;
   }
+  @media only screen and (max-width: 37.5em) {
+   width: 100%;
+  }  
 
 }
 .link__city {
   grid-column: 1/2;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+  }  
 }
 .link__museum {
   grid-column: 3/4;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    grid-row: 7/8;
+  } 
 }
 
 .img__container_city,
@@ -280,25 +297,35 @@
   position: relative;
 
   transition: all 0.3s;
+  @media only screen and (max-width: 37.5em) {
+    width: 100%;
+    height: 100%;
+   }  
+
 }
 
 .legend__city,
 .legend__museums {
   grid-row: 5/6;
-
+text-align: right;
   position: relative;
   justify-self: right;
   display: flex;
   justify-content: center;
-  align-items: last baseline;
+  align-items: center;
   gap: var(--spacing-XS);
 }
+
+
 .legend__city {
   grid-column: 1/2;
   position: relative;
   padding-right: var(--spacing-S);
   @media only screen and (max-width: 65em) {
     padding-right: 0px;
+  }
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
   }
 }
 .legend__museums {
@@ -308,6 +335,10 @@
   @media only screen and (max-width: 65em) {
     padding-right: 0px;
   }
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    grid-row: 8/9;
+   }  
 }
 
 .verticalRule {

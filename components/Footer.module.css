@@ -14,6 +14,9 @@
   @media only screen and (max-width: 55em) {
     gap: var(--spacing-L);
   }  
+  @media only screen and (max-width: 43.75em) {
+    gap: var(--spacing-M);
+  }  
 }
 
 .left {

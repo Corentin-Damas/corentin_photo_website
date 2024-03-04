@@ -137,3 +137,9 @@
   transition: all 0.2s;
   font-size: var(--font-size-bodyText_03);
 }
+
+.cta__btn{
+  @media only screen and (max-width: 37.5em) {
+    display: none;
+  }  
+}

@@ -350,14 +350,17 @@ p.detail_02 {
 }  
 1200 px 75em
 @media only screen and (max-width: 75em) {
-}  
-1040 px 65em
-  @media only screen and (max-width: 65em) {
-    display: none;
-  }
+} 
 
+Tablet: 
+1040 px 65em
+@media only screen and (max-width: 65em) {
+}
 880 px 55em
 @media only screen and (max-width: 55em) {
+}  
+700 px 43.75em
+@media only screen and (max-width: 43.75em) {
 }  
 
 Phones

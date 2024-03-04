@@ -11,6 +11,12 @@
   max-width: var(--maxWidth);
   margin: auto;
   margin-bottom: var(--spacing-L);
+
+  @media only screen and (max-width: 43.75em) {
+    height: 80vh;
+    
+  }  
+  
 }
 
 .presentation {
@@ -30,6 +36,11 @@
     border-bottom: 0px;
     grid-column: 2/5;
     padding-left: var(--spacing-LM) ;
+  }
+  @media only screen and (max-width: 55em) {
+    border-bottom: 0px;
+    grid-column: 2/5;
+    padding-left: 0 ;
   }
 }
 
@@ -223,11 +234,18 @@
   justify-content: left;
   align-items: center;
   gap: var(--spacing-S);
+
+  @media only screen and (max-width: 43.75em) {
+    flex-direction: column;  
+  }  
 }
 
 .proposition__txt {
   font-family: var(--font-geologica-light);
   font-weight: 400;
+  @media only screen and (max-width: 43.75em) {
+    display: none;  
+  } 
 }
 
 .dot {
