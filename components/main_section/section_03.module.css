@@ -17,6 +17,12 @@
     column-gap: var(--spacing-S);
     row-gap: var(0.2rem);
   }
+
+  @media only screen and (max-width: 37.5em) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr 4fr 1fr 4fr 1fr 4rem;
+    height: 150vh;
+  }
 }
 
 .verticalRule {
@@ -45,6 +51,10 @@
 .img__link_infra {
   grid-row: 1/2;
   grid-column: 2/3;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
 }
 
 .img__link_earth {
@@ -54,6 +64,10 @@
 .img__link_bandwhite {
   grid-row: 1/2;
   grid-column: 3/4;
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
 }
 
 .imgLandPreview:hover,
@@ -77,26 +91,42 @@
 
   display: flex;
   justify-content: flex-start;
-  
-  align-items:center;
+
+  align-items: center;
   gap: var(--spacing-XS);
   text-align: right;
 
+  @media only screen and (max-width: 37.5em) {
+    align-self: first baseline;
 
+    justify-content: flex-end;
+  }
 }
 
 .legend__Landscape {
   grid-row: 2/3;
   grid-column: 1/2;
+  @media only screen and (max-width: 37.5em) {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
 }
 
 .legend__infra {
   grid-row: 2/3;
   grid-column: 2/3;
+  @media only screen and (max-width: 37.5em) {
+    grid-row: 4/5;
+    grid-column: 1/2;
+  }
 }
 .legend__BandW {
   grid-row: 2/3;
   grid-column: 3/4;
+  @media only screen and (max-width: 37.5em) {
+    grid-row: 6/7;
+    grid-column: 1/2;
+  }
 }
 
 .part03__link {
@@ -104,6 +134,10 @@
   grid-column: 3/4;
   justify-self: right;
   align-self: last baseline;
+  @media only screen and (max-width: 37.5em) {
+    grid-row: 7/8;
+    grid-column: 1/2;
+  }
 }
 
 .link_txt {
@@ -121,8 +155,8 @@
 }
 
 .legend__Landscape_txt,
-.legend__infra_txt, 
-.legend__BandW_txt{
+.legend__infra_txt,
+.legend__BandW_txt {
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-bodyText_01);
   }
