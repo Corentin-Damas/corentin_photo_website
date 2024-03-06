@@ -3,13 +3,16 @@
   background-color: var(--netral-black);
   padding-top: var(--spacing-M);
   position: relative;
-
+  @media only screen and (max-width: 37.5em) {
+    height: var(--footerSizeMobile);
+  } 
 }
 
 .columnsContainer {
   display: flex;
   justify-content: center;
   align-items: self-start;
+  height: calc(80% - var(--spacing-S) );
   gap: var(--spacing-XL);
   @media only screen and (max-width: 55em) {
     gap: var(--spacing-L);
@@ -17,13 +20,29 @@
   @media only screen and (max-width: 43.75em) {
     gap: var(--spacing-M);
   }  
+
+  @media only screen and (max-width: 37.5em) {
+    flex-direction: column;
+    align-items: center;
+  }  
 }
 
 .left {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: column;
-  align-self: stretch;
+  
+  height: 100%;
+
+  @media only screen and (max-width: 37.5em) {
+    align-items: center;
+    gap: 2rem;
+    order: 2;
+  }  
+}
+
+.right{
+   height: 100%;
 }
 
 .links__container {
@@ -33,6 +52,7 @@
   align-items: baseline;
   justify-items: center;
   gap: var(--spacing-M);
+  height: 100%;
 }
 
 .links {
@@ -41,9 +61,11 @@
   line-height: var(--line-height-subTitle_03);
 
   display: flex;
-  justify-content: baseline;
+  gap: 8px;
+  justify-content: space-between;
   align-items: left;
   flex-direction: column;
+  height: calc(80% - var(--spacing-S));
 
   color: var(--neutral-50);
 }
@@ -65,6 +87,7 @@
 
 .footer__columnHead {
   margin-bottom: var(--spacing-S);
+  text-align: center;
 }
 h2.footer__columnHead {
   color: var(--neutral-50);

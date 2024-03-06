@@ -36,12 +36,12 @@
   @media only screen and (max-width: 90em) {
     padding-left: 3vw;
   } 
-  @media only screen and (max-width: 75em) {
-    padding-left: 0vw;
-  }
   @media only screen and (max-width: 55em) {
     padding-top: var(--spacing-S);
     padding-left: var(--spacing-LM);
+  } 
+  @media only screen and (max-width: 27em) {
+    padding-left: 0;
   } 
 
 

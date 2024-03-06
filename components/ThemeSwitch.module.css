@@ -1,5 +1,5 @@
 .icone {
-  height: 5rem;
-  width: 5rem;
+  height: var(--icone-S);
+  width: var(--icone-S);
   color: var(--font-color-main);
 }

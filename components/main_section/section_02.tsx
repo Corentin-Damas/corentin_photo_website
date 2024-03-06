@@ -7,7 +7,7 @@ function section_02() {
   return (
     <section className={styles.section02__Containeur}>
       <div className={styles.section02__left}>
-        <div className={styles.verticalRule}></div>
+        <div className={`${styles.verticalRule} ${styles.first_bar}`}></div>
 
         <h1 className={` ${styles.display_02}  japanese`}>
           <span className={styles.firstKanji}>続</span>きたい

@@ -47,12 +47,14 @@
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
-  --bg-transparency-smallScreen: hsla(204, 64%, 18%, 0.75);
+  --bg-transparency-smallScreen: hsla(205, 51%, 83%, 0.75);
 
   --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
   --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
   --bg-nav-float-transparency-end: hsla(210, 40%, 98%, 0.3);
-
+  --bg-p1-transparency: hsla(210, 40%, 98%, 0.7);
+  --bg-p1-brightness: 1.15;
+  --bg-navMobile-brightness: 1.4;
   /* --gallery-title-transparency: hsla(6, 59%, 24%, 0.9); */
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
@@ -103,9 +105,11 @@
   --max-width-MS: 1100px;
 
   --img-preview-M: 30rem;
+  --icone-S: 5rem;
   --icone-M: 8rem;
   --border-radius: 12px;
-  --footerSize: 40rem;
+  --footerSize: 45rem;
+  --footerSizeMobile: 70rem;
 
   --special_link: 0.8rem;
 }
@@ -117,6 +121,10 @@ html.dark {
   --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.9);
   --bg-nav-transparency-end: hsla(208, 29%, 10%, 0);
   --bg-nav-float-transparency-end: hsla(208, 29%, 10%, 0.5);
+  --bg-p1-transparency: hsla(208, 29%, 10%, 0.5);
+  --bg-p1-brightness: 0.4;
+  --bg-navMobile-brightness: 0.9;
+  --bg-transparency-smallScreen: hsla(204, 64%, 18%, 0.75);
 
   --font-color-main: #eaecee;
   --font-color-sec: #f8fafc;
@@ -166,6 +174,9 @@ html {
   }
   @media only screen and (max-width: 55em) {
     font-size: 50%;
+  }
+  @media only screen and (max-width: 27em) {
+    font-size: 45%;
   }
 }
 
@@ -366,6 +377,9 @@ Tablet:
 Phones
 600 px 37.5em
 @media only screen and (max-width: 37.5em) {
+}  
+432 px 27em
+@media only screen and (max-width: 27em) {
 }  
 
 */

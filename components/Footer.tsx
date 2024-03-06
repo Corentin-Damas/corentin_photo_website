@@ -34,14 +34,13 @@ function Footer() {
               <Link href="/gallery/tsuzukitai">Trapped Memories</Link>
               <Link href="/gallery/a_year_in_japan">A year in japan</Link>
               <Link href="/gallery/infrared">Infrared</Link>
-              <Link className={styles.utilities_Link} href="/about">
-                About
-              </Link>
+              <Link href="/about">About</Link>
             </ul>
             <ul className={styles.links}>
               <Link href="/gallery/morning_shadows">Morning shadows</Link>
               <Link href="/gallery/earth_and_sky">Earth & sky</Link>
               <Link href="/gallery/black_and_white">Black & white</Link>
+              <Link href="/gallery">Gallery</Link>
             </ul>
           </div>
         </div>

@@ -19,8 +19,8 @@
     max-width: var(--max-width-M);
   }
   @media only screen and (max-width: 37.5em) {
-    grid-template-rows: 1px 2fr 10rem 0.8fr 2.4rem 8rem 1fr 2.4rem;
-  }  
+    grid-template-rows: 1px 2fr 10rem 1fr 2.4rem 8rem 1fr 2.4rem;
+  }
 }
 
 .horizontalRule {
@@ -31,15 +31,12 @@
   border: none;
   border-top: 0.5px solid;
   border-color: var(--rules-color);
+  @media only screen and (max-width: 37.5em) {
+    display: none;
+  }  
 }
 
 /* === part 1 === */
-
-.section01__mainProject {
-  grid-row: 1;
-  object-fit: cover;
-  position: relative;
-}
 
 .img_caption__containeur {
   grid-row: 2/3;
@@ -57,6 +54,9 @@
   gap: var(--spacing-XS);
   transition: all 0.2s;
   z-index: 100;
+  @media only screen and (max-width: 65em) {
+    display: none;
+  }
 }
 
 .link__img {
@@ -69,7 +69,6 @@
   overflow: hidden;
   @media only screen and (max-width: 65em) {
     grid-column: 1/4;
-    
   }
 }
 .link__img:hover > *,
@@ -115,19 +114,35 @@
   z-index: 110;
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-Display_03);
+    grid-column: 3/4;
+    align-self: flex-end;
+    justify-self: left;
+    margin-bottom: 0;
+  }
+  @media only screen and (max-width: 37.5em) {
+    display: none;
   }
 }
 
-.transparency{
+.transparency {
   grid-row: 2/3;
-  grid-column: 2/4;
+  grid-column: 3/4;
   z-index: 110;
   width: 100%;
   height: 100%;
   @media only screen and (max-width: 65em) {
-    background-color: var(--bg-nav-float-transparency-end);
-    backdrop-filter: blur(4px) brightness(0.4);
-  }  
+    background-color: var(--bg-p1-transparency);
+    backdrop-filter: blur(4px) brightness(var(--bg-p1-brightness));
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .title__box {
@@ -147,8 +162,22 @@
 
   @media only screen and (max-width: 125em) {
     justify-self: center;
-  } 
+  }
+  @media only screen and (max-width: 37.5em) {
+    grid-column: 1/4;
+    height: 30%;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .title__box_txt {
@@ -156,7 +185,21 @@
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-Display_03);
   }
+  @media only screen and (max-width: 37.5em) {
+    display: none;
+  }  
 }
+.title__box_mobile{
+  @media only screen and (min-width: 37.5em) {
+    display: none;
+  }
+  @media only screen and (max-width: 37.5em) {
+
+    font-weight: 300;
+    font-size: var(--font-size-Title_02);
+  }
+}
+
 .title__box_line01 {
   grid-row: 1/2;
   grid-column: 1/3;
@@ -172,7 +215,6 @@
   grid-column: 1/2;
   @media only screen and (max-width: 65em) {
     letter-spacing: 1.2rem;
-
   }
 }
 
@@ -183,11 +225,16 @@
   justify-self: end;
   margin-right: 2.8rem;
   transform: translateY(12px);
+  border-top: 2px solid var(--rules-color) ;
 
   @media only screen and (max-width: 65em) {
-    justify-self:start;
-    margin-right: 0;
-    transform: translateY(0px) ;
+    justify-self: end;
+    margin-right: 2rem;
+    transform: translateY(0px);
+    border-top: 1px solid var(--rules-color) ;
+  }
+  @media only screen and (max-width: 37.5em) {
+    display: none;
   }
 }
 .title__box_L3 {
@@ -198,8 +245,10 @@
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-Display_03);
     letter-spacing: 1.7rem;
-
   }
+  @media only screen and (max-width: 37.5em) {
+    font-size: var(--font-size-Title_02);
+  }  
 }
 
 .kanji__line {
@@ -212,8 +261,9 @@
   grid-row: 4/5;
   grid-column: 1/3;
   justify-self: end;
-  
+  @media only screen and (max-width: 37.5em){
 
+  }
 }
 
 /* === part 2 === */
@@ -230,15 +280,14 @@
   grid-column: 1/2;
   @media only screen and (max-width: 37.5em) {
     grid-column: 1/4;
-    
-  }  
+  }
 }
 .museums__title {
   grid-column: 3/4;
   @media only screen and (max-width: 37.5em) {
     grid-column: 1/4;
     grid-row: 6/7;
-  } 
+  }
 }
 .underline {
   margin-top: 0.8rem;
@@ -260,22 +309,23 @@
     border-inline: 0px;
   }
   @media only screen and (max-width: 37.5em) {
-   width: 100%;
-  }  
-
+    width: 100%;
+    height: 100%;
+  }
 }
+
 .link__city {
   grid-column: 1/2;
   @media only screen and (max-width: 37.5em) {
     grid-column: 1/4;
-  }  
+  }
 }
 .link__museum {
   grid-column: 3/4;
   @media only screen and (max-width: 37.5em) {
     grid-column: 1/4;
     grid-row: 7/8;
-  } 
+  }
 }
 
 .img__container_city,
@@ -286,6 +336,8 @@
   transition: all 0.3s;
   @media only screen and (max-width: 65em) {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -300,14 +352,13 @@
   @media only screen and (max-width: 37.5em) {
     width: 100%;
     height: 100%;
-   }  
-
+  }
 }
 
 .legend__city,
 .legend__museums {
   grid-row: 5/6;
-text-align: right;
+  text-align: right;
   position: relative;
   justify-self: right;
   display: flex;
@@ -315,7 +366,6 @@ text-align: right;
   align-items: center;
   gap: var(--spacing-XS);
 }
-
 
 .legend__city {
   grid-column: 1/2;
@@ -338,7 +388,7 @@ text-align: right;
   @media only screen and (max-width: 37.5em) {
     grid-column: 1/4;
     grid-row: 8/9;
-   }  
+  }
 }
 
 .verticalRule {

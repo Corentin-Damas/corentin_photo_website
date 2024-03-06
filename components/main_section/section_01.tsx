@@ -78,6 +78,11 @@ function section_01() {
 
         <div className={styles.title__box}>
           <h1
+            className={`${styles.title__box_mobile} ${styles.title__box_line01}`}
+          >
+            A year in japan
+          </h1>
+          <h1
             className={`${styles.title__box_txt} ${styles.title__box_line01} `}
           >
             A year
@@ -88,20 +93,21 @@ function section_01() {
           >
             In
           </h1>
-          <hr className={styles.title__box_line} />
+          <div className={styles.title__box_line}></div>
 
-          <h1 className={styles.title__box_L3}>Japan</h1>
+          <h1 className={` ${styles.title__box_txt} ${styles.title__box_L3} `}>
+            Japan
+          </h1>
 
           <div className={styles.p1__link__containeur}>
-
-          <Link
-            href={"/gallery/a_year_in_japan"}
-            tabIndex={9}
-            className="gallery_Link"
+            <Link
+              href={"/gallery/a_year_in_japan"}
+              tabIndex={9}
+              className="gallery_Link"
             >
-            See Gallery _<span className="main-Color">&gt;</span>
-          </Link>
-            </div>
+              See Gallery _<span className="main-Color">&gt;</span>
+            </Link>
+          </div>
         </div>
 
         {/* Part 2 The city */}
