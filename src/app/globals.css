@@ -373,6 +373,10 @@ Tablet:
 @media only screen and (max-width: 71em) {}
 1040px 65em
 @media only screen and (max-width: 65em){}
+1000px 62.5em
+@media only screen and (max-width: 62.5em){}
+912px 57em 
+@media only screen and (max-width: 57em){}
 880px 55em
 @media only screen and (max-width: 55em){}  
 800px 50em
@@ -385,6 +389,8 @@ Phones
 @media only screen and (max-width: 38.5em) {}
 600px 37.5em
 @media only screen and (max-width: 37.5em){} 
+528px 33em 
+@media only screen and (max-width: 33em){} 
 512px 32em 
 @media only screen and (max-width: 32em){} 
 432px 27em

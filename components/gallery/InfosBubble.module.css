@@ -69,6 +69,15 @@
   opacity: 100;
   transition: all 0.3s ease-in-out;
   z-index: 300;
+  
+  @media only screen and (max-width: 57em) {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 900px;
+  }
 }
 
 .close.popUpInformation {
@@ -87,4 +96,7 @@
   float: left;
   text-align: start;
   grid-row: 2/3;
+  @media only screen and (max-width: 32em){
+    width: 80%;
+  } 
 }

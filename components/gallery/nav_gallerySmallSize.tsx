@@ -121,8 +121,8 @@ function Nav_gallerySmallSize() {
                 Work in black and white
               </Link>
             </div>
-            <Link href="/gallery/museums">about</Link>
-            <Link href="/gallery/museums">contact</Link>
+            <Link href="/about">about</Link>
+            <Link href="/contact">contact</Link>
           </ul>
         </div>
       </div>
