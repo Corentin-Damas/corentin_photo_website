@@ -6,18 +6,38 @@
   justify-content: space-between;
   gap: var(--spacing-M);
   letter-spacing: 1px;
-  max-height: 100vh;
-
+  padding-top: var(--spacing-M);
   z-index: 100;
+  
+  
+  @media only screen and (max-height: 50em) {
+    gap: var(--spacing-SS);  
+  }
+  @media only screen and (max-width: 85em) {
+    padding-top: calc(var(--spacing-LM) + var(--spacing-SS));
+  }
 }
 
 .myNameLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30rem;
   font-family: var(--font-Lateef-Regular);
   font-size: var(--font-size-Title_01);
-  line-height: var(--line-height-Title_01);
+  line-height: var(--font-size-Title_02);
   letter-spacing: 3px;
   color: var(--font-color-body_02);
   transition: all 0.2s;
+  z-index: 300;
+  @media only screen and (max-height: 50em){
+    font-size: var(--font-size-Title_02);
+    line-height: var(--font-size-subTitle_01);
+  }
+
+  @media only screen and (max-width: 84em){
+    width: 25rem;
+  } 
 }
 
 .myNameLink:hover {
@@ -33,6 +53,9 @@
   align-items: left;
   flex-direction: column;
   gap: var(--spacing-SS);
+  @media only screen and (max-width: 84em) {
+    font-size: var(--font-size-bodyText_01);
+  } 
 }
 
 .link__group_name {
@@ -45,20 +68,29 @@
 
 .link__group {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 3.2rem 1fr;
   grid-template-rows: auto;
   align-items: center;
   justify-items: left;
-  margin-bottom: var(--spacing-M);
   gap: var(--spacing-SS);
   padding-left: var(--spacing-SS);
+  @media only screen and (max-width: 84em) {
+    padding-left: 0;
+  } 
+
 }
+.link__first{
+  margin-bottom: var(--spacing-S);
+}
+
+
 .bar {
   color: var(--link-color-underline);
 }
 
 .number {
   justify-self: right;
+
 }
 
 .normal__link {

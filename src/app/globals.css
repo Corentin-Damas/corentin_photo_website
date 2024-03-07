@@ -47,7 +47,7 @@
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
-  --bg-transparency-smallScreen: hsla(205, 51%, 83%, 0.75);
+  --bg-transparency-smallScreen: hsla(210, 11%, 93%, 0.9);
 
   --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
   --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
@@ -346,40 +346,48 @@ p.detail_02 {
 /*
 
 
-3000 px 187.5em
-@media only screen and (min-width: 187.5em) {
-} 
+3000px 187.5em
+@media only screen and (min-width: 187.5em){} 
 
-2000 px 125em
-@media only screen and (max-width: 125em) {
-}  
-1920 px 120em
-@media only screen and (max-width: 120em) {
-}  
-1440 px 90em
-@media only screen and (max-width: 90em) {
-}  
-1200 px 75em
-@media only screen and (max-width: 75em) {
-} 
+2000px 125em
+@media only screen and (max-width: 125em){}  
+1920px 120em
+@media only screen and (max-width: 120em){}  
+1560px 97.5em
+@media only screen and (max-width: 97.5em) {} 
+1440px 90em
+@media only screen and (max-width: 90em){}  
+1350px 85em
+@media only screen and (max-width: 85em) {}
+1344px 84em
+@media only screen and (max-width: 84em){} 
+1300px 81.25em
+@media only screen and (max-width: 81.25em) {}
+1232px 77em
+@media only screen and (max-width: 77em){} 
+1200px 75em
+@media only screen and (max-width: 75em){} 
 
 Tablet: 
-1040 px 65em
-@media only screen and (max-width: 65em) {
-}
-880 px 55em
-@media only screen and (max-width: 55em) {
-}  
-700 px 43.75em
-@media only screen and (max-width: 43.75em) {
-}  
+1136 px 71em
+@media only screen and (max-width: 71em) {}
+1040px 65em
+@media only screen and (max-width: 65em){}
+880px 55em
+@media only screen and (max-width: 55em){}  
+800px 50em
+@media only screen and (max-width: 50em){}  
+700px 43.75em
+@media only screen and (max-width: 43.75em){}  
 
 Phones
-600 px 37.5em
-@media only screen and (max-width: 37.5em) {
-}  
-432 px 27em
-@media only screen and (max-width: 27em) {
-}  
+616px 38.5em
+@media only screen and (max-width: 38.5em) {}
+600px 37.5em
+@media only screen and (max-width: 37.5em){} 
+512px 32em 
+@media only screen and (max-width: 32em){} 
+432px 27em
+@media only screen and (max-width: 27em){}  
 
 */

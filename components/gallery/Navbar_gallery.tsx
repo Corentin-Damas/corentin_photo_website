@@ -24,7 +24,7 @@ function Navbar_gallery() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ ease: "easeOut", duration: 0.6 }}
           >
-            <ul className={styles.link__group}>
+            <ul className={`${styles.link__group} ${styles.link__first}`}>
               <p className={styles.number}>
                 _1 <span className={styles.bar}>|</span>{" "}
               </p>
