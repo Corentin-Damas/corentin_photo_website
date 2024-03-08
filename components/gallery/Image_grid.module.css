@@ -120,6 +120,12 @@
   z-index: 900;
   transition: all 0.3s;
   cursor: pointer;
+  background-color: var(--background-color-transparency);
+  border-radius: 50%;
+  @media only screen and (max-width: 65em){
+    width: var(--icone-S);
+    height: var(--icone-S);
+  }
 }
 
 .icone_left {
