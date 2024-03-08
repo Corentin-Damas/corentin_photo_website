@@ -53,6 +53,7 @@
   height: 100%;
   object-fit: cover;
   transition: all 0.6s;
+  pointer-events: none;
   @media only screen and (max-width: 38.5em) {
     width: 100%;
     height: auto;
@@ -68,9 +69,9 @@
   top: 0;
   left: 0;
 
-  z-index: 100;
+  z-index: 500;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
@@ -97,7 +98,7 @@
   right: 4rem;
   height: var(--icone-M);
   width: var(--icone-M);
-  z-index: 200;
+  z-index: 510;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,17 +113,25 @@
 }
 
 .icone {
+  position: absolute;
   width: var(--icone-M);
   height: var(--icone-M);
   color: var(--font-color-main);
   z-index: 900;
-  border-radius: 50%;
   transition: all 0.3s;
   cursor: pointer;
 }
 
-.icone:hover,
-.icone:focus {
-  color: var(--prim-500-main);
+.icone_left {
+  left: 2vw;
+  top: calc(50% - (var(--icone-M) / 2));
+}
+.icone_right {
+  top: calc(50% - (var(--icone-M) / 2));
+  right: 2vw;
+}
+
+.icone:hover {
+
   transform: scale(1.05);
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import style from "./../gallery/Image_grid.module.css";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 import { motion } from "framer-motion";
+
 const GalleryImg = ({
   images,
   currentDir,
@@ -56,10 +57,50 @@ const GalleryImg = ({
     });
   }
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: any) => {
+    setTouchEnd(null);
+    setTouchStart(null);
+    try {
+      setTouchStart(e.nativeEvent.touches[0].pageX);
+    } catch (e) {
+      return;
+    }
+  };
+
+  const onTouchMove = (e: any) => {
+    try {
+      setTouchEnd(e.nativeEvent.touches[0].pageX);
+    } catch (e) {
+      return;
+    }
+  };
+
+  const onTouchEnd = () => {
+    console.log("end:", touchStart, touchEnd);
+    if (!touchStart || !touchEnd) return;
+    if (Math.abs(touchStart - touchEnd) > minSwipeDistance) {
+      if (touchStart < touchEnd) {
+        handlePrev();
+      }
+      if (touchStart > touchEnd) {
+        handleNext();
+      }
+    } else {
+      setTouchEnd(null);
+      setTouchStart(null);
+    }
+  };
+
   useEffect(() => {
     keyDownDetected();
     return window.removeEventListener("keydown", keyDownDetected);
   });
+
   return (
     <>
       <ul className={style.grid}>
@@ -98,7 +139,7 @@ const GalleryImg = ({
               <div>
                 <div className={style.arrows_container}>
                   <GrFormPrevious
-                    className={style.icone}
+                    className={`${style.icone} ${style.icone_left}`}
                     onClick={handlePrev}
                   />
                 </div>
@@ -114,10 +155,21 @@ const GalleryImg = ({
                 src={`/${currentDir}/L/${images[imgSelected]}`}
                 quality={100}
                 onLoad={() => setImageBigLoading(false)}
+                onMouseDown={onTouchStart}
+                onMouseMove={onTouchMove}
+                onMouseUp={onTouchEnd}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
               />
               <div>
-                <div className={style.arrows_container}>
-                  <GrFormNext className={style.icone} onClick={handleNext} />
+                <div
+                  className={`${style.arrows_container} ${style.arrows_right}`}
+                >
+                  <GrFormNext
+                    className={`${style.icone} ${style.icone_right}`}
+                    onClick={handleNext}
+                  />
                 </div>
               </div>
             </motion.div>
