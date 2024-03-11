@@ -5,9 +5,12 @@ import styles from "../gallery/Navbar_gallery.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useImgSelected } from "../../providers/imgFav-provider";
 
 function Navbar_gallery() {
   const path = usePathname();
+
+  const imgList = useImgSelected((state) => state.imgSelected);
   return (
     <>
       <nav className={styles.nav}>
@@ -116,6 +119,11 @@ function Navbar_gallery() {
           </motion.div>
           <Link href="/about" className={styles.normal__link}>
             About
+          </Link>
+          <Link href="/gift" className={`${styles.normal__link} ${styles.gift__link} `}>
+            Your Gift
+            <p className={`${styles.dot} ${imgList.length>0?styles.dot_on:""}`}></p>
+            
           </Link>
         </ul>
         <Link href="/contact">

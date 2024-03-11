@@ -25,6 +25,7 @@
 }
 
 .card {
+  position: relative;
   list-style: none;
   height: 350px;
   flex-grow: 1;
@@ -53,7 +54,6 @@
   height: 100%;
   object-fit: cover;
   transition: all 0.6s;
-  pointer-events: none;
   @media only screen and (max-width: 38.5em) {
     width: 100%;
     height: auto;
@@ -122,7 +122,7 @@
   cursor: pointer;
   background-color: var(--background-color-transparency);
   border-radius: 50%;
-  @media only screen and (max-width: 65em){
+  @media only screen and (max-width: 65em) {
     width: var(--icone-S);
     height: var(--icone-S);
   }
@@ -138,6 +138,43 @@
 }
 
 .icone:hover {
-
   transform: scale(1.05);
+}
+
+.bookmark_empty_containeur,
+.bookmark_full_containeur {
+  position: absolute;
+  bottom: var(--spacing-XS);
+  right: var(--spacing-XS);
+  z-index: 900;
+  width: var(--spacing-M);
+  height: var(--spacing-M);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-p1-transparency);
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.bookmark_empty_containeur{
+  opacity: 0;
+}
+.bookmark_full_containeur{
+  opacity: 100;
+  
+}
+
+.bookmark_empty,
+.bookmark_full {
+  width: var(--spacing-S);
+  height: var(--spacing-S);
+  color: var(--font-color-main);
+}
+
+.img:hover ~ .bookmark_empty_containeur,
+.img:hover ~ .bookmark_full_containeur,
+.bookmark_empty_containeur:hover,
+.bookmark_full_containeur:hover {
+  opacity: 100;
 }

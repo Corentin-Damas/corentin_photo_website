@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import style from "./../gallery/Image_grid.module.css";
+import styles from "./../gallery/Image_grid.module.css";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 import { motion } from "framer-motion";
+
+import BookMarkIcon from "../BookMarkIcon";
 
 const GalleryImg = ({
   images,
@@ -16,6 +18,7 @@ const GalleryImg = ({
   const [imgSelected, setImageSelected] = useState(0);
   const [isImageLoading, setImageLoading] = useState(true);
   const [isImageBigLoading, setImageBigLoading] = useState(true);
+
 
   function handlePreviewClick(idx: number) {
     setImageBigLoading(true);
@@ -103,19 +106,19 @@ const GalleryImg = ({
 
   return (
     <>
-      <ul className={style.grid}>
+      <ul className={styles.grid}>
         {images.map((el: string, idx: number) => (
           <li
-            className={style.card}
+            className={styles.card}
             key={el}
-            onClick={() => handlePreviewClick(idx)}
-          >
+            >
             <Image
               src={`/${currentDir}/S/${el}`}
-              className={`${style.img} ${
+              className={`${styles.img} ${
                 isImageLoading ? "unLoaded" : "remove-unLoaded"
-              } `}
+              }`}
               sizes="100vw"
+              onClick={() => handlePreviewClick(idx)}
               width={0}
               height={0}
               alt={`picture from the photo series ${currentDir}`}
@@ -123,6 +126,7 @@ const GalleryImg = ({
               loading="lazy"
               onLoad={() => setImageLoading(false)}
             />
+            <BookMarkIcon imgName={el} />
           </li>
         ))}
       </ul>
@@ -134,18 +138,18 @@ const GalleryImg = ({
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 0, opacity: 0, scale: 0 }}
               transition={{ ease: "easeInOut", duration: 0.4 }}
-              className={style.popUpImg__Container}
+              className={styles.popUpImg__Container}
             >
               <div>
-                <div className={style.arrows_container}>
+                <div className={styles.arrows_container}>
                   <GrFormPrevious
-                    className={`${style.icone} ${style.icone_left}`}
+                    className={`${styles.icone} ${styles.icone_left}`}
                     onClick={handlePrev}
                   />
                 </div>
               </div>
               <Image
-                className={`${style.popUpImg__img} ${
+                className={`${styles.popUpImg__img} ${
                   isImageBigLoading ? "unLoaded" : "remove-unLoaded"
                 }`}
                 sizes="100vw"
@@ -164,17 +168,17 @@ const GalleryImg = ({
               />
               <div>
                 <div
-                  className={`${style.arrows_container} ${style.arrows_right}`}
+                  className={`${styles.arrows_container} ${styles.arrows_right}`}
                 >
                   <GrFormNext
-                    className={`${style.icone} ${style.icone_right}`}
+                    className={`${styles.icone} ${styles.icone_right}`}
                     onClick={handleNext}
                   />
                 </div>
               </div>
             </motion.div>
-            <div className={style.close_container}>
-              <GrFormClose className={style.icone} onClick={handleClose} />
+            <div className={styles.close_container}>
+              <GrFormClose className={styles.icone} onClick={handleClose} />
             </div>
           </>
         )}

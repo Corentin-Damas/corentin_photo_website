@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../../../../components/Navbar";
 import Image from "next/image";
-import styles from "../about/page.module.css";
 import Link from "next/link";
+import styles from "../about/page.module.css";
+import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 
 function page() {

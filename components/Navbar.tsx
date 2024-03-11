@@ -4,13 +4,13 @@ import React, { useEffect, useState } from "react";
 import styles from "../components/Navbar.module.css";
 import ThemeSwitch from "./ThemeSwitch";
 import NavbarSmallScreen from "./NavbarSmallScreen";
+import { usePathname } from "next/navigation";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {
+  const path = usePathname();
   const possibeState = { fixed: "fixed", unFixed: "", init: "init" };
   const [navState, setNavState] = useState(possibeState.init);
   const [lastScroll, setLastScoll] = useState<number>(0);
-
-
 
   const scrollBehaviour = () => {
     const currentScroll = window.scrollY;
@@ -59,14 +59,32 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
             Corentin Damas
           </Link>
           <ul className={styles.links_fullSize}>
-            <Link className={styles.link} tabIndex={2} href="/gallery">
-              Project
-            </Link>
-            <Link className={styles.link} tabIndex={3} href="/gallery">
+            <Link
+              className={`${styles.link} ${
+                path == "/gallery" ? styles.currPage : ""
+              }`}
+              tabIndex={3}
+              href="/gallery"
+            >
               Gallery
             </Link>
-            <Link className={styles.link} tabIndex={4} href="/about">
+            <Link
+              className={`${styles.link} ${
+                path == "/about" ? styles.currPage : ""
+              }`}
+              tabIndex={4}
+              href="/about"
+            >
               About
+            </Link>
+            <Link
+              className={`${styles.link} ${
+                path == "/gift" ? styles.currPage : ""
+              }`}
+              tabIndex={2}
+              href="/gift"
+            >
+              Your Gift
             </Link>
             {/* <Link href="/your_print">Your Print</Link> */}
           </ul>

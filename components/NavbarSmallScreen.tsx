@@ -5,6 +5,7 @@ import styles from "../components/NavbarSmallScreen.module.css";
 import ThemeSwitch from "./ThemeSwitch";
 import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
+import { usePathname } from "next/navigation";
 
 function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
@@ -12,6 +13,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const path = usePathname();
 
   return (
     <nav className={styles.smallScreenNav}>
@@ -56,14 +58,39 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
         <div className={styles.left_sSize} onClick={toggleMenu}></div>
         <div className={styles.right_sSize}>
           <ul className={styles.links_smallSize} onBlur={toggleMenu}>
-            <Link className={styles.link} tabIndex={2} href="/gallery">
-              Project
+            <Link
+              className={`${styles.link} ${path == "/" ? styles.currPage : ""}`}
+              tabIndex={1}
+              href="/"
+            >
+              Home
             </Link>
-            <Link className={styles.link} tabIndex={3} href="/gallery">
+            <Link
+              className={`${styles.link} ${
+                path == "/gallery" ? styles.currPage : ""
+              }`}
+              tabIndex={2}
+              href="/gallery"
+            >
               Gallery
             </Link>
-            <Link className={styles.link} tabIndex={4} href="/about">
+            <Link
+              className={`${styles.link} ${
+                path == "/about" ? styles.currPage : ""
+              }`}
+              tabIndex={3}
+              href="/about"
+            >
               About
+            </Link>
+            <Link
+              className={`${styles.link} ${
+                path == "/gift" ? styles.currPage : ""
+              }`}
+              tabIndex={4}
+              href="/gift"
+            >
+              Your Gift
             </Link>
             <Link href="/contact">
               <button className="btn" tabIndex={6}>
