@@ -18,9 +18,6 @@ function Navbar_gallery() {
           Corentin Damas
         </Link>
         <ul className={styles.links__List}>
-          <Link href="/gallery" className={styles.normal__link}>
-            Gallery
-          </Link>
           <h6 className={styles.link__group_name}>Projects</h6>
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -117,13 +114,27 @@ function Navbar_gallery() {
               </Link>
             </ul>
           </motion.div>
+          <Link
+            href="/gallery"
+            className={`${styles.normal__link} ${
+              path == "/gallery" ? styles.currPage : ""
+            }`}
+          >
+            Gallery
+          </Link>
           <Link href="/about" className={styles.normal__link}>
             About
           </Link>
-          <Link href="/gift" className={`${styles.normal__link} ${styles.gift__link} `}>
+          <Link
+            href="/gift"
+            className={`${styles.normal__link} ${styles.gift__link} `}
+          >
             Your Gift
-            <p className={`${styles.dot} ${imgList.length>0?styles.dot_on:""}`}></p>
-            
+            <p
+              className={`${styles.dot} ${
+                imgList.length > 0 ? styles.dot_on : ""
+              }`}
+            ></p>
           </Link>
         </ul>
         <Link href="/contact">

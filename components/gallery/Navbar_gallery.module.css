@@ -6,7 +6,7 @@
   justify-content: space-between;
   gap: var(--spacing-M);
   letter-spacing: 1px;
-  padding-top: var(--spacing-M);
+  padding-top: calc(var(--spacing-LM) + var(--spacing-S));
   z-index: 100;
 
   @media only screen and (max-height: 50em) {
@@ -127,6 +127,6 @@
   transition: all 0.2s;
   opacity: 0;
 }
-.dot_on{
-opacity: 100;
+.dot_on {
+  opacity: 100;
 }

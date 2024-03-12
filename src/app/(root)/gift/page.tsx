@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
+import Select_img from "../../../../components/gift/Select_img";
+
 function page() {
   return (
     <>
@@ -28,27 +30,8 @@ function page() {
         </div>
       </header>
       <section className={styles.about__content__container}>
-        <div className={styles.about__content__left}>
-          <div className={styles.img_container}>
-            <Image
-              src="/util_img/wall_img01.jpg"
-              alt="Corentin Damas with one of is framed picture on a customer's wall"
-              className={`${styles.imgWall}`}
-              sizes="100vw"
-              width={0}
-              height={0}
-              quality={80}
-            />
-          </div>
+        <Select_img />
 
-        </div>
-        <article className={styles.about__content__right}>
-          <p>
-            - 2019: The castle of &quot;l&apos;hermine&quot; in Vannes, France /
-            <br />
-            - 2020: At Vannes festival photo in Vannes, France /<br />
-          </p>
-        </article>
         <Link
           href={"/gallery"}
           className={`${styles.about__link} gallery_Link`}

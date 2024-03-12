@@ -156,5 +156,4 @@
 .currPage {
   text-decoration: underline;
   text-decoration-color: var(--rules-color);
-  color: var(--prim-500-main);
 }
