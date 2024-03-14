@@ -4,6 +4,7 @@ import styles from "../gift/Select_img.module.css";
 
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
+import Select_print from "./Select_print";
 
 function Select_img() {
   const imgList = useImgSelected((state) => state.imgSelected);
@@ -29,15 +30,26 @@ function Select_img() {
               quality={80}
             />
           ) : (
-            <Image
-              src={`/${imgSample.slice(3, -4)}/S/${imgSample}`}
-              alt="Corentin Damas with one of is framed picture on a customer's wall"
-              className={`${styles.img__selected}`}
-              sizes="100vw"
-              width={0}
-              height={0}
-              quality={80}
-            />
+            <div className={styles.mokeup_container}>
+              <Image
+                src={`/${imgSample.slice(3, -4)}/S/${imgSample}`}
+                alt="Corentin Damas with one of is framed picture on a customer's wall"
+                className={`${styles.img__selected}`}
+                sizes="100vw"
+                width={0}
+                height={0}
+                quality={80}
+              />
+              <Image
+                src="/util_img/livingRoom_01.jpg"
+                alt="Corentin Damas with one of is framed picture on a customer's wall"
+                className={`${styles.img__mokeup}`}
+                sizes="100vw"
+                width={0}
+                height={0}
+                quality={80}
+              />
+            </div>
           )}
         </div>
       </div>
@@ -61,6 +73,14 @@ function Select_img() {
               </li>
             ))}
           </ul>
+          <div className={styles.recommandation_title}>
+            <hr className={styles.smallHR} />
+            <h6> other that you might like </h6>
+            <hr className={styles.smallHR} />
+          </div>
+        </div>
+        <div>
+          <h3>select your fram</h3>
         </div>
       </div>
     </div>

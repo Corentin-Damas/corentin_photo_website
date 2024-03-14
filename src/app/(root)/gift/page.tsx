@@ -5,8 +5,10 @@ import Image from "next/image";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 import Select_img from "../../../../components/gift/Select_img";
+import Select_print from "../../../../components/gift/Select_print";
 
-function page() {
+function page({searchParams}:{searchParams:any}) {
+
   return (
     <>
       <header className={styles.header}>
@@ -31,6 +33,7 @@ function page() {
       </header>
       <section className={styles.about__content__container}>
         <Select_img />
+        <Select_print searchParams={searchParams}/>
 
         <Link
           href={"/gallery"}

@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model image{
+  name String @id @default(cuid())
+  WidthPix Int
+  heightPix Int
+  WidthCM Int
+  heightCM Int
+  format String
+  film Boolean
+}
+model fram{
+  id String @id @default(cuid())
+  format String
+  bordLarge_16 Float
+  bordLarge_20 Float
+  bordLarge_24 Float
+  bordLarge_30 Float
+  bordLarge_35 Float
+  bordLarge_40 Float
+  bordLarge_50 Float
+  bordLarge_60 Float
+  bordLarge_70 Float
+  bordLarge_75 Float
+  bordLarge_80 Float
+  bordLarge_90 Float
+}
