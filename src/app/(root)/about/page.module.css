@@ -30,6 +30,7 @@
 
 .about__content__container {
   max-width: var(--maxWidth);
+  min-height: 75vh;
   padding-inline: var(--padding-vertical) ;
   margin: 0 auto;
   display: grid;

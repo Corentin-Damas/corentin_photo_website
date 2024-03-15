@@ -20,7 +20,7 @@ model image{
 }
 model fram{
   id String @id @default(cuid())
-  format String
+  format String 
   bordLarge_16 Float
   bordLarge_20 Float
   bordLarge_24 Float
