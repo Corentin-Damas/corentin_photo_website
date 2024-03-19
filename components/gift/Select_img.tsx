@@ -5,6 +5,7 @@ import styles from "../gift/Select_img.module.css";
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
 import Select_print from "./Select_print";
+import {possileFrames} from "./productInfos"
 
 function Select_img() {
   const imgList = useImgSelected((state) => state.imgSelected);
@@ -14,65 +15,6 @@ function Select_img() {
     "03-black_and_white.jpg",
   ];
   const [imgSample, setImageSample] = useState("");
-
-  const possileFrames = {
-    gallery: {
-      name: "Gallery Frame",
-      color: {
-        brown: "Alder brown",
-        black: "Black oak",
-        oak: "Natural oak",
-        white: "Maple white",
-      },
-      size: { std: 20, large: 40 },
-      paper: {
-        archive: "Fuji Crystal Archive, glossy",
-        BW: "ilford B/W paper",
-      },
-      glass: {
-        glossy: {
-          name: "Acrylic glass 2mm, glossy",
-          desc: "Classic presentation",
-        },
-      },
-    },
-
-    woodPass: {
-      name: "Solid Wood Frame With Passe-Partout",
-      color: {
-        brown: "Alder brown",
-        black: "Black oak",
-        oak: "Natural oak",
-        white: "Maple white",
-      },
-      passPartoutColor: {
-        black: "black",
-        white: "white",
-      },
-      paper: {
-        archive: "Fuji Crystal Archive, glossy",
-        FineArt: "Hahnemühle FineArt Baryta",
-        BW: "ilford B/W paper",
-      },
-      size: { std: 20, large: 40 },
-      glass: {
-        glossy: { name: "Glossy float glass", desc: "Classic presentation" },
-        Matte: {
-          name: "Matte float glass",
-          desc: "Matte surface reduces reflections and suitable for rooms with strong light",
-        },
-        Museum: {
-          name: "Museum glass",
-          desc: "Anti-reflective, protection from UV",
-        },
-      },
-    },
-
-    ArtBox: "Artbox",
-    floater: "Floater Frame",
-    dibon: "Aluminum Dibond",
-    BWdibon: "Aluminum Dibond black and white",
-  };
 
   const possibleState = { fixed: "fixed", unFixed: "unfixed" };
   const [navState, setNavState] = useState(possibleState.unFixed);
