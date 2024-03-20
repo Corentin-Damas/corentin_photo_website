@@ -112,6 +112,11 @@
   --footerSizeMobile: 70rem;
 
   --special_link: 0.8rem;
+
+  --alder-Brown: hsl(11, 50%, 10%);
+  --black-Oak: #21201c;
+  --natural-Oak: #a0825c;
+  --maple-White: #ede5e2;
 }
 
 html.dark {
@@ -343,9 +348,6 @@ p.detail_02 {
   opacity: 0;
   transition: all 0.4s;
 }
-
-
-
 
 /*
 
