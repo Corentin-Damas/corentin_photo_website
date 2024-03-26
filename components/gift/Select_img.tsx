@@ -4,13 +4,27 @@ import styles from "../gift/Select_img.module.css";
 
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
-import Select_print from "./Select_print";
 import { possileFrames } from "./productInfos";
 import { PiInfo } from "react-icons/pi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useSearchParams } from "next/navigation";
 
-function Select_img() {
+import Link from "next/link";
+
+function Select_img({ objImg }: { objImg: any }) {
+  let imgInfos = {};
+  if (typeof objImg === "string") {
+    imgInfos = JSON.parse(objImg);
+  }
+  const searchParams = useSearchParams();
+  const selectedImg = searchParams.get("img");
+  const selectedImgExtention = selectedImg + ".jpg";
+  const selectedProduct = searchParams.get("product");
+  const addImg = useImgSelected((state) => state.addImgSelected);
+
   const imgList = useImgSelected((state) => state.imgSelected);
+  let subImage = "";
+
   const myImageSelection = [
     "01-a_year_in_japan.jpg",
     "02-a_year_in_japan.jpg",
@@ -18,8 +32,15 @@ function Select_img() {
     "03-earth_and_sky.jpg",
     "05-black_and_white.jpg",
   ];
+  if (
+    !imgList.includes(selectedImgExtention) &&
+    !myImageSelection.includes(selectedImgExtention) &&
+    selectedImgExtention.length > 4
+  ) {
+    subImage = selectedImgExtention;
+  }
 
-  const [imgSample, setImageSample] = useState("");
+  const [imgSample, setImageSample] = useState<string>("");
 
   const [framed, setFramed] = useState("");
   const [productDesc, setProductDesc] = useState("");
@@ -222,7 +243,7 @@ function Select_img() {
               : `${styles.img_unfixed}`
           }`}
         >
-          {imgSample.length <= 0 ? (
+          {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
               src="/util_img/wall_img01.jpg"
               alt="Corentin Damas with one of is framed picture on a customer's wall"
@@ -234,22 +255,23 @@ function Select_img() {
             />
           ) : (
             <div className={styles.mokeup_container}>
-              <Image
-                src={`/${imgSample.slice(3, -4)}/S/${imgSample}`}
-                alt="Actual selected pîcture"
-                className={`${styles.img__selected} ${
-                  framed == ""
-                    ? ""
-                    : framed == "Gallery Frame"
-                    ? styles.galleryFrame
-                    : framed == "Solid Wood Frame With Passe-Partout"
-                    ? styles.passePartout
-                    : framed == "Artbox"
-                    ? styles.artbox
-                    : framed == "Floater Frame"
-                    ? styles.floater
-                    : ""
-                }
+              {selectedImg != "" && (
+                <Image
+                  src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
+                  alt="Actual selected pîcture"
+                  className={`${styles.img__selected} ${
+                    framed == ""
+                      ? ""
+                      : framed == "Gallery Frame"
+                      ? styles.galleryFrame
+                      : framed == "Solid Wood Frame With Passe-Partout"
+                      ? styles.passePartout
+                      : framed == "Artbox"
+                      ? styles.artbox
+                      : framed == "Floater Frame"
+                      ? styles.floater
+                      : ""
+                  }
                 ${
                   frameColor == "Alder brown"
                     ? styles.alderBrown
@@ -285,13 +307,14 @@ function Select_img() {
                     : styles.passSizeBig
                 }
                 ${passColor == "white" ? "" : styles.blackPass}
-
+                
                 `}
-                sizes="100vw"
-                width={0}
-                height={0}
-                quality={80}
-              />
+                  sizes="100vw"
+                  width={0}
+                  height={0}
+                  quality={80}
+                />
+              )}
               <Image
                 src="/util_img/livingRoom_01.jpg"
                 alt="Corentin Damas with one of is framed picture on a customer's wall"
@@ -312,20 +335,42 @@ function Select_img() {
           <ul className={styles.imgs_flex}>
             {imgList.map((el) => (
               <li className={styles.imgPrev} key={el}>
-                <Image
-                  src={`/${el.slice(3, -4)}/S/${el}`}
-                  alt="Selected images from the gallery"
-                  className={`${styles.img} ${
-                    imgSample == el && styles.currentSelectedImg
-                  }`}
-                  sizes="100vw"
-                  width={0}
-                  height={0}
-                  quality={80}
-                  onClick={() => handleChangeImg(el)}
-                />
+                <Link href={`?img=${el.slice(0, -4)}`}>
+                  <Image
+                    src={`/${el.slice(3, -4)}/S/${el}`}
+                    alt="Selected images from the gallery"
+                    className={`${styles.img} ${
+                      imgSample == el && styles.currentSelectedImg
+                    }`}
+                    sizes="100vw"
+                    width={0}
+                    height={0}
+                    quality={80}
+                    onClick={() => handleChangeImg(el)}
+                  />
+                </Link>
               </li>
             ))}
+            {subImage != "" && (
+              <li className={styles.imgPrev}>
+                <Link href={`?img=${selectedImg}`}>
+                  <Image
+                    src={`/${subImage.slice(3, -4)}/S/${subImage}`}
+                    alt="Selected images from the gallery"
+                    className={`${styles.img} ${
+                      subImage == selectedImgExtention &&
+                      styles.currentSelectedImg
+                    }`}
+                    sizes="100vw"
+                    width={0}
+                    height={0}
+                    quality={80}
+                    onClick={() => handleChangeImg(subImage)}
+                    onLoad={() => addImg(subImage)}
+                  />
+                </Link>
+              </li>
+            )}
           </ul>
           <div className={styles.recommandation_title}>
             <hr className={styles.smallHR} />
@@ -337,34 +382,49 @@ function Select_img() {
               (el) =>
                 !imgList.includes(el) && (
                   <li className={styles.imgPrev} key={el}>
-                    <Image
-                      src={`/${el.slice(3, -4)}/S/${el}`}
-                      alt="Selected images from the gallery"
-                      className={`${styles.img} ${
-                        imgSample == el && styles.currentSelectedImg
+                    <Link
+                      href={`?img=${el.slice(0, -4)}${
+                        typeof selectedProduct === "string"
+                          ? `&product=${selectedProduct}`
+                          : ""
                       }`}
-                      sizes="100vw"
-                      width={0}
-                      height={0}
-                      quality={80}
-                      onClick={() => handleChangeImg(el)}
-                    />
+                    >
+                      <Image
+                        src={`/${el.slice(3, -4)}/S/${el}`}
+                        alt="Selected images from the gallery"
+                        className={`${styles.img} ${
+                          selectedImg == el.slice(0, -4) &&
+                          styles.currentSelectedImg
+                        }`}
+                        sizes="100vw"
+                        width={0}
+                        height={0}
+                        quality={80}
+                        onClick={() => handleChangeImg(el)}
+                      />
+                    </Link>
                   </li>
                 )
             )}
           </ul>
         </div>
 
+        <h3>max with is {imgInfos.WidthCM} cm</h3>
+
+        {/* add size here */}
+
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
             <h4>Framing, Mounting and Prints</h4>
-            <button
-              className={styles.btn_reset}
-              onClick={() => handleUndoAllFrame()}
-              disabled={productDesc == "" ? true : false}
-            >
-              Undo all
-            </button>
+            <Link href={`?img=${selectedImg}`}>
+              <button
+                className={styles.btn_reset}
+                onClick={() => handleUndoAllFrame()}
+                disabled={productDesc == "" ? true : false}
+              >
+                Undo all
+              </button>
+            </Link>
           </div>
           <div className={styles.select_container}>
             <div className={styles.section_title}>
@@ -383,17 +443,24 @@ function Select_img() {
               {Object.values(possileFrames).map(
                 (el) =>
                   el.framed && (
-                    <button
-                      onClick={() => handleBtnSelectorClick(el)}
-                      className={`${styles.btn_selector} ${
-                        framed == el.name && !isPrint
-                          ? styles.selectedFrame
-                          : ""
-                      }`}
+                    <Link
+                      href={`?img=${selectedImg}&product=${el.name
+                        .replaceAll(" ", "_")
+                        .toLowerCase()}`}
                       key={el.name}
+                      scroll={false}
                     >
-                      {el.name}
-                    </button>
+                      <button
+                        onClick={() => handleBtnSelectorClick(el)}
+                        className={`${styles.btn_selector} ${
+                          framed == el.name && !isPrint
+                            ? styles.selectedFrame
+                            : ""
+                        }`}
+                      >
+                        {el.name}
+                      </button>
+                    </Link>
                   )
               )}
               {product.framed && productDesc != "" && (

@@ -32,8 +32,8 @@ function page({searchParams}:{searchParams:any}) {
         </div>
       </header>
       <section className={styles.about__content__container}>
-        <Select_img />
-        <Select_print searchParams={searchParams}/>
+
+        <Select_print searchParams={searchParams} /> 
 
         <Link
           href={"/gallery"}

@@ -422,7 +422,7 @@ export const possileFrames = {
     framed: false,
     paper: {
       glossy: {
-        name: "Fuji Crystal Archive, glossy",
+        name: "Fuji crystal archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         tltr: "Standard quality colored glossy paper",
         colorPaper: true,
