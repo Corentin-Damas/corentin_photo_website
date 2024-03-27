@@ -444,7 +444,7 @@ export const possileFrames = {
         },
       },
       matte: {
-        name: "Fuji Crystal Archive, matte",
+        name: "Fuji Crystal Archive matte",
         tltr: "Standard quality colored matte paper",
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
@@ -484,7 +484,7 @@ export const possileFrames = {
         },
       },
       bAndWGlossy: {
-        name: "ilford B/W paper, glossy",
+        name: "ilford glossy black and white paper",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
         tltr: "Standard quality glossy paper for black and white",
         blackAndWitePaper: true,
@@ -510,7 +510,7 @@ export const possileFrames = {
         },
       },
       bAndWMatte: {
-        name: "ilford B/W paper, Matte",
+        name: "ilford matte black and white paper",
         tltr: "Standard quality matte paper for black and white",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts",
         blackAndWitePaper: true,

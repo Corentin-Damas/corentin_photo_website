@@ -11,10 +11,37 @@ import { useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 
-function Select_img({ objImg }: { objImg: any }) {
-  let imgInfos = {};
+function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
+  let imgInfos = {
+    name: "",
+    WidthPix: 0,
+    heightPix: 0,
+    WidthCM: 0,
+    heightCM: 0,
+    format: "",
+    film: false,
+  };
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
+  }
+  let imgProduct = {
+    id: "",
+    format: "",
+    bordLarge_16: 0,
+    bordLarge_20: 0,
+    bordLarge_24: 0,
+    bordLarge_30: 0,
+    bordLarge_35: 0,
+    bordLarge_40: 0,
+    bordLarge_50: 0,
+    bordLarge_60: 0,
+    bordLarge_70: 0,
+    bordLarge_75: 0,
+    bordLarge_80: 0,
+    bordLarge_90: 0,
+  };
+  if (typeof objProduct === "string") {
+    imgProduct = JSON.parse(objProduct);
   }
   const searchParams = useSearchParams();
   const selectedImg = searchParams.get("img");
@@ -35,7 +62,7 @@ function Select_img({ objImg }: { objImg: any }) {
   if (
     !imgList.includes(selectedImgExtention) &&
     !myImageSelection.includes(selectedImgExtention) &&
-    selectedImgExtention.length > 4
+    typeof selectedImg === "string"
   ) {
     subImage = selectedImgExtention;
   }
@@ -206,6 +233,17 @@ function Select_img({ objImg }: { objImg: any }) {
     setInfoBoxOpen(!infoBoxOpen);
   }
 
+  function handleLoadWithProduct(el: any) {
+    if (el.name.replaceAll(" ", "_").toLowerCase() == selectedProduct){
+
+      console.log(el.name);
+      handleBtnSelectorClick(el);
+    }else{
+      console.log('not working');
+
+    }
+  }
+
   const possibleState = { fixed: "fixed", unFixed: "unfixed" };
   const [navState, setNavState] = useState(possibleState.unFixed);
   const scrollBehaviour = () => {
@@ -351,7 +389,7 @@ function Select_img({ objImg }: { objImg: any }) {
                 </Link>
               </li>
             ))}
-            {subImage != "" && (
+            {subImage != "" && subImage != null && (
               <li className={styles.imgPrev}>
                 <Link href={`?img=${selectedImg}`}>
                   <Image
@@ -408,10 +446,6 @@ function Select_img({ objImg }: { objImg: any }) {
             )}
           </ul>
         </div>
-
-        <h3>max with is {imgInfos.WidthCM} cm</h3>
-
-        {/* add size here */}
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
@@ -489,17 +523,24 @@ function Select_img({ objImg }: { objImg: any }) {
                 (el) =>
                   !el.framed &&
                   el.name != "Simple print" && (
-                    <button
-                      onClick={() => handleBtnSelectorClick(el)}
-                      className={`${styles.btn_selector} ${
-                        framed == el.name && !isPrint
-                          ? styles.selectedFrame
-                          : ""
-                      }`}
+                    <Link
+                      href={`?img=${selectedImg}&product=${el.name
+                        .replaceAll(" ", "_")
+                        .toLowerCase()}`}
                       key={el.name}
+                      scroll={false}
                     >
-                      {el.name}
-                    </button>
+                      <button
+                        onClick={() => handleBtnSelectorClick(el)}
+                        className={`${styles.btn_selector} ${
+                          framed == el.name && !isPrint
+                            ? styles.selectedFrame
+                            : ""
+                        }`}
+                      >
+                        {el.name}
+                      </button>
+                    </Link>
                   )
               )}
               {!product.framed &&
@@ -527,17 +568,24 @@ function Select_img({ objImg }: { objImg: any }) {
             </div>
             <div className={styles.frames_solutions}>
               {Object.values(possileFrames.simplePrint.paper).map((el) => (
-                <button
-                  onClick={() => handleBtnSelectorClickPaper(el)}
-                  className={`${styles.btn_selector} ${
-                    isPrint && !isDefault && paper.name == el.name
-                      ? styles.selectedFrame
-                      : ""
-                  }`}
+                <Link
+                  href={`?img=${selectedImg}&product=${el.name
+                    .replaceAll(" ", "_")
+                    .toLowerCase()}`}
                   key={el.name}
+                  scroll={false}
                 >
-                  {el.name}
-                </button>
+                  <button
+                    onClick={() => handleBtnSelectorClickPaper(el)}
+                    className={`${styles.btn_selector} ${
+                      isPrint && !isDefault && paper.name == el.name
+                        ? styles.selectedFrame
+                        : ""
+                    }`}
+                  >
+                    {el.name}
+                  </button>
+                </Link>
               ))}
               {product.name == "Simple print" && (
                 <button
@@ -572,6 +620,41 @@ function Select_img({ objImg }: { objImg: any }) {
                   <h6>{section}</h6>
                   <p>{productSpec}</p>
                 </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.fram_module}>
+          <div className={styles.section_header}>
+            <h4>Available Size </h4>
+          </div>
+
+          <div className={styles.select_container}>
+            <div className={styles.frames_solutions}>
+              {Object.keys(imgInfos).includes("WidthCM") &&
+                imgProduct !== null &&
+                imgProduct.format !== "" &&
+                Object.entries(imgProduct).map(
+                  ([key, val]) =>
+                    key.slice(0, -2) == "bordLarge_" &&
+                    (key.slice(-2) as number) < imgInfos.WidthCM &&
+                    (val as number) > 0 && (
+                      <button key={key} className={`${styles.btn_selector} `}>
+                        {key.slice(-2)} {val}
+                      </button>
+                    )
+                )}
+              {selectedImg == null ||
+              selectedImg == "" ||
+              selectedProduct == null ||
+              selectedProduct == "" ? (
+                <h5>
+                  You might want to choose a picture and a display / Print
+                  solution do be able to choose within the available sizes
+                </h5>
+              ) : (
+                ""
               )}
             </div>
           </div>
