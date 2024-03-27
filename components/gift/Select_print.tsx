@@ -7,7 +7,7 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
     return <Select_img objImg={null} objProduct={null} />  
   }
   const imgQuery = await queryImg(searchParams.img);
-  console.log(imgQuery);
+  // console.log(imgQuery);
   const imgStringify = JSON.stringify(imgQuery);
 
   const productQuery = await queryFrame(searchParams.product, imgQuery?.format);

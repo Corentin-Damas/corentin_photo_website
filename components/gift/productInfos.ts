@@ -1,5 +1,5 @@
-export const possileFrames = {
-  gallery: {
+export const possileFrames= {
+  gallery_frame: {
     name: "Gallery Frame",
     framed: true,
     desc: "Classic elegant wooden frame. Available with real wood veener and visible grain.",
@@ -21,7 +21,7 @@ export const possileFrames = {
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
         blackAndWitePaper: true,
@@ -51,8 +51,8 @@ export const possileFrames = {
     },
   },
 
-  woodPass: {
-    name: "Solid Wood Frame With Passe-Partout",
+  solid_wood_frame_with_passe_partout: {
+    name: "Solid Wood Frame With Passe_Partout",
     desc: "Classic elegant wooden frame with a passepartout that add an additional frame for your picture. The distance between the glass and the picture surface is increased and a depth effect is created, which draws even more attention to the picture. ",
     tltr: "Classic elegant wooden frame with a passepartout.",
     spec: " Width: 20mm or 40mm, Depth: 30mm",
@@ -141,7 +141,7 @@ export const possileFrames = {
     },
   },
 
-  artBox: {
+  artbox: {
     name: "Artbox",
     desc: "The wooden ArtBox frames the photo simply when viewed head-on. Seen from the side, the depth of 35mm give a new original depth to the photo.",
     tltr: "The wooden ArtBox simply and elegantly frames the picture.",
@@ -162,7 +162,7 @@ export const possileFrames = {
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen",
         modifier: { s: 7, m: 15, l: 30 },
@@ -192,7 +192,7 @@ export const possileFrames = {
     },
   },
 
-  floater: {
+  floater_frame: {
     name: "Floater Frame",
     desc: "Classic floater frame made of wood. Your motif seems to float due to the gap wetween the motif and the frame.",
     tltr: "Classic floater frame made of wood.",
@@ -209,7 +209,7 @@ export const possileFrames = {
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen",
         modifier: { s: 7, m: 15, l: 30 },
@@ -249,7 +249,7 @@ export const possileFrames = {
     // },
   },
 
-  dibon: {
+  aluminum_dibond: {
     name: "Aluminum Dibond",
     framed: false,
     desc: "This a way to present the fine art prints in a clean and pure way. Long-lasting with a UV protective laminate",
@@ -265,7 +265,7 @@ export const possileFrames = {
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
         modifier: { s: 7, m: 15, l: 30 },
@@ -297,7 +297,7 @@ export const possileFrames = {
     },
   },
 
-  fineArtDibon: {
+  fine_art_dibond: {
     name: "Fine Art Dibond",
     framed: false,
     desc: "This a way to present the fine art prints in a clean and pure way, Just the print on the wall an nothing else. Constituted of four layers, the print, two aluminium layers to keep the presentation flat and clean and the core, a Black polythylene core. No frame, No glass. ",
@@ -332,7 +332,7 @@ export const possileFrames = {
     },
   },
 
-  acrylicGlassGlossy: {
+  under_glossy_acrylic_glass: {
     name: "Under glossy acrylic glass",
     framed: false,
 
@@ -344,7 +344,7 @@ export const possileFrames = {
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
         modifier: { s: 7, m: 15, l: 30 },
@@ -375,7 +375,7 @@ export const possileFrames = {
     },
   },
 
-  acrylicGlassMatte: {
+  under_matte_acrylic_glass: {
     name: "Under matte acrylic glass",
     framed: false,
     tltr: "The photo is set behind a protective matte acrylic glass",
@@ -387,7 +387,7 @@ export const possileFrames = {
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
       },
-      bAndW: {
+      bwGlossy: {
         name: "ilford B/W paper, glossy",
         desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
         modifier: { s: 7, m: 15, l: 30 },
@@ -417,124 +417,129 @@ export const possileFrames = {
       spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
-  simplePrint: {
-    name: "Simple print",
+
+  fuji_crystal_archive_glossy: {
+    name: "Fuji crystal archive glossy",
+    desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+    tltr: "Standard quality colored glossy paper",
+    spec: "Simple print",
     framed: false,
-    paper: {
-      glossy: {
-        name: "Fuji crystal archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
-        tltr: "Standard quality colored glossy paper",
-        colorPaper: true,
-        protection: {
-          laminationGlossy: {
-            name: "Protective glossy lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-        },
-        border: {
-          0: {},
-          1: { modifier: { s: 1, m: 2, l: 3 } },
-          2: { modifier: { s: 1, m: 3, l: 4 } },
-          3: { modifier: { s: 1, m: 5, l: 7 } },
-          5: { modifier: { s: 3, m: 7, l: 10 } },
-          8: { modifier: { s: 3, m: 12, l: 15 } },
-          12: { modifier: { s: 5, m: 18, l: 25 } },
-          spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-        },
+    colorPaper: true,
+    protection: {
+      laminationGlossy: {
+        name: "Protective glossy lamination",
+        modifier: { s: 1, m: 4, l: 8 },
       },
-      matte: {
-        name: "Fuji Crystal Archive matte",
-        tltr: "Standard quality colored matte paper",
-        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
-        colorPaper: true,
-        protection: {
-          laminationGlossy: {
-            name: "Protective glossy lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-        },
-        border: {
-          0: {},
-          1: { modifier: { s: 1, m: 2, l: 3 } },
-          2: { modifier: { s: 1, m: 3, l: 4 } },
-          3: { modifier: { s: 1, m: 5, l: 7 } },
-          5: { modifier: { s: 3, m: 7, l: 10 } },
-          8: { modifier: { s: 3, m: 12, l: 15 } },
-          12: { modifier: { s: 5, m: 18, l: 25 } },
-          spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-        },
+    },
+    border: {
+      0: {},
+      1: { modifier: { s: 1, m: 2, l: 3 } },
+      2: { modifier: { s: 1, m: 3, l: 4 } },
+      3: { modifier: { s: 1, m: 5, l: 7 } },
+      5: { modifier: { s: 3, m: 7, l: 10 } },
+      8: { modifier: { s: 3, m: 12, l: 15 } },
+      12: { modifier: { s: 5, m: 18, l: 25 } },
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
+    },
+  },
+  fuji_crystal_archive_matte: {
+    name: "Fuji Crystal Archive matte",
+    tltr: "Standard quality colored matte paper",
+    desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+    spec: "Simple print",
+    framed: false,
+    colorPaper: true,
+    protection: {
+      laminationGlossy: {
+        name: "Protective glossy lamination",
+        modifier: { s: 1, m: 4, l: 8 },
       },
-      fineArt: {
-        name: "Hahnemühle FineArt Baryta",
-        tltr: "Premimum quality colored paper, my favorite",
-        desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
-        colorPaper: true,
-        blackAndWitePaper: true,
-        fav: true,
-        border: {
-          0: {},
-          1: { modifier: { s: 1, m: 2, l: 5 } },
-          2: { modifier: { s: 2, m: 5, l: 7 } },
-          3: { modifier: { s: 4, m: 7, l: 12 } },
-          5: { modifier: { s: 6, m: 12, l: 20 } },
-          8: { modifier: { s: 8, m: 22, l: 32 } },
-          12: { modifier: { s: 16, m: 36, l: 52 } },
-          spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-        },
+    },
+    border: {
+      0: {},
+      1: { modifier: { s: 1, m: 2, l: 3 } },
+      2: { modifier: { s: 1, m: 3, l: 4 } },
+      3: { modifier: { s: 1, m: 5, l: 7 } },
+      5: { modifier: { s: 3, m: 7, l: 10 } },
+      8: { modifier: { s: 3, m: 12, l: 15 } },
+      12: { modifier: { s: 5, m: 18, l: 25 } },
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
+    },
+  },
+  hahnemühle_fineart_baryta: {
+    name: "Hahnemühle FineArt Baryta",
+    tltr: "Premimum quality colored paper, my favorite",
+    desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
+    spec: "Simple print",
+    framed: false,
+    colorPaper: true,
+    blackAndWitePaper: true,
+    fav: true,
+    border: {
+      0: {},
+      1: { modifier: { s: 1, m: 2, l: 5 } },
+      2: { modifier: { s: 2, m: 5, l: 7 } },
+      3: { modifier: { s: 4, m: 7, l: 12 } },
+      5: { modifier: { s: 6, m: 12, l: 20 } },
+      8: { modifier: { s: 8, m: 22, l: 32 } },
+      12: { modifier: { s: 16, m: 36, l: 52 } },
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
+    },
+  },
+  ilford_glossy_black_and_white_paper: {
+    name: "ilford glossy black and white paper",
+    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+    tltr: "Standard quality glossy paper for black and white",
+    spec: "Simple print",
+    framed: false,
+    blackAndWitePaper: true,
+    protection: {
+      laminationGlossy: {
+        name: "Protective glossy lamination",
+        modifier: { s: 1, m: 4, l: 8 },
       },
-      bAndWGlossy: {
-        name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
-        tltr: "Standard quality glossy paper for black and white",
-        blackAndWitePaper: true,
-        protection: {
-          laminationGlossy: {
-            name: "Protective glossy lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-          laminationMatte: {
-            name: "Protective Matte lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-        },
-        border: {
-          0: {},
-          1: { modifier: { s: 1, m: 2, l: 5 } },
-          2: { modifier: { s: 1, m: 4, l: 6 } },
-          3: { modifier: { s: 2, m: 7, l: 12 } },
-          5: { modifier: { s: 5, m: 12, l: 20 } },
-          8: { modifier: { s: 8, m: 20, l: 32 } },
-          12: { modifier: { s: 12, m: 25, l: 50 } },
-          spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-        },
+      laminationMatte: {
+        name: "Protective Matte lamination",
+        modifier: { s: 1, m: 4, l: 8 },
       },
-      bAndWMatte: {
-        name: "ilford matte black and white paper",
-        tltr: "Standard quality matte paper for black and white",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts",
-        blackAndWitePaper: true,
-        protection: {
-          laminationGlossy: {
-            name: "Protective glossy lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-          laminationMatte: {
-            name: "Protective Matte lamination",
-            modifier: { s: 1, m: 4, l: 8 },
-          },
-        },
-        border: {
-          0: {},
-          1: { modifier: { s: 1, m: 2, l: 5 } },
-          2: { modifier: { s: 1, m: 4, l: 6 } },
-          3: { modifier: { s: 2, m: 7, l: 12 } },
-          5: { modifier: { s: 5, m: 12, l: 20 } },
-          8: { modifier: { s: 8, m: 20, l: 32 } },
-          12: { modifier: { s: 12, m: 25, l: 50 } },
-          spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-        },
+      border: {
+        0: {},
+        1: { modifier: { s: 1, m: 2, l: 5 } },
+        2: { modifier: { s: 1, m: 4, l: 6 } },
+        3: { modifier: { s: 2, m: 7, l: 12 } },
+        5: { modifier: { s: 5, m: 12, l: 20 } },
+        8: { modifier: { s: 8, m: 20, l: 32 } },
+        12: { modifier: { s: 12, m: 25, l: 50 } },
+        spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
       },
+    },
+  },
+  ilford_matte_black_and_white_paper: {
+    name: "ilford matte black and white paper",
+    tltr: "Standard quality matte paper for black and white",
+    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts",
+    spec: "Simple print",
+    framed: false,
+    blackAndWitePaper: true,
+    protection: {
+      laminationGlossy: {
+        name: "Protective glossy lamination",
+        modifier: { s: 1, m: 4, l: 8 },
+      },
+      laminationMatte: {
+        name: "Protective Matte lamination",
+        modifier: { s: 1, m: 4, l: 8 },
+      },
+    },
+    border: {
+      0: {},
+      1: { modifier: { s: 1, m: 2, l: 5 } },
+      2: { modifier: { s: 1, m: 4, l: 6 } },
+      3: { modifier: { s: 2, m: 7, l: 12 } },
+      5: { modifier: { s: 5, m: 12, l: 20 } },
+      8: { modifier: { s: 8, m: 20, l: 32 } },
+      12: { modifier: { s: 12, m: 25, l: 50 } },
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 };
