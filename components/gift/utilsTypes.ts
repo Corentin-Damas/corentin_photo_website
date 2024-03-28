@@ -50,7 +50,11 @@ type productType = {
     black: string;
   };
   passPartoutSize?: passPartoutSizeType;
-  glass?: glassType;
+  glass?: {
+    glossy?: glassType
+    matte?: glassType
+    museum?: glassType
+  };
   border?: {
     0?: {};
     1?: { modifier?: { s?: number; m?: number; l?: number } };
@@ -102,33 +106,22 @@ type allPossibleFrameType = {
 };
 
 type glassType = {
-  glossy?: {
-    name: string;
-    desc: string;
-    modifier?: { s?: number; m?: number; l?: number };
-  };
-  matte?: {
-    name: string;
-    desc: string;
-    modifier?: { s?: number; m?: number; l?: number };
-  };
-  museum?: {
-    name: string;
-    desc: string;
-    speModifier: {
-      16: number;
-      20: number;
-      24: number;
-      30: number;
-      35: number;
-      40: number;
-      50: number;
-      60: number;
-      70: number;
-      75: number;
-      80: number;
-      90: number;
-    };
+  name: string;
+  desc: string;
+  modifier?: { s?: number; m?: number; l?: number };
+  speModifier?: {
+    16: number;
+    20: number;
+    24: number;
+    30: number;
+    35: number;
+    40: number;
+    50: number;
+    60: number;
+    70: number;
+    75: number;
+    80: number;
+    90: number;
   };
 };
 

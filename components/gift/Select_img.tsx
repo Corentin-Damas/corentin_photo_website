@@ -12,11 +12,11 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
-  let imgInfos: pictureInfoType;
+  let imgInfos: pictureInfoType | null = null;
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
-  let imgProduct: productInfoType;
+  let imgProduct: productInfoType | null = null;
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
@@ -48,11 +48,11 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
   const [imgSample, setImageSample] = useState<string>(
     selectedImg != null ? selectedImg : ""
   );
-  const [product, setProduct] = useState<productType | null>(
+  const product: productType | null =
     selectedProduct != null
       ? possileFrames[selectedProduct as keyof allPossibleFrameType]
-      : null
-  );
+      : null;
+
   const [framed, setFramed] = useState(product != null ? product.name : "");
   const [productDesc, setProductDesc] = useState(
     product != null ? product.desc : ""
@@ -69,12 +69,12 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
   const [frameColor, setFrameColor] = useState<string>("");
   const [frameSize, setFrameSize] = useState<number>(0);
   const [borderSize, setBorderSize] = useState<string>("0");
-  const [protection, setProtection] = useState<glassType | null>();
+  const [protection, setProtection] = useState<glassType | null>(null);
 
   const [passSize, setPassSize] = useState<number>(9);
   const [passColor, setPassColor] = useState<string>("white");
 
-  const [paper, setPaper] = useState<specPaperType | null>();
+  const [paper, setPaper] = useState<specPaperType | null>(null);
   const [isPrint, setIsPrint] = useState<boolean>(false);
   const [isHanged, setIsHanged] = useState<boolean>(true);
   const [lamination, setLamination] = useState<string>("");
@@ -84,21 +84,31 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
 
   function handleChangeImg(el: any) {
     setImageSample(el);
-    if (el.slice(3, -4) == "black_and_white") {
+    if (el.slice(3, -4) == "black_and_white" && product !== null) {
       setIsBlackAndWhite(true);
 
-      if (Object.keys(product.paper).includes("bAndW")) {
-        setPaper(product.paper.bAndW);
-      } else if (Object.keys(product.paper).includes("bwGlossy")) {
+      if (
+        product?.paper !== undefined &&
+        product?.paper["bwGlossy"] !== undefined
+      ) {
         setPaper(product.paper.bwGlossy);
-      } else {
+      } else if (
+        product?.paper !== undefined &&
+        product?.paper["fineArt"] !== undefined
+      ) {
         setPaper(product.paper.fineArt);
       }
     } else {
       setIsBlackAndWhite(false);
-      if (Object.keys(product.paper).includes("glossy")) {
+      if (
+        product?.paper !== undefined &&
+        product?.paper["glossy"] !== undefined
+      ) {
         setPaper(product.paper.glossy);
-      } else {
+      } else if (
+        product?.paper !== undefined &&
+        product?.paper["fineArt"] !== undefined
+      ) {
         setPaper(product.paper.fineArt);
       }
     }
@@ -108,13 +118,10 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
     setFramed("");
     setProductDesc("");
     setProductSpec("");
-    setProduct(possileFrames.gallery);
     setIsDefault(true);
     setFrameSize(0);
     setBorderSize("0");
-    setPassSize(
-      possileFrames.solid_wood_frame_with_passe_partout.passPartoutSize.std
-    );
+    setPassSize(9);
   }
 
   function handleUndoAllPerso() {
@@ -133,14 +140,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
       setIsBlackAndWhite(false);
     }
     setSection("");
-    setFramed(el.name);
-    setProduct(el);
-    setProductDesc(el.desc);
-    setProductSpec(el.spec);
     setIsPrint(false);
-    setBorderSize("0");
     setIsDefault(false);
-    setIsHanged(true);
 
     isBlackAndWhite && el.name != "Solid Wood Frame With Passe-Partout"
       ? setPaper(el.paper.bAndW)
@@ -153,10 +154,6 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
     } else if (el.name == "Solid Wood Frame With Passe-Partout") {
       setFrameColor("Black oak");
       setFrameSize(20);
-      setPassSize(
-        possileFrames.solid_wood_frame_with_passe_partout.passPartoutSize.std
-      );
-      setPassColor("white");
       isBlackAndWhite ? setPaper(el.paper.bwGlossy) : setPaper(el.paper.glossy);
       setProtection(el.glass.glossy);
     } else if (el.name == "Artbox") {
@@ -183,10 +180,6 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
       setIsBlackAndWhite(false);
     }
 
-    setProductDesc(el.desc);
-    setProductSpec(el.spec);
-    setProduct(el);
-    setBorderSize("0");
     setPaper(el.name);
     setIsPrint(true);
     setIsDefault(false);
@@ -304,9 +297,9 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     : styles.border12
                 }
                 ${
-                  passSize.size == 9
+                  passSize == 9
                     ? ""
-                    : passSize.size == 3
+                    : passSize == 3
                     ? styles.passSizeSmall
                     : styles.passSizeBig
                 }
@@ -453,7 +446,9 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       <button
                         onClick={() => handleBtnSelectorClick(el)}
                         className={`${styles.btn_selector} ${
-                          product.name == el.name && !isPrint
+                          product !== null &&
+                          product.name == el.name &&
+                          !isPrint
                             ? styles.selectedFrame
                             : ""
                         }`}
@@ -463,7 +458,7 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     </Link>
                   )
               )}
-              {product.framed && productDesc != "" && (
+              {product !== null && product.framed && productDesc != "" && (
                 <button
                   className={`${styles.btn_information}`}
                   onClick={() => handleInfoBox("")}
@@ -487,8 +482,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
             <div className={styles.frames_solutions}>
               {Object.values(possileFrames).map(
                 (el) =>
-                  !el.framed &&
-                  el.spec != "Simple print" && (
+                  Object.keys(el).includes("paper") &&
+                  !el.framed && (
                     <Link
                       href={`?img=${selectedImg}&product=${el.name
                         .replaceAll(" ", "_")
@@ -509,15 +504,17 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     </Link>
                   )
               )}
-              {!product.framed && product.spec != "Simple print" && (
-                <button
-                  className={`${styles.btn_information}`}
-                  onClick={() => handleInfoBox("")}
-                >
-                  <PiInfo className={styles.insideBtnIcone} />
-                  More information: {product.name}
-                </button>
-              )}
+              {product !== null &&
+                !product.framed &&
+                product.spec != "Simple print" && (
+                  <button
+                    className={`${styles.btn_information}`}
+                    onClick={() => handleInfoBox("")}
+                  >
+                    <PiInfo className={styles.insideBtnIcone} />
+                    More information: {product.name}
+                  </button>
+                )}
             </div>
 
             <div className={styles.section_title}>
@@ -533,7 +530,7 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
             <div className={styles.frames_solutions}>
               {Object.values(possileFrames).map(
                 (el) =>
-                  el.spec == "Simple print" && (
+                  !Object.keys(el).includes("paper") && (
                     <Link
                       href={`?img=${selectedImg}&product=${el.name
                         .replaceAll(" ", "_")
@@ -544,7 +541,10 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       <button
                         onClick={() => handleBtnSelectorClickPaper(el)}
                         className={`${styles.btn_selector} ${
-                          isPrint && !isDefault && product.name == el.name
+                          product !== null &&
+                          isPrint &&
+                          !isDefault &&
+                          product.name == el.name
                             ? styles.selectedFrame
                             : ""
                         }`}
@@ -554,7 +554,7 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     </Link>
                   )
               )}
-              {product.name == "Simple print" && (
+              {product !== null && product.name == "Simple print" && (
                 <button
                   className={`${styles.btn_information}`}
                   onClick={() => setInfoBoxOpen(!infoBoxOpen)}
@@ -605,13 +605,15 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
 
           <div className={styles.select_container}>
             <div className={styles.frames_solutions}>
-              {Object.keys(imgInfos).includes("WidthCM") &&
+              {imgInfos != null &&
+                Object.keys(imgInfos).includes("WidthCM") &&
                 imgProduct !== null &&
                 imgProduct.format !== "" &&
                 Object.entries(imgProduct).map(
                   ([key, val]) =>
+                    imgInfos !== null &&
                     key.slice(0, -2) == "bordLarge_" &&
-                    (key.slice(-2) as number) < imgInfos.WidthCM &&
+                    (key.slice(-2) as unknown as number) < imgInfos.WidthCM &&
                     (val as number) > 0 && (
                       <button key={key} className={`${styles.btn_selector} `}>
                         {key.slice(-2)} {val}
@@ -645,267 +647,305 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
             </button>
           </div>
           <div className={styles.select_container}>
-            {isDefault ? (
+            {product !== null && isDefault ? (
               <h5> Select a display solution to be able to customize it</h5>
             ) : (
               <>
                 <div className={styles.section_title}>
-                  <h4 className={styles.title_text}>{product.name}</h4>
+                  <h4 className={styles.title_text}>
+                    {product !== null && product.name}
+                  </h4>
                 </div>
                 <div className={styles.section_desc}>
-                  <p>{product.tltr} </p>
-                  <p>{product.spec} </p>
+                  <p>{product !== null && product.tltr} </p>
+                  <p>{product !== null && product.spec} </p>
                 </div>
-                {Object.keys(product).includes("color") && (
+                {product !== null && Object.keys(product).includes("color") && (
                   <>
                     <div className={styles.section_title}>
                       <h6 className={styles.title_text}>Frame Color</h6>
                     </div>
                     <div className={styles.frames_solutions}>
-                      {Object.values(product.color).map((el) => (
-                        <button
-                          className={`${styles.btn_selector}
+                      {product !== null &&
+                        product.color !== undefined &&
+                        Object.values(product.color).map((el) => (
+                          <button
+                            className={`${styles.btn_selector}
                           ${frameColor == el ? styles.selectedFrame : ""}
                            `}
-                          key={el}
-                          onClick={() => setFrameColor(el)}
-                        >
-                          {el}
-                        </button>
-                      ))}
+                            key={el}
+                            onClick={() => setFrameColor(el)}
+                          >
+                            {el}
+                          </button>
+                        ))}
                     </div>
                   </>
                 )}
-                {Object.keys(product).includes("frameSize") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Frame Size</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.values(product.frameSize).map((el) => (
-                        <button
-                          className={`${styles.btn_selector}  ${
-                            frameSize == el.mm ? styles.selectedFrame : ""
-                          }`}
-                          key={el.mm}
-                          onClick={() => setFrameSize(el.mm)}
-                        >
-                          {el.mm} mm
-                        </button>
-                      ))}
-                    </div>
-                  </>
-                )}
-                {Object.keys(product).includes("passPartoutSize") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Passe-partout size</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.values(product.passPartoutSize).map(
-                        (el) =>
-                          Object.keys(el).includes("size") && (
+                {product !== null &&
+                  Object.keys(product).includes("frameSize") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Frame Size</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.frameSize !== undefined &&
+                          Object.values(product.frameSize).map((el) => (
                             <button
                               className={`${styles.btn_selector}  ${
-                                passSize.size == el.size
-                                  ? styles.selectedFrame
-                                  : ""
+                                frameSize == el.mm ? styles.selectedFrame : ""
                               }`}
-                              key={el.size}
-                              onClick={() => setPassSize(el)}
+                              key={el.mm}
+                              onClick={() =>
+                                el.mm !== undefined && setFrameSize(el.mm)
+                              }
                             >
-                              {el.size} cm
+                              {el.mm} mm
                             </button>
-                          )
-                      )}
-                      <p>{product.passPartoutSize.spec}</p>
-                    </div>
-                  </>
-                )}
-                {Object.keys(product).includes("passPartoutColor") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Passe-partout Color</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.values(product.passPartoutColor).map((el) => (
-                        <button
-                          className={`${styles.btn_selector}  ${
-                            passColor == el ? styles.selectedFrame : ""
-                          }`}
-                          key={el}
-                          onClick={() => setPassColor(el)}
-                        >
-                          {el}
-                        </button>
-                      ))}
-                    </div>
-                  </>
-                )}
-                {Object.keys(product).includes("paper") &&
+                          ))}
+                      </div>
+                    </>
+                  )}
+                {product !== null &&
+                  Object.keys(product).includes("passPartoutSize") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>
+                          Passe-partout size
+                        </h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.passPartoutSize !== undefined &&
+                          Object.values(product.passPartoutSize).map(
+                            (el) =>
+                              typeof el !== "string" &&
+                              el.size !== undefined && (
+                                <button
+                                  className={`${styles.btn_selector}  ${
+                                    el.size !== undefined && passSize == el.size
+                                      ? styles.selectedFrame
+                                      : ""
+                                  }`}
+                                  key={el.size}
+                                  onClick={() => setPassSize(el.size)}
+                                >
+                                  {el.size} cm
+                                </button>
+                              )
+                          )}
+                        <p>
+                          {product !== null &&
+                            product.passPartoutSize !== undefined &&
+                            product.passPartoutSize.spec}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                {product !== null &&
+                  Object.keys(product).includes("passPartoutColor") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>
+                          Passe-partout Color
+                        </h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.passPartoutColor !== undefined &&
+                          Object.values(product.passPartoutColor).map((el) => (
+                            <button
+                              className={`${styles.btn_selector}  ${
+                                passColor == el ? styles.selectedFrame : ""
+                              }`}
+                              key={el}
+                              onClick={() => setPassColor(el)}
+                            >
+                              {el}
+                            </button>
+                          ))}
+                      </div>
+                    </>
+                  )}
+                {product !== null &&
+                  Object.keys(product).includes("paper") &&
                   product.name != "Simple print" && (
                     <>
                       <div className={styles.section_title}>
                         <h6 className={styles.title_text}>Print paper</h6>
                       </div>
                       <div className={styles.frames_solutions}>
-                        {Object.values(product.paper).map(
-                          (el) =>
-                            isBlackAndWhite &&
-                            Object.keys(el).includes("blackAndWitePaper") && (
-                              <button
-                                className={`${styles.btn_selector} ${
-                                  paper.name == el.name
-                                    ? styles.selectedFrame
-                                    : ""
-                                }  `}
-                                onClick={() => setPaper(el)}
-                                key={el.name}
-                              >
-                                {el.name}
-                              </button>
-                            )
-                        )}
-                        {Object.values(product.paper).map(
-                          (el) =>
-                            !isBlackAndWhite &&
-                            Object.keys(el).includes("colorPaper") && (
-                              <button
-                                className={`${styles.btn_selector} 
+                        {product.paper !== undefined &&
+                          Object.values(product.paper).map(
+                            (el) =>
+                              isBlackAndWhite &&
+                              Object.keys(el).includes("blackAndWitePaper") && (
+                                <button
+                                  className={`${styles.btn_selector} ${
+                                    paper !== null && paper.name == el.name
+                                      ? styles.selectedFrame
+                                      : ""
+                                  }  `}
+                                  onClick={() => setPaper(el)}
+                                  key={el.name}
+                                >
+                                  {el.name}
+                                </button>
+                              )
+                          )}
+                        {product.paper !== undefined &&
+                          Object.values(product.paper).map(
+                            (el) =>
+                              !isBlackAndWhite &&
+                              Object.keys(el).includes("colorPaper") && (
+                                <button
+                                  className={`${styles.btn_selector} 
                               ${
-                                paper.name == el.name
+                                paper !== null && paper.name == el.name
                                   ? styles.selectedFrame
                                   : ""
                               }
                               `}
-                                onClick={() => setPaper(el)}
-                                key={el.name}
-                              >
-                                {el.name}
-                              </button>
-                            )
-                        )}
-                        <p>{paper.desc}</p>
+                                  onClick={() => setPaper(el)}
+                                  key={el.name}
+                                >
+                                  {el.name}
+                                </button>
+                              )
+                          )}
+                        <p>{paper !== null && paper.desc}</p>
                       </div>
                     </>
                   )}
-                {Object.keys(product).includes("glass") && (
+                {product !== null && Object.keys(product).includes("glass") && (
                   <>
                     <div className={styles.section_title}>
                       <h6 className={styles.title_text}>Protective Glass</h6>
                     </div>
                     <div className={styles.frames_solutions}>
-                      {Object.values(product.glass).map((el) => (
+                      {product.glass !== undefined &&
+                        Object.values(product.glass).map((el) => (
+                          <button
+                            className={`${styles.btn_selector}  ${
+                              protection !== null && protection.name == el.name
+                                ? styles.selectedFrame
+                                : ""
+                            }`}
+                            key={el.name}
+                            onClick={() => setProtection(el)}
+                          >
+                            {el.name}
+                          </button>
+                        ))}
+                      <p>{protection !== null && protection.desc}</p>
+                    </div>
+                  </>
+                )}
+                {product !== null &&
+                  Object.keys(product).includes("border") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Border size</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.border !== undefined &&
+                          Object.keys(product.border).map(
+                            (el) =>
+                              el != "spec" && (
+                                <button
+                                  className={`${styles.btn_selector}  ${
+                                    borderSize == el ? styles.selectedFrame : ""
+                                  }`}
+                                  key={el}
+                                  onClick={() => setBorderSize(el)}
+                                >
+                                  {el} cm
+                                </button>
+                              )
+                          )}
+                        <p>
+                          {product.border !== undefined && product.border.spec}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                {product !== null &&
+                  Object.keys(product).includes("hanging") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Hanging Solutions</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.hanging !== undefined &&
+                          Object.keys(product.hanging) && (
+                            <>
+                              <button
+                                className={`${styles.btn_selector}  ${
+                                  !isHanged ? styles.selectedFrame : ""
+                                }`}
+                                onClick={() => setIsHanged(false)}
+                              >
+                                No hanging elements
+                              </button>
+                              <button
+                                className={`${styles.btn_selector}  ${
+                                  isHanged ? styles.selectedFrame : ""
+                                }`}
+                                onClick={() => setIsHanged(true)}
+                              >
+                                With rails or hooks
+                              </button>
+                            </>
+                          )}
+                      </div>
+                    </>
+                  )}
+                {isPrint &&
+                  product !== null &&
+                  Object.keys(product).includes("border") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Border size</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product.border !== undefined &&
+                          Object.keys(product.border).map(
+                            (el) =>
+                              el != "spec" && (
+                                <button
+                                  className={`${styles.btn_selector}  ${
+                                    borderSize == el ? styles.selectedFrame : ""
+                                  }`}
+                                  key={el}
+                                  onClick={() => setBorderSize(el)}
+                                >
+                                  {el} cm
+                                </button>
+                              )
+                          )}
+                        <p>
+                          {product.border !== undefined && product.border.spec}
+                        </p>
+                      </div>
+                    </>
+                  )}
+                {isPrint &&
+                  product !== null &&
+                  Object.keys(product).includes("protection") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Protection</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
                         <button
-                          className={`${styles.btn_selector}  ${
-                            protection.name == el.name
-                              ? styles.selectedFrame
-                              : ""
+                          className={`${styles.btn_selector} ${
+                            lamination == "" ? styles.selectedFrame : ""
                           }`}
-                          key={el.name}
-                          onClick={() => setProtection(el)}
+                          onClick={() => setLamination("")}
                         >
-                          {el.name}
+                          No Protection
                         </button>
-                      ))}
-                      <p>{protection.desc}</p>
-                    </div>
-                  </>
-                )}
-                {Object.keys(product).includes("border") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Border size</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.keys(product.border).map(
-                        (el) =>
-                          el != "spec" && (
-                            <button
-                              className={`${styles.btn_selector}  ${
-                                borderSize == el ? styles.selectedFrame : ""
-                              }`}
-                              key={el}
-                              onClick={() => setBorderSize(el)}
-                            >
-                              {el} cm
-                            </button>
-                          )
-                      )}
-                      <p>{product.border.spec}</p>
-                    </div>
-                  </>
-                )}
-                {Object.keys(product).includes("hanging") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Hanging Solutions</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.keys(product.hanging) && (
-                        <>
-                          <button
-                            className={`${styles.btn_selector}  ${
-                              !isHanged ? styles.selectedFrame : ""
-                            }`}
-                            onClick={() => setIsHanged(false)}
-                          >
-                            No hanging elements
-                          </button>
-                          <button
-                            className={`${styles.btn_selector}  ${
-                              isHanged ? styles.selectedFrame : ""
-                            }`}
-                            onClick={() => setIsHanged(true)}
-                          >
-                            With rails or hooks
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </>
-                )}
-                {isPrint && Object.keys(paper).includes("border") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Border size</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      {Object.keys(paper.border).map(
-                        (el) =>
-                          el != "spec" && (
-                            <button
-                              className={`${styles.btn_selector}  ${
-                                borderSize == el ? styles.selectedFrame : ""
-                              }`}
-                              key={el}
-                              onClick={() => setBorderSize(el)}
-                            >
-                              {el} cm
-                            </button>
-                          )
-                      )}
-                      <p>{paper.border.spec}</p>
-                    </div>
-                  </>
-                )}
-                {isPrint && Object.keys(paper).includes("protection") && (
-                  <>
-                    <div className={styles.section_title}>
-                      <h6 className={styles.title_text}>Protection</h6>
-                    </div>
-                    <div className={styles.frames_solutions}>
-                      <button
-                        className={`${styles.btn_selector} ${
-                          lamination == "" ? styles.selectedFrame : ""
-                        }`}
-                        onClick={() => setLamination("")}
-                      >
-                        No Protection
-                      </button>
-                      {Object.values(paper.protection).map(
-                        (el) =>
-                          el != "spec" && (
+                        {product !== null &&
+                          product.protection !== undefined &&
+                          Object.values(product.protection).map((el) => (
                             <button
                               className={`${styles.btn_selector}  ${
                                 lamination == el.name
@@ -917,11 +957,10 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                             >
                               {el.name}
                             </button>
-                          )
-                      )}
-                    </div>
-                  </>
-                )}
+                          ))}
+                      </div>
+                    </>
+                  )}
               </>
             )}
           </div>
