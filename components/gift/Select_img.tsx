@@ -8,27 +8,34 @@ import { possileFrames } from "./productInfos";
 import { PiInfo } from "react-icons/pi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useSearchParams } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
+function Select_img({
+  objImg,
+  objProduct,
+}: {
+  objImg: string | null;
+  objProduct: any;
+}) {
   let imgInfos: pictureInfoType | null = null;
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
+
   let imgProduct: productInfoType | null = null;
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
 
   const searchParams = useSearchParams();
+
   const selectedImg = searchParams.get("img");
   const selectedImgExtention = selectedImg + ".jpg";
   const selectedProduct: string | null = searchParams.get("product");
 
   const addImg = useImgSelected((state) => state.addImgSelected);
   const imgList = useImgSelected((state) => state.imgSelected);
-  let subImage = "";
   const myImageSelection = [
     "01-a_year_in_japan.jpg",
     "02-a_year_in_japan.jpg",
@@ -37,31 +44,36 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
     "05-black_and_white.jpg",
   ];
 
+  let subImage = "";
   if (
     !imgList.includes(selectedImgExtention) &&
     !myImageSelection.includes(selectedImgExtention) &&
-    typeof selectedImg === "string"
+    typeof imgInfos !== null &&
+    selectedImg !== "null"
   ) {
     subImage = selectedImgExtention;
   }
 
-  const [imgSample, setImageSample] = useState<string>(
-    selectedImg != null ? selectedImg : ""
-  );
+  const router = useRouter();
+
+  function redirectToBasUrl() {
+    router.push("/gift");
+  }
+
+  const imgSample: string =
+    selectedImg != null ? selectedImg : "04-earth_and_sky.jpg";
   const product: productType | null =
     selectedProduct != null
       ? possileFrames[selectedProduct as keyof allPossibleFrameType]
       : null;
 
-  const [framed, setFramed] = useState(product != null ? product.name : "");
-  const [productDesc, setProductDesc] = useState(
-    product != null ? product.desc : ""
-  );
-  const [productSpec, setProductSpec] = useState(
-    product != null ? product.spec : ""
-  );
+  const productDesc = product != null ? product.desc : "";
+  const productSpec = product != null ? product.spec : "";
   const [section, setSection] = useState("");
-  const [isDefault, setIsDefault] = useState(true);
+  const isBlackAndWhite: boolean =
+    selectedImg !== null && selectedImg.slice(3) == "black_and_white"
+      ? true
+      : false;
 
   // To Refactor bellow
 
@@ -75,18 +87,13 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
   const [passColor, setPassColor] = useState<string>("white");
 
   const [paper, setPaper] = useState<specPaperType | null>(null);
-  const [isPrint, setIsPrint] = useState<boolean>(false);
   const [isHanged, setIsHanged] = useState<boolean>(true);
   const [lamination, setLamination] = useState<string>("");
-  const [isBlackAndWhite, setIsBlackAndWhite] = useState<boolean>(false);
 
   const [infoBoxOpen, setInfoBoxOpen] = useState(false);
 
   function handleChangeImg(el: any) {
-    setImageSample(el);
     if (el.slice(3, -4) == "black_and_white" && product !== null) {
-      setIsBlackAndWhite(true);
-
       if (
         product?.paper !== undefined &&
         product?.paper["bwGlossy"] !== undefined
@@ -99,7 +106,6 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
         setPaper(product.paper.fineArt);
       }
     } else {
-      setIsBlackAndWhite(false);
       if (
         product?.paper !== undefined &&
         product?.paper["glossy"] !== undefined
@@ -114,80 +120,49 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
     }
   }
 
-  function handleUndoAllFrame() {
-    setFramed("");
-    setProductDesc("");
-    setProductSpec("");
-    setIsDefault(true);
-    setFrameSize(0);
-    setBorderSize("0");
-    setPassSize(9);
-  }
+  // function handleUndoAllPerso() {
+  //   isPrint
+  //     ? handleBtnSelectorClickPaper(paper)
+  //     : handleBtnSelectorClick(product);
+  // }
 
-  function handleUndoAllPerso() {
-    isPrint
-      ? handleBtnSelectorClickPaper(paper)
-      : handleBtnSelectorClick(product);
-  }
+  // function handleBtnSelectorClick(el: any) {
+  //   if (imgSample.slice(3, -4) == "black_and_white") {
+  //     setIsBlackAndWhite(true);
+  //   } else {
+  //     setIsBlackAndWhite(false);
+  //   }
+  //   setSection("");
+  //   setIsPrint(false);
+  //   setIsDefault(false);
 
-  function handleBtnSelectorClick(el: any) {
-    if (imgSample == "") {
-      setImageSample("04-earth_and_sky.jpg");
-    }
-    if (imgSample.slice(3, -4) == "black_and_white") {
-      setIsBlackAndWhite(true);
-    } else {
-      setIsBlackAndWhite(false);
-    }
-    setSection("");
-    setIsPrint(false);
-    setIsDefault(false);
+  //   isBlackAndWhite && el.name != "Solid Wood Frame With Passe-Partout"
+  //     ? setPaper(el.paper.bAndW)
+  //     : setPaper(el.paper.glossy);
 
-    isBlackAndWhite && el.name != "Solid Wood Frame With Passe-Partout"
-      ? setPaper(el.paper.bAndW)
-      : setPaper(el.paper.glossy);
-
-    if (el.name == "Gallery Frame") {
-      setFrameColor("Black oak");
-      setFrameSize(20);
-      setProtection(el.glass.glossy);
-    } else if (el.name == "Solid Wood Frame With Passe-Partout") {
-      setFrameColor("Black oak");
-      setFrameSize(20);
-      isBlackAndWhite ? setPaper(el.paper.bwGlossy) : setPaper(el.paper.glossy);
-      setProtection(el.glass.glossy);
-    } else if (el.name == "Artbox") {
-      setFrameColor("Alder brown");
-      setFrameSize(4);
-      setProtection(el.glass.glossy);
-    } else if (el.name == "Floater Frame") {
-      setFrameColor("Alder brown");
-      setFrameSize(15);
-      setProtection(el.glass.glossy);
-    } else if (el.name == "Fine Art Dibond") {
-      setPaper(el.paper.fineArt);
-    } else if (el.name == "Aluminum Dibond") {
-      setProtection(el.glass.matte);
-    }
-  }
-  function handleBtnSelectorClickPaper(el: any) {
-    if (imgSample == "") {
-      setImageSample("04-earth_and_sky.jpg");
-    }
-    if (imgSample.slice(3, -4) == "black_and_white") {
-      setIsBlackAndWhite(true);
-    } else {
-      setIsBlackAndWhite(false);
-    }
-
-    setPaper(el.name);
-    setIsPrint(true);
-    setIsDefault(false);
-    setFramed("");
-    setLamination("");
-    setIsHanged(true);
-    setSection("");
-  }
+  //   if (el.name == "Gallery Frame") {
+  //     setFrameColor("Black oak");
+  //     setFrameSize(20);
+  //     setProtection(el.glass.glossy);
+  //   } else if (el.name == "Solid Wood Frame With Passe-Partout") {
+  //     setFrameColor("Black oak");
+  //     setFrameSize(20);
+  //     isBlackAndWhite ? setPaper(el.paper.bwGlossy) : setPaper(el.paper.glossy);
+  //     setProtection(el.glass.glossy);
+  //   } else if (el.name == "Artbox") {
+  //     setFrameColor("Alder brown");
+  //     setFrameSize(4);
+  //     setProtection(el.glass.glossy);
+  //   } else if (el.name == "Floater Frame") {
+  //     setFrameColor("Alder brown");
+  //     setFrameSize(15);
+  //     setProtection(el.glass.glossy);
+  //   } else if (el.name == "Fine Art Dibond") {
+  //     setPaper(el.paper.fineArt);
+  //   } else if (el.name == "Aluminum Dibond") {
+  //     setProtection(el.glass.matte);
+  //   }
+  // }
 
   function handleInfoBox(title: string) {
     if (title == "framed") {
@@ -251,21 +226,23 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
               quality={80}
             />
           ) : (
+            //  ============================= REFACTOR IMG MOKEUP ====================================
             <div className={styles.mokeup_container}>
               {selectedImg != "" && (
                 <Image
                   src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
                   alt="Actual selected pîcture"
+                  onError={() => redirectToBasUrl()}
                   className={`${styles.img__selected} ${
-                    framed == ""
+                    product?.name == ""
                       ? ""
-                      : framed == "Gallery Frame"
+                      : product?.name == "Gallery Frame"
                       ? styles.galleryFrame
-                      : framed == "Solid Wood Frame With Passe-Partout"
+                      : product?.name == "Solid Wood Frame With Passe_Partout"
                       ? styles.passePartout
-                      : framed == "Artbox"
+                      : product?.name == "Artbox"
                       ? styles.artbox
-                      : framed == "Floater Frame"
+                      : product?.name == "Floater Frame"
                       ? styles.floater
                       : ""
                   }
@@ -338,24 +315,25 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     alt="Selected images from the gallery"
                     className={`${styles.img} ${
                       imgSample == el && styles.currentSelectedImg
-                    }`}
+                    } `}
                     sizes="100vw"
                     width={0}
                     height={0}
                     quality={80}
                     onClick={() => handleChangeImg(el)}
+                    onError={() => redirectToBasUrl()}
                   />
                 </Link>
               </li>
             ))}
-            {subImage != "" && subImage != null && (
+            {imgInfos !== null && subImage !== null && subImage !== "" && (
               <li className={styles.imgPrev}>
                 <Link href={`?img=${selectedImg}`}>
                   <Image
                     src={`/${subImage.slice(3, -4)}/S/${subImage}`}
                     alt="Selected images from the gallery"
                     className={`${styles.img} ${
-                      subImage == selectedImgExtention &&
+                      imgInfos.name == subImage.slice(0, -4) &&
                       styles.currentSelectedImg
                     }`}
                     sizes="100vw"
@@ -406,19 +384,21 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
           </ul>
         </div>
 
+        {/* ============================= FRAMING ==================================== */}
+
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
             <h4>Framing, Mounting and Prints</h4>
-            <Link href={`?img=${selectedImg}`}>
+            <Link href={`?img=${selectedImg}`} scroll={false}>
               <button
                 className={styles.btn_reset}
-                onClick={() => handleUndoAllFrame()}
-                disabled={productDesc == "" ? true : false}
+                disabled={product === null ? true : false}
               >
                 Undo all
               </button>
             </Link>
           </div>
+
           <div className={styles.select_container}>
             <div className={styles.section_title}>
               <h6 className={styles.title_text}>Framed </h6>
@@ -444,11 +424,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       scroll={false}
                     >
                       <button
-                        onClick={() => handleBtnSelectorClick(el)}
                         className={`${styles.btn_selector} ${
-                          product !== null &&
-                          product.name == el.name &&
-                          !isPrint
+                          product !== null && product.name == el.name
                             ? styles.selectedFrame
                             : ""
                         }`}
@@ -492,9 +469,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       scroll={false}
                     >
                       <button
-                        onClick={() => handleBtnSelectorClick(el)}
                         className={`${styles.btn_selector} ${
-                          framed == el.name && !isPrint
+                          product !== null && product.name == el.name
                             ? styles.selectedFrame
                             : ""
                         }`}
@@ -539,12 +515,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       scroll={false}
                     >
                       <button
-                        onClick={() => handleBtnSelectorClickPaper(el)}
                         className={`${styles.btn_selector} ${
-                          product !== null &&
-                          isPrint &&
-                          !isDefault &&
-                          product.name == el.name
+                          product !== null && product.name == el.name
                             ? styles.selectedFrame
                             : ""
                         }`}
@@ -554,15 +526,17 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     </Link>
                   )
               )}
-              {product !== null && product.name == "Simple print" && (
-                <button
-                  className={`${styles.btn_information}`}
-                  onClick={() => setInfoBoxOpen(!infoBoxOpen)}
-                >
-                  <PiInfo className={styles.insideBtnIcone} />
-                  Paper info
-                </button>
-              )}
+              {product !== null &&
+                product.spec !== undefined &&
+                product.spec == "Simple print" && (
+                  <button
+                    className={`${styles.btn_information}`}
+                    onClick={() => setInfoBoxOpen(!infoBoxOpen)}
+                  >
+                    <PiInfo className={styles.insideBtnIcone} />
+                    Paper info
+                  </button>
+                )}
             </div>
 
             <div
@@ -574,9 +548,9 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                     className={`${styles.icone} ${styles.iconeClose} `}
                     onClick={() => setInfoBoxOpen(!infoBoxOpen)}
                   />
-                  <h6>{framed}</h6>
+                  <h6>{product?.name}</h6>
                   <p>{productDesc}</p>
-                  <p>{productSpec}</p>
+                  <p>{product?.spec !== "Simple print" && productSpec}</p>
                 </>
               ) : (
                 <>
@@ -597,6 +571,8 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
             </div>
           </div>
         </div>
+
+        {/* ============================= REFACTORING ==================================== */}
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
@@ -640,14 +616,13 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
             <h4>Personalizing</h4>
             <button
               className={styles.btn_reset}
-              onClick={() => handleUndoAllPerso()}
               disabled={productDesc == "" ? true : false}
             >
               Undo all
             </button>
           </div>
           <div className={styles.select_container}>
-            {product !== null && isDefault ? (
+            {product == null ? (
               <h5> Select a display solution to be able to customize it</h5>
             ) : (
               <>
@@ -898,8 +873,9 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       </div>
                     </>
                   )}
-                {isPrint &&
-                  product !== null &&
+                {product !== null &&
+                  product.spec !== undefined &&
+                  product.spec == "Simple Print" &&
                   Object.keys(product).includes("border") && (
                     <>
                       <div className={styles.section_title}>
@@ -927,8 +903,9 @@ function Select_img({ objImg, objProduct }: { objImg: any; objProduct: any }) {
                       </div>
                     </>
                   )}
-                {isPrint &&
-                  product !== null &&
+                {product !== null &&
+                  product.spec !== undefined &&
+                  product.spec == "Simple Print" &&
                   Object.keys(product).includes("protection") && (
                     <>
                       <div className={styles.section_title}>
