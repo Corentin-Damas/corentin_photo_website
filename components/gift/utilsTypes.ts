@@ -50,11 +50,7 @@ type productType = {
     black: string;
   };
   passPartoutSize?: passPartoutSizeType;
-  glass?: {
-    glossy?: glassType
-    matte?: glassType
-    museum?: glassType
-  };
+  glass?: allGlasses;
   border?: {
     0?: {};
     1?: { modifier?: { s?: number; m?: number; l?: number } };
@@ -72,21 +68,8 @@ type productType = {
     };
     hangingElements: { s?: string; m?: string; l?: string };
   };
-  glassThickness?: {
-    s?: { mm: number; modifier?: { s?: number; m?: number; l?: number } };
-    m?: { mm: number; modifier?: { s?: number; m?: number; l?: number } };
-    l?: { mm: number; modifier?: { s?: number; m?: number; l?: number } };
-  };
-  protection?: {
-    laminationGlossy?: {
-      name: string;
-      modifier?: { s?: number; m?: number; l?: number };
-    };
-    laminationMatte?: {
-      name: string;
-      modifier?: { s?: number; m?: number; l?: number };
-    };
-  };
+  glassThickness?: allThickness;
+  protection?: allLamination;
 };
 
 type allPossibleFrameType = {
@@ -103,6 +86,33 @@ type allPossibleFrameType = {
   hahnemühle_fineart_baryta: productType;
   ilford_glossy_black_and_white_paper: productType;
   ilford_matte_black_and_white_paper: productType;
+};
+
+type allThickness = {
+  s?: thicknessType;
+  m?: thicknessType;
+  l?: thicknessType;
+};
+
+type thicknessType = {
+  mm: number;
+  modifier?: { s?: number; m?: number; l?: number };
+};
+
+type allLamination = {
+  laminationGlossy?: laminationType;
+  laminationMatte?: laminationType;
+};
+
+type laminationType = {
+  name: string;
+  modifier?: { s?: number; m?: number; l?: number };
+};
+
+type allGlasses = {
+  glossy?: glassType;
+  matte?: glassType;
+  museum?: glassType;
 };
 
 type glassType = {

@@ -433,3 +433,23 @@
   margin: auto;
   padding: 24px;
 }
+
+.warning_container {
+  background-color: var(--gallery-title-transparency);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: var(--spacing-S);
+  padding: var(--spacing-S);
+  gap: var(--spacing-S);
+}
+
+.warning {
+}
+
+.warningIcone {
+  width: 10rem;
+  height: 3rem;
+  color: var(--information);
+}

@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "../gift/Select_img.module.css";
 
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
 import { possileFrames } from "./productInfos";
-import { PiInfo } from "react-icons/pi";
+import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -33,6 +33,7 @@ function Select_img({
   const selectedImg = searchParams.get("img");
   const selectedImgExtention = selectedImg + ".jpg";
   const selectedProduct: string | null = searchParams.get("product");
+  const prodSize: string | null = searchParams.get("size");
 
   const addImg = useImgSelected((state) => state.addImgSelected);
   const imgList = useImgSelected((state) => state.imgSelected);
@@ -54,12 +55,6 @@ function Select_img({
     subImage = selectedImgExtention;
   }
 
-  const router = useRouter();
-
-  function redirectToBasUrl() {
-    router.push("/gift");
-  }
-
   const imgSample: string =
     selectedImg != null ? selectedImg : "04-earth_and_sky.jpg";
   const product: productType | null =
@@ -70,99 +65,191 @@ function Select_img({
   const productDesc = product != null ? product.desc : "";
   const productSpec = product != null ? product.spec : "";
   const [section, setSection] = useState("");
+  const [infoBoxOpen, setInfoBoxOpen] = useState(false);
+
   const isBlackAndWhite: boolean =
     selectedImg !== null && selectedImg.slice(3) == "black_and_white"
       ? true
       : false;
 
-  // To Refactor bellow
+  const subTotal =
+    prodSize != null &&
+    imgProduct !== null &&
+    (imgProduct[`bordLarge_${prodSize}` as keyof productInfoType] as number);
+  // if ( prodSize != null && imgProduct !== null ){
+  //   setTotal(subTotal)
+  //   }
+  const [total, setTotal] = useState<number>(
+    subTotal !== 0 && subTotal !== false ? subTotal : 0
+  );
 
-  // URL Refactor
-  const [frameColor, setFrameColor] = useState<string>("");
-  const [frameSize, setFrameSize] = useState<number>(0);
-  const [borderSize, setBorderSize] = useState<string>("0");
-  const [protection, setProtection] = useState<glassType | null>(null);
+  useEffect(() => {
+    console.log(prodSize);
+    prodSize !== null && subTotal !== false && setTotal(subTotal);
+    prodSize == null && setTotal(0);
+  }, [subTotal, prodSize]);
 
-  const [passSize, setPassSize] = useState<number>(9);
-  const [passColor, setPassColor] = useState<string>("white");
+  const router = useRouter();
 
-  const [paper, setPaper] = useState<specPaperType | null>(null);
-  const [isHanged, setIsHanged] = useState<boolean>(true);
-  const [lamination, setLamination] = useState<string>("");
+  function redirectToBasUrl() {
+    router.push("/gift");
+  }
+  // URL checker
+  if (
+    (prodSize != null &&
+      imgProduct !== null &&
+      (imgProduct[
+        `bordLarge_${prodSize}` as keyof productInfoType
+      ] as number) == 0) ||
+    (prodSize != null &&
+      imgProduct !== null &&
+      (imgProduct[
+        `bordLarge_${prodSize}` as keyof productInfoType
+      ] as number)) == null
+  ) {
+    redirectToBasUrl();
+  }
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+      return params.toString();
+    },
+    [searchParams]
+  );
 
-  const [infoBoxOpen, setInfoBoxOpen] = useState(false);
+  const selectedFrameColor = searchParams.get("frCl");
+  const frameColor: string =
+    selectedFrameColor !== null ? selectedFrameColor : "Alder brown";
 
-  function handleChangeImg(el: any) {
-    if (el.slice(3, -4) == "black_and_white" && product !== null) {
-      if (
-        product?.paper !== undefined &&
-        product?.paper["bwGlossy"] !== undefined
-      ) {
-        setPaper(product.paper.bwGlossy);
-      } else if (
-        product?.paper !== undefined &&
-        product?.paper["fineArt"] !== undefined
-      ) {
-        setPaper(product.paper.fineArt);
-      }
-    } else {
-      if (
-        product?.paper !== undefined &&
-        product?.paper["glossy"] !== undefined
-      ) {
-        setPaper(product.paper.glossy);
-      } else if (
-        product?.paper !== undefined &&
-        product?.paper["fineArt"] !== undefined
-      ) {
-        setPaper(product.paper.fineArt);
-      }
+  const selectedFrameSize: string | null = searchParams.get("frSize");
+  let frameSize: number =
+    selectedFrameSize == null ? 0 : (selectedFrameSize as unknown as number);
+
+  if (selectedFrameSize == null && selectedProduct !== null) {
+    if (
+      product !== null &&
+      (selectedProduct == "gallery_frame" ||
+        selectedProduct == "solid_wood_frame_with_passe_partout")
+    ) {
+      frameSize = 20;
+    } else if (product !== null && selectedProduct == "artbox") {
+      frameSize = 4;
+    } else if (product !== null && selectedProduct == "floater_frame") {
+      frameSize = 15;
     }
   }
 
-  // function handleUndoAllPerso() {
-  //   isPrint
-  //     ? handleBtnSelectorClickPaper(paper)
-  //     : handleBtnSelectorClick(product);
-  // }
+  const selectedPassSize: string | null = searchParams.get("passSize");
+  const passSize: number =
+    selectedPassSize == null ? 9 : (selectedPassSize as unknown as number);
+  const selectedPassColor: string | null = searchParams.get("passCl");
+  const passColor: string =
+    selectedPassColor == null ? "white" : selectedPassColor;
 
-  // function handleBtnSelectorClick(el: any) {
-  //   if (imgSample.slice(3, -4) == "black_and_white") {
-  //     setIsBlackAndWhite(true);
-  //   } else {
-  //     setIsBlackAndWhite(false);
-  //   }
-  //   setSection("");
-  //   setIsPrint(false);
-  //   setIsDefault(false);
+  const selectedPaper: string | null = searchParams.get("paper");
+  let paper: specPaperType | undefined =
+    product !== null && product.paper !== undefined
+      ? product?.paper[`${selectedPaper}` as keyof paperType]
+      : undefined;
 
-  //   isBlackAndWhite && el.name != "Solid Wood Frame With Passe-Partout"
-  //     ? setPaper(el.paper.bAndW)
-  //     : setPaper(el.paper.glossy);
+  if (paper == undefined && selectedProduct !== null) {
+    if (
+      product !== null &&
+      (selectedProduct == "gallery_frame" ||
+        selectedProduct == "artbox" ||
+        selectedProduct == "floater_frame" ||
+        selectedProduct == "aluminum_dibond" ||
+        selectedProduct == "under_glossy_acrylic_glass" ||
+        selectedProduct == "under_matte_acrylic_glass" ||
+        selectedProduct == "solid_wood_frame_with_passe_partout") &&
+      isBlackAndWhite
+    ) {
+      paper = product.paper?.bwGlossy;
+    } else if (
+      product !== null &&
+      (selectedProduct == "gallery_frame" ||
+        selectedProduct == "artbox" ||
+        selectedProduct == "floater_frame" ||
+        selectedProduct == "aluminum_dibond" ||
+        selectedProduct == "under_glossy_acrylic_glass" ||
+        selectedProduct == "under_matte_acrylic_glass" ||
+        selectedProduct == "solid_wood_frame_with_passe_partout") &&
+      !isBlackAndWhite
+    ) {
+      paper = product.paper?.glossy;
+    } else if (product !== null && selectedProduct == "fine_art_dibond") {
+      paper = product.paper?.fineArt;
+    }
+  }
 
-  //   if (el.name == "Gallery Frame") {
-  //     setFrameColor("Black oak");
-  //     setFrameSize(20);
-  //     setProtection(el.glass.glossy);
-  //   } else if (el.name == "Solid Wood Frame With Passe-Partout") {
-  //     setFrameColor("Black oak");
-  //     setFrameSize(20);
-  //     isBlackAndWhite ? setPaper(el.paper.bwGlossy) : setPaper(el.paper.glossy);
-  //     setProtection(el.glass.glossy);
-  //   } else if (el.name == "Artbox") {
-  //     setFrameColor("Alder brown");
-  //     setFrameSize(4);
-  //     setProtection(el.glass.glossy);
-  //   } else if (el.name == "Floater Frame") {
-  //     setFrameColor("Alder brown");
-  //     setFrameSize(15);
-  //     setProtection(el.glass.glossy);
-  //   } else if (el.name == "Fine Art Dibond") {
-  //     setPaper(el.paper.fineArt);
-  //   } else if (el.name == "Aluminum Dibond") {
-  //     setProtection(el.glass.matte);
-  //   }
-  // }
+  const selectedProtection: string | null = searchParams.get("glass");
+  let protection: glassType | null | undefined =
+    product !== null && product?.glass !== undefined
+      ? product?.glass[`${selectedProtection}` as keyof allGlasses]
+      : null;
+
+  if (product !== null && (protection == undefined || protection == null)) {
+    if (
+      product !== null &&
+      (selectedProduct == "gallery_frame" ||
+        selectedProduct == "artbox" ||
+        selectedProduct == "floater_frame" ||
+        selectedProduct == "under_glossy_acrylic_glass" ||
+        selectedProduct == "solid_wood_frame_with_passe_partout")
+    ) {
+      protection = product.glass?.glossy;
+    } else if (
+      product !== null &&
+      (selectedProduct == "aluminum_dibond" ||
+        selectedProduct == "under_matte_acrylic_glass")
+    ) {
+      protection = product.glass?.matte;
+    }
+  }
+  const selectedBorderSize: string | null = searchParams.get("bordSize");
+  const borderSize: string | null =
+    selectedBorderSize !== null ? selectedBorderSize : "0";
+
+  const hangedStr: string | null = searchParams.get("hang");
+  const isHanged: boolean | null =
+    hangedStr !== null && hangedStr == "0" ? false : true;
+
+  const selectedLamination: string | null = searchParams.get("lam");
+  const lamination: laminationType | undefined =
+    product !== null &&
+    selectedLamination !== "none" &&
+    product?.protection !== undefined
+      ? product?.protection[`${selectedLamination}` as keyof allLamination]
+      : undefined;
+
+  // To Refactor bellow ===============================================================
+  // Glassthikness
+  const selectedThickness: string | null = searchParams.get("thick");
+  let glassThickness: thicknessType | undefined =
+    product !== null && product.glassThickness !== undefined
+      ? product?.glassThickness[`${selectedThickness}` as keyof allThickness]
+      : undefined;
+
+  if (
+    product !== null &&
+    (glassThickness == undefined || glassThickness == null)
+  ) {
+    if (
+      product !== null &&
+      (selectedProduct == "under_glossy_acrylic_glass" ||
+        selectedProduct == "under_matte_acrylic_glass")
+    ) {
+      glassThickness = product.glassThickness?.s;
+    }
+  }
+
+  // warning
+
+  function handTotalManip(toAddString: string) {
+    const conv: number = parseInt(toAddString);
+    setTotal(total + conv);
+  }
 
   function handleInfoBox(title: string) {
     if (title == "framed") {
@@ -177,7 +264,6 @@ function Select_img({
 
     setInfoBoxOpen(!infoBoxOpen);
   }
-
   const possibleState = { fixed: "fixed", unFixed: "unfixed" };
   const [navState, setNavState] = useState(possibleState.unFixed);
   const scrollBehaviour = () => {
@@ -320,7 +406,6 @@ function Select_img({
                     width={0}
                     height={0}
                     quality={80}
-                    onClick={() => handleChangeImg(el)}
                     onError={() => redirectToBasUrl()}
                   />
                 </Link>
@@ -340,7 +425,6 @@ function Select_img({
                     width={0}
                     height={0}
                     quality={80}
-                    onClick={() => handleChangeImg(subImage)}
                     onLoad={() => addImg(subImage)}
                   />
                 </Link>
@@ -375,7 +459,6 @@ function Select_img({
                         width={0}
                         height={0}
                         quality={80}
-                        onClick={() => handleChangeImg(el)}
                       />
                     </Link>
                   </li>
@@ -417,9 +500,9 @@ function Select_img({
                 (el) =>
                   el.framed && (
                     <Link
-                      href={`?img=${selectedImg}&product=${el.name
-                        .replaceAll(" ", "_")
-                        .toLowerCase()}`}
+                      href={`?img=${
+                        selectedImg != null ? selectedImg : "04-earth_and_sky"
+                      }&product=${el.name.replaceAll(" ", "_").toLowerCase()}`}
                       key={el.name}
                       scroll={false}
                     >
@@ -462,9 +545,9 @@ function Select_img({
                   Object.keys(el).includes("paper") &&
                   !el.framed && (
                     <Link
-                      href={`?img=${selectedImg}&product=${el.name
-                        .replaceAll(" ", "_")
-                        .toLowerCase()}`}
+                      href={`?img=${
+                        selectedImg != null ? selectedImg : "04-earth_and_sky"
+                      }&product=${el.name.replaceAll(" ", "_").toLowerCase()}`}
                       key={el.name}
                       scroll={false}
                     >
@@ -508,9 +591,9 @@ function Select_img({
                 (el) =>
                   !Object.keys(el).includes("paper") && (
                     <Link
-                      href={`?img=${selectedImg}&product=${el.name
-                        .replaceAll(" ", "_")
-                        .toLowerCase()}`}
+                      href={`?img=${
+                        selectedImg != null ? selectedImg : "04-earth_and_sky"
+                      }&product=${el.name.replaceAll(" ", "_").toLowerCase()}`}
                       key={el.name}
                       scroll={false}
                     >
@@ -551,6 +634,12 @@ function Select_img({
                   <h6>{product?.name}</h6>
                   <p>{productDesc}</p>
                   <p>{product?.spec !== "Simple print" && productSpec}</p>
+                  {product?.warning !== null && (
+                    <p>
+                      <PiSealWarningBold className={styles.icone} />{" "}
+                      {product?.warning}
+                    </p>
+                  )}
                 </>
               ) : (
                 <>
@@ -572,7 +661,7 @@ function Select_img({
           </div>
         </div>
 
-        {/* ============================= REFACTORING ==================================== */}
+        {/* ============================= PRINCING ==================================== */}
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
@@ -591,7 +680,20 @@ function Select_img({
                     key.slice(0, -2) == "bordLarge_" &&
                     (key.slice(-2) as unknown as number) < imgInfos.WidthCM &&
                     (val as number) > 0 && (
-                      <button key={key} className={`${styles.btn_selector} `}>
+                      <button
+                        key={key}
+                        className={`${styles.btn_selector} ${
+                          prodSize != null &&
+                          key.slice(-2) == prodSize &&
+                          styles.selectedFrame
+                        }`}
+                        onClick={() =>
+                          router.push(
+                            `/gift?${createQueryString("size", key.slice(-2))}`,
+                            { scroll: false }
+                          )
+                        }
+                      >
                         {key.slice(-2)} {val}
                       </button>
                     )
@@ -608,6 +710,7 @@ function Select_img({
                 ""
               )}
             </div>
+            <h3>total = {total}</h3>
           </div>
         </div>
 
@@ -634,6 +737,14 @@ function Select_img({
                 <div className={styles.section_desc}>
                   <p>{product !== null && product.tltr} </p>
                   <p>{product !== null && product.spec} </p>
+                  {product.warning !== null && product.warning  && (
+                    <div className={styles.warning_container}>
+                      <PiSealWarningBold
+                        className={`${styles.warningIcone} `}
+                      />
+                      <p className={styles.warning}>{product?.warning}</p>
+                    </div>
+                  )}
                 </div>
                 {product !== null && Object.keys(product).includes("color") && (
                   <>
@@ -645,11 +756,16 @@ function Select_img({
                         product.color !== undefined &&
                         Object.values(product.color).map((el) => (
                           <button
-                            className={`${styles.btn_selector}
-                          ${frameColor == el ? styles.selectedFrame : ""}
-                           `}
                             key={el}
-                            onClick={() => setFrameColor(el)}
+                            className={`${styles.btn_selector}
+                            ${frameColor == el ? styles.selectedFrame : ""}
+                            `}
+                            onClick={() =>
+                              router.push(
+                                `/gift?${createQueryString("frCl", el)}`,
+                                { scroll: false }
+                              )
+                            }
                           >
                             {el}
                           </button>
@@ -672,7 +788,14 @@ function Select_img({
                               }`}
                               key={el.mm}
                               onClick={() =>
-                                el.mm !== undefined && setFrameSize(el.mm)
+                                el.mm !== undefined &&
+                                router.push(
+                                  `/gift?${createQueryString(
+                                    "frSize",
+                                    el.mm as unknown as string
+                                  )}`,
+                                  { scroll: false }
+                                )
                               }
                             >
                               {el.mm} mm
@@ -702,7 +825,16 @@ function Select_img({
                                       : ""
                                   }`}
                                   key={el.size}
-                                  onClick={() => setPassSize(el.size)}
+                                  onClick={() =>
+                                    el.size !== undefined &&
+                                    router.push(
+                                      `/gift?${createQueryString(
+                                        "passSize",
+                                        el.size as unknown as string
+                                      )}`,
+                                      { scroll: false }
+                                    )
+                                  }
                                 >
                                   {el.size} cm
                                 </button>
@@ -732,7 +864,13 @@ function Select_img({
                                 passColor == el ? styles.selectedFrame : ""
                               }`}
                               key={el}
-                              onClick={() => setPassColor(el)}
+                              onClick={() =>
+                                el !== undefined &&
+                                router.push(
+                                  `/gift?${createQueryString("passCl", el)}`,
+                                  { scroll: false }
+                                )
+                              }
                             >
                               {el}
                             </button>
@@ -740,56 +878,67 @@ function Select_img({
                       </div>
                     </>
                   )}
-                {product !== null &&
-                  Object.keys(product).includes("paper") &&
-                  product.name != "Simple print" && (
-                    <>
-                      <div className={styles.section_title}>
-                        <h6 className={styles.title_text}>Print paper</h6>
-                      </div>
-                      <div className={styles.frames_solutions}>
-                        {product.paper !== undefined &&
-                          Object.values(product.paper).map(
-                            (el) =>
-                              isBlackAndWhite &&
-                              Object.keys(el).includes("blackAndWitePaper") && (
-                                <button
-                                  className={`${styles.btn_selector} ${
-                                    paper !== null && paper.name == el.name
-                                      ? styles.selectedFrame
-                                      : ""
-                                  }  `}
-                                  onClick={() => setPaper(el)}
-                                  key={el.name}
-                                >
-                                  {el.name}
-                                </button>
-                              )
-                          )}
-                        {product.paper !== undefined &&
-                          Object.values(product.paper).map(
-                            (el) =>
-                              !isBlackAndWhite &&
-                              Object.keys(el).includes("colorPaper") && (
-                                <button
-                                  className={`${styles.btn_selector} 
-                              ${
-                                paper !== null && paper.name == el.name
-                                  ? styles.selectedFrame
-                                  : ""
-                              }
-                              `}
-                                  onClick={() => setPaper(el)}
-                                  key={el.name}
-                                >
-                                  {el.name}
-                                </button>
-                              )
-                          )}
-                        <p>{paper !== null && paper.desc}</p>
-                      </div>
-                    </>
-                  )}
+                {product !== null && Object.keys(product).includes("paper") && (
+                  <>
+                    <div className={styles.section_title}>
+                      <h6 className={styles.title_text}>Print paper</h6>
+                    </div>
+                    <div className={styles.frames_solutions}>
+                      {product.paper !== undefined &&
+                        Object.entries(product.paper).map(
+                          ([key, el]) =>
+                            isBlackAndWhite &&
+                            Object.keys(el).includes("blackAndWitePaper") && (
+                              <button
+                                className={`${styles.btn_selector} ${
+                                  paper !== undefined && paper.name == el.name
+                                    ? styles.selectedFrame
+                                    : ""
+                                }  `}
+                                onClick={() =>
+                                  el !== undefined &&
+                                  router.push(
+                                    `/gift?${createQueryString("paper", key)}`,
+                                    { scroll: false }
+                                  )
+                                }
+                                key={el.name}
+                              >
+                                {el.name}
+                              </button>
+                            )
+                        )}
+                      {product.paper !== undefined &&
+                        Object.entries(product.paper).map(
+                          ([key, el]) =>
+                            !isBlackAndWhite &&
+                            Object.keys(el).includes("colorPaper") && (
+                              <button
+                                className={`${styles.btn_selector} ${
+                                  paper !== undefined && paper.name == el.name
+                                    ? styles.selectedFrame
+                                    : ""
+                                }  `}
+                                onClick={() =>
+                                  el !== undefined &&
+                                  router.push(
+                                    `/gift?${createQueryString("paper", key)}`,
+                                    { scroll: false }
+                                  )
+                                }
+                                key={el.name}
+                              >
+                                {el.name}
+                              </button>
+                            )
+                        )}
+                      <p>
+                        {paper !== null && paper !== undefined && paper.desc}
+                      </p>
+                    </div>
+                  </>
+                )}
+
                 {product !== null && Object.keys(product).includes("glass") && (
                   <>
                     <div className={styles.section_title}>
@@ -797,23 +946,69 @@ function Select_img({
                     </div>
                     <div className={styles.frames_solutions}>
                       {product.glass !== undefined &&
-                        Object.values(product.glass).map((el) => (
+                        Object.entries(product.glass).map(([key, el]) => (
                           <button
                             className={`${styles.btn_selector}  ${
-                              protection !== null && protection.name == el.name
+                              protection !== null &&
+                              protection !== undefined &&
+                              protection.name == el.name
                                 ? styles.selectedFrame
                                 : ""
                             }`}
                             key={el.name}
-                            onClick={() => setProtection(el)}
+                            onClick={() =>
+                              el !== undefined &&
+                              router.push(
+                                `/gift?${createQueryString("glass", key)}`,
+                                { scroll: false }
+                              )
+                            }
                           >
                             {el.name}
                           </button>
                         ))}
-                      <p>{protection !== null && protection.desc}</p>
+                      <p>
+                        {protection !== null &&
+                          protection !== undefined &&
+                          protection.desc}
+                      </p>
                     </div>
                   </>
                 )}
+                {product !== null &&
+                  Object.keys(product).includes("glassThickness") && (
+                    <>
+                      <div className={styles.section_title}>
+                        <h6 className={styles.title_text}>Glass thickness</h6>
+                      </div>
+                      <div className={styles.frames_solutions}>
+                        {product !== null &&
+                          product.glassThickness !== undefined &&
+                          Object.entries(product.glassThickness).map(
+                            ([key, el]) => (
+                              <button
+                                className={`${styles.btn_selector}  ${
+                                  glassThickness !== undefined &&
+                                  glassThickness.mm == el.mm
+                                    ? styles.selectedFrame
+                                    : ""
+                                }`}
+                                key={el.mm}
+                                onClick={() =>
+                                  router.push(
+                                    `/gift?${createQueryString("thick", key)}`,
+                                    { scroll: false }
+                                  )
+                                }
+                              >
+                                {el.mm} mm
+                              </button>
+                            )
+                          )}
+                      </div>
+                    </>
+                  )}
+
                 {product !== null &&
                   Object.keys(product).includes("border") && (
                     <>
@@ -830,7 +1025,16 @@ function Select_img({
                                     borderSize == el ? styles.selectedFrame : ""
                                   }`}
                                   key={el}
-                                  onClick={() => setBorderSize(el)}
+                                  onClick={() =>
+                                    el !== null &&
+                                    router.push(
+                                      `/gift?${createQueryString(
+                                        "bordSize",
+                                        el
+                                      )}`,
+                                      { scroll: false }
+                                    )
+                                  }
                                 >
                                   {el} cm
                                 </button>
@@ -856,7 +1060,12 @@ function Select_img({
                                 className={`${styles.btn_selector}  ${
                                   !isHanged ? styles.selectedFrame : ""
                                 }`}
-                                onClick={() => setIsHanged(false)}
+                                onClick={() =>
+                                  router.push(
+                                    `/gift?${createQueryString("hang", "0")}`,
+                                    { scroll: false }
+                                  )
+                                }
                               >
                                 No hanging elements
                               </button>
@@ -864,7 +1073,12 @@ function Select_img({
                                 className={`${styles.btn_selector}  ${
                                   isHanged ? styles.selectedFrame : ""
                                 }`}
-                                onClick={() => setIsHanged(true)}
+                                onClick={() =>
+                                  router.push(
+                                    `/gift?${createQueryString("hang", "1")}`,
+                                    { scroll: false }
+                                  )
+                                }
                               >
                                 With rails or hooks
                               </button>
@@ -873,39 +1087,11 @@ function Select_img({
                       </div>
                     </>
                   )}
+                {/* ============================= REFACTORING ==================================== */}
+
                 {product !== null &&
                   product.spec !== undefined &&
-                  product.spec == "Simple Print" &&
-                  Object.keys(product).includes("border") && (
-                    <>
-                      <div className={styles.section_title}>
-                        <h6 className={styles.title_text}>Border size</h6>
-                      </div>
-                      <div className={styles.frames_solutions}>
-                        {product.border !== undefined &&
-                          Object.keys(product.border).map(
-                            (el) =>
-                              el != "spec" && (
-                                <button
-                                  className={`${styles.btn_selector}  ${
-                                    borderSize == el ? styles.selectedFrame : ""
-                                  }`}
-                                  key={el}
-                                  onClick={() => setBorderSize(el)}
-                                >
-                                  {el} cm
-                                </button>
-                              )
-                          )}
-                        <p>
-                          {product.border !== undefined && product.border.spec}
-                        </p>
-                      </div>
-                    </>
-                  )}
-                {product !== null &&
-                  product.spec !== undefined &&
-                  product.spec == "Simple Print" &&
+                  product.spec == "Simple print" &&
                   Object.keys(product).includes("protection") && (
                     <>
                       <div className={styles.section_title}>
@@ -914,27 +1100,40 @@ function Select_img({
                       <div className={styles.frames_solutions}>
                         <button
                           className={`${styles.btn_selector} ${
-                            lamination == "" ? styles.selectedFrame : ""
+                            lamination == undefined ? styles.selectedFrame : ""
                           }`}
-                          onClick={() => setLamination("")}
+                          onClick={() =>
+                            router.push(
+                              `/gift?${createQueryString("lam", "none")}`,
+                              { scroll: false }
+                            )
+                          }
                         >
                           No Protection
                         </button>
                         {product !== null &&
                           product.protection !== undefined &&
-                          Object.values(product.protection).map((el) => (
-                            <button
-                              className={`${styles.btn_selector}  ${
-                                lamination == el.name
-                                  ? styles.selectedFrame
-                                  : ""
-                              }`}
-                              key={el.name}
-                              onClick={() => setLamination(el.name)}
-                            >
-                              {el.name}
-                            </button>
-                          ))}
+                          Object.entries(product.protection).map(
+                            ([key, el]) => (
+                              <button
+                                className={`${styles.btn_selector}  ${
+                                  lamination !== undefined &&
+                                  lamination.name == el.name
+                                    ? styles.selectedFrame
+                                    : ""
+                                }`}
+                                key={el.name}
+                                onClick={() =>
+                                  router.push(
+                                    `/gift?${createQueryString("lam", key)}`,
+                                    { scroll: false }
+                                  )
+                                }
+                              >
+                                {el.name}
+                              </button>
+                            )
+                          )}
                       </div>
                     </>
                   )}
