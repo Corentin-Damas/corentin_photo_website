@@ -44,6 +44,13 @@
   margin-top: 10rem;
 }
 
+.totalPrice{
+  position: absolute;
+  bottom: calc((var(--font-size-Title_02) + var(--spacing-SS)) * -1);
+  right: 0;
+  z-index: 410;
+}
+
 .img_fixed {
   position: absolute;
   bottom: 0rem;
@@ -443,9 +450,6 @@
   margin: var(--spacing-S);
   padding: var(--spacing-S);
   gap: var(--spacing-S);
-}
-
-.warning {
 }
 
 .warningIcone {

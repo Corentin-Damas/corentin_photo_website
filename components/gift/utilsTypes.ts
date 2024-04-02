@@ -40,10 +40,7 @@ type productType = {
     oak: string;
     white: string;
   };
-  frameSize?: {
-    std?: { mm?: number };
-    large?: { mm?: number; modifier?: { s?: number; m?: number; l?: number } };
-  };
+  frameSize?: allSizeType
   paper?: paperType;
   passPartoutColor?: {
     white: string;
@@ -52,19 +49,19 @@ type productType = {
   passPartoutSize?: passPartoutSizeType;
   glass?: allGlasses;
   border?: {
-    0?: {};
-    1?: { modifier?: { s?: number; m?: number; l?: number } };
-    2?: { modifier?: { s?: number; m?: number; l?: number } };
-    3?: { modifier?: { s?: number; m?: number; l?: number } };
-    5?: { modifier?: { s?: number; m?: number; l?: number } };
-    8?: { modifier?: { s?: number; m?: number; l?: number } };
-    12?: { modifier?: { s?: number; m?: number; l?: number } };
+    0?: { modifier?: modifierType};
+    1?: { modifier?: modifierType};
+    2?: { modifier?: modifierType};
+    3?: { modifier?: modifierType};
+    5?: { modifier?: modifierType};
+    8?: { modifier?: modifierType};
+    12?: { modifier?: modifierType};
     spec: string;
   };
   hanging?: {
     nothing?: {
       desc: string;
-      modifier?: { s?: number; m?: number; l?: number };
+      modifier?: modifierType;
     };
     hangingElements: { s?: string; m?: string; l?: string };
   };
@@ -96,7 +93,7 @@ type allThickness = {
 
 type thicknessType = {
   mm: number;
-  modifier?: { s?: number; m?: number; l?: number };
+  modifier?: modifierType;
 };
 
 type allLamination = {
@@ -106,7 +103,7 @@ type allLamination = {
 
 type laminationType = {
   name: string;
-  modifier?: { s?: number; m?: number; l?: number };
+  modifier?: modifierType;
 };
 
 type allGlasses = {
@@ -118,7 +115,7 @@ type allGlasses = {
 type glassType = {
   name: string;
   desc: string;
-  modifier?: { s?: number; m?: number; l?: number };
+  modifier?: modifierType;
   speModifier?: {
     16: number;
     20: number;
@@ -136,37 +133,40 @@ type glassType = {
 };
 
 type passPartoutSizeType = {
-  small?: { size: number; modifier?: { s?: number; m?: number; l?: number } };
-  std?: { size: number };
+  small?: { size: number; modifier?: modifierType };
+  std?: { size: number; modifier?: modifierType };
   medium?: {
     size: number;
-    modifier?: { s?: number; m?: number; l?: number };
+    modifier?: modifierType;
   };
-  spec?: string;
 };
+
+type modifierType = { s?: number; m?: number; l?: number };
 
 type paperType = {
   glossy?: {
     name: string;
     desc: string;
     colorPaper?: boolean;
+    modifier?: modifierType;
   };
   matte?: {
     name: string;
     desc: string;
     colorPaper?: boolean;
+    modifier?: modifierType;
   };
   bwMatte?: {
     name: string;
     desc: string;
     blackAndWitePaper?: boolean;
-    modifier?: { s?: number; m?: number; l?: number };
+    modifier?: modifierType;
   };
   bwGlossy?: {
     name: string;
     desc: string;
     blackAndWitePaper?: boolean;
-    modifier?: { s?: number; m?: number; l?: number };
+    modifier?: modifierType;
   };
   fineArt?: {
     name: string;
@@ -174,7 +174,7 @@ type paperType = {
     fav: boolean;
     colorPaper: boolean;
     blackAndWitePaper: boolean;
-    modifier?: { s: 7; m: 19; l: 37 };
+    modifier?: modifierType;
   };
 };
 
@@ -184,5 +184,11 @@ type specPaperType = {
   colorPaper?: boolean;
   blackAndWitePaper?: boolean;
   fav?: boolean;
-  modifier?: { s?: number; m?: number; l?: number };
+  modifier?: modifierType;
 };
+type allSizeType = {
+  small?: { mm?: number; modifier?: modifierType };
+  std?: { mm?: number; modifier?: modifierType };
+  medium?: { mm?: number; modifier?: modifierType };
+  large?: { mm?: number; modifier?: modifierType };
+}

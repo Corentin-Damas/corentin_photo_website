@@ -12,7 +12,7 @@ export const possileFrames = {
       white: "Maple white",
     },
     frameSize: {
-      std: { mm: 20 },
+      std: { mm: 20, modifier: { s: 0, m: 0, l: 0 } },
       large: { mm: 40, modifier: { s: 20, m: 30, l: 40 } },
     },
     paper: {
@@ -20,6 +20,7 @@ export const possileFrames = {
         name: "Fuji crystal archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -32,6 +33,7 @@ export const possileFrames = {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
         desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
@@ -40,7 +42,7 @@ export const possileFrames = {
       },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 8, m: 15, l: 15 } },
       2: { modifier: { s: 15, m: 30, l: 30 } },
       3: { modifier: { s: 20, m: 42, l: 45 } },
@@ -69,20 +71,21 @@ export const possileFrames = {
     },
     passPartoutSize: {
       small: { size: 3, modifier: { s: -24, m: -18, l: -25 } },
-      std: { size: 9 },
+      std: { size: 9, modifier: { s: 0, m: 0, l: 0 } },
       medium: { size: 15, modifier: { s: 26, m: 22 } },
-      spec: "Border is in cm, max is 120 x 90",
     },
     paper: {
       matte: {
         name: "Fuji Crystal Archive matte",
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       glossy: {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
 
       fineArt: {
@@ -107,7 +110,7 @@ export const possileFrames = {
       },
     },
     frameSize: {
-      std: { mm: 20 },
+      std: { mm: 20, modifier: { s: 0, m: 0, l: 0 } },
       large: { mm: 40, modifier: { s: 22, m: 40, l: 50 } },
     },
     glass: {
@@ -154,13 +157,14 @@ export const possileFrames = {
       white: "Maple white",
     },
     frameSize: {
-      std: { mm: 4 },
+      std: { mm: 4, modifier: { s: 0, m: 0, l: 0 } },
     },
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -173,6 +177,7 @@ export const possileFrames = {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
         desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
@@ -181,7 +186,7 @@ export const possileFrames = {
       },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 0, m: 15, l: 15 } },
       2: { modifier: { s: 15, m: 30, l: 30 } },
       3: { modifier: { s: 20, m: 42, l: 45 } },
@@ -203,11 +208,13 @@ export const possileFrames = {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Fuji Crystal Archive matte",
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -223,13 +230,14 @@ export const possileFrames = {
       white: "Maple white",
     },
     frameSize: {
-      std: { mm: 15 },
+      std: { mm: 15, modifier: { s: 0, m: 0, l: 0 } },
       large: { mm: 31, modifier: { s: 22, m: 44, l: 60 } },
     },
     glass: {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
         desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
@@ -237,16 +245,6 @@ export const possileFrames = {
         modifier: { s: 13, m: 20, l: 40 },
       },
     },
-    // border: {
-    //   0: {},
-    //   1: { modifier: { s: 9, m: 15, l: 15 } },
-    //   2: { modifier: { s: 18, m: 30, l: 30 } },
-    //   3: { modifier: { s: 30, m: 45, l: 48 } },
-    //   5: { modifier: { s: 60, m: 70, l: 80 } },
-    //   8: { modifier: { s: 90, m: 100, l: 125 } },
-    //   12: { modifier: { s: 124, m: 144, l: 180 } },
-    //   spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
-    // },
   },
 
   aluminum_dibond: {
@@ -259,11 +257,13 @@ export const possileFrames = {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Fuji Crystal Archive matte",
         desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -286,7 +286,7 @@ export const possileFrames = {
       hangingElements: { s: "hook", m: "aluminiums rails" },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 3, m: 8, l: 10 } },
       2: { modifier: { s: 5, m: 15, l: 20 } },
       3: { modifier: { s: 9, m: 20, l: 25 } },
@@ -321,7 +321,7 @@ export const possileFrames = {
       hangingElements: { s: "hook", m: "aluminiums rails" },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 3, m: 10, l: 15 } },
       2: { modifier: { s: 12, m: 20, l: 25 } },
       3: { modifier: { s: 18, m: 27, l: 35 } },
@@ -343,6 +343,7 @@ export const possileFrames = {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -358,7 +359,7 @@ export const possileFrames = {
       },
     },
     glassThickness: {
-      s: { mm: 2 },
+      s: { mm: 2, modifier: { s: 0, m: 0, l: 0 } },
       m: { mm: 4, modifier: { s: 3, m: 10, l: 20 } },
       l: { mm: 6, modifier: { s: 5, m: 25, l: 55 } },
     },
@@ -370,7 +371,7 @@ export const possileFrames = {
       hangingElements: { s: "hook", m: "aluminiums rails" },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 3, m: 13, l: 15 } },
       2: { modifier: { s: 13, m: 27, l: 28 } },
       3: { modifier: { s: 22, m: 40, l: 40 } },
@@ -392,6 +393,7 @@ export const possileFrames = {
         name: "Fuji Crystal Archive glossy",
         desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
         colorPaper: true,
+        modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
@@ -408,7 +410,7 @@ export const possileFrames = {
       },
     },
     glassThickness: {
-      s: { mm: 2 },
+      s: { mm: 2, modifier: { s: 0, m: 0, l: 0 } },
       m: { mm: 4, modifier: { s: 3, m: 10, l: 20 } },
       l: { mm: 6, modifier: { s: 5, m: 25, l: 55 } },
     },
@@ -420,7 +422,7 @@ export const possileFrames = {
       hangingElements: { s: "hook", m: "aluminiums rails" },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 7, m: 17, l: 20 } },
       2: { modifier: { s: 17, m: 33, l: 40 } },
       3: { modifier: { s: 30, m: 50, l: 55 } },
@@ -445,7 +447,7 @@ export const possileFrames = {
       },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 1, m: 2, l: 3 } },
       2: { modifier: { s: 1, m: 3, l: 4 } },
       3: { modifier: { s: 1, m: 5, l: 7 } },
@@ -469,7 +471,7 @@ export const possileFrames = {
       },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 1, m: 2, l: 3 } },
       2: { modifier: { s: 1, m: 3, l: 4 } },
       3: { modifier: { s: 1, m: 5, l: 7 } },
@@ -489,7 +491,7 @@ export const possileFrames = {
     blackAndWitePaper: true,
     fav: true,
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 1, m: 2, l: 5 } },
       2: { modifier: { s: 2, m: 5, l: 7 } },
       3: { modifier: { s: 4, m: 7, l: 12 } },
@@ -516,7 +518,7 @@ export const possileFrames = {
         modifier: { s: 1, m: 4, l: 8 },
       },
       border: {
-        0: {},
+        0: { modifier: { s: 0, m: 0, l: 0 } },
         1: { modifier: { s: 1, m: 2, l: 5 } },
         2: { modifier: { s: 1, m: 4, l: 6 } },
         3: { modifier: { s: 2, m: 7, l: 12 } },
@@ -545,7 +547,7 @@ export const possileFrames = {
       },
     },
     border: {
-      0: {},
+      0: { modifier: { s: 0, m: 0, l: 0 } },
       1: { modifier: { s: 1, m: 2, l: 5 } },
       2: { modifier: { s: 1, m: 4, l: 6 } },
       3: { modifier: { s: 2, m: 7, l: 12 } },

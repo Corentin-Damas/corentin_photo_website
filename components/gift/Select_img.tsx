@@ -72,25 +72,7 @@ function Select_img({
       ? true
       : false;
 
-  const subTotal =
-    prodSize != null &&
-    imgProduct !== null &&
-    (imgProduct[`bordLarge_${prodSize}` as keyof productInfoType] as number);
-  // if ( prodSize != null && imgProduct !== null ){
-  //   setTotal(subTotal)
-  //   }
-  const [total, setTotal] = useState<number>(
-    subTotal !== 0 && subTotal !== false ? subTotal : 0
-  );
-
-  useEffect(() => {
-    console.log(prodSize);
-    prodSize !== null && subTotal !== false && setTotal(subTotal);
-    prodSize == null && setTotal(0);
-  }, [subTotal, prodSize]);
-
   const router = useRouter();
-
   function redirectToBasUrl() {
     router.push("/gift");
   }
@@ -122,31 +104,126 @@ function Select_img({
   const frameColor: string =
     selectedFrameColor !== null ? selectedFrameColor : "Alder brown";
 
-  const selectedFrameSize: string | null = searchParams.get("frSize");
-  let frameSize: number =
-    selectedFrameSize == null ? 0 : (selectedFrameSize as unknown as number);
+  let subTotal: number;
 
-  if (selectedFrameSize == null && selectedProduct !== null) {
+  if (
+    prodSize != null &&
+    imgProduct !== null &&
+    (imgProduct[`bordLarge_${prodSize}` as keyof productInfoType] as number)
+  ) {
+    subTotal = imgProduct[
+      `bordLarge_${prodSize}` as keyof productInfoType
+    ] as number;
+  } else {
+    subTotal = 0;
+  }
+
+  prodSize != null &&
+    imgProduct !== null &&
+    (imgProduct[`bordLarge_${prodSize}` as keyof productInfoType] as number);
+
+  const selectedFrameSize: string | null = searchParams.get("frSize");
+  let frameSizeNorm: string =
+    selectedFrameSize == null ? "std" : selectedFrameSize;
+
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    product.frameSize !== undefined &&
+    product.frameSize[`${frameSizeNorm}` as keyof allSizeType] !== undefined &&
+    product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.modifier !==
+      undefined
+  ) {
+    const objModifier =
+      product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.modifier;
+    if ((prodSize as unknown as number) > 65 && objModifier?.l !== undefined) {
+      subTotal = subTotal + objModifier.l;
+    }
     if (
-      product !== null &&
-      (selectedProduct == "gallery_frame" ||
-        selectedProduct == "solid_wood_frame_with_passe_partout")
+      (prodSize as unknown as number) > 40 &&
+      (prodSize as unknown as number) <= 65 &&
+      objModifier?.m !== undefined
     ) {
-      frameSize = 20;
-    } else if (product !== null && selectedProduct == "artbox") {
-      frameSize = 4;
-    } else if (product !== null && selectedProduct == "floater_frame") {
-      frameSize = 15;
+      subTotal = subTotal + objModifier.m;
+    }
+    if ((prodSize as unknown as number) <= 40 && objModifier?.s !== undefined) {
+      subTotal = subTotal + objModifier.s;
     }
   }
 
+  let frameSize: number | undefined = 0;
+  if (
+    selectedFrameSize == null &&
+    selectedProduct !== null &&
+    product !== null &&
+    product.framed &&
+    product.frameSize !== undefined &&
+    product.frameSize[`${frameSizeNorm}` as keyof allSizeType] !== undefined &&
+    product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.mm !== undefined
+  ) {
+    if (
+      typeof product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.mm ==
+      "number"
+    ) {
+      frameSize =
+        product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.mm;
+    } else {
+      frameSize = 0;
+    }
+  }
+
+
   const selectedPassSize: string | null = searchParams.get("passSize");
-  const passSize: number =
-    selectedPassSize == null ? 9 : (selectedPassSize as unknown as number);
+  const selectedPassSizeNormed: string =
+    selectedPassSize == null ? "std" : selectedPassSize;
+  let passSize: number | undefined = 9;
+
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    product.passPartoutSize != undefined &&
+    product.passPartoutSize[
+      `${selectedPassSizeNormed}` as keyof passPartoutSizeType
+    ] !== undefined &&
+    product.passPartoutSize[
+      `${selectedPassSizeNormed}` as keyof passPartoutSizeType
+    ]?.modifier !== undefined
+  ) {
+    const objModifier =
+      product.passPartoutSize[
+        `${selectedPassSizeNormed}` as keyof passPartoutSizeType
+      ]?.modifier;
+    const objSize =
+      product.passPartoutSize[
+        `${selectedPassSizeNormed}` as keyof passPartoutSizeType
+      ]?.size;
+
+    if ((prodSize as unknown as number) > 65 && objModifier?.l !== undefined) {
+      subTotal = subTotal + objModifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > 40 &&
+      (prodSize as unknown as number) <= 65 &&
+      objModifier?.m !== undefined
+    ) {
+      subTotal = subTotal + objModifier.m;
+    }
+    if ((prodSize as unknown as number) <= 40 && objModifier?.s !== undefined) {
+      subTotal = subTotal + objModifier.s;
+    }
+    passSize = objSize
+  }
+  
   const selectedPassColor: string | null = searchParams.get("passCl");
   const passColor: string =
-    selectedPassColor == null ? "white" : selectedPassColor;
-
+  selectedPassColor == null ? "white" : selectedPassColor;
+  
+    // -------------------------- GET MODIFIERS ---------------------------------------
+  
+  
+  
+    // -------------------------- TO DO ---------------------------------------
+  
   const selectedPaper: string | null = searchParams.get("paper");
   let paper: specPaperType | undefined =
     product !== null && product.paper !== undefined
@@ -223,8 +300,6 @@ function Select_img({
       ? product?.protection[`${selectedLamination}` as keyof allLamination]
       : undefined;
 
-  // To Refactor bellow ===============================================================
-  // Glassthikness
   const selectedThickness: string | null = searchParams.get("thick");
   let glassThickness: thicknessType | undefined =
     product !== null && product.glassThickness !== undefined
@@ -242,13 +317,6 @@ function Select_img({
     ) {
       glassThickness = product.glassThickness?.s;
     }
-  }
-
-  // warning
-
-  function handTotalManip(toAddString: string) {
-    const conv: number = parseInt(toAddString);
-    setTotal(total + conv);
   }
 
   function handleInfoBox(title: string) {
@@ -301,6 +369,9 @@ function Select_img({
               : `${styles.img_unfixed}`
           }`}
         >
+          {/*==================== REFACTOR IMG Price ============================*/}
+          <h3 className={styles.totalPrice}>total {subTotal}</h3>
+          {/*==================== REFACTOR IMG Price ============================*/}
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
               src="/util_img/wall_img01.jpg"
@@ -343,7 +414,11 @@ function Select_img({
                     ? styles.mapleWhite
                     : ""
                 }
-                ${frameSize > 20 ? styles.bigFrame : ""}
+                ${
+                  frameSize !== undefined && frameSize > 20
+                    ? styles.bigFrame
+                    : ""
+                }
                 ${
                   borderSize == "0"
                     ? ""
@@ -710,7 +785,6 @@ function Select_img({
                 ""
               )}
             </div>
-            <h3>total = {total}</h3>
           </div>
         </div>
 
@@ -737,7 +811,7 @@ function Select_img({
                 <div className={styles.section_desc}>
                   <p>{product !== null && product.tltr} </p>
                   <p>{product !== null && product.spec} </p>
-                  {product.warning !== null && product.warning  && (
+                  {product.warning !== null && product.warning && (
                     <div className={styles.warning_container}>
                       <PiSealWarningBold
                         className={`${styles.warningIcone} `}
@@ -781,19 +855,16 @@ function Select_img({
                       </div>
                       <div className={styles.frames_solutions}>
                         {product.frameSize !== undefined &&
-                          Object.values(product.frameSize).map((el) => (
+                          Object.entries(product.frameSize).map(([k, el]) => (
                             <button
                               className={`${styles.btn_selector}  ${
-                                frameSize == el.mm ? styles.selectedFrame : ""
+                                frameSizeNorm == k ? styles.selectedFrame : ""
                               }`}
                               key={el.mm}
                               onClick={() =>
                                 el.mm !== undefined &&
                                 router.push(
-                                  `/gift?${createQueryString(
-                                    "frSize",
-                                    el.mm as unknown as string
-                                  )}`,
+                                  `/gift?${createQueryString("frSize", k)}`,
                                   { scroll: false }
                                 )
                               }
@@ -814,13 +885,13 @@ function Select_img({
                       </div>
                       <div className={styles.frames_solutions}>
                         {product.passPartoutSize !== undefined &&
-                          Object.values(product.passPartoutSize).map(
-                            (el) =>
+                          Object.entries(product.passPartoutSize).map(
+                            ([k, el]) =>
                               typeof el !== "string" &&
                               el.size !== undefined && (
                                 <button
                                   className={`${styles.btn_selector}  ${
-                                    el.size !== undefined && passSize == el.size
+                                    selectedPassSizeNormed == k
                                       ? styles.selectedFrame
                                       : ""
                                   }`}
@@ -830,7 +901,7 @@ function Select_img({
                                     router.push(
                                       `/gift?${createQueryString(
                                         "passSize",
-                                        el.size as unknown as string
+                                        k
                                       )}`,
                                       { scroll: false }
                                     )
@@ -843,7 +914,7 @@ function Select_img({
                         <p>
                           {product !== null &&
                             product.passPartoutSize !== undefined &&
-                            product.passPartoutSize.spec}
+                            "Border is in cm, max is 120 x 90"}
                         </p>
                       </div>
                     </>
