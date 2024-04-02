@@ -105,6 +105,8 @@ function Select_img({
     selectedFrameColor !== null ? selectedFrameColor : "Alder brown";
 
   let subTotal: number;
+  const sToM_40: number = 40;
+  const mToS_65: number = 65;
 
   if (
     prodSize != null &&
@@ -136,17 +138,23 @@ function Select_img({
   ) {
     const objModifier =
       product.frameSize[`${frameSizeNorm}` as keyof allSizeType]?.modifier;
-    if ((prodSize as unknown as number) > 65 && objModifier?.l !== undefined) {
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
       subTotal = subTotal + objModifier.l;
     }
     if (
-      (prodSize as unknown as number) > 40 &&
-      (prodSize as unknown as number) <= 65 &&
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
       objModifier?.m !== undefined
     ) {
       subTotal = subTotal + objModifier.m;
     }
-    if ((prodSize as unknown as number) <= 40 && objModifier?.s !== undefined) {
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
       subTotal = subTotal + objModifier.s;
     }
   }
@@ -171,7 +179,6 @@ function Select_img({
       frameSize = 0;
     }
   }
-
 
   const selectedPassSize: string | null = searchParams.get("passSize");
   const selectedPassSizeNormed: string =
@@ -198,32 +205,32 @@ function Select_img({
         `${selectedPassSizeNormed}` as keyof passPartoutSizeType
       ]?.size;
 
-    if ((prodSize as unknown as number) > 65 && objModifier?.l !== undefined) {
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
       subTotal = subTotal + objModifier.l;
     }
     if (
-      (prodSize as unknown as number) > 40 &&
-      (prodSize as unknown as number) <= 65 &&
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
       objModifier?.m !== undefined
     ) {
       subTotal = subTotal + objModifier.m;
     }
-    if ((prodSize as unknown as number) <= 40 && objModifier?.s !== undefined) {
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
       subTotal = subTotal + objModifier.s;
     }
-    passSize = objSize
+    passSize = objSize;
   }
-  
+
   const selectedPassColor: string | null = searchParams.get("passCl");
   const passColor: string =
-  selectedPassColor == null ? "white" : selectedPassColor;
-  
-    // -------------------------- GET MODIFIERS ---------------------------------------
-  
-  
-  
-    // -------------------------- TO DO ---------------------------------------
-  
+    selectedPassColor == null ? "white" : selectedPassColor;
+
   const selectedPaper: string | null = searchParams.get("paper");
   let paper: specPaperType | undefined =
     product !== null && product.paper !== undefined
@@ -259,6 +266,32 @@ function Select_img({
       paper = product.paper?.fineArt;
     }
   }
+  if (
+    prodSize !== undefined &&
+    paper !== undefined &&
+    paper.modifier !== undefined &&
+    selectedProduct !== null
+  ) {
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      paper.modifier.l !== undefined
+    ) {
+      subTotal = subTotal + paper.modifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      paper.modifier.m !== undefined
+    ) {
+      subTotal = subTotal + paper.modifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      paper.modifier.s !== undefined
+    ) {
+      subTotal = subTotal + paper.modifier.s;
+    }
+  }
 
   const selectedProtection: string | null = searchParams.get("glass");
   let protection: glassType | null | undefined =
@@ -284,14 +317,116 @@ function Select_img({
       protection = product.glass?.matte;
     }
   }
+
+  if (
+    prodSize !== undefined &&
+    protection !== undefined &&
+    protection !== null &&
+    protection.modifier !== undefined &&
+    selectedProduct !== null
+  ) {
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      protection.modifier.l !== undefined
+    ) {
+      subTotal = subTotal + protection.modifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      protection.modifier.m !== undefined
+    ) {
+      subTotal = subTotal + protection.modifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      protection.modifier.s !== undefined
+    ) {
+      subTotal = subTotal + protection.modifier.s;
+    }
+  }
+  if (
+    prodSize !== undefined &&
+    prodSize !== null &&
+    protection !== undefined &&
+    protection !== null &&
+    protection.speModifier !== undefined &&
+    selectedProduct !== null
+  ) {
+    subTotal =
+      subTotal +
+      protection.speModifier[
+        prodSize as unknown as number as keyof speModifierType
+      ];
+  }
+
   const selectedBorderSize: string | null = searchParams.get("bordSize");
-  const borderSize: string | null =
-    selectedBorderSize !== null ? selectedBorderSize : "0";
+  const borderSize: number =
+    selectedBorderSize !== null ? (selectedBorderSize as unknown as number) : 0;
+
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    product.border !== undefined &&
+    product.border[borderSize as keyof bordersType] !== undefined &&
+    product.border[borderSize as keyof bordersType]?.modifier !== undefined
+  ) {
+    const objModifier =
+      product.border[borderSize as keyof bordersType]?.modifier;
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
+      subTotal = subTotal + objModifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      objModifier?.m !== undefined
+    ) {
+      subTotal = subTotal + objModifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
+      subTotal = subTotal + objModifier.s;
+    }
+  }
 
   const hangedStr: string | null = searchParams.get("hang");
   const isHanged: boolean | null =
     hangedStr !== null && hangedStr == "0" ? false : true;
 
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    !isHanged &&
+    product.hanging !== undefined &&
+    product.hanging.nothing != undefined &&
+    product.hanging.nothing.modifier != undefined
+  ) {
+    const objModifier = product.hanging.nothing.modifier;
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
+      subTotal = subTotal + objModifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      objModifier?.m !== undefined
+    ) {
+      subTotal = subTotal + objModifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
+      subTotal = subTotal + objModifier.s;
+    }
+  }
   const selectedLamination: string | null = searchParams.get("lam");
   const lamination: laminationType | undefined =
     product !== null &&
@@ -299,6 +434,35 @@ function Select_img({
     product?.protection !== undefined
       ? product?.protection[`${selectedLamination}` as keyof allLamination]
       : undefined;
+
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    product !== undefined &&
+    lamination !== undefined &&
+    lamination.modifier != undefined
+  ) {
+    const objModifier = lamination.modifier;
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
+      subTotal = subTotal + objModifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      objModifier?.m !== undefined
+    ) {
+      subTotal = subTotal + objModifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
+      subTotal = subTotal + objModifier.s;
+    }
+  }
 
   const selectedThickness: string | null = searchParams.get("thick");
   let glassThickness: thicknessType | undefined =
@@ -316,6 +480,35 @@ function Select_img({
         selectedProduct == "under_matte_acrylic_glass")
     ) {
       glassThickness = product.glassThickness?.s;
+    }
+  }
+
+  if (
+    prodSize !== undefined &&
+    product !== null &&
+    product !== undefined &&
+    glassThickness !== undefined &&
+    glassThickness.modifier != undefined
+  ) {
+    const objModifier = glassThickness.modifier;
+    if (
+      (prodSize as unknown as number) > mToS_65 &&
+      objModifier?.l !== undefined
+    ) {
+      subTotal = subTotal + objModifier.l;
+    }
+    if (
+      (prodSize as unknown as number) > sToM_40 &&
+      (prodSize as unknown as number) <= mToS_65 &&
+      objModifier?.m !== undefined
+    ) {
+      subTotal = subTotal + objModifier.m;
+    }
+    if (
+      (prodSize as unknown as number) <= sToM_40 &&
+      objModifier?.s !== undefined
+    ) {
+      subTotal = subTotal + objModifier.s;
     }
   }
 
@@ -370,7 +563,7 @@ function Select_img({
           }`}
         >
           {/*==================== REFACTOR IMG Price ============================*/}
-          <h3 className={styles.totalPrice}>total {subTotal}</h3>
+          <h3 className={styles.totalPrice}>total {subTotal.toFixed(2)}</h3>
           {/*==================== REFACTOR IMG Price ============================*/}
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
@@ -420,17 +613,17 @@ function Select_img({
                     : ""
                 }
                 ${
-                  borderSize == "0"
+                  borderSize == 0
                     ? ""
-                    : borderSize == "1"
+                    : borderSize == 1
                     ? styles.border01
-                    : borderSize == "2"
+                    : borderSize == 2
                     ? styles.border02
-                    : borderSize == "3"
+                    : borderSize == 3
                     ? styles.border03
-                    : borderSize == "5"
+                    : borderSize == 5
                     ? styles.border05
-                    : borderSize == "8"
+                    : borderSize == 8
                     ? styles.border08
                     : styles.border12
                 }
@@ -1093,7 +1286,9 @@ function Select_img({
                               el != "spec" && (
                                 <button
                                   className={`${styles.btn_selector}  ${
-                                    borderSize == el ? styles.selectedFrame : ""
+                                    borderSize == (el as unknown as number)
+                                      ? styles.selectedFrame
+                                      : ""
                                   }`}
                                   key={el}
                                   onClick={() =>
@@ -1112,7 +1307,8 @@ function Select_img({
                               )
                           )}
                         <p>
-                          {product.border !== undefined && product.border.spec}
+                          {product.border !== undefined &&
+                            "Border is in cm, dosn't change the size of the image, it influence only the paper size"}
                         </p>
                       </div>
                     </>

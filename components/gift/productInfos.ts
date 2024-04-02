@@ -193,7 +193,6 @@ export const possileFrames = {
       5: { modifier: { s: 35, m: 60, l: 76 } },
       8: { modifier: { s: 60, m: 90, l: 130 } },
       12: { modifier: { s: 97, m: 150, l: 180 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 
@@ -293,7 +292,6 @@ export const possileFrames = {
       5: { modifier: { s: 18, m: 40, l: 45 } },
       8: { modifier: { s: 35, m: 60, l: 85 } },
       12: { modifier: { s: 57, m: 92, l: 105 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 
@@ -378,7 +376,6 @@ export const possileFrames = {
       5: { modifier: { s: 40, m: 52, l: 70 } },
       8: { modifier: { s: 62, m: 80, l: 120 } },
       12: { modifier: { s: 90, m: 130, l: 160 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 
@@ -429,7 +426,6 @@ export const possileFrames = {
       5: { modifier: { s: 50, m: 60, l: 83 } },
       8: { modifier: { s: 78, m: 88, l: 140 } },
       12: { modifier: { s: 107, m: 150, l: 195 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 
@@ -454,7 +450,6 @@ export const possileFrames = {
       5: { modifier: { s: 3, m: 7, l: 10 } },
       8: { modifier: { s: 3, m: 12, l: 15 } },
       12: { modifier: { s: 5, m: 18, l: 25 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
   fuji_crystal_archive_matte: {
@@ -478,7 +473,6 @@ export const possileFrames = {
       5: { modifier: { s: 3, m: 7, l: 10 } },
       8: { modifier: { s: 3, m: 12, l: 15 } },
       12: { modifier: { s: 5, m: 18, l: 25 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
   hahnemühle_fineart_baryta: {
@@ -498,7 +492,6 @@ export const possileFrames = {
       5: { modifier: { s: 6, m: 12, l: 20 } },
       8: { modifier: { s: 8, m: 22, l: 32 } },
       12: { modifier: { s: 16, m: 36, l: 52 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
   ilford_glossy_black_and_white_paper: {
@@ -525,7 +518,6 @@ export const possileFrames = {
         5: { modifier: { s: 5, m: 12, l: 20 } },
         8: { modifier: { s: 8, m: 20, l: 32 } },
         12: { modifier: { s: 12, m: 25, l: 50 } },
-        spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
       },
     },
   },
@@ -554,7 +546,6 @@ export const possileFrames = {
       5: { modifier: { s: 5, m: 12, l: 20 } },
       8: { modifier: { s: 8, m: 20, l: 32 } },
       12: { modifier: { s: 12, m: 25, l: 50 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
     },
   },
 };

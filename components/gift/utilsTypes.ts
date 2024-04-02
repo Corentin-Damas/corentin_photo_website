@@ -48,16 +48,7 @@ type productType = {
   };
   passPartoutSize?: passPartoutSizeType;
   glass?: allGlasses;
-  border?: {
-    0?: { modifier?: modifierType};
-    1?: { modifier?: modifierType};
-    2?: { modifier?: modifierType};
-    3?: { modifier?: modifierType};
-    5?: { modifier?: modifierType};
-    8?: { modifier?: modifierType};
-    12?: { modifier?: modifierType};
-    spec: string;
-  };
+  border?: bordersType;
   hanging?: {
     nothing?: {
       desc: string;
@@ -116,20 +107,7 @@ type glassType = {
   name: string;
   desc: string;
   modifier?: modifierType;
-  speModifier?: {
-    16: number;
-    20: number;
-    24: number;
-    30: number;
-    35: number;
-    40: number;
-    50: number;
-    60: number;
-    70: number;
-    75: number;
-    80: number;
-    90: number;
-  };
+  speModifier?:speModifierType
 };
 
 type passPartoutSizeType = {
@@ -192,3 +170,28 @@ type allSizeType = {
   medium?: { mm?: number; modifier?: modifierType };
   large?: { mm?: number; modifier?: modifierType };
 }
+
+type speModifierType =  {
+  16: number;
+  20: number;
+  24: number;
+  30: number;
+  35: number;
+  40: number;
+  50: number;
+  60: number;
+  70: number;
+  75: number;
+  80: number;
+  90: number;
+};
+
+type bordersType = {
+  0?: { modifier: modifierType};
+  1?: { modifier: modifierType};
+  2?: { modifier: modifierType};
+  3?: { modifier: modifierType};
+  5?: { modifier: modifierType};
+  8?: { modifier: modifierType};
+  12?: { modifier: modifierType};
+};
