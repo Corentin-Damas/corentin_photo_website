@@ -7,9 +7,11 @@ import { useImgSelected } from "../../providers/imgFav-provider";
 import { possileFrames } from "./productInfos";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { MdAddShoppingCart } from "react-icons/md";
 import { useSearchParams, usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useCartProduct } from "../../providers/cart-provider";
 
 function Select_img({
   objImg,
@@ -28,6 +30,9 @@ function Select_img({
     imgProduct = JSON.parse(objProduct);
   }
 
+  const cartList = useCartProduct((state) => state.cartOfProduct);
+  const addToCart = useCartProduct((state) => state.addToCart);
+  const remFromCart = useCartProduct((state) => state.removeFromCart);
   const searchParams = useSearchParams();
 
   const selectedImg = searchParams.get("img");
@@ -512,6 +517,37 @@ function Select_img({
     }
   }
 
+  function handleAddToCart() {
+    let productResume: productResumeType;
+    if (selectedImg !== null && product !== null && prodSize !== null) {
+      productResume = {
+        img: selectedImg,
+        imgSize: prodSize,
+        totalPrice: subTotal,
+        nameDisplayMethod: product.name,
+        border: borderSize,
+        paper: paper?.name,
+        frameSize: product.framed ? frameSize : undefined,
+        color: product.framed ? frameColor : undefined,
+        passePartoutColor:
+          product.name == "solid_wood_frame_with_passe_partout"
+            ? passColor
+            : undefined,
+        passePartoutSize:
+          product.name == "solid_wood_frame_with_passe_partout"
+            ? passSize
+            : undefined,
+        glass: protection?.name,
+        hanging: isHanged,
+        protection: lamination?.name,
+        glassThickness: glassThickness?.mm,
+      };
+
+      addToCart(productResume);
+    }
+  }
+  console.log(cartList);
+
   function handleInfoBox(title: string) {
     if (title == "framed") {
       setSection("Framed picture");
@@ -563,7 +599,17 @@ function Select_img({
           }`}
         >
           {/*==================== REFACTOR IMG Price ============================*/}
-          <h3 className={styles.totalPrice}>total {subTotal.toFixed(2)}</h3>
+          {product !== undefined && prodSize !== null && (
+            <div className={styles.totalPrice}>
+              <button
+                className={styles.btn_addToCart}
+                onClick={handleAddToCart}
+              >
+                <MdAddShoppingCart className={styles.miniIcone} /> Add to cart{" "}
+              </button>
+              <h3>total {subTotal.toFixed(2)}</h3>
+            </div>
+          )}
           {/*==================== REFACTOR IMG Price ============================*/}
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
@@ -608,8 +654,11 @@ function Select_img({
                     : ""
                 }
                 ${
-                  frameSize !== undefined && frameSize > 20
+                  selectedFrameSize !== null &&
+                  selectedFrameSize == "large"
                     ? styles.bigFrame
+                    : selectedFrameSize == "std"
+                    ? styles.smallFrame
                     : ""
                 }
                 ${
@@ -1407,6 +1456,11 @@ function Select_img({
               </>
             )}
           </div>
+        </div>
+        <div className={styles.sec_addToCart}>
+          <button className={styles.btn_addToCart} onClick={handleAddToCart}>
+            <MdAddShoppingCart className={styles.miniIcone} /> Add to cart
+          </button>
         </div>
       </div>
     </div>
