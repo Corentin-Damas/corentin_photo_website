@@ -5,6 +5,8 @@ import styles from "../components/Navbar.module.css";
 import ThemeSwitch from "./ThemeSwitch";
 import NavbarSmallScreen from "./NavbarSmallScreen";
 import { usePathname } from "next/navigation";
+import CartNavBtn from "./CartNavBtn";
+import { useCartProduct } from "../providers/cart-provider";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {
   const path = usePathname();
@@ -89,6 +91,8 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
             {/* <Link href="/your_print">Your Print</Link> */}
           </ul>
           <div className={styles.actions}>
+            <CartNavBtn/>
+            
             <div className={styles.theme_container}>
               <ThemeSwitch />
               <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
