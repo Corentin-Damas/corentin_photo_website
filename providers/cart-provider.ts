@@ -15,6 +15,7 @@ type product = {
     glass?: string
     glassThickness?: number
     protection?: string
+    quantity: number
 }
 
 

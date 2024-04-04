@@ -1,0 +1,27 @@
+.header {
+  position: relative;
+  padding-top: var(--spacing-LM);
+  height: 20rem;
+}
+
+.heroSection {
+  padding-top: var(--spacing-LM);
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: var(--font-size-subTitle_03);
+}
+
+.hero_title {
+  font-family: var(--font-geologica-light);
+  font-weight: 300;
+}
+
+.content__container {
+  min-height: 50vh;
+
+
+}

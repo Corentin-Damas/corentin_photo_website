@@ -49,10 +49,10 @@
   bottom: calc((var(--font-size-Title_02) + var(--spacing-SS)) * -1);
   right: 0;
   z-index: 410;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-SS);
+  gap: var(--spacing-S);
 }
 
 .img_fixed {
@@ -172,8 +172,8 @@
   padding-left: var(--spacing-S);
 }
 
-.sec_addToCart{
-  display:flex;
+.sec_addToCart {
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -191,21 +191,71 @@
   transition: all 0.1s;
   color: var(--sec-50);
 }
+
+.cart__quantity {
+  font-size: var(--font-size-bodyText_01);
+}
+
+.btn_addToCart_complet {
+  width: 20rem;
+  background-color: var(--prim-900);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn_addToCart:hover,
+.btn_addToCart:active {
+  background-color: var(--prim-700);
+  cursor: pointer;
+}
+
 .btn_addToCart {
+  background-color: transparent;
   border: none;
   outline: none;
-  width: 15rem;
-  padding-inline: var(--spacing-SS);
+  width: 100%;
   height: 5rem;
-  border-radius: 4rem;
-  background-color: var(--prim-900);
   transition: all 0.1s;
   color: var(--sec-50);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-XS);
+  overflow: hidden;
+  justify-self: stretch;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
+
+.right__btns {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn__symbs {
+  border: none;
+  outline: none;
+  width: 4rem;
+  border-left: 1px solid var(--font-color-gray);
+  background-color: var(--prim-900);
+}
+.btn__symbs__top {
+  border-top-right-radius: 1rem;
+}
+.btn__symbs__bot {
+  border-top: 1px solid var(--font-color-gray);
+  border-bottom-right-radius: 1rem;
+}
+
+.btn__symbs:hover {
+  background-color: var(--prim-700);
+  cursor: pointer;
+}
+
 .btn_reset {
   border: none;
   outline: none;
@@ -231,12 +281,6 @@
 .btn_reset:hover:not(:disabled),
 .btn_reset:active:not(:disabled) {
   background-color: var(--prim-900);
-  cursor: pointer;
-}
-
-.btn_addToCart:hover,
-.btn_addToCart:active {
-  background-color: var(--prim-500-main);
   cursor: pointer;
 }
 

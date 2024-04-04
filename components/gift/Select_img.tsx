@@ -32,13 +32,14 @@ function Select_img({
 
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const addToCart = useCartProduct((state) => state.addToCart);
-  const remFromCart = useCartProduct((state) => state.removeFromCart);
   const searchParams = useSearchParams();
 
   const selectedImg = searchParams.get("img");
   const selectedImgExtention = selectedImg + ".jpg";
   const selectedProduct: string | null = searchParams.get("product");
   const prodSize: string | null = searchParams.get("size");
+
+  const [quantityProd, setQuantityProd] = useState<number>(1);
 
   const addImg = useImgSelected((state) => state.addImgSelected);
   const imgList = useImgSelected((state) => state.imgSelected);
@@ -541,6 +542,7 @@ function Select_img({
         hanging: isHanged,
         protection: lamination?.name,
         glassThickness: glassThickness?.mm,
+        quantity: quantityProd,
       };
 
       addToCart(productResume);
@@ -601,16 +603,26 @@ function Select_img({
           {/*==================== REFACTOR IMG Price ============================*/}
           {product !== undefined && prodSize !== null && (
             <div className={styles.totalPrice}>
-              <button
-                className={styles.btn_addToCart}
-                onClick={handleAddToCart}
-              >
-                <MdAddShoppingCart className={styles.miniIcone} /> Add to cart{" "}
-              </button>
-              <h3>total {subTotal.toFixed(2)}</h3>
+              <div className={styles.btn_addToCart_complet}>
+                <button
+                  className={styles.btn_addToCart}
+                  onClick={handleAddToCart}
+                >
+                  <MdAddShoppingCart className={styles.miniIcone} /> Add <span className={styles.cart__quantity}>{quantityProd}</span> to cart{" "}
+                </button>
+                <div className={styles.right__btns}>
+                  <button className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}>
+                    <p onClick={()=> quantityProd > 0 && setQuantityProd(quantityProd + 1)}>+</p>
+                  </button>
+                  <button className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}>
+                    <p onClick={()=> quantityProd !== 1 && quantityProd >= 2 && setQuantityProd(quantityProd - 1)}>-</p>
+                  </button>
+                </div>
+              </div>
+              <h6>{(quantityProd * subTotal).toFixed(2)}€</h6>
             </div>
           )}
-          {/*==================== REFACTOR IMG Price ============================*/}
+          {/*==================== REFACTOR IMG ============================*/}
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
               src="/util_img/wall_img01.jpg"
@@ -654,8 +666,7 @@ function Select_img({
                     : ""
                 }
                 ${
-                  selectedFrameSize !== null &&
-                  selectedFrameSize == "large"
+                  selectedFrameSize !== null && selectedFrameSize == "large"
                     ? styles.bigFrame
                     : selectedFrameSize == "std"
                     ? styles.smallFrame
@@ -1403,7 +1414,6 @@ function Select_img({
                       </div>
                     </>
                   )}
-                {/* ============================= REFACTORING ==================================== */}
 
                 {product !== null &&
                   product.spec !== undefined &&

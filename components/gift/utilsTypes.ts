@@ -40,7 +40,7 @@ type productType = {
     oak: string;
     white: string;
   };
-  frameSize?: allSizeType
+  frameSize?: allSizeType;
   paper?: paperType;
   passPartoutColor?: {
     white: string;
@@ -107,7 +107,7 @@ type glassType = {
   name: string;
   desc: string;
   modifier?: modifierType;
-  speModifier?:speModifierType
+  speModifier?: speModifierType;
 };
 
 type passPartoutSizeType = {
@@ -169,9 +169,9 @@ type allSizeType = {
   std?: { mm?: number; modifier?: modifierType };
   medium?: { mm?: number; modifier?: modifierType };
   large?: { mm?: number; modifier?: modifierType };
-}
+};
 
-type speModifierType =  {
+type speModifierType = {
   16: number;
   20: number;
   24: number;
@@ -187,28 +187,29 @@ type speModifierType =  {
 };
 
 type bordersType = {
-  0?: { modifier: modifierType};
-  1?: { modifier: modifierType};
-  2?: { modifier: modifierType};
-  3?: { modifier: modifierType};
-  5?: { modifier: modifierType};
-  8?: { modifier: modifierType};
-  12?: { modifier: modifierType};
+  0?: { modifier: modifierType };
+  1?: { modifier: modifierType };
+  2?: { modifier: modifierType };
+  3?: { modifier: modifierType };
+  5?: { modifier: modifierType };
+  8?: { modifier: modifierType };
+  12?: { modifier: modifierType };
 };
 
 type productResumeType = {
-  img: string
-  imgSize: string
-  totalPrice: number
-  paper?: string | null
-  border:number
-  nameDisplayMethod: string
-  frameSize?: number
-  color?: string
-  passePartoutColor?: string
-  passePartoutSize?: number
-  hanging?: boolean | null
-  glass?: string
-  glassThickness?: number
-  protection?: string
-}
+  img: string;
+  imgSize: string;
+  totalPrice: number;
+  paper?: string | null;
+  border: number;
+  nameDisplayMethod: string;
+  frameSize?: number;
+  color?: string;
+  passePartoutColor?: string;
+  passePartoutSize?: number;
+  hanging?: boolean | null;
+  glass?: string;
+  glassThickness?: number;
+  protection?: string;
+  quantity: number;
+};
