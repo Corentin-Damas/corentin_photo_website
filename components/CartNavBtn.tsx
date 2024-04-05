@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useCartProduct } from "../providers/cart-provider";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import Image from "next/image";
 function CartNavBtn() {
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const remFromCart = useCartProduct((state) => state.removeFromCart);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   let total: number = 0;
   cartList.map((el) => (total += el.totalPrice * el.quantity));
@@ -29,11 +29,14 @@ function CartNavBtn() {
       />
 
       {cartList.length > 0 && isOpen && (
-        <div className={styles.cartNav__container}>
+        <div
+          className={styles.cartNav__container}
+        >
           <div className={styles.cartHeader}>
             <Link
               href="/cart"
               className={`${styles.majorLink} ${styles.cartLink}`}
+              onClick={()=>setIsOpen(false)}
             >
               <p>My cart</p>
             </Link>

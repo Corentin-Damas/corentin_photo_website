@@ -531,11 +531,11 @@ function Select_img({
         frameSize: product.framed ? frameSize : undefined,
         color: product.framed ? frameColor : undefined,
         passePartoutColor:
-          product.name == "solid_wood_frame_with_passe_partout"
+          product?.name == "Solid Wood Frame With Passe_Partout"
             ? passColor
             : undefined,
         passePartoutSize:
-          product.name == "solid_wood_frame_with_passe_partout"
+          product?.name == "Solid Wood Frame With Passe_Partout"
             ? passSize
             : undefined,
         glass: protection?.name,
@@ -608,14 +608,34 @@ function Select_img({
                   className={styles.btn_addToCart}
                   onClick={handleAddToCart}
                 >
-                  <MdAddShoppingCart className={styles.miniIcone} /> Add <span className={styles.cart__quantity}>{quantityProd}</span> to cart{" "}
+                  <MdAddShoppingCart className={styles.miniIcone} /> Add{" "}
+                  <span className={styles.cart__quantity}>{quantityProd}</span>{" "}
+                  to cart{" "}
                 </button>
                 <div className={styles.right__btns}>
-                  <button className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}>
-                    <p onClick={()=> quantityProd > 0 && setQuantityProd(quantityProd + 1)}>+</p>
+                  <button
+                    className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
+                  >
+                    <p
+                      onClick={() =>
+                        quantityProd > 0 && setQuantityProd(quantityProd + 1)
+                      }
+                    >
+                      +
+                    </p>
                   </button>
-                  <button className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}>
-                    <p onClick={()=> quantityProd !== 1 && quantityProd >= 2 && setQuantityProd(quantityProd - 1)}>-</p>
+                  <button
+                    className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}
+                  >
+                    <p
+                      onClick={() =>
+                        quantityProd !== 1 &&
+                        quantityProd >= 2 &&
+                        setQuantityProd(quantityProd - 1)
+                      }
+                    >
+                      -
+                    </p>
                   </button>
                 </div>
               </div>

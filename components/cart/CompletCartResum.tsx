@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./CompletCartResum.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 function CompletCartResum() {
   const cartList = useCartProduct((state) => state.cartOfProduct);
@@ -27,11 +28,11 @@ function CompletCartResum() {
           <div className={styles.cartMainContent}>
             {cartList.map((el) => (
               <div key={el.totalPrice} className={styles.resume}>
+                <div className={`detail_01 ${styles.res_head}`}>
+                  <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
+                  <p>x{el.quantity}</p>
+                </div>
                 <div className={styles.res_Left}>
-                  <div className={`detail_01 ${styles.res_head}`}>
-                    <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
-                    <p>x{el.quantity}</p>
-                  </div>
                   {el.color !== undefined && (
                     <p className={`detail_02 ${styles.res_detail}`}>
                       Frame material: {el.color}
@@ -52,6 +53,7 @@ function CompletCartResum() {
                       Passe-Partout Size: {el.passePartoutSize}
                     </p>
                   )}
+
                   {el.border !== 0 && (
                     <p className={`detail_02 ${styles.res_detail}`}>
                       Border size: {el.border} cm
@@ -62,14 +64,14 @@ function CompletCartResum() {
                       Paper: {el.paper}
                     </p>
                   )}
-                  {el.glass !== null && (
+                  {el.glass !== null && el.glass !== undefined && (
                     <p className={`detail_02 ${styles.res_detail}`}>
                       Protection type: {el.glass}
                     </p>
                   )}
                   {el.hanging !== undefined && (
                     <p className={`detail_02 ${styles.res_detail}`}>
-                      Hanging element: {el.hanging == true ? "Yes": "No"}
+                      Hanging element: {el.hanging == true ? "Yes" : "No"}
                     </p>
                   )}
                   {el.glassThickness !== undefined && (
@@ -87,27 +89,87 @@ function CompletCartResum() {
                     Long edge: {el.imgSize} cm
                   </p>
                   <p className={`detail_02 ${styles.res_price}`}>
-                    unity: {el.totalPrice}€
+                    unity: {el.totalPrice.toFixed(2)}€
                   </p>
                   <div className={styles.actions_btn}>
                     <button
                       className={styles.removeBtn}
                       onClick={() => remFromCart(el)}
                     >
-                      remove one
-                    </button>
-                    <button
-                      className={styles.removeBtn}
-                      onClick={() => remFromCart(el)}
-                    >
-                      remove all
+                      remove
                     </button>
                   </div>
                 </div>
                 <div className={styles.res_Right}>
                   <Image
                     src={`/${el.img.slice(3)}/S/${el.img}.jpg`}
-                    className={styles.imgPreview}
+                    className={`${styles.imgPreview}  ${
+                      el?.nameDisplayMethod == ""
+                        ? ""
+                        : el?.nameDisplayMethod == "Gallery Frame"
+                        ? styles.galleryFrame
+                        : el?.nameDisplayMethod ==
+                          "Solid Wood Frame With Passe_Partout"
+                        ? styles.passePartout
+                        : el?.nameDisplayMethod == "Artbox"
+                        ? styles.artbox
+                        : el?.nameDisplayMethod == "Floater Frame"
+                        ? styles.floater
+                        : ""
+                    }
+
+                  ${
+                    el.frameSize !== undefined && el.frameSize > 25
+                      ? styles.bigFrame
+                      : el.frameSize !== undefined &&
+                        el.frameSize <= 25 &&
+                        el.frameSize > 10
+                      ? styles.mediumFrame
+                      : el.frameSize !== undefined && el.frameSize <= 10
+                      ? styles.smallFrame
+                      : ""
+                  }
+                  ${
+                    el.border == 0
+                      ? ""
+                      : el.border == 1
+                      ? styles.border01
+                      : el.border == 2
+                      ? styles.border02
+                      : el.border == 3
+                      ? styles.border03
+                      : el.border == 5
+                      ? styles.border05
+                      : el.border == 8
+                      ? styles.border08
+                      : styles.border12
+                  }
+                  ${
+                    el.passePartoutSize == 9
+                      ? ""
+                      : el.passePartoutSize == 3
+                      ? styles.passSizeSmall
+                      : styles.passSizeBig
+                  }
+                  ${
+                    el.nameDisplayMethod ==
+                      "Solid Wood Frame With Passe_Partout" &&
+                    el.passePartoutColor == "white"
+                      ? ""
+                      : styles.blackPass
+                  }
+                  ${
+                    el.color == "Alder brown"
+                      ? styles.alderBrown
+                      : el.color == "Black oak"
+                      ? styles.blackOak
+                      : el.color == "Natural oak"
+                      ? styles.naturalOak
+                      : el.color == "Maple white"
+                      ? styles.mapleWhite
+                      : ""
+                  }
+                   `}
                     alt="Actual selected pîcture"
                     sizes="100vw"
                     width={0}

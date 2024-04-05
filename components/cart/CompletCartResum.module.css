@@ -10,7 +10,7 @@
 
 .cartNav__container {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
   align-items: center;
   justify-items: center;
@@ -48,42 +48,60 @@
   background-color: var(--prim-700);
 }
 
-.imgPreview {
-  height: auto;
-  min-width: 15rem;
-  object-fit: cover;
-}
-
 .cartMainContent {
   margin-bottom: var(--spacing-S);
 }
 
 .resume {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3rem auto;
+  align-items: center;
+  justify-items: first baseline;
   margin-bottom: var(--spacing-S);
   gap: var(--spacing-S);
-  width: 50rem;
+  width: 58rem;
+  margin-bottom: var(--spacing-M);
 }
 
 .res_Left {
   position: relative;
+  grid-row: 2/3;
+  grid-column: 1/2;
+  width: 100%;
+}
+
+.res_Right {
+  position: relative;
+  grid-row: 2/3;
+  grid-column: 2/3;
   width: 100%;
 }
 
 .res_head {
   border-bottom: 1px solid var(--link-color-underline);
-  max-width: 100%;
+  width: 100%;
   text-transform: lowercase;
   padding-bottom: var(--spacing-XS);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  grid-row: 1/2;
+  grid-column: 1/3;
 }
 .res_detail {
   color: var(--font-color-gray);
+}
+
+.actions_btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-S);
 }
 
 .removeBtn {
@@ -93,16 +111,12 @@
   padding: 0.4rem 1rem;
   border-radius: 3rem;
   color: var(--font-color-main);
-  position: absolute;
-  right: 0;
-  bottom: 0;
   transition: all 0.2s;
 }
 .removeBtn:hover {
   background-color: var(--sec-900);
   cursor: pointer;
-  border: 1px solid var(--sec-700);
-  transform: scale(1.02);
+  outline: 1px solid var(--sec-700);
 }
 
 .cartFooter {
@@ -125,4 +139,129 @@
 
 .finalOrderLink {
   width: 70%;
+}
+.imgPreview {
+  height: auto;
+  width: 70%;
+  object-fit: contain;
+  box-shadow: 0rem 0rem 0rem 2.3rem rgb(201, 201, 201);
+  margin-left: auto;
+  margin-right: 2.3rem;
+}
+
+.galleryFrame {
+  outline: 5px solid var(--black-Oak);
+  padding: 0px;
+}
+.artbox {
+  outline: 2px solid var(--alder-Brown);
+  padding: 0px;
+}
+.floater {
+  outline: solid 5px var(--alder-Brown);
+  background-color: rgb(0, 0, 0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  margin: auto;
+  padding: 3px;
+}
+.passePartout {
+  outline: 5px solid var(--black-Oak);
+  background-color: #e2e2e2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  margin: auto;
+  padding: 10px;
+}
+
+.smallFrame {
+  outline: 2px solid var(--black-Oak);
+}
+.mediumFrame {
+  outline: 5px solid var(--black-Oak);
+}
+.bigFrame {
+  outline: 7px solid var(--black-Oak);
+}
+
+.border01 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 71%;
+  margin: auto;
+  padding: 1px;
+}
+.border02 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 72%;
+  margin: auto;
+  padding: 2px;
+}
+.border03 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 73%;
+  margin: auto;
+  padding: 3px;
+}
+.border05 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 75%;
+  margin: auto;
+  padding: 5px;
+}
+.border08 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 78%;
+  margin: auto;
+  padding: 12px;
+}
+.border12 {
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  width: 82%;
+  margin: auto;
+  padding: 12px;
+}
+
+.passSizeSmall {
+  width: 73%;
+  padding: 3px;
+}
+.passSizeBig {
+  width: 85%;
+  padding: 15px;
+}
+.blackPass {
+  background-color: #222222;
+}
+
+.alderBrown {
+  outline-color: var(--alder-Brown);
+}
+.blackOak {
+  outline-color: var(--black-Oak);
+}
+.naturalOak {
+  outline-color: var(--natural-Oak);
+}
+.mapleWhite {
+  outline-color: var(--maple-White);
 }
