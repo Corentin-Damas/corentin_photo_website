@@ -41,6 +41,8 @@ function Select_img({
   const selectedImgExtention = selectedImg + ".jpg";
   const selectedProduct: string | null = searchParams.get("product");
   const prodSize: string | null = searchParams.get("size");
+  const prodSizeInt: number | boolean =
+    prodSize !== null && parseInt(prodSize, 10);
 
   const [quantityProd, setQuantityProd] = useState<number>(1);
 
@@ -616,11 +618,11 @@ function Select_img({
                     className={styles.btn_addToCart}
                     onClick={handleAddToCart}
                   >
-                    <MdAddShoppingCart className={styles.miniIcone} /> Add{" "}
+                    <MdAddShoppingCart className={styles.miniIcone} /> Add
                     <span className={styles.cart__quantity}>
                       {quantityProd}
-                    </span>{" "}
-                    to cart{" "}
+                    </span>
+                    to cart
                   </button>
                   <div className={styles.right__btns}>
                     <button
@@ -658,7 +660,6 @@ function Select_img({
               <h6>{(quantityProd * subTotal).toFixed(2)}€</h6>
             </div>
           )}
-          {/*==================== REFACTOR IMG ============================*/}
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
               src="/util_img/wall_img01.jpg"
@@ -679,7 +680,34 @@ function Select_img({
                   onError={() => redirectToBasUrl()}
                   className={`${styles.img__selected} ${
                     isImageLoading ? "unLoaded" : "remove-unLoaded"
-                  } ${
+                  } 
+                  ${
+                    prodSize != null && prodSize == "16"
+                      ? styles.size16
+                      : prodSize == "20"
+                      ? styles.size20
+                      : prodSize == "24"
+                      ? styles.size24
+                      : prodSize == "30"
+                      ? styles.size30
+                      : prodSize == "35"
+                      ? styles.size35
+                      : prodSize == "40"
+                      ? styles.size40
+                      : prodSize == "50"
+                      ? styles.size50
+                      : prodSize == "60"
+                      ? styles.size60
+                      : prodSize == "70"
+                      ? styles.size70
+                      : prodSize == "80"
+                      ? styles.size80
+                      : prodSize == "90"
+                      ? styles.size90:
+                      ""
+                  }
+                  
+                  ${
                     product?.name == ""
                       ? ""
                       : product?.name == "Gallery Frame"
@@ -742,7 +770,13 @@ function Select_img({
                 />
               )}
               <Image
-                src="/util_img/livingRoom_01.jpg"
+                src={`/util_img/livingRoom_0${
+                  typeof prodSizeInt == "number" && prodSizeInt >= 65
+                    ? "3"
+                    : typeof prodSizeInt == "number" && prodSizeInt <= 34
+                    ? "4"
+                    : "1"
+                }.jpg`}
                 alt="Corentin Damas with one of is framed picture on a customer's wall"
                 className={`${styles.img__mokeup} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"

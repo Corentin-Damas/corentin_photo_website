@@ -117,6 +117,18 @@
   --black-Oak: #21201c;
   --natural-Oak: #a0825c;
   --maple-White: #ede5e2;
+
+  --imgSizeSample16: 25%;
+  --imgSizeSample20: 31%;
+  --imgSizeSample24: 37%;
+  --imgSizeSample30: 50%;
+  --imgSizeSample35: 33%;
+  --imgSizeSample40: 38%;
+  --imgSizeSample50: 48%;
+  --imgSizeSample60: 58%;
+  --imgSizeSample70: 35%;
+  --imgSizeSample80: 40%;
+  --imgSizeSample90: 45%;
 }
 
 html.dark {
