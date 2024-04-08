@@ -7,8 +7,11 @@ import { useImgSelected } from "../../providers/imgFav-provider";
 import { possileFrames } from "./productInfos";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { MdAddShoppingCart } from "react-icons/md";
-import { useSearchParams, usePathname } from "next/navigation";
+import {
+  MdAddShoppingCart,
+  MdOutlineShoppingCartCheckout,
+} from "react-icons/md";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCartProduct } from "../../providers/cart-provider";
@@ -518,6 +521,9 @@ function Select_img({
     }
   }
 
+  const [is_addCartClicked, setIs_addCartClicked] = useState<boolean>(false);
+  const [isImageLoading, setImageLoading] = useState(true);
+
   function handleAddToCart() {
     let productResume: productResumeType;
     if (selectedImg !== null && product !== null && prodSize !== null) {
@@ -546,6 +552,7 @@ function Select_img({
       };
 
       addToCart(productResume);
+      setIs_addCartClicked(true);
     }
   }
   console.log(cartList);
@@ -600,45 +607,54 @@ function Select_img({
               : `${styles.img_unfixed}`
           }`}
         >
-          {/*==================== REFACTOR IMG Price ============================*/}
+          {/*==================== Left Btn add to cart ============================*/}
           {product !== undefined && prodSize !== null && (
             <div className={styles.totalPrice}>
-              <div className={styles.btn_addToCart_complet}>
-                <button
-                  className={styles.btn_addToCart}
-                  onClick={handleAddToCart}
-                >
-                  <MdAddShoppingCart className={styles.miniIcone} /> Add{" "}
-                  <span className={styles.cart__quantity}>{quantityProd}</span>{" "}
-                  to cart{" "}
-                </button>
-                <div className={styles.right__btns}>
+              {!is_addCartClicked ? (
+                <div className={styles.btn_addToCart_complet}>
                   <button
-                    className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
+                    className={styles.btn_addToCart}
+                    onClick={handleAddToCart}
                   >
-                    <p
-                      onClick={() =>
-                        quantityProd > 0 && setQuantityProd(quantityProd + 1)
-                      }
-                    >
-                      +
-                    </p>
+                    <MdAddShoppingCart className={styles.miniIcone} /> Add{" "}
+                    <span className={styles.cart__quantity}>
+                      {quantityProd}
+                    </span>{" "}
+                    to cart{" "}
                   </button>
-                  <button
-                    className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}
-                  >
-                    <p
-                      onClick={() =>
-                        quantityProd !== 1 &&
-                        quantityProd >= 2 &&
-                        setQuantityProd(quantityProd - 1)
-                      }
+                  <div className={styles.right__btns}>
+                    <button
+                      className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
                     >
-                      -
-                    </p>
-                  </button>
+                      <p
+                        onClick={() =>
+                          quantityProd > 0 && setQuantityProd(quantityProd + 1)
+                        }
+                      >
+                        +
+                      </p>
+                    </button>
+                    <button
+                      className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}
+                    >
+                      <p
+                        onClick={() =>
+                          quantityProd !== 1 &&
+                          quantityProd >= 2 &&
+                          setQuantityProd(quantityProd - 1)
+                        }
+                      >
+                        -
+                      </p>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <Link href={"./cart"} className={styles.btn_goToCartv2}>
+                  <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
+                  <p>Check my Cart</p>
+                </Link>
+              )}
               <h6>{(quantityProd * subTotal).toFixed(2)}€</h6>
             </div>
           )}
@@ -662,6 +678,8 @@ function Select_img({
                   alt="Actual selected pîcture"
                   onError={() => redirectToBasUrl()}
                   className={`${styles.img__selected} ${
+                    isImageLoading ? "unLoaded" : "remove-unLoaded"
+                  } ${
                     product?.name == ""
                       ? ""
                       : product?.name == "Gallery Frame"
@@ -726,11 +744,14 @@ function Select_img({
               <Image
                 src="/util_img/livingRoom_01.jpg"
                 alt="Corentin Damas with one of is framed picture on a customer's wall"
-                className={`${styles.img__mokeup}`}
+                className={`${styles.img__mokeup} ${
+                  isImageLoading ? "unLoaded" : "remove-unLoaded"
+                }`}
                 sizes="100vw"
                 width={0}
                 height={0}
                 quality={80}
+                onLoad={() => setImageLoading(false)}
               />
             </div>
           )}
@@ -982,7 +1003,7 @@ function Select_img({
                   <h6>{product?.name}</h6>
                   <p>{productDesc}</p>
                   <p>{product?.spec !== "Simple print" && productSpec}</p>
-                  {product?.warning !== null && (
+                  {product !== null && product.warning !== undefined && (
                     <p>
                       <PiSealWarningBold className={styles.icone} />{" "}
                       {product?.warning}
@@ -1009,58 +1030,59 @@ function Select_img({
           </div>
         </div>
 
-        {/* ============================= PRINCING ==================================== */}
+        {/* ============================= Picture Size ==================================== */}
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
             <h4>Available Size </h4>
           </div>
-
-          <div className={styles.select_container}>
-            <div className={styles.frames_solutions}>
-              {imgInfos != null &&
-                Object.keys(imgInfos).includes("WidthCM") &&
-                imgProduct !== null &&
-                imgProduct.format !== "" &&
-                Object.entries(imgProduct).map(
-                  ([key, val]) =>
-                    imgInfos !== null &&
-                    key.slice(0, -2) == "bordLarge_" &&
-                    (key.slice(-2) as unknown as number) < imgInfos.WidthCM &&
-                    (val as number) > 0 && (
-                      <button
-                        key={key}
-                        className={`${styles.btn_selector} ${
-                          prodSize != null &&
-                          key.slice(-2) == prodSize &&
-                          styles.selectedFrame
-                        }`}
-                        onClick={() =>
-                          router.push(
-                            `/gift?${createQueryString("size", key.slice(-2))}`,
-                            { scroll: false }
-                          )
-                        }
-                      >
-                        {key.slice(-2)} {val}
-                      </button>
-                    )
-                )}
-              {selectedImg == null ||
-              selectedImg == "" ||
-              selectedProduct == null ||
-              selectedProduct == "" ? (
-                <h5>
-                  You might want to choose a picture and a display / Print
-                  solution do be able to choose within the available sizes
-                </h5>
-              ) : (
-                ""
-              )}
+          {selectedImg == null ||
+          selectedImg == "" ||
+          selectedProduct == null ||
+          selectedProduct == "" ? (
+            <p>
+              Choose a picture and select a display or paper to unlock the see
+              the available sizes.
+            </p>
+          ) : (
+            <div className={styles.select_container}>
+              <div className={styles.frames_solutions}>
+                {imgInfos != null &&
+                  Object.keys(imgInfos).includes("WidthCM") &&
+                  imgProduct !== null &&
+                  imgProduct.format !== "" &&
+                  Object.entries(imgProduct).map(
+                    ([key, val]) =>
+                      imgInfos !== null &&
+                      key.slice(0, -2) == "bordLarge_" &&
+                      (key.slice(-2) as unknown as number) < imgInfos.WidthCM &&
+                      (val as number) > 0 && (
+                        <button
+                          key={key}
+                          className={`${styles.btn_selector} ${
+                            prodSize != null &&
+                            key.slice(-2) == prodSize &&
+                            styles.selectedFrame
+                          }`}
+                          onClick={() =>
+                            router.push(
+                              `/gift?${createQueryString(
+                                "size",
+                                key.slice(-2)
+                              )}`,
+                              { scroll: false }
+                            )
+                          }
+                        >
+                          {key.slice(-2)} {val}
+                        </button>
+                      )
+                  )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
-
+        {/* ============================= Personalizing ==================================== */}
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
             <h4>Personalizing</h4>
@@ -1072,8 +1094,8 @@ function Select_img({
             </button>
           </div>
           <div className={styles.select_container}>
-            {product == null ? (
-              <h5> Select a display solution to be able to customize it</h5>
+            {prodSize == null && product !== null ? (
+              <p> Select a size to be able to customize your artwork</p>
             ) : (
               <>
                 <div className={styles.section_title}>
@@ -1084,14 +1106,16 @@ function Select_img({
                 <div className={styles.section_desc}>
                   <p>{product !== null && product.tltr} </p>
                   <p>{product !== null && product.spec} </p>
-                  {product.warning !== null && product.warning && (
-                    <div className={styles.warning_container}>
-                      <PiSealWarningBold
-                        className={`${styles.warningIcone} `}
-                      />
-                      <p className={styles.warning}>{product?.warning}</p>
-                    </div>
-                  )}
+                  {product !== null &&
+                    product.warning !== null &&
+                    product.warning && (
+                      <div className={styles.warning_container}>
+                        <PiSealWarningBold
+                          className={`${styles.warningIcone} `}
+                        />
+                        <p className={styles.warning}>{product?.warning}</p>
+                      </div>
+                    )}
                 </div>
                 {product !== null && Object.keys(product).includes("color") && (
                   <>
@@ -1487,11 +1511,25 @@ function Select_img({
             )}
           </div>
         </div>
-        <div className={styles.sec_addToCart}>
-          <button className={styles.btn_addToCart} onClick={handleAddToCart}>
-            <MdAddShoppingCart className={styles.miniIcone} /> Add to cart
-          </button>
-        </div>
+        {/*==================== Right Btn add to cart ============================*/}
+
+        {product !== undefined && prodSize !== null && (
+          <div className={styles.sec_addToCart}>
+            {!is_addCartClicked ? (
+              <button
+                className={styles.btn_addToCartv2}
+                onClick={handleAddToCart}
+              >
+                <MdAddShoppingCart className={styles.miniIcone} /> Add to cart
+              </button>
+            ) : (
+              <Link href={"./cart"} className={styles.btn_goToCartv2}>
+                <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
+                <p>Check my Cart</p>
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

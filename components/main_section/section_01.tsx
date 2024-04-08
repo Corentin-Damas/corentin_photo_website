@@ -141,13 +141,10 @@ function section_01() {
               <p className="detail_01">
                 The City of London
                 <br />
-                London
-                <br />
                 England
               </p>
             </div>
           </div>
-          <div className={styles.img_caption__left}></div>
         </div>
         <div className={styles.legend__city}>
           <Link href={"/gallery/morning_shadows"} className={styles.link_txt}>
@@ -175,7 +172,6 @@ function section_01() {
           </div>
         </Link>
         <div className={`${styles.img_caption__containeur_museum}`}>
-          <div className={styles.img_caption__left}></div>
           <div className={styles.img_caption__right}>
             <div className={styles.img_caption__up}>
               <p className="detail_01">Charles Darwin</p>

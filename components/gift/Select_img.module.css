@@ -205,7 +205,9 @@
   align-items: center;
 }
 .btn_addToCart:hover,
-.btn_addToCart:active {
+.btn_addToCart:active,
+.btn_addToCartv2:hover,
+.btn_addToCartv2:active {
   background-color: var(--prim-700);
   cursor: pointer;
 }
@@ -227,6 +229,46 @@
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
+.btn_addToCartv2 {
+  background-color:  var(--prim-900);
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 5rem;
+  transition: all 0.1s;
+  color: var(--sec-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-XS);
+  overflow: hidden;
+  justify-self: stretch;
+  border-radius: 1rem;
+}
+
+.btn_goToCartv2{
+  background-color: var(--sec-900);
+  border: none;
+  outline: none;
+  min-width: 20rem;
+  width: 100%;
+  height: 5rem;
+  transition: all 0.1s;
+  color: var(--sec-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-XS);
+  overflow: hidden;
+  justify-self: stretch;
+  border-radius: 1rem;
+}
+.btn_goToCartv2:hover,
+.btn_goToCartv2:active {
+  background-color: var(--sec-700);
+  cursor: pointer;
+}
+
 
 .right__btns {
   position: relative;
