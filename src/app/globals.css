@@ -121,14 +121,15 @@
   --imgSizeSample16: 25%;
   --imgSizeSample20: 31%;
   --imgSizeSample24: 37%;
-  --imgSizeSample30: 50%;
+  --imgSizeSample30: 28%;
   --imgSizeSample35: 33%;
   --imgSizeSample40: 38%;
   --imgSizeSample50: 48%;
-  --imgSizeSample60: 58%;
+  --imgSizeSample60: 30%;
   --imgSizeSample70: 35%;
   --imgSizeSample80: 40%;
   --imgSizeSample90: 45%;
+  --imgSizeSampleStd: 58%;
 }
 
 html.dark {

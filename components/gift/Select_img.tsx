@@ -83,10 +83,51 @@ function Select_img({
       ? true
       : false;
 
+  function handlebwPaper(el: productType): boolean {
+    if (!isBlackAndWhite && el != null && el.colorPaper) {
+      return false;
+    } else if (isBlackAndWhite) {
+      return false;
+    }
+    return true;
+  }
+  function handleBorderLimit(el: string): boolean {
+    if (typeof prodSizeInt == "number" && prodSizeInt < 35 && el == "12") {
+      return true;
+    }
+    return false;
+  }
+  function handlePassLimit(el: number): boolean {
+    if (typeof prodSizeInt == "number" && prodSizeInt < 30 && el == 15) {
+      return true;
+    }
+    return false;
+  }
+
   const router = useRouter();
   function redirectToBasUrl() {
     router.push("/gift");
   }
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+      return params.toString();
+    },
+    [searchParams]
+  );
+
+  // function removeQueryParam(param: string){
+  //   const {pathname, query} = router;
+  //   const params = new URLSearchParams(query);
+  //   params.delete(param);
+  //   router.replace(
+  //       { pathname, query: params.toString() },
+  //       undefined,
+  //       { shallow: true }
+  //   );
+  // }
+
   // URL checker
   if (
     (prodSize != null &&
@@ -102,14 +143,13 @@ function Select_img({
   ) {
     redirectToBasUrl();
   }
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams]
-  );
+
+  if (!isBlackAndWhite && product !== null && product.blackAndWitePaper) {
+    router.push(
+      `/gift?${createQueryString("product", "fuji_crystal_archive_glossy")}`,
+      { scroll: false }
+    );
+  }
 
   const selectedFrameColor = searchParams.get("frCl");
   const frameColor: string =
@@ -236,6 +276,15 @@ function Select_img({
       subTotal = subTotal + objModifier.s;
     }
     passSize = objSize;
+  }
+  if (
+    typeof prodSizeInt == "number" &&
+    prodSizeInt < 30 &&
+    selectedPassSize == "medium"
+  ) {
+    router.push(`/gift?${createQueryString("passSize", "std")}`, {
+      scroll: false,
+    });
   }
 
   const selectedPassColor: string | null = searchParams.get("passCl");
@@ -404,6 +453,15 @@ function Select_img({
       subTotal = subTotal + objModifier.s;
     }
   }
+  if (
+    typeof prodSizeInt == "number" &&
+    prodSizeInt < 35 &&
+    selectedBorderSize == "12"
+  ) {
+    router.push(`/gift?${createQueryString("bordSize", "0")}`, {
+      scroll: false,
+    });
+  }
 
   const hangedStr: string | null = searchParams.get("hang");
   const isHanged: boolean | null =
@@ -557,7 +615,6 @@ function Select_img({
       setIs_addCartClicked(true);
     }
   }
-  console.log(cartList);
 
   function handleInfoBox(title: string) {
     if (title == "framed") {
@@ -682,7 +739,7 @@ function Select_img({
                     isImageLoading ? "unLoaded" : "remove-unLoaded"
                   } 
                   ${
-                    prodSize != null && prodSize == "16"
+                    prodSize == "16"
                       ? styles.size16
                       : prodSize == "20"
                       ? styles.size20
@@ -703,8 +760,8 @@ function Select_img({
                       : prodSize == "80"
                       ? styles.size80
                       : prodSize == "90"
-                      ? styles.size90:
-                      ""
+                      ? styles.size90
+                      : styles.size50
                   }
                   
                   ${
@@ -732,9 +789,23 @@ function Select_img({
                     : ""
                 }
                 ${
-                  selectedFrameSize !== null && selectedFrameSize == "large"
+                  selectedFrameSize !== null &&
+                  product?.name == "Gallery Frame" &&
+                  selectedFrameSize == "large"
                     ? styles.bigFrame
-                    : selectedFrameSize == "std"
+                    : product?.name == "Gallery Frame"
+                    ? styles.smallFrame
+                    : product?.name == "Artbox"
+                    ? styles.artboxFrame
+                    : product?.name == "Floater Frame" &&
+                      selectedFrameSize === "large"
+                    ? styles.bigFloaterFrame
+                    : product?.name == "Floater Frame"
+                    ? styles.stdFloaterFrame
+                    : product?.name == "Solid Wood Frame With Passe_Partout" &&
+                      selectedFrameSize === "large"
+                    ? styles.bigFrame
+                    : product?.name == "Solid Wood Frame With Passe_Partout"
                     ? styles.smallFrame
                     : ""
                 }
@@ -754,11 +825,12 @@ function Select_img({
                     : styles.border12
                 }
                 ${
-                  passSize == 9
-                    ? ""
+                  product?.name == "Solid Wood Frame With Passe_Partout" &&
+                  (passSize == 9
+                    ? styles.border08
                     : passSize == 3
-                    ? styles.passSizeSmall
-                    : styles.passSizeBig
+                    ? styles.border03
+                    : styles.border15)
                 }
                 ${passColor == "white" ? "" : styles.blackPass}
                 
@@ -771,13 +843,13 @@ function Select_img({
               )}
               <Image
                 src={`/util_img/livingRoom_0${
-                  typeof prodSizeInt == "number" && prodSizeInt >= 65
+                  typeof prodSizeInt == "number" && prodSizeInt >= 60
                     ? "3"
-                    : typeof prodSizeInt == "number" && prodSizeInt <= 34
+                    : typeof prodSizeInt == "number" && prodSizeInt < 30
                     ? "4"
                     : "1"
                 }.jpg`}
-                alt="Corentin Damas with one of is framed picture on a customer's wall"
+                alt="image of a living room used has a mokeup for the selected picture"
                 className={`${styles.img__mokeup} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"
                 }`}
@@ -1006,6 +1078,7 @@ function Select_img({
                             ? styles.selectedFrame
                             : ""
                         }`}
+                        disabled={handlebwPaper(el)}
                       >
                         {el.name}
                       </button>
@@ -1227,6 +1300,7 @@ function Select_img({
                                       : ""
                                   }`}
                                   key={el.size}
+                                  disabled={handlePassLimit(el.size)}
                                   onClick={() =>
                                     el.size !== undefined &&
                                     router.push(
@@ -1421,7 +1495,8 @@ function Select_img({
                         {product.border !== undefined &&
                           Object.keys(product.border).map(
                             (el) =>
-                              el != "spec" && (
+                              el != "spec" &&
+                              typeof prodSizeInt == "number" && (
                                 <button
                                   className={`${styles.btn_selector}  ${
                                     borderSize == (el as unknown as number)
@@ -1429,6 +1504,7 @@ function Select_img({
                                       : ""
                                   }`}
                                   key={el}
+                                  disabled={handleBorderLimit(el)}
                                   onClick={() =>
                                     el !== null &&
                                     router.push(
