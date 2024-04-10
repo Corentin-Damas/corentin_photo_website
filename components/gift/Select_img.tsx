@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
 import { possileFrames } from "./productInfos";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoIosCloseCircleOutline, IoIosExpand } from "react-icons/io";
 import {
   MdAddShoppingCart,
   MdOutlineShoppingCartCheckout,
@@ -77,6 +77,7 @@ function Select_img({
   const productSpec = product != null ? product.spec : "";
   const [section, setSection] = useState("");
   const [infoBoxOpen, setInfoBoxOpen] = useState(false);
+  const [enlarger, setEnlarger] = useState(false);
 
   const isBlackAndWhite: boolean =
     selectedImg !== null && selectedImg.slice(3) == "black_and_white"
@@ -641,12 +642,29 @@ function Select_img({
       document.documentElement.scrollHeight,
       document.documentElement.offsetHeight
     );
-    if (currentScroll >= height - windSize * 1.52) {
+    const foot = document.getElementById("footer_id");
+
+    const foot_height = foot == undefined ? 0 : foot.scrollHeight;
+
+    if (currentScroll >= height - (windSize + foot_height)) {
       setNavState(possibleState.fixed);
     } else {
       setNavState(possibleState.unFixed);
     }
   };
+
+  function keyDownDetected() {
+    window.addEventListener("keydown", function (e) {
+      if (e.key == "Escape") {
+        setEnlarger(false);
+      }
+    });
+  }
+
+  useEffect(() => {
+    keyDownDetected();
+    return window.removeEventListener("keydown", keyDownDetected);
+  });
 
   useEffect(() => {
     window.addEventListener("scroll", scrollBehaviour);
@@ -656,8 +674,8 @@ function Select_img({
   });
 
   return (
-    <div className={styles.fram__content__container}>
-      <div className={styles.fram__content__left}>
+    <div className={`${styles.fram__content__container}`}>
+      <div className={`${styles.fram__content__left} `}>
         <div
           id="imgContainer"
           className={`${styles.img_container} ${
@@ -666,6 +684,15 @@ function Select_img({
               : `${styles.img_unfixed}`
           }`}
         >
+          <button
+            className={`${styles.enlargeBtn}`}
+            onClick={() => setEnlarger(!enlarger)}
+          >
+            <h5 className={styles.txtEnlarge}> Enlarge</h5> <IoIosExpand className={styles.icone} />
+          </button>
+          <div className={styles.backgroundMobile}>
+
+          </div>
           {/*==================== Left Btn add to cart ============================*/}
           {product !== undefined && prodSize !== null && (
             <div className={styles.totalPrice}>
@@ -729,7 +756,7 @@ function Select_img({
             />
           ) : (
             //  ============================= REFACTOR IMG MOKEUP ====================================
-            <div className={styles.mokeup_container}>
+            <div className={`${styles.mokeup_container} `}>
               {selectedImg != "" && (
                 <Image
                   src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
@@ -946,7 +973,9 @@ function Select_img({
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
-            <h4>Framing, Mounting and Prints</h4>
+            <h4 className={styles.sectionTitle}>
+              Framing, Mounting and Prints
+            </h4>
             <Link href={`?img=${selectedImg}`} scroll={false}>
               <button
                 className={styles.btn_reset}
@@ -1103,11 +1132,13 @@ function Select_img({
             >
               {section == "" ? (
                 <>
-                  <IoIosCloseCircleOutline
-                    className={`${styles.icone} ${styles.iconeClose} `}
-                    onClick={() => setInfoBoxOpen(!infoBoxOpen)}
-                  />
-                  <h6>{product?.name}</h6>
+                  <div className={styles.titleInfoBar}>
+                    <h6>{product?.name}</h6>
+                    <IoIosCloseCircleOutline
+                      className={`${styles.icone} ${styles.iconeClose} `}
+                      onClick={() => setInfoBoxOpen(!infoBoxOpen)}
+                    />
+                  </div>
                   <p>{productDesc}</p>
                   <p>{product?.spec !== "Simple print" && productSpec}</p>
                   {product !== null && product.warning !== undefined && (
@@ -1119,11 +1150,13 @@ function Select_img({
                 </>
               ) : (
                 <>
-                  <IoIosCloseCircleOutline
-                    className={`${styles.icone} ${styles.iconeClose} `}
-                    onClick={() => setInfoBoxOpen(!infoBoxOpen)}
-                  />
-                  <h6>{section}</h6>
+                  <div className={styles.titleInfoBar}>
+                    <h6>{section}</h6>
+                    <IoIosCloseCircleOutline
+                      className={`${styles.icone} ${styles.iconeClose} `}
+                      onClick={() => setInfoBoxOpen(!infoBoxOpen)}
+                    />
+                  </div>
                   <p>
                     {section == "Framed picture"
                       ? "A picture frame is a protective and decorative edging for a picture, such as a painting or photograph. It makes displaying the work safer and easier and both sets the picture apart from its surroundings and aesthetically integrates it with them."
@@ -1143,16 +1176,16 @@ function Select_img({
           <div className={styles.section_header}>
             <h4>Available Size </h4>
           </div>
-          {selectedImg == null ||
-          selectedImg == "" ||
-          selectedProduct == null ||
-          selectedProduct == "" ? (
-            <p>
-              Choose a picture and select a display or paper to unlock the see
-              the available sizes.
-            </p>
-          ) : (
-            <div className={styles.select_container}>
+          <div className={styles.select_container}>
+            {selectedImg == null ||
+            selectedImg == "" ||
+            selectedProduct == null ||
+            selectedProduct == "" ? (
+              <p>
+                Choose a picture and select a display or paper to unlock the see
+                the available sizes.
+              </p>
+            ) : (
               <div className={styles.frames_solutions}>
                 {imgInfos != null &&
                   Object.keys(imgInfos).includes("WidthCM") &&
@@ -1186,8 +1219,8 @@ function Select_img({
                       )
                   )}
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         {/* ============================= Personalizing ==================================== */}
         <div className={styles.fram_module}>
@@ -1201,14 +1234,14 @@ function Select_img({
             </button>
           </div>
           <div className={styles.select_container}>
-            {prodSize == null && product !== null ? (
+            {prodSize == null && product == null ? (
               <p> Select a size to be able to customize your artwork</p>
             ) : (
               <>
                 <div className={styles.section_title}>
-                  <h4 className={styles.title_text}>
-                    {product !== null && product.name}
-                  </h4>
+                  <h5 className={`${styles.title_text} ${styles.productName}`}>
+                    {product !== null && product.name.replace("_", " ")}
+                  </h5>
                 </div>
                 <div className={styles.section_desc}>
                   <p>{product !== null && product.tltr} </p>
@@ -1235,7 +1268,9 @@ function Select_img({
                         Object.values(product.color).map((el) => (
                           <button
                             key={el}
-                            className={`${styles.btn_selector}
+                            className={`${styles.btn_selector} ${
+                              styles.btn_selector__colors
+                            }
                             ${frameColor == el ? styles.selectedFrame : ""}
                             `}
                             onClick={() =>
@@ -1245,6 +1280,11 @@ function Select_img({
                               )
                             }
                           >
+                            <p
+                              className={`${styles.woodDot} ${el
+                                .replace(" ", "_")
+                                .toLowerCase()}`}
+                            ></p>{" "}
                             {el}
                           </button>
                         ))}
@@ -1641,6 +1681,145 @@ function Select_img({
           </div>
         )}
       </div>
+      {enlarger && (
+        <div className={`${enlarger && styles.imageEnlarger} `}>
+          <div className={`${styles.mokeup_container_enlarge} `}>
+            <IoIosCloseCircleOutline
+              className={`${styles.icone} ${styles.iconeEnlarge}`}
+              onClick={() => setEnlarger(false)}
+            />
+            {selectedImg != "" && selectedImg != null && (
+              <Image
+                src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
+                alt="Actual selected pîcture"
+                onError={() => redirectToBasUrl()}
+                className={`${styles.img__selected_enlarged} ${
+                  isImageLoading ? "unLoaded" : "remove-unLoaded"
+                } 
+            ${
+              prodSize == "16"
+                ? styles.size16
+                : prodSize == "20"
+                ? styles.size20
+                : prodSize == "24"
+                ? styles.size24
+                : prodSize == "30"
+                ? styles.size30
+                : prodSize == "35"
+                ? styles.size35
+                : prodSize == "40"
+                ? styles.size40
+                : prodSize == "50"
+                ? styles.size50
+                : prodSize == "60"
+                ? styles.size60
+                : prodSize == "70"
+                ? styles.size70
+                : prodSize == "80"
+                ? styles.size80
+                : prodSize == "90"
+                ? styles.size90
+                : styles.size50
+            }
+                  
+                  ${
+                    product?.name == ""
+                      ? ""
+                      : product?.name == "Gallery Frame"
+                      ? styles.galleryFrame
+                      : product?.name == "Solid Wood Frame With Passe_Partout"
+                      ? styles.passePartout
+                      : product?.name == "Artbox"
+                      ? styles.artbox
+                      : product?.name == "Floater Frame"
+                      ? styles.floater
+                      : ""
+                  }
+                ${
+                  frameColor == "Alder brown"
+                    ? styles.alderBrown
+                    : frameColor == "Black oak"
+                    ? styles.blackOak
+                    : frameColor == "Natural oak"
+                    ? styles.naturalOak
+                    : frameColor == "Maple white"
+                    ? styles.mapleWhite
+                    : ""
+                }
+                ${
+                  selectedFrameSize !== null &&
+                  product?.name == "Gallery Frame" &&
+                  selectedFrameSize == "large"
+                    ? styles.bigFrame
+                    : product?.name == "Gallery Frame"
+                    ? styles.smallFrame
+                    : product?.name == "Artbox"
+                    ? styles.artboxFrame
+                    : product?.name == "Floater Frame" &&
+                      selectedFrameSize === "large"
+                    ? styles.bigFloaterFrame
+                    : product?.name == "Floater Frame"
+                    ? styles.stdFloaterFrame
+                    : product?.name == "Solid Wood Frame With Passe_Partout" &&
+                      selectedFrameSize === "large"
+                    ? styles.bigFrame
+                    : product?.name == "Solid Wood Frame With Passe_Partout"
+                    ? styles.smallFrame
+                    : ""
+                }
+                ${
+                  borderSize == 0
+                    ? ""
+                    : borderSize == 1
+                    ? styles.border01
+                    : borderSize == 2
+                    ? styles.border02
+                    : borderSize == 3
+                    ? styles.border03
+                    : borderSize == 5
+                    ? styles.border05
+                    : borderSize == 8
+                    ? styles.border08
+                    : styles.border12
+                }
+                ${
+                  product?.name == "Solid Wood Frame With Passe_Partout" &&
+                  (passSize == 9
+                    ? styles.border08
+                    : passSize == 3
+                    ? styles.border03
+                    : styles.border15)
+                }
+                  ${passColor == "white" ? "" : styles.blackPass}
+                  
+                  `}
+                sizes="100vw"
+                width={0}
+                height={0}
+                quality={80}
+              />
+            )}
+            <Image
+              src={`/util_img/livingRoom_0${
+                typeof prodSizeInt == "number" && prodSizeInt >= 60
+                  ? "3"
+                  : typeof prodSizeInt == "number" && prodSizeInt < 30
+                  ? "4"
+                  : "1"
+              }.jpg`}
+              alt="image of a living room used has a mokeup for the selected picture"
+              className={`${styles.img__mokeup} ${
+                isImageLoading ? "unLoaded" : "remove-unLoaded"
+              }`}
+              sizes="100vw"
+              width={0}
+              height={0}
+              quality={80}
+              onLoad={() => setImageLoading(false)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

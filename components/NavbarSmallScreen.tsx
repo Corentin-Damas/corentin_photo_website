@@ -6,6 +6,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
+import CartNavBtn from "./CartNavBtn";
 
 function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
@@ -31,6 +32,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
             <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
             <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
           </div>
+
 
           <Link href="/gallery" className={styles.cta__btn}>
             <button className="btn" tabIndex={6}>
@@ -91,7 +93,17 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
               href="/gift"
             >
               Your Gift
-            </Link>
+            </Link>          
+            <Link
+              className={`${styles.link} ${styles.cartLink} ${
+                path == "/cart" ? styles.currPage : ""
+              }`}
+              tabIndex={5}
+              href="/cart"
+            >
+              Cart
+            <CartNavBtn/>
+            </Link>          
             <Link href="/contact">
               <button className="btn" tabIndex={6}>
                 Contact me

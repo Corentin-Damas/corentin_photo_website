@@ -6,7 +6,7 @@ const date = new Date().getFullYear();
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="footer_id">
       <div className={styles.columnsContainer}>
         <div className={styles.left}>
           <h2 className={styles.footer__columnHead}>Corentin Damas</h2>

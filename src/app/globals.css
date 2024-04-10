@@ -44,6 +44,7 @@
   --background-color: #f8fafc;
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+  --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
@@ -102,6 +103,7 @@
   --max-width-L: 2100px;
   --max-width-ML: 1900px;
   --max-width-M: 1600px;
+  --max-width-MM: 1200px;
   --max-width-MS: 1100px;
 
   --img-preview-M: 30rem;
@@ -135,6 +137,7 @@
 html.dark {
   --background-color: #121a22;
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
+  --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
   --bg-txt-transparency: hsla(208, 29%, 10%, 0.98);
   --bg-txt-multiplier: hsla(208, 29%, 5%, 0.918);
   --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.9);
@@ -297,6 +300,18 @@ p.detail_02 {
 .prim-100 {
   color: var(--prim-100);
 }
+.alder_brown {
+  background: var(--alder-Brown);
+}
+.black_oak {
+  background: var(--black-Oak);
+}
+.natural_oak {
+  background: var(--natural-Oak);
+}
+.maple_white {
+  background: var(--maple-White);
+}
 
 .gallery_Link {
   font-family: var(--font-geologica-light);
@@ -404,6 +419,8 @@ Tablet:
 @media only screen and (max-width: 43.75em){}  
 
 Phones
+660px 41.25em
+@media only screen and (max-width: 41.25em) {}
 616px 38.5em
 @media only screen and (max-width: 38.5em) {}
 600px 37.5em
