@@ -27,7 +27,7 @@ function CompletCartResum() {
         <div className={styles.cartNav__container}>
           <div className={styles.cartMainContent}>
             {cartList.map((el) => (
-              <div key={el.totalPrice} className={styles.resume}>
+              <div key={el.date} className={styles.resume}>
                 <div className={`detail_01 ${styles.res_head}`}>
                   <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
                   <p>x{el.quantity}</p>

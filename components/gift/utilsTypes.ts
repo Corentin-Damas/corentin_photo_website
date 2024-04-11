@@ -212,4 +212,5 @@ type productResumeType = {
   glassThickness?: number;
   protection?: string;
   quantity: number;
+  date: number
 };

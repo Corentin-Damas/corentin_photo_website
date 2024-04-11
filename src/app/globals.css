@@ -50,6 +50,8 @@
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
   --bg-transparency-smallScreen: hsla(210, 11%, 93%, 0.9);
 
+  --netral-700-transparent: hsla(212, 30%, 17%, 0.9);
+
   --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
   --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
   --bg-nav-float-transparency-end: hsla(210, 40%, 98%, 0.3);

@@ -24,6 +24,7 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
     productQuery = await queryFrame(searchParams.product, imgQuery.format);
   }
   const productStringify = JSON.stringify(productQuery);
+  
   // console.log(imgStringify);
   // console.log(productStringify);
   // console.log("searchParams ->" + JSON.stringify(searchParams));

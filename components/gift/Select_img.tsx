@@ -106,6 +106,7 @@ function Select_img({
   }
 
   const router = useRouter();
+
   function redirectToBasUrl() {
     router.push("/gift");
   }
@@ -145,11 +146,20 @@ function Select_img({
     redirectToBasUrl();
   }
 
-  if (!isBlackAndWhite && product !== null && product.blackAndWitePaper) {
-    router.push(
-      `/gift?${createQueryString("product", "fuji_crystal_archive_glossy")}`,
-      { scroll: false }
-    );
+  if (
+    !isBlackAndWhite &&
+    product !== null &&
+    !product.colorPaper &&
+    product.blackAndWitePaper
+  ) {
+    try {
+      router.push(
+        `/gift?${createQueryString("product", "fuji_crystal_archive_glossy")}`,
+        { scroll: false }
+      );
+    } catch (e) {
+      console.log("Warning", e);
+    }
   }
 
   const selectedFrameColor = searchParams.get("frCl");
@@ -610,6 +620,8 @@ function Select_img({
         protection: lamination?.name,
         glassThickness: glassThickness?.mm,
         quantity: quantityProd,
+        date: Date.now()
+
       };
 
       addToCart(productResume);
@@ -630,11 +642,23 @@ function Select_img({
 
     setInfoBoxOpen(!infoBoxOpen);
   }
-  const possibleState = { fixed: "fixed", unFixed: "unfixed" };
+  const possibleState = {
+    fixed: "fixed",
+    unFixed: "unfixed",
+    smallFixed: "smallFixed",
+  };
+
+  let windowLenght: number = 661;
+  if (typeof window !== "undefined") {
+    windowLenght = window.innerWidth;
+  }
+
   const [navState, setNavState] = useState(possibleState.unFixed);
   const scrollBehaviour = () => {
     const currentScroll = window.scrollY;
     const windSize = window.innerHeight;
+    const windSizeWidth = window.innerWidth;
+    // 660px width change
     const height = Math.max(
       document.body.scrollHeight,
       document.body.offsetHeight,
@@ -646,7 +670,9 @@ function Select_img({
 
     const foot_height = foot == undefined ? 0 : foot.scrollHeight;
 
-    if (currentScroll >= height - (windSize + foot_height)) {
+    if (windSizeWidth <= 660 && currentScroll > 40) {
+      setNavState(possibleState.smallFixed);
+    } else if (currentScroll >= height - (windSize + foot_height)) {
       setNavState(possibleState.fixed);
     } else {
       setNavState(possibleState.unFixed);
@@ -681,18 +707,19 @@ function Select_img({
           className={`${styles.img_container} ${
             navState == possibleState.fixed
               ? `${styles.img_fixed} `
-              : `${styles.img_unfixed}`
+              : navState == possibleState.unFixed
+              ? `${styles.img_unfixed}`
+              : `${styles.img_smallFixed} `
           }`}
         >
           <button
             className={`${styles.enlargeBtn}`}
             onClick={() => setEnlarger(!enlarger)}
           >
-            <h5 className={styles.txtEnlarge}> Enlarge</h5> <IoIosExpand className={styles.icone} />
+            <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
+            <IoIosExpand className={styles.icone} />
           </button>
-          <div className={styles.backgroundMobile}>
-
-          </div>
+          <div className={styles.backgroundMobile}></div>
           {/*==================== Left Btn add to cart ============================*/}
           {product !== undefined && prodSize !== null && (
             <div className={styles.totalPrice}>
@@ -708,6 +735,7 @@ function Select_img({
                     </span>
                     to cart
                   </button>
+
                   <div className={styles.right__btns}>
                     <button
                       className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
@@ -736,7 +764,7 @@ function Select_img({
                   </div>
                 </div>
               ) : (
-                <Link href={"./cart"} className={styles.btn_goToCartv2}>
+                <Link href={"./cart"} className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}>
                   <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
                   <p>Check my Cart</p>
                 </Link>
@@ -897,7 +925,7 @@ function Select_img({
           <ul className={styles.imgs_flex}>
             {imgList.map((el) => (
               <li className={styles.imgPrev} key={el}>
-                <Link href={`?img=${el.slice(0, -4)}`}>
+                <Link href={`?img=${el.slice(0, -4)}`} scroll={false}>
                   <Image
                     src={`/${el.slice(3, -4)}/S/${el}`}
                     alt="Selected images from the gallery"
@@ -915,7 +943,7 @@ function Select_img({
             ))}
             {imgInfos !== null && subImage !== null && subImage !== "" && (
               <li className={styles.imgPrev}>
-                <Link href={`?img=${selectedImg}`}>
+                <Link href={`?img=${selectedImg}`} scroll={false}>
                   <Image
                     src={`/${subImage.slice(3, -4)}/S/${subImage}`}
                     alt="Selected images from the gallery"
@@ -944,6 +972,7 @@ function Select_img({
                 !imgList.includes(el) && (
                   <li className={styles.imgPrev} key={el}>
                     <Link
+                      scroll={false}
                       href={`?img=${el.slice(0, -4)}${
                         typeof selectedProduct === "string"
                           ? `&product=${selectedProduct}`
@@ -1234,7 +1263,7 @@ function Select_img({
             </button>
           </div>
           <div className={styles.select_container}>
-            {prodSize == null && product == null ? (
+            {prodSize == null && typeof prodSizeInt == "boolean" ? (
               <p> Select a size to be able to customize your artwork</p>
             ) : (
               <>
@@ -1673,7 +1702,11 @@ function Select_img({
                 <MdAddShoppingCart className={styles.miniIcone} /> Add to cart
               </button>
             ) : (
-              <Link href={"./cart"} className={styles.btn_goToCartv2}>
+              <Link
+                href={"./cart"}
+                className={styles.btn_goToCartv2}
+                scroll={false}
+              >
                 <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
                 <p>Check my Cart</p>
               </Link>
@@ -1681,6 +1714,8 @@ function Select_img({
           </div>
         )}
       </div>
+            {/*==================== helper image ============================*/}
+
       {enlarger && (
         <div className={`${enlarger && styles.imageEnlarger} `}>
           <div className={`${styles.mokeup_container_enlarge} `}>
