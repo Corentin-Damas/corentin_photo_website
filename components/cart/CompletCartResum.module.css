@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-inline: var(--spacing-S);
 }
 
 .cartNav__container {
@@ -15,6 +16,16 @@
   align-items: center;
   justify-items: center;
   gap: var(--spacing-SM);
+
+  @media only screen and (max-width: 62.5em) {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  @media only screen and (max-width: 41.25em) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .cartHeader {
@@ -53,6 +64,7 @@
 }
 
 .resume {
+
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -61,8 +73,12 @@
   justify-items: first baseline;
   margin-bottom: var(--spacing-S);
   gap: var(--spacing-S);
-  width: 58rem;
+  max-width: 58rem;
+  width: 100%;
   margin-bottom: var(--spacing-M);
+  @media only screen and (max-width: 62.5em) {
+    grid-template-columns: 1.5fr 1fr;
+  }
 }
 
 .res_Left {
@@ -130,6 +146,15 @@
   height: 100%;
   padding-left: var(--spacing-M);
   border-left: 1px solid var(--link-color-underline);
+  @media only screen and (max-width: 62.5em) {
+    padding-left: 0;
+  }
+  @media only screen and (max-width: 41.25em) {
+    padding-top: var(--spacing-S);
+    border-left: none;
+    border-top: 1px solid var(--link-color-underline);
+    margin-bottom: var(--spacing-S);
+  }
 }
 
 .totalTxt {

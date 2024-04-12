@@ -620,8 +620,7 @@ function Select_img({
         protection: lamination?.name,
         glassThickness: glassThickness?.mm,
         quantity: quantityProd,
-        date: Date.now()
-
+        date: Date.now(),
       };
 
       addToCart(productResume);
@@ -712,13 +711,18 @@ function Select_img({
               : `${styles.img_smallFixed} `
           }`}
         >
-          <button
-            className={`${styles.enlargeBtn}`}
-            onClick={() => setEnlarger(!enlarger)}
-          >
-            <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
-            <IoIosExpand className={styles.icone} />
-          </button>
+          {selectedImg !== null && (
+            <p className={styles.suggestedTxt}> Suggested display </p>
+          )}
+          {selectedImg !== null && (
+            <button
+              className={`${styles.enlargeBtn}`}
+              onClick={() => setEnlarger(!enlarger)}
+            >
+              <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
+              <IoIosExpand className={styles.icone} />
+            </button>
+          )}
           <div className={styles.backgroundMobile}></div>
           {/*==================== Left Btn add to cart ============================*/}
           {product !== undefined && prodSize !== null && (
@@ -764,7 +768,10 @@ function Select_img({
                   </div>
                 </div>
               ) : (
-                <Link href={"./cart"} className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}>
+                <Link
+                  href={"./cart"}
+                  className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}
+                >
                   <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
                   <p>Check my Cart</p>
                 </Link>
@@ -1705,7 +1712,7 @@ function Select_img({
               <Link
                 href={"./cart"}
                 className={styles.btn_goToCartv2}
-                scroll={false}
+                scroll={true}
               >
                 <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
                 <p>Check my Cart</p>
@@ -1714,7 +1721,7 @@ function Select_img({
           </div>
         )}
       </div>
-            {/*==================== helper image ============================*/}
+      {/*==================== helper image ============================*/}
 
       {enlarger && (
         <div className={`${enlarger && styles.imageEnlarger} `}>
@@ -1723,6 +1730,9 @@ function Select_img({
               className={`${styles.icone} ${styles.iconeEnlarge}`}
               onClick={() => setEnlarger(false)}
             />
+            {selectedImg !== null && (
+              <p className={styles.suggestedTxt_mob}> Suggested display </p>
+            )}
             {selectedImg != "" && selectedImg != null && (
               <Image
                 src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}

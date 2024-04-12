@@ -1,40 +1,20 @@
 import { create } from "zustand";
 
-type product = {
-    img: string
-    imgSize: string
-    totalPrice: number
-    paper?: string | null
-    border:number
-    nameDisplayMethod: string
-    frameSize?: number
-    color?: string
-    passePartoutColor?: string
-    passePartoutSize?: number
-    hanging?: boolean | null
-    glass?: string
-    glassThickness?: number
-    protection?: string
-    quantity: number
-    date: number
-}
-
-
 interface CartProduct {
-  cartOfProduct: product[];
-  addToCart: (prod: product) => void;
-  removeFromCart: (prod: product) => void;
+  cartOfProduct: productResumeType[];
+  addToCart: (prod: productResumeType) => void;
+  removeFromCart: (prod: productResumeType) => void;
 }
 
 export const useCartProduct = create<CartProduct>()((set) => ({
   cartOfProduct: [],
-  addToCart: (prod: product) =>
+  addToCart: (prod: productResumeType) =>
     set((state) => ({
-        cartOfProduct: [...state.cartOfProduct, prod],
+      cartOfProduct: [...state.cartOfProduct, prod],
     })),
 
-    removeFromCart: (prod: product) =>
+  removeFromCart: (prod: productResumeType) =>
     set((state) => ({
-        cartOfProduct: state.cartOfProduct.filter((el) => el !== prod),
+      cartOfProduct: state.cartOfProduct.filter((el) => el !== prod),
     })),
 }));

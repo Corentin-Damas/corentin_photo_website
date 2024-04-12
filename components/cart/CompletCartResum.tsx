@@ -13,6 +13,25 @@ function CompletCartResum() {
   let total: number = 0;
   cartList.map((el) => (total += el.totalPrice * el.quantity));
 
+  const checkout = async () => {
+    await fetch("http://localhost:3000/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: cartList }),
+    })
+      .then((response) => {
+
+        return response.json();
+      })
+      .then((response) => {
+        if (response.url) {
+          console.log("Success page redirection");
+        }
+      });
+  };
+
   return (
     <div className={styles.cart__container}>
       {cartList.length == 0 && (
@@ -185,11 +204,12 @@ function CompletCartResum() {
               <span className={styles.totalTxt}>total:</span> {total.toFixed(2)}
               €
             </h5>
-            <p
+            <button
               className={`${styles.majorLink} ${styles.orderLink} ${styles.finalOrderLink}`}
+              onClick={checkout}
             >
               Order now
-            </p>
+            </button>
           </div>
         </div>
       )}

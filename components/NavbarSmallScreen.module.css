@@ -50,7 +50,7 @@
   color: var(--font-color-main);
   width: var(--icone-S);
   height: var(--icone-S);
-  z-index: 910;
+  z-index: 940;
   transition: all 0.3s;
   border-radius: 50%;
   backdrop-filter: blur(2px);
