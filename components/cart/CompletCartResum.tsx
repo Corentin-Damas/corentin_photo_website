@@ -1,14 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styles from "./CompletCartResum.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 function CompletCartResum() {
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const remFromCart = useCartProduct((state) => state.removeFromCart);
+  const router = useRouter();
 
   let total: number = 0;
   cartList.map((el) => (total += el.totalPrice * el.quantity));
@@ -22,12 +23,12 @@ function CompletCartResum() {
       body: JSON.stringify({ products: cartList }),
     })
       .then((response) => {
-
         return response.json();
       })
       .then((response) => {
+        console.log("redicrect to", response);
         if (response.url) {
-          console.log("Success page redirection");
+          router.push(response.url);
         }
       });
   };
