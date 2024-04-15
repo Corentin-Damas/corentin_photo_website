@@ -126,10 +126,10 @@ function Navbar_gallery() {
             About
           </Link>
           <Link
-            href="/gift"
+            href="/shop"
             className={`${styles.normal__link} ${styles.gift__link} `}
           >
-            Your Gift
+            Shop
             <p
               className={`${styles.dot} ${
                 imgList.length > 0 ? styles.dot_on : ""

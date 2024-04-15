@@ -8,12 +8,12 @@
   letter-spacing: 1px;
   padding-top: calc(var(--spacing-LM) + var(--spacing-S));
   z-index: 100;
+  @media only screen and (max-width: 85em) {
+    padding-top: calc(var(--spacing-LM) + var(--spacing-SS));
+  }
 
   @media only screen and (max-height: 50em) {
     gap: var(--spacing-SS);
-  }
-  @media only screen and (max-width: 85em) {
-    padding-top: calc(var(--spacing-LM) + var(--spacing-SS));
   }
 }
 
@@ -26,16 +26,16 @@
   font-size: var(--font-size-Title_01);
   line-height: var(--font-size-Title_02);
   letter-spacing: 3px;
-  color: var(--font-color-body_02);
+  color: var(--font-color-main);
   transition: all 0.2s;
   z-index: 300;
-  @media only screen and (max-height: 50em) {
-    font-size: var(--font-size-Title_02);
-    line-height: var(--font-size-subTitle_01);
-  }
 
   @media only screen and (max-width: 84em) {
     width: 25rem;
+  }
+  @media only screen and (max-height: 50em) {
+    font-size: var(--font-size-Title_02);
+    line-height: var(--font-size-subTitle_01);
   }
 }
 

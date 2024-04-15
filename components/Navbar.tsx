@@ -81,18 +81,18 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
             </Link>
             <Link
               className={`${styles.link} ${
-                path == "/gift" ? styles.currPage : ""
+                path == "/shop" ? styles.currPage : ""
               }`}
               tabIndex={2}
-              href="/gift"
+              href="/shop"
             >
-              Your Gift
+              Shop
             </Link>
             {/* <Link href="/your_print">Your Print</Link> */}
           </ul>
           <div className={styles.actions}>
-            <CartNavBtn/>
-            
+            <CartNavBtn />
+
             <div className={styles.theme_container}>
               <ThemeSwitch />
               <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>

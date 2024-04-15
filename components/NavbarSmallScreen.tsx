@@ -33,7 +33,6 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
             <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
           </div>
 
-
           <Link href="/gallery" className={styles.cta__btn}>
             <button className="btn" tabIndex={6}>
               Gallery
@@ -87,13 +86,13 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
             </Link>
             <Link
               className={`${styles.link} ${
-                path == "/gift" ? styles.currPage : ""
+                path == "/shop" ? styles.currPage : ""
               }`}
               tabIndex={4}
-              href="/gift"
+              href="/shop"
             >
-              Your Gift
-            </Link>          
+              Shop
+            </Link>
             <Link
               className={`${styles.link} ${styles.cartLink} ${
                 path == "/cart" ? styles.currPage : ""
@@ -102,8 +101,8 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
               href="/cart"
             >
               Cart
-            <CartNavBtn/>
-            </Link>          
+              <CartNavBtn />
+            </Link>
             <Link href="/contact">
               <button className="btn" tabIndex={6}>
                 Contact me

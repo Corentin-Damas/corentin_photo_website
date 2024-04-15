@@ -1,4 +1,4 @@
-/* .formular__submit */
+/* .mailSentInformationBox */
 .sectionCta__Grid {
   position: relative;
   height: 100vh;
@@ -296,4 +296,11 @@
 .formular__submit {
   align-self: center;
   justify-self: flex-end;
+}
+
+
+.mailSentInformationBox{
+  background-color: red;
+  padding: var(--spacing-S);
+  
 }

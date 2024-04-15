@@ -1,0 +1,21 @@
+.informations_container {
+  margin-top: var(--spacing-L);
+  height: calc(100vh - var(--footerSize));
+  gap: var(--spacing-S);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.informations__title {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-S);
+}
+
+.informations__links{
+    border-bottom: 2px  solid var(--rules-color);
+}
+

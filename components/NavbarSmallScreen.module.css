@@ -1,11 +1,9 @@
-/* smallScreenTop */
+/* .link */
 .smallScreenNav {
   @media only screen and (min-width: 65em) {
     display: none;
   }
 }
-
-
 
 .nav_SmallScreen {
   position: fixed;
@@ -76,6 +74,7 @@
   @media only screen and (max-width: 65em) {
     font-family: var(--font-geologica-Cursive-Regular);
     font-size: var(--font-size-subTitle_02);
+    color: var(--font-color-main);
 
     display: flex;
     align-items: center;

@@ -36,6 +36,11 @@ function Nav_gallerySmallSize() {
         <div className={styles.right_sSize}>
           <ul className={styles.links_smallSize} onBlur={toggleMenu}>
             <div className={styles.link}>
+              <Link href="/" className={styles.myNameLink}>
+                Corentin Damas
+              </Link>
+            </div>
+            <div className={styles.link}>
               <p>0</p>
               <Link
                 href="/gallery"
@@ -123,6 +128,7 @@ function Nav_gallerySmallSize() {
             </div>
             <Link href="/about">about</Link>
             <Link href="/contact">contact</Link>
+            <Link href="/shop">shop</Link>
           </ul>
         </div>
       </div>

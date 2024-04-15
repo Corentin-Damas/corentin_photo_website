@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../gift/page.module.css";
+import styles from "../shop/page.module.css";
 import Link from "next/link";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
-import Select_print from "../../../../components/gift/Select_print";
+import Select_print from "../../../../components/shop/Select_print";
 
 function page({searchParams}:{searchParams:any}) {
 

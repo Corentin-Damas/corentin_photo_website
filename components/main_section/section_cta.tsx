@@ -27,7 +27,7 @@ function section_cta() {
         </div>
         <div className={styles.formular__containeur}>
           <h5 className={styles.form__title}>Ask me anything</h5>
-          <Form />
+          <Form context={"normal"} />
         </div>
         <div className={styles.gap}></div>
         <div className={styles.right__container}>

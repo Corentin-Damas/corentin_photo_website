@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import styles from "../gift/Select_img.module.css";
+import styles from "../shop/Select_img.module.css";
 
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
@@ -15,6 +15,8 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCartProduct } from "../../providers/cart-provider";
+
+// shop
 
 function Select_img({
   objImg,
@@ -108,7 +110,7 @@ function Select_img({
   const router = useRouter();
 
   function redirectToBasUrl() {
-    router.push("/gift");
+    router.push("/shop");
   }
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -154,7 +156,7 @@ function Select_img({
   ) {
     try {
       router.push(
-        `/gift?${createQueryString("product", "fuji_crystal_archive_glossy")}`,
+        `/shop?${createQueryString("product", "fuji_crystal_archive_glossy")}`,
         { scroll: false }
       );
     } catch (e) {
@@ -293,7 +295,7 @@ function Select_img({
     prodSizeInt < 30 &&
     selectedPassSize == "medium"
   ) {
-    router.push(`/gift?${createQueryString("passSize", "std")}`, {
+    router.push(`/shop?${createQueryString("passSize", "std")}`, {
       scroll: false,
     });
   }
@@ -469,7 +471,7 @@ function Select_img({
     prodSizeInt < 35 &&
     selectedBorderSize == "12"
   ) {
-    router.push(`/gift?${createQueryString("bordSize", "0")}`, {
+    router.push(`/shop?${createQueryString("bordSize", "0")}`, {
       scroll: false,
     });
   }
@@ -988,7 +990,7 @@ function Select_img({
                     >
                       <Image
                         src={`/${el.slice(3, -4)}/S/${el}`}
-                        alt="Selected images from the gallery"
+                        alt="Suggested images top try"
                         className={`${styles.img} ${
                           selectedImg == el.slice(0, -4) &&
                           styles.currentSelectedImg
@@ -1242,7 +1244,7 @@ function Select_img({
                           }`}
                           onClick={() =>
                             router.push(
-                              `/gift?${createQueryString(
+                              `/shop?${createQueryString(
                                 "size",
                                 key.slice(-2)
                               )}`,
@@ -1311,7 +1313,7 @@ function Select_img({
                             `}
                             onClick={() =>
                               router.push(
-                                `/gift?${createQueryString("frCl", el)}`,
+                                `/shop?${createQueryString("frCl", el)}`,
                                 { scroll: false }
                               )
                             }
@@ -1344,7 +1346,7 @@ function Select_img({
                               onClick={() =>
                                 el.mm !== undefined &&
                                 router.push(
-                                  `/gift?${createQueryString("frSize", k)}`,
+                                  `/shop?${createQueryString("frSize", k)}`,
                                   { scroll: false }
                                 )
                               }
@@ -1380,7 +1382,7 @@ function Select_img({
                                   onClick={() =>
                                     el.size !== undefined &&
                                     router.push(
-                                      `/gift?${createQueryString(
+                                      `/shop?${createQueryString(
                                         "passSize",
                                         k
                                       )}`,
@@ -1419,7 +1421,7 @@ function Select_img({
                               onClick={() =>
                                 el !== undefined &&
                                 router.push(
-                                  `/gift?${createQueryString("passCl", el)}`,
+                                  `/shop?${createQueryString("passCl", el)}`,
                                   { scroll: false }
                                 )
                               }
@@ -1450,7 +1452,7 @@ function Select_img({
                                 onClick={() =>
                                   el !== undefined &&
                                   router.push(
-                                    `/gift?${createQueryString("paper", key)}`,
+                                    `/shop?${createQueryString("paper", key)}`,
                                     { scroll: false }
                                   )
                                 }
@@ -1474,7 +1476,7 @@ function Select_img({
                                 onClick={() =>
                                   el !== undefined &&
                                   router.push(
-                                    `/gift?${createQueryString("paper", key)}`,
+                                    `/shop?${createQueryString("paper", key)}`,
                                     { scroll: false }
                                   )
                                 }
@@ -1511,7 +1513,7 @@ function Select_img({
                             onClick={() =>
                               el !== undefined &&
                               router.push(
-                                `/gift?${createQueryString("glass", key)}`,
+                                `/shop?${createQueryString("glass", key)}`,
                                 { scroll: false }
                               )
                             }
@@ -1548,7 +1550,7 @@ function Select_img({
                                 key={el.mm}
                                 onClick={() =>
                                   router.push(
-                                    `/gift?${createQueryString("thick", key)}`,
+                                    `/shop?${createQueryString("thick", key)}`,
                                     { scroll: false }
                                   )
                                 }
@@ -1584,7 +1586,7 @@ function Select_img({
                                   onClick={() =>
                                     el !== null &&
                                     router.push(
-                                      `/gift?${createQueryString(
+                                      `/shop?${createQueryString(
                                         "bordSize",
                                         el
                                       )}`,
@@ -1619,7 +1621,7 @@ function Select_img({
                                 }`}
                                 onClick={() =>
                                   router.push(
-                                    `/gift?${createQueryString("hang", "0")}`,
+                                    `/shop?${createQueryString("hang", "0")}`,
                                     { scroll: false }
                                   )
                                 }
@@ -1632,7 +1634,7 @@ function Select_img({
                                 }`}
                                 onClick={() =>
                                   router.push(
-                                    `/gift?${createQueryString("hang", "1")}`,
+                                    `/shop?${createQueryString("hang", "1")}`,
                                     { scroll: false }
                                   )
                                 }
@@ -1660,7 +1662,7 @@ function Select_img({
                           }`}
                           onClick={() =>
                             router.push(
-                              `/gift?${createQueryString("lam", "none")}`,
+                              `/shop?${createQueryString("lam", "none")}`,
                               { scroll: false }
                             )
                           }
@@ -1681,7 +1683,7 @@ function Select_img({
                                 key={el.name}
                                 onClick={() =>
                                   router.push(
-                                    `/gift?${createQueryString("lam", key)}`,
+                                    `/shop?${createQueryString("lam", key)}`,
                                     { scroll: false }
                                   )
                                 }
