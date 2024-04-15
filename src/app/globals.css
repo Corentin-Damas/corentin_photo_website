@@ -31,16 +31,6 @@
   --font-size-detail_01: 1rem;
   --font-size-detail_02: 0.8rem;
 
-  /* --neutral-00-white: #f8fafc; */
-  --neutral-50: #eaecee;
-  --netral-200: #9da6af;
-  --netral-300: #717d8a;
-  --netral-400: #556473;
-  --netral-500: #2b3d50;
-  --netral-700: #1f2b39;
-  --netral-900: #121a22;
-  --netral-black: #1a1a1a;
-
   --background-color: #f8fafc;
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
@@ -69,6 +59,16 @@
 
   --rules-color: #2b3d50;
   --white-bar: #eaecee;
+  /* --neutral-00-white: #f8fafc; */
+
+  --neutral-50: #eaecee;
+  --netral-200: #9da6af;
+  --netral-300: #717d8a;
+  --netral-400: #556473;
+  --netral-500: #2b3d50;
+  --netral-700: #1f2b39;
+  --netral-900: #121a22;
+  --netral-black: #1a1a1a;
 
   --prim-100: #f8c8c3;
   --prim-300: #ef887c;
@@ -377,6 +377,10 @@ p.detail_02 {
 .unLoaded {
   opacity: 0;
   transition: all 0.4s;
+}
+.btn:disabled {
+  background-color: var(--netral-300);
+  opacity: 0.8;
 }
 
 /*

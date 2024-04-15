@@ -5,8 +5,7 @@ import { EmailTemplate } from "../../../../../components/Email-template";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: any) {
-  const { name, email, message } = await request.json();
-  console.log("testing", name, email, message);
+  const { name, email, message, cart } = await request.json();
   try {
     const data = await resend.emails.send({
       from: "WebSite contact form <onboarding@resend.dev>",
@@ -16,6 +15,7 @@ export async function POST(request: any) {
         name: name,
         email: email,
         message: message,
+        cart: cart,
       }) as React.ReactElement,
     });
 

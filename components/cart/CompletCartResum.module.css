@@ -1,12 +1,18 @@
-.cart__container {
-  position: relative;
-  max-width: var(--max-width-MS);
-
-  margin: 0 auto;
+.cart__section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  max-width: var(--max-width-MS);
   margin-inline: var(--spacing-S);
+  margin: 0 auto var(--spacing-M);
+}
+.cart__container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cartNav__container {
@@ -36,35 +42,12 @@
   gap: var(--spacing-S);
   width: 100%;
 }
-.majorLink {
-  width: 100%;
-  text-align: center;
-
-  border-radius: 2rem;
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--sec-300);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.majorLink:hover {
-  transform: scale(1.04);
-}
-
-.orderLink {
-  background-color: var(--sec-700);
-}
-.orderLink:hover,
-.cartLink:hover {
-  background-color: var(--prim-700);
-}
 
 .cartMainContent {
   margin-bottom: var(--spacing-S);
 }
 
 .resume {
-
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -156,15 +139,47 @@
     margin-bottom: var(--spacing-S);
   }
 }
+.advice_section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.majorLink {
+  width: 70%;
+  text-align: center;
+  color: var(--font-color-main);
+
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--sec-300);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.majorLink:hover {
+  transform: scale(1.04);
+}
+
+.orderLink {
+  background-color: var(--sec-700);
+}
+.adviceLink {
+  background-color: var(--netral-700);
+}
+
+.orderLink:hover,
+.cartLink:hover {
+  background-color: var(--prim-700);
+}
 
 .totalTxt {
   font-family: var(--font-geologica-light);
   font-size: var(--font-size-bodyText_02);
 }
 
-.finalOrderLink {
-  width: 70%;
-}
 .imgPreview {
   height: auto;
   width: 70%;
@@ -289,4 +304,8 @@
 }
 .mapleWhite {
   outline-color: var(--maple-White);
+}
+
+.form__container{
+  width: 90%;
 }

@@ -1,17 +1,13 @@
 "use client";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import styles from "../main_section/section_cta.module.css";
 import { FormControl, FormErrorMessage } from "@chakra-ui/react";
+import { useCartProduct } from "../../providers/cart-provider";
 
 interface Values {
   name: string;
   email: string;
   message: string;
-}
-interface ValuesExist {
-  name: boolean;
-  email: boolean;
-  message: boolean;
 }
 
 const initValues: Values = { name: "", email: "", message: "" };
@@ -24,30 +20,23 @@ const possibleStates = {
   loading: "loading",
 };
 
-function Form() {
-  const [state, setState] = useState(initState);
+function Form({ context }: { context: string }) {
+  const cartList = useCartProduct((state) => state.cartOfProduct);
 
+  const [state, setState] = useState(initState);
   const [isValidName, setIsValidName] = useState(possibleStates.initial);
   const [isValidEmail, setIsValidEmail] = useState(possibleStates.initial);
-
-  const [touched, setTouched] = useState<ValuesExist>({
-    name: false,
-    email: false,
-    message: false,
-  });
+  const [isValideMessage, setIsValideMessage] = useState(
+    possibleStates.initial
+  );
 
   const [emailSent, setEmailSent] = useState<string>(possibleStates.initial);
 
   const test = true;
-
   const { values } = state;
 
   const onBlur = function (e: any) {
-    setTouched((prev) => ({
-      ...prev,
-      [e.target.name]: true,
-    }));
-    checkState();
+    checkState(e.target.name);
   };
 
   const handleChange = function (e: any) {
@@ -58,7 +47,7 @@ function Form() {
         [e.target.name]: e.target.value,
       },
     }));
-    checkState();
+    checkState(e.target.name);
   };
 
   const checkEmail = function () {
@@ -67,43 +56,75 @@ function Form() {
     regex.test(values.email)
       ? setIsValidEmail(possibleStates.valid)
       : setIsValidEmail(possibleStates.invalid);
-
-    console.log("result:", isValidEmail);
   };
 
-  const checkState = function () {
-    values.name == "" && touched.name
-      ? setIsValidName(possibleStates.invalid)
-      : setIsValidName(possibleStates.valid);
+  const checkState = function (el: any) {
+    if (el == "name") {
+      values.name.length > 1
+        ? setIsValidName(possibleStates.valid)
+        : setIsValidName(possibleStates.invalid);
 
-    values.email == "" && touched.email
-      ? setIsValidEmail(possibleStates.invalid)
-      : checkEmail();
+      checkEmail();
+      if (context == "advice") {
+        values.message.length > 5
+          ? setIsValideMessage(possibleStates.valid)
+          : setIsValideMessage(possibleStates.invalid);
+      }
+    }
 
-    values.name == "" && !touched.name
-      ? setIsValidName(possibleStates.initial)
-      : setIsValidName(possibleStates.valid);
+    if (el == "email") {
+      values.email.length > 3
+        ? checkEmail()
+        : setIsValidEmail(possibleStates.invalid);
 
-    values.email.length > 3 && !touched.email
-      ? checkEmail()
-      : setIsValidEmail(possibleStates.initial);
+      values.name.length > 1 && setIsValidName(possibleStates.valid);
+      if (context == "advice") {
+        values.message.length > 5
+          ? setIsValideMessage(possibleStates.valid)
+          : setIsValideMessage(possibleStates.invalid);
+      }
+    }
+
+    if (el == "message") {
+      if (context == "advice") {
+        values.message.length > 1
+          ? setIsValideMessage(possibleStates.valid)
+          : setIsValideMessage(possibleStates.invalid);
+
+        values.name.length > 1 && setIsValidName(possibleStates.valid);
+      }
+    }
   };
+
+  function handleCheckAllValid(): boolean {
+    if (context == "advice") {
+      if (
+        isValidName == possibleStates.valid &&
+        isValidEmail == possibleStates.valid &&
+        isValideMessage == possibleStates.valid
+      ) {
+        return false;
+      }
+    } else {
+      if (
+        isValidName == possibleStates.valid &&
+        isValidEmail == possibleStates.valid
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   const sendEmail = async (e: any) => {
     e.preventDefault();
-    console.log("sendEmail");
-    values.name == ""
-      ? setIsValidName(possibleStates.invalid)
-      : setIsValidName(possibleStates.valid);
 
     if (test) {
-      checkEmail();
       if (
         isValidEmail == possibleStates.valid &&
         isValidName == possibleStates.valid
       ) {
         setEmailSent(possibleStates.valid);
-        console.log(state.values, isValidEmail, isValidName);
       }
     } else if (
       isValidEmail == possibleStates.valid &&
@@ -113,7 +134,8 @@ function Form() {
       const name = values.name;
       const email = values.email;
       const message = values.message;
-      e.preventDefault();
+      const cart = cartList;
+      // e.preventDefault();
       const response = await fetch("/api/send", {
         method: "POST",
         headers: {
@@ -123,6 +145,7 @@ function Form() {
           name,
           email,
           message,
+          cart,
         }),
       });
       const res = await response.json();
@@ -147,6 +170,13 @@ function Form() {
             isInvalid={isValidName == possibleStates.invalid}
           >
             <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              value={values.name}
+              onBlur={onBlur}
+              onChange={handleChange}
               className={`${styles.formular__Name} ${styles.form__field}  ${
                 isValidName == possibleStates.valid
                   ? styles.form__field_valid
@@ -156,12 +186,6 @@ function Form() {
                   ? styles.form__field_initial
                   : styles.form__field_waiting
               } `}
-              type="text"
-              placeholder="Your Name"
-              name="name"
-              id="name"
-              value={values.name}
-              onChange={handleChange}
             />
             <label htmlFor="name" className={`${styles.form__label}`}>
               Your name
@@ -214,37 +238,100 @@ function Form() {
         </div>
 
         <div className={styles.form__group}>
-          <textarea
-            name="message"
-            id="message"
-            cols={30}
-            rows={2}
-            placeholder="Your Message"
-            value={values.message}
-            onChange={handleChange}
-            className={`${styles.formular__message} ${styles.form__field}`}
-          ></textarea>
-          <label htmlFor="message" className={`${styles.form__label}`}>
-            Your Message
-          </label>
+          {context === "advice" ? (
+            <FormControl
+              isRequired
+              isInvalid={isValideMessage == possibleStates.invalid}
+            >
+              <textarea
+                name="message"
+                id="message"
+                cols={30}
+                rows={3}
+                placeholder="What do you want to know about the artwork(s) you selected?"
+                value={values.message}
+                onBlur={onBlur}
+                onChange={handleChange}
+                className={`${styles.formular__message} ${styles.form__field} ${
+                  styles.form__field_advice
+                } ${
+                  isValideMessage == possibleStates.valid
+                    ? styles.form__field_valid
+                    : isValideMessage == possibleStates.invalid
+                    ? styles.form__field_inValid
+                    : isValideMessage == possibleStates.initial
+                    ? styles.form__field_initial
+                    : styles.form__field_waiting
+                }`}
+              ></textarea>
+              <label htmlFor="message" className={`${styles.form__label}`}>
+                What do you want to know about the artwork you selected?
+              </label>
+              <div
+                className={`${styles.informationBlock} ${styles.informationBlock_advice} `}
+              >
+                <FormErrorMessage>
+                  <p className={styles.informationBuble}>
+                    * Required: Please tell me what you want to know so i can
+                    advice you the best I can
+                  </p>
+                </FormErrorMessage>
+              </div>
+            </FormControl>
+          ) : (
+            <>
+              <textarea
+                name="message"
+                id="message"
+                cols={30}
+                rows={2}
+                placeholder="Your Message"
+                value={values.message}
+                onChange={handleChange}
+                className={`${styles.formular__message} ${styles.form__field}`}
+              ></textarea>
+              <label htmlFor="message" className={`${styles.form__label}`}>
+                Your Message
+              </label>
+            </>
+          )}
         </div>
-        <button className={`${styles.formular__submit} btn`} type="submit">
+        <button
+          className={`${styles.formular__submit} btn`}
+          type="submit"
+          disabled={handleCheckAllValid()}
+        >
           Submit
         </button>
       </form>
       {emailSent == possibleStates.valid ? (
         <div className={styles.mailSentInformationBox}>
-          <h6>
-            Your coordinate have been send successfully
-            <br />
-            Thanks for your confidence{" "}
-          </h6>
+          {context == "advice" ? (
+            <h6>
+              A mail of request for advice about{" "}
+              {cartList.map((el) => (
+                <span
+                  key={el.date}
+                >{`${el.nameDisplayMethod}(qty:${el.quantity}),`}</span>
+              ))}{" "}
+              I&apos;ll reach you has soon has possible.
+              <br />
+              Thanks for your interest in my work.
+            </h6>
+          ) : (
+            <h6>
+              A mail has been send successfully, I&apos;ll reach you has soon
+              has possible.
+              <br />
+              Thanks for your interest in my work.
+            </h6>
+          )}
         </div>
       ) : emailSent == possibleStates.invalid ? (
         <div className={styles.mailSentInformationBox}>
           <h6>
-            Opss! Something went Wrong! Please try later or try send a mail
-            directly
+            Opss! Something went Wrong! Please try later or send a mail directly
+            to :
             <br />
             corentin.damasphoto@gmail.com
           </h6>
