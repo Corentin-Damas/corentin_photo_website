@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "../main_section/section_cta.module.css";
 import { FormControl, FormErrorMessage } from "@chakra-ui/react";
 import { useCartProduct } from "../../providers/cart-provider";
+import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 
 interface Values {
   name: string;
@@ -97,6 +98,9 @@ function Form({ context }: { context: string }) {
   };
 
   function handleCheckAllValid(): boolean {
+    if (emailSent == possibleStates.valid) {
+      return true;
+    }
     if (context == "advice") {
       if (
         isValidName == possibleStates.valid &&
@@ -113,6 +117,8 @@ function Form({ context }: { context: string }) {
         return false;
       }
     }
+
+
     return true;
   }
 
@@ -301,40 +307,47 @@ function Form({ context }: { context: string }) {
           type="submit"
           disabled={handleCheckAllValid()}
         >
-          Submit
+          {emailSent == possibleStates.valid ? "Thanks You" : "Submit"}
         </button>
       </form>
       {emailSent == possibleStates.valid ? (
         <div className={styles.mailSentInformationBox}>
           {context == "advice" ? (
-            <h6>
-              A mail of request for advice about{" "}
-              {cartList.map((el) => (
-                <span
-                  key={el.date}
-                >{`${el.nameDisplayMethod}(qty:${el.quantity}),`}</span>
-              ))}{" "}
-              I&apos;ll reach you has soon has possible.
-              <br />
-              Thanks for your interest in my work.
-            </h6>
+            <>
+              <PiInfo className={styles.feedbackIcone} />
+              <p>
+                A mail of request for advice about{" "}
+                {cartList.map((el) => (
+                  <span
+                    key={el.date}
+                  >{`${el.nameDisplayMethod}(qty:${el.quantity}),`}</span>
+                ))}{" "}
+                I&apos;ll reach you has soon has possible.
+                <br />
+                Thanks for your interest in my work.
+              </p>
+            </>
           ) : (
-            <h6>
-              A mail has been send successfully, I&apos;ll reach you has soon
-              has possible.
-              <br />
-              Thanks for your interest in my work.
-            </h6>
+            <>
+              <PiInfo className={styles.feedbackIcone} />
+              <p>
+                A mail has been send successfully, I&apos;ll reach you has soon
+                has possible.
+                <br />
+                Thanks for your interest in my work.
+              </p>
+            </>
           )}
         </div>
       ) : emailSent == possibleStates.invalid ? (
         <div className={styles.mailSentInformationBox}>
-          <h6>
-            Opss! Something went Wrong! Please try later or send a mail directly
-            to :
-            <br />
-            corentin.damasphoto@gmail.com
-          </h6>
+          <>
+            <PiSealWarningBold className={styles.feedbackIcone} />
+            <p>
+              Opss! Something went Wrong (Probably in our side)! Please try later or send a mail
+              directly to: corentin.damasphoto@gmail.com
+            </p>
+          </>
         </div>
       ) : (
         <></>

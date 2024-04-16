@@ -1,4 +1,4 @@
-/* ..imgs_flex */
+/* .btn_goToCartv2 */
 
 .fram__content__container {
   max-width: var(--max-width-ML);
@@ -535,14 +535,14 @@
   border: none;
   outline: none;
   width: 4rem;
-  border-left: 1px solid var(--font-color-gray);
+  border-left: 1px solid var(--netral-200);
   background-color: var(--prim-900);
 }
 .btn__symbs__top {
   border-top-right-radius: 1rem;
 }
 .btn__symbs__bot {
-  border-top: 1px solid var(--font-color-gray);
+  border-top: 1px solid var(--netral-200);
   border-bottom-right-radius: 1rem;
 }
 
@@ -597,7 +597,7 @@
   border-radius: 2rem;
   background-color: transparent;
   transition: all 0.1s;
-  color: var(--sec-50);
+  color: var(--font-color-main);
   border: 2px solid var(--sec-900);
   display: flex;
   justify-content: center;
@@ -609,7 +609,7 @@
 }
 
 .btn_information:hover {
-  background-color: var(--sec-900);
+  background-color: var(--bg-txt-transparency);
   border: 2px solid var(--information);
   cursor: pointer;
   transform: scale(1.1);
@@ -618,13 +618,16 @@
 .miniIcone {
   width: 3rem;
   height: 3rem;
-  color: var(--sec-50);
+  color: var(--neutral-50);
+}
+.neural-50 {
+  color: var(--neutral-50);
 }
 
 .insideBtnIcone {
   width: 3rem;
   height: 3rem;
-  color: var(--sec-50);
+  color: var(--font-color-main);
 }
 .selectedFrame {
   background-color: var(--prim-700);
@@ -653,7 +656,7 @@
 .icone {
   width: 3rem;
   height: 3rem;
-  color: var(--sec-300);
+  color: var(--icones);
   cursor: pointer;
   transition: all 0.2s;
   z-index: 300;
@@ -689,7 +692,7 @@
 }
 
 .infoBox {
-  background-color: var(--netral-500);
+  background-color: var(--info-bg-n500);
   width: 50%;
   height: 100%;
   z-index: 970;
@@ -705,6 +708,7 @@
   padding: var(--spacing-S);
   gap: var(--spacing-S);
   opacity: 0;
+  box-shadow: 0rem 2rem 2rem var(--shop-dropshadow);
 }
 .infoBox > p {
   font-size: var(--font-size-subTitle_03);
@@ -885,6 +889,7 @@
 .size24 {
   top: 14rem;
   left: 40%;
+  
   /* @media only screen and (max-width: 50em){
     top: 4rem;
     left: 20%;
@@ -903,7 +908,7 @@
 }
 
 .border01 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -955,7 +960,7 @@
 }
 
 .border02 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -1007,7 +1012,7 @@
 }
 
 .border03 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -1059,7 +1064,7 @@
 }
 
 .border05 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -1111,7 +1116,7 @@
 }
 
 .border08 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -1163,7 +1168,7 @@
 }
 
 .border12 {
-  background-color: #e7e7e7;
+  background-color: var(--neutral-50);
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
@@ -1457,4 +1462,8 @@
   width: 10rem;
   height: 3rem;
   color: var(--information);
+}
+
+.neural_50 {
+  color: var(--neutral-50);
 }

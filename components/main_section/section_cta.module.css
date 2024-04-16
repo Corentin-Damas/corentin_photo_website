@@ -1,4 +1,4 @@
-/* .mailSentInformationBox */
+/* .link__container */
 .sectionCta__Grid {
   position: relative;
   height: 100vh;
@@ -284,9 +284,15 @@
 .link__container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   padding-top: var(--spacing-M);
-  padding-bottom: var(--spacing-L);
+  padding-bottom: var(--spacing-S);
+  @media only screen and (max-width: 43.75em) {
+    padding-top: var(--spacing-L);
+  }
+  @media only screen and (max-width: 37.5em) {
+    padding-top: calc(var(--spacing-L) + var(--spacing-S));
+  }
 }
 
 .form__title {
@@ -298,9 +304,31 @@
   justify-self: flex-end;
 }
 
-
-.mailSentInformationBox{
-  background-color: red;
+.mailSentInformationBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  background-color: var(--bg-txt-multiplier);
   padding: var(--spacing-S);
-  
+  border-radius: 4px;
+  gap: var(--spacing-S);
+  @media only screen and (max-width: 43.75em) {
+    flex-direction: column;
+    gap: var(--spacing-XS);
+  }
+  @media only screen and (max-width: 27em){
+    width: 120%;
+    transform: translateX(-10%);
+  }  
+}
+.feedbackIcone {
+  width: var(--icone-S);
+  height: var(--icone-S);
+  color: var(--font-color-main);
+  border-right: 1px solid var(--font-color-main);
+  @media only screen and (max-width: 43.75em) {
+    border-right: none;
+    border-bottom: 1px solid var(--font-color-main);
+  }
 }

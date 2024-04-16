@@ -17,10 +17,11 @@ function page() {
           Success
         </h3>
         <p>
-          I&apos;ll contact you shortly by email to give you all the information
-          you need and more concerning the expedition
+          I&apos;ll contact you shortly by email to give you all the
+          informations you need and more...
           <br />
-          Please make sure check the mails and to keep them has long has 
+          Please make sure to check your mails and to keep them. It will be the
+          only way (for the moment) to keep track of your order.
           <Link href={"/contact"} className={styles.informations__links}>
             contact page{" "}
           </Link>

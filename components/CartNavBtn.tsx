@@ -18,7 +18,7 @@ function CartNavBtn() {
     <div className={styles.cart__container}>
       {cartList.length > 0 && (
         <div className={styles.redDote}>
-          <p className="detail_02">{cartList.length}</p>
+          <p className={`detail_02 ${styles.txt}`}>{cartList.length}</p>
         </div>
       )}
       <MdOutlineShoppingCart

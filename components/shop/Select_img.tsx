@@ -80,6 +80,7 @@ function Select_img({
   const [section, setSection] = useState("");
   const [infoBoxOpen, setInfoBoxOpen] = useState(false);
   const [enlarger, setEnlarger] = useState(false);
+  const [is_addCartClicked, setIs_addCartClicked] = useState<boolean>(false);
 
   const isBlackAndWhite: boolean =
     selectedImg !== null && selectedImg.slice(3) == "black_and_white"
@@ -114,6 +115,7 @@ function Select_img({
   }
   const createQueryString = useCallback(
     (name: string, value: string) => {
+      setIs_addCartClicked(false)
       const params = new URLSearchParams(searchParams);
       params.set(name, value);
       return params.toString();
@@ -594,7 +596,7 @@ function Select_img({
     }
   }
 
-  const [is_addCartClicked, setIs_addCartClicked] = useState<boolean>(false);
+
   const [isImageLoading, setImageLoading] = useState(true);
 
   function handleAddToCart() {
@@ -750,6 +752,7 @@ function Select_img({
                         onClick={() =>
                           quantityProd > 0 && setQuantityProd(quantityProd + 1)
                         }
+                        className={styles.neural_50}
                       >
                         +
                       </p>
@@ -763,6 +766,7 @@ function Select_img({
                           quantityProd >= 2 &&
                           setQuantityProd(quantityProd - 1)
                         }
+                        className={styles.neural_50}
                       >
                         -
                       </p>
@@ -775,7 +779,7 @@ function Select_img({
                   className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}
                 >
                   <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
-                  <p>Check my Cart</p>
+                  <p className={styles.neural_50}>Check my Cart</p>
                 </Link>
               )}
               <h6>{(quantityProd * subTotal).toFixed(2)}€</h6>
@@ -792,7 +796,7 @@ function Select_img({
               quality={80}
             />
           ) : (
-            //  ============================= REFACTOR IMG MOKEUP ====================================
+            //  ============================= REFACTOR IMG MOKEUP ==================================== imageEnlarger
             <div className={`${styles.mokeup_container} `}>
               {selectedImg != "" && (
                 <Image
@@ -945,6 +949,7 @@ function Select_img({
                     width={0}
                     height={0}
                     quality={80}
+                    onClick={() => setIs_addCartClicked(false)}
                     onError={() => redirectToBasUrl()}
                   />
                 </Link>
@@ -964,6 +969,7 @@ function Select_img({
                     width={0}
                     height={0}
                     quality={80}
+                    onClick={() => setIs_addCartClicked(false)}
                     onLoad={() => addImg(subImage)}
                   />
                 </Link>
@@ -996,6 +1002,7 @@ function Select_img({
                           styles.currentSelectedImg
                         }`}
                         sizes="100vw"
+                        onClick={() => setIs_addCartClicked(false)}
                         width={0}
                         height={0}
                         quality={80}
@@ -1017,6 +1024,7 @@ function Select_img({
             <Link href={`?img=${selectedImg}`} scroll={false}>
               <button
                 className={styles.btn_reset}
+                onClick={() => setIs_addCartClicked(false)}
                 disabled={product === null ? true : false}
               >
                 Undo all
@@ -1049,6 +1057,7 @@ function Select_img({
                       scroll={false}
                     >
                       <button
+                        onClick={() => setIs_addCartClicked(false)}
                         className={`${styles.btn_selector} ${
                           product !== null && product.name == el.name
                             ? styles.selectedFrame
@@ -1094,6 +1103,7 @@ function Select_img({
                       scroll={false}
                     >
                       <button
+                        onClick={() => setIs_addCartClicked(false)}
                         className={`${styles.btn_selector} ${
                           product !== null && product.name == el.name
                             ? styles.selectedFrame
@@ -1140,6 +1150,7 @@ function Select_img({
                       scroll={false}
                     >
                       <button
+                        onClick={() => setIs_addCartClicked(false)}
                         className={`${styles.btn_selector} ${
                           product !== null && product.name == el.name
                             ? styles.selectedFrame
@@ -1717,7 +1728,7 @@ function Select_img({
                 scroll={true}
               >
                 <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
-                <p>Check my Cart</p>
+                <p className={styles.neural_50}>Check my Cart</p>
               </Link>
             )}
           </div>

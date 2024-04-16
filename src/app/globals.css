@@ -9,6 +9,8 @@
   --font-SawarabiMincho-Regular
   */
 
+  /* --bg-txt-multiplier */
+
   --font-size-Display_01: 9.6rem;
   --font-size-Display_02: 7.2rem;
   --font-size-Display_03: 6rem;
@@ -40,6 +42,14 @@
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
   --bg-transparency-smallScreen: hsla(210, 11%, 93%, 0.9);
 
+  --bg-txt-multiplier: hsla(210, 11%, 93%, 0.9);
+  --shop-dropshadow: hsla(204, 64%, 18%, 0.75);
+  --info-bg-n500: #eaecee;
+  --icones: #11354d;
+  --icones_locked: #9da6af;
+  --sec-btn: #287fb8;
+  --prim-btn: #9da6af;
+
   --netral-700-transparent: hsla(212, 30%, 17%, 0.9);
 
   --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
@@ -62,6 +72,7 @@
   /* --neutral-00-white: #f8fafc; */
 
   --neutral-50: #eaecee;
+  --netral-100: #bdc3c9;
   --netral-200: #9da6af;
   --netral-300: #717d8a;
   --netral-400: #556473;
@@ -137,6 +148,7 @@
 }
 
 html.dark {
+  --info-bg-n500: #2b3d50;
   --background-color: #121a22;
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
   --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
@@ -149,6 +161,7 @@ html.dark {
   --bg-p1-brightness: 0.4;
   --bg-navMobile-brightness: 0.9;
   --bg-transparency-smallScreen: hsla(204, 64%, 18%, 0.75);
+  --shop-dropshadow: hsla(0, 0%, 0%, 0.9);
 
   --font-color-main: #eaecee;
   --font-color-sec: #f8fafc;
@@ -159,6 +172,10 @@ html.dark {
   --btn-background: #287fb8;
 
   --link-color-underline: #717d8a;
+  --icones: #6fa9cf;
+  --icones_locked: #556473;
+  --prim-btn: #a4372b;
+  --sec-btn: #1c5a83;
 
   --special_link: 50vh;
 }

@@ -39,9 +39,9 @@ function CompletCartResum() {
       <div className={styles.cart__container}>
         {cartList.length == 0 && (
           <h5>
-            You don&apos;t have anything yet in your cart, visite the
-            <Link href="/gallery">Gallery</Link> or the
-            <Link href="./gift">Gift</Link> and come back latter
+            You don&apos;t have anything yet in your cart, visite the {' '}
+            <Link href="/gallery" className={styles.links}>Gallery</Link> or the {' '}
+            <Link href="./shop" className={styles.links}>Shop</Link> and come back later
           </h5>
         )}
         {cartList.length > 0 && (
@@ -166,18 +166,21 @@ function CompletCartResum() {
                       : styles.border12
                   }
                     ${
-                      el.passePartoutSize == 9
-                        ? ""
-                        : el.passePartoutSize == 3
+                      el.nameDisplayMethod ==
+                        "Solid Wood Frame With Passe_Partout" &&
+                      el.passePartoutSize == 3
                         ? styles.passSizeSmall
-                        : styles.passSizeBig
+                        : el.nameDisplayMethod ==
+                            "Solid Wood Frame With Passe_Partout" &&
+                          styles.passSizeBig
                     }
+ 
                   ${
                     el.nameDisplayMethod ==
                       "Solid Wood Frame With Passe_Partout" &&
-                    el.passePartoutColor == "white"
-                      ? ""
-                      : styles.blackPass
+                    el.passePartoutColor == "black"
+                      ? styles.blackPass
+                      : ""
                   }
                   ${
                     el.color == "Alder brown"
@@ -226,7 +229,7 @@ function CompletCartResum() {
           </div>
         )}
       </div>
-      {!is_AskAdvice && (
+      {is_AskAdvice && (
         <div className={styles.form__container}>
           <Form context={"advice"} />
         </div>

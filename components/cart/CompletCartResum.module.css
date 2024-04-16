@@ -1,3 +1,5 @@
+/* majorLink */
+
 .cart__section {
   display: flex;
   justify-content: center;
@@ -109,7 +111,7 @@
   outline: none;
   padding: 0.4rem 1rem;
   border-radius: 3rem;
-  color: var(--font-color-main);
+  color: var(--neutral-50);
   transition: all 0.2s;
 }
 .removeBtn:hover {
@@ -147,10 +149,14 @@
   flex-direction: column;
 }
 
+.links {
+  border-bottom:thick double var(--font-color-gray);
+}
+
 .majorLink {
   width: 70%;
   text-align: center;
-  color: var(--font-color-main);
+  color: var(--neutral-50);
 
   border-radius: 2rem;
   padding: 0.4rem 1rem;
@@ -192,6 +198,8 @@
 .galleryFrame {
   outline: 5px solid var(--black-Oak);
   padding: 0px;
+  clear: both;
+  margin: auto;
 }
 .artbox {
   outline: 2px solid var(--alder-Brown);
@@ -306,6 +314,6 @@
   outline-color: var(--maple-White);
 }
 
-.form__container{
+.form__container {
   width: 90%;
 }
