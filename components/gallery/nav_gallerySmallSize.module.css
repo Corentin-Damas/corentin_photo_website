@@ -125,7 +125,7 @@
 }
 
 .link p {
-  border-right: 1px solid white;
+  border-right: 1px solid var(--font-color-main);
   padding-right: var(--spacing-XS);
 }
 

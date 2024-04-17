@@ -22,10 +22,11 @@ function page() {
           <br />
           Please make sure to check your mails and to keep them. It will be the
           only way (for the moment) to keep track of your order.
-          <Link href={"/contact"} className={styles.informations__links}>
+          <br />
+          If you have any question don&apos;t hesitate to go on the <Link href={"/contact"} className={styles.informations__links}>
             contact page{" "}
           </Link>
-          .{" "}
+          or send a message to: corentin.damasphoto@gmail.com .
         </p>
       </div>
       <Footer />

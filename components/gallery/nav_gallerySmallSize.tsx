@@ -37,7 +37,7 @@ function Nav_gallerySmallSize() {
           <ul className={styles.links_smallSize} onBlur={toggleMenu}>
             <div className={styles.link}>
               <Link href="/" className={styles.myNameLink}>
-                Corentin Damas
+                Corentin Damas 
               </Link>
             </div>
             <div className={styles.link}>

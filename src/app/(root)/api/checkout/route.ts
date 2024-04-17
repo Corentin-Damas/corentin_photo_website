@@ -60,13 +60,13 @@ export const POST = async (request: any) => {
     billing_address_collection: "required",
     shipping_address_collection: {
       allowed_countries: [
-        "FR",
         "GR",
+        "AT",
+        "FR",
         "GG",
         "HK",
         "IN",
         "IE",
-        "FO",
         "IT",
         "JP",
         "JE",
@@ -91,7 +91,6 @@ export const POST = async (request: any) => {
         "SK",
         "SI",
         "ES",
-        "AT",
         "BE",
         "BG",
         "US",
@@ -239,3 +238,45 @@ export const POST = async (request: any) => {
 //       "url": "https://buy.stripe.com/cN2bJDax3gj5aNGbII"
 //     }
 //   }
+
+// "DE", germany
+// "AT", austria
+// "FR", france
+// "GG", Guernesey
+// "HK", Honk-kong
+// "IN", India
+// "IE", Ireland
+// "IT", Italy
+// "JP", Japan
+// "JE", Jersey
+// "FI", finland
+// "IS", iceland
+// "CH", switzerland
+// "LV", latvia
+// "LI", liechtenstein
+// "LT", lithuania
+// "LU", luxembourg
+// "MT", malta
+// "MC", monaco
+// "NL", netherlands
+// "NO", norway
+// "PL", poland
+// "PT", portugal
+// "CZ", czechia
+// "RO", romania
+// "DK", denmark
+// "GR", greece
+// "GB", united-kingdom
+// "SK", slovakia
+// "SI", slovenia
+// "ES", spain
+// "BE", belgium
+// "BG", bulgaria
+// "CA", canada
+// "US", united-states
+// "KR", korea
+// "CN", china
+// "HR", croatia
+// "EE", estonia
+// "SE", sweden
+

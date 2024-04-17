@@ -32,3 +32,19 @@ export const queryFrame = async (searchParams: any, format: string) => {
     prisma.$disconnect();
   }
 };
+export const queryExpedition = async (country: any, quantity: number) => {
+  let searchId:string = `${country}_${quantity}`;
+
+  try {
+    const queryOutput = await prisma.expedition.findUnique({
+      where: {
+        id: searchId,
+      },
+    });
+    return queryOutput;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    prisma.$disconnect();
+  }
+};

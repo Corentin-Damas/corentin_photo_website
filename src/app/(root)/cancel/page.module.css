@@ -6,16 +6,26 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-inline: var(--spacing-M);
 }
 
 .informations__title {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-S);
+  text-align: center;
+  @media only screen and (max-width: 41.25em) {
+    font-size: var(--font-size-subTitle_01);
+  }
 }
 
-.informations__links{
-    border-bottom: 2px  solid var(--rules-color);
+.iconeInfo{
+  @media only screen and (max-width: 32em){
+    width: 5rem;
+  }
 }
 
+.informations__links {
+  border-bottom: 2px solid var(--rules-color);
+}

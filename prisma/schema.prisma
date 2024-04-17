@@ -35,15 +35,28 @@ model fram{
   bordLarge_90 Float
 }
 model expedition{
-  country String @id @default(cuid())
+  id String @id 
+  country String 
+  min_quantity Int @default(1)
   tirage_25 Float
   tirage_60 Float
   tirage_100 Float
   tirage_125 Float
+  tirage_180 Float @default(0)
+  tirage_220 Float @default(0)
   delay_tirage Int 
+  dibon_25 Float @default(0)
+  dibon_60 Float @default(0)
+  dibon_100 Float @default(0)
+  dibon_125 Float @default(0)
+  dibon_180 Float @default(0)
+  dibon_220 Float @default(0)
+  delay_dibon Int @default(0)
   frame_25 Float
   frame_60 Float
   frame_100 Float
   frame_125 Float
+  frame_180 Float @default(0)
+  frame_220 Float @default(0)
   delay_frame Int 
 }

@@ -54,7 +54,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  height: 80vh;
+  height: 100vh;
   max-height: 720px;
   background-color: var(--bg-txt-transparency);
   width: calc(100% - 3.6rem);
@@ -69,9 +69,9 @@
   opacity: 100;
   transition: all 0.3s ease-in-out;
   z-index: 300;
-  
+
   @media only screen and (max-width: 57em) {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
@@ -96,7 +96,7 @@
   float: left;
   text-align: start;
   grid-row: 2/3;
-  @media only screen and (max-width: 32em){
+  @media only screen and (max-width: 32em) {
     width: 80%;
-  } 
+  }
 }

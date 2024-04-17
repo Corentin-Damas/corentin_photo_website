@@ -1,28 +1,3 @@
-type pictureInfoType = {
-  name: string;
-  WidthPix: number;
-  heightPix: number;
-  WidthCM: number;
-  heightCM: number;
-  format: string;
-  film: boolean;
-};
-type productInfoType = {
-  id: string;
-  format: string;
-  bordLarge_16: number;
-  bordLarge_20: number;
-  bordLarge_24: number;
-  bordLarge_30: number;
-  bordLarge_35: number;
-  bordLarge_40: number;
-  bordLarge_50: number;
-  bordLarge_60: number;
-  bordLarge_70: number;
-  bordLarge_75: number;
-  bordLarge_80: number;
-  bordLarge_90: number;
-};
 
 type productType = {
   name: string;
