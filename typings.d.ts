@@ -15,7 +15,11 @@ type productResumeType = {
   protection?: string;
   quantity: number;
   date: number;
+  prodType: string
+  maxSize: number;
 };
+
+
 
 type pictureInfoType = {
   name: string;
@@ -43,6 +47,8 @@ type productInfoType = {
   bordLarge_90: number;
 };
 
+
+
 type expeditionInfoType = {
   id: string;
   country: string;
@@ -69,3 +75,29 @@ type expeditionInfoType = {
   frame_220: number;
   delay_frame: number;
 };
+
+type shortExpeditionInfo = {
+  id: string;
+  country: string;
+};
+
+
+type expeditionIdBase = {
+  country: string;
+  min_quantity: 1 | 3 | 6;
+};
+
+type expeditionResType = {
+  tiragePrice: number
+  tirageTime: number
+  mountedPrice:number
+  mountedTime:number
+}
+
+type paramsChoice = {
+  dest: string;
+  qty?: string;
+  tTh?: string;
+  mTh?: string;
+  ty?:  string
+}

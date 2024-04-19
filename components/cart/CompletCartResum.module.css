@@ -185,6 +185,12 @@
   font-family: var(--font-geologica-light);
   font-size: var(--font-size-bodyText_02);
 }
+.expedition{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .imgPreview {
   height: auto;

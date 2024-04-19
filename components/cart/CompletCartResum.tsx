@@ -1,20 +1,84 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./CompletCartResum.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Form from "../main_section/Form";
+import ExpeditionFees from "../shop/ExpeditionFees";
+import { useSearchParams } from "next/navigation";
 
-function CompletCartResum() {
+function CompletCartResum({
+  allCountries,
+  expeditionData,
+}: {
+  allCountries: string[];
+  expeditionData: null | expeditionResType;
+}) {
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const remFromCart = useCartProduct((state) => state.removeFromCart);
-  const router = useRouter();
+  const searchParams = useSearchParams();
+  const selectedCountry: string | null = searchParams.get("dest");
   const [is_AskAdvice, setIs_AskAdvice] = useState<boolean>(false);
 
+  const router = useRouter();
+
   let total: number = 0;
-  cartList.map((el) => (total += el.totalPrice * el.quantity));
+  let qty: number = 0;
+
+  const tirage_Arr: number[] = [0];
+  const dibon_Arr: number[] = [0];
+  const frame_Arr: number[] = [0];
+
+  cartList.map((el) => {
+    total += el.totalPrice * el.quantity;
+    qty += el.quantity;
+    if (el.prodType == "tirage") {
+      tirage_Arr.push(el.maxSize);
+    } else if (el.prodType == "frame") {
+      frame_Arr.push(el.maxSize);
+    } else if (el.prodType == "dibon") {
+      dibon_Arr.push(el.maxSize);
+    }
+  });
+
+  function getThreshold(arr: number[]): number {
+    if (arr.length == 1) {
+      return 0;
+    }
+    const maxW = Math.max(...arr);
+    const maxW_threshold: number =
+      maxW <= 25
+        ? 25
+        : maxW <= 60
+        ? 60
+        : maxW <= 100
+        ? 100
+        : maxW <= 125
+        ? 125
+        : maxW <= 180
+        ? 180
+        : 220;
+    return maxW_threshold;
+  }
+
+  // Tirage threshold
+  const qtyThreshold = qty < 1 ? 0 : qty < 3 ? 1 : qty <= 5 && qty > 2 ? 3 : 6;
+  const maxW_Tirage_threshold: number = getThreshold(tirage_Arr);
+  const maxW_dibon_threshold: number = getThreshold(dibon_Arr);
+  const maxW_frame_threshold: number = getThreshold(frame_Arr);
+
+  let maxW_Mounted_threshold: number = 0;
+  let mountedType: string = "";
+
+  if (maxW_dibon_threshold > maxW_frame_threshold) {
+    maxW_Mounted_threshold = maxW_dibon_threshold;
+    mountedType = "dibon";
+  } else if (maxW_dibon_threshold <= maxW_frame_threshold) {
+    maxW_Mounted_threshold = maxW_frame_threshold;
+    mountedType = "frame";
+  }
 
   const checkout = async () => {
     await fetch("http://localhost:3000/api/checkout", {
@@ -34,14 +98,26 @@ function CompletCartResum() {
       });
   };
 
+  useEffect(() => {
+    if (selectedCountry == null || cartList.length < 1) {
+      router.push("/cart", { scroll: false });
+    }
+  }, [selectedCountry, cartList, router]);
+
   return (
     <section className={styles.cart__section}>
       <div className={styles.cart__container}>
         {cartList.length == 0 && (
           <h5>
-            You don&apos;t have anything yet in your cart, visite the {' '}
-            <Link href="/gallery" className={styles.links}>Gallery</Link> or the {' '}
-            <Link href="./shop" className={styles.links}>Shop</Link> and come back later
+            You don&apos;t have anything yet in your cart, visite the{" "}
+            <Link href="/gallery" className={styles.links}>
+              Gallery
+            </Link>{" "}
+            or the{" "}
+            <Link href="./shop" className={styles.links}>
+              Shop
+            </Link>{" "}
+            and come back later
           </h5>
         )}
         {cartList.length > 0 && (
@@ -61,7 +137,7 @@ function CompletCartResum() {
                     )}
                     {el.frameSize !== undefined && (
                       <p className={`detail_02 ${styles.res_detail}`}>
-                        Frame size: {el.frameSize} cm
+                        Frame size: {el.frameSize} mm
                       </p>
                     )}
                     {el.passePartoutColor !== undefined && (
@@ -107,7 +183,10 @@ function CompletCartResum() {
                     )}
 
                     <p className={`detail_02 ${styles.res_detail}`}>
-                      Long edge: {el.imgSize} cm
+                      Picture Long edge: {el.imgSize} cm
+                    </p>
+                    <p className={`detail_02 ${styles.res_detail}`}>
+                      Total Long edge: {el.maxSize} cm
                     </p>
                     <p className={`detail_02 ${styles.res_price}`}>
                       unity: {el.totalPrice.toFixed(2)}€
@@ -234,6 +313,19 @@ function CompletCartResum() {
           <Form context={"advice"} />
         </div>
       )}
+      <div className={styles.expedition}>
+        <h5>test:</h5>
+        {cartList.length > 0 && (
+          <ExpeditionFees
+            allCountries={allCountries}
+            qtyThreshold={qtyThreshold}
+            maxW_Mounted_threshold={maxW_Mounted_threshold}
+            maxW_Tirage_threshold={maxW_Tirage_threshold}
+            mountedType={mountedType}
+            expeditionData = {expeditionData}
+          />
+        )}
+      </div>
     </section>
   );
 }

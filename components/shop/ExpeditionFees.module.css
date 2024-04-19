@@ -1,0 +1,9 @@
+.form_countainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option_txt{
+    text-transform: capitalize;
+}

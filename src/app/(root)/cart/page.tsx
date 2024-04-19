@@ -1,11 +1,12 @@
-"use client";
 import React from "react";
 import Navbar from "../../../../components/Navbar";
 import styles from "./page.module.css";
 import Footer from "../../../../components/Footer";
-import CompletCartResum from "../../../../components/cart/CompletCartResum";
 
-function page() {
+import CompletCartResum from "../../../../components/cart/CompletCartResum";
+import CartFetching from "../../../../components/cart/CartFetching";
+
+function page({searchParams}:{searchParams:any}) {
   return (
     <>
       <header className={styles.header}>
@@ -15,8 +16,9 @@ function page() {
         </div>
       </header>
       <section className={styles.content__container}>
-        <CompletCartResum />
+        <CartFetching searchParams={searchParams} />
       </section>
+
       <Footer />
     </>
   );

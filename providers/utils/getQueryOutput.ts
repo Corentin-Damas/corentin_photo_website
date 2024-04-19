@@ -32,7 +32,7 @@ export const queryFrame = async (searchParams: any, format: string) => {
     prisma.$disconnect();
   }
 };
-export const queryExpedition = async (country: any, quantity: number) => {
+export const queryExpedition = async (country: string, quantity: string) => {
   let searchId:string = `${country}_${quantity}`;
 
   try {
@@ -41,6 +41,18 @@ export const queryExpedition = async (country: any, quantity: number) => {
         id: searchId,
       },
     });
+    return queryOutput;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    prisma.$disconnect();
+  }
+}
+export const queryCountries = async () => {
+  let searchId:string ;
+
+  try {
+    const queryOutput:shortExpeditionInfo[] = await prisma.$queryRaw`SELECT id,country FROM expedition ORDER BY id  `
     return queryOutput;
   } catch (error) {
     console.log(error);

@@ -1,4 +1,3 @@
-
 type productType = {
   name: string;
   framed: boolean;
@@ -7,6 +6,7 @@ type productType = {
   spec?: string;
   warning?: string;
   fav?: boolean;
+  category: string;
   colorPaper?: boolean;
   blackAndWitePaper?: boolean;
   color?: {

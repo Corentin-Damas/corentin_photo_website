@@ -5,6 +5,7 @@ export const possileFrames = {
     desc: "Classic elegant wooden frame. Available with real wood veener and visible grain.",
     tltr: "Classic elegant wooden frame.",
     spec: " Width: 20mm or 40mm, Depth: 30mm",
+    category: "frame",
     color: {
       brown: "Alder brown",
       black: "Black oak",
@@ -58,6 +59,7 @@ export const possileFrames = {
     desc: "Classic elegant wooden frame with a passepartout that add an additional frame for your picture. The distance between the glass and the picture surface is increased and a depth effect is created, which draws even more attention to the picture. ",
     tltr: "Classic elegant wooden frame with a passepartout.",
     spec: " Width: 20mm or 40mm, Depth: 30mm",
+    category: "frame",
     framed: true,
     color: {
       brown: "Alder brown",
@@ -149,6 +151,7 @@ export const possileFrames = {
     desc: "The wooden ArtBox frames the photo simply when viewed head-on. Seen from the side, the depth of 35mm give a new original depth to the photo.",
     tltr: "The wooden ArtBox simply and elegantly frames the picture.",
     spec: " Width: 4mm, Depth: 35mm",
+    category: "frame",
     framed: true,
     color: {
       brown: "Alder brown",
@@ -201,6 +204,7 @@ export const possileFrames = {
     desc: "Classic floater frame made of wood. Your motif seems to float due to the gap wetween the motif and the frame.",
     tltr: "Classic floater frame made of wood.",
     spec: " Width: 15mm or 31mm, Depth: 31mm, Shadow gap 7mm",
+    category: "frame",
     framed: true,
     paper: {
       glossy: {
@@ -251,6 +255,7 @@ export const possileFrames = {
     framed: false,
     desc: "This a way to present the fine art prints in a clean and pure way. Long-lasting with a UV protective laminate",
     tltr: "Present the prints in a clean and pure way",
+    category: "dibon",
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
@@ -300,6 +305,7 @@ export const possileFrames = {
     framed: false,
     desc: "This a way to present the fine art prints in a clean and pure way, Just the print on the wall an nothing else. Constituted of four layers, the print, two aluminium layers to keep the presentation flat and clean and the core, a Black polythylene core. No frame, No glass. ",
     tltr: "Present the prints in a clean and pure way with a more refined paper",
+    category: "dibon",
     warning:
       "Please be aware that the paper surface is unsealed. This allows the fine art print to unfold its full effect. Please treat the surface with the utmost care accordingly.",
     paper: {
@@ -333,7 +339,7 @@ export const possileFrames = {
   under_glossy_acrylic_glass: {
     name: "Under glossy acrylic glass",
     framed: false,
-
+    category: "dibon",
     desc: "The photo is set behind a protective glossy acrylic glass with a solid aluminium dibond backing. Acrylic glass is light, shatterproof and resistant to temperature fluctuations.",
     tltr: "The photo is set behind a protective glossy acrylic glass",
     paper: {
@@ -381,6 +387,7 @@ export const possileFrames = {
 
   under_matte_acrylic_glass: {
     name: "Under matte acrylic glass",
+    category: "dibon",
     framed: false,
     tltr: "The photo is set behind a protective matte acrylic glass",
 
@@ -434,6 +441,7 @@ export const possileFrames = {
     desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
     tltr: "Standard quality colored glossy paper",
     spec: "Simple print",
+    category: "tirage",
     framed: false,
     colorPaper: true,
     protection: {
@@ -456,6 +464,7 @@ export const possileFrames = {
     name: "Fuji Crystal Archive matte",
     tltr: "Standard quality colored matte paper",
     desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+    category: "tirage",
     spec: "Simple print",
     framed: false,
     colorPaper: true,
@@ -478,6 +487,7 @@ export const possileFrames = {
   hahnemühle_fineart_baryta: {
     name: "Hahnemühle FineArt Baryta",
     tltr: "Premimum quality colored paper, my favorite",
+    category: "tirage",
     desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
     spec: "Simple print",
     framed: false,
@@ -496,6 +506,7 @@ export const possileFrames = {
   },
   ilford_glossy_black_and_white_paper: {
     name: "ilford glossy black and white paper",
+    category: "tirage",
     desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
     tltr: "Standard quality glossy paper for black and white",
     spec: "Simple print",
@@ -524,6 +535,7 @@ export const possileFrames = {
   ilford_matte_black_and_white_paper: {
     name: "ilford matte black and white paper",
     tltr: "Standard quality matte paper for black and white",
+    category: "tirage",
     desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts",
     spec: "Simple print",
     framed: false,

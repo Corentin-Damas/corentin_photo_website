@@ -34,7 +34,7 @@ function Select_img({
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
-
+// as keyof
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const addToCart = useCartProduct((state) => state.addToCart);
   const searchParams = useSearchParams();
@@ -115,7 +115,7 @@ function Select_img({
   }
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      setIs_addCartClicked(false)
+      setIs_addCartClicked(false);
       const params = new URLSearchParams(searchParams);
       params.set(name, value);
       return params.toString();
@@ -596,8 +596,23 @@ function Select_img({
     }
   }
 
-
   const [isImageLoading, setImageLoading] = useState(true);
+
+  const maxSize = () => {
+    let res = 0;
+    if (typeof prodSizeInt !== "boolean") {
+      res += prodSizeInt;
+    }
+    res += borderSize * 2;
+    console.log("adding borderSize", res);
+    if (frameSize !== undefined) {
+      res += (frameSize * 2) / 10;
+    }
+    if (product?.name == "Solid Wood Frame With Passe_Partout" && passSize !== undefined) {
+      res += passSize * 2;
+    }
+    return res;
+  };
 
   function handleAddToCart() {
     let productResume: productResumeType;
@@ -625,6 +640,8 @@ function Select_img({
         glassThickness: glassThickness?.mm,
         quantity: quantityProd,
         date: Date.now(),
+        prodType: product.category,
+        maxSize: maxSize(),
       };
 
       addToCart(productResume);
