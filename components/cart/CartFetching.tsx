@@ -41,10 +41,6 @@ const CartFetching = async ({ searchParams }: { searchParams: any }) => {
     };
   }
 
-  // tirage: Country: V | Quantity: V | MaxSize: V
-  // frame:  Country: V | Quantity: V | MaxSize: V
-  // dibon:  Country: V | Quantity: V | MaxSize: V
-
   return <CompletCartResum allCountries={countryArr} expeditionData={finalData} />;
 };
 

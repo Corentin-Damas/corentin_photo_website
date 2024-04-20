@@ -10,8 +10,9 @@ const getActiveProducts = async () => {
 };
 
 export const POST = async (request: any) => {
-  const { products } = await request.json();
+  const { products, price } = await request.json();
   const data: productResumeType[] = products;
+  const totalPrice: number = price 
 
   let activeProducts = await getActiveProducts();
 
@@ -26,7 +27,7 @@ export const POST = async (request: any) => {
         const prod = await stripe.products.create({
           name: product.nameDisplayMethod,
           default_price_data: {
-            unit_amount: Math.round(product.totalPrice * 100),
+            unit_amount: Math.round(totalPrice * 100),
             currency: "eur",
           },
         });

@@ -14,6 +14,7 @@ const ExpeditionFees = ({
   maxW_Tirage_threshold,
   mountedType,
   expeditionData,
+  totalProduct,
 }: {
   allCountries: string[];
   qtyThreshold: number;
@@ -21,9 +22,8 @@ const ExpeditionFees = ({
   maxW_Tirage_threshold: number;
   mountedType: string;
   expeditionData: null | expeditionResType;
+  totalProduct: number;
 }) => {
-  const cartList = useCartProduct((state) => state.cartOfProduct);
-
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -37,6 +37,18 @@ const ExpeditionFees = ({
     },
     [searchParams]
   );
+
+  function getMaxPrice(): number {
+    if (expeditionData !== null) {
+      return expeditionData.tiragePrice > expeditionData.mountedPrice
+        ? expeditionData.tiragePrice
+        : expeditionData.mountedPrice;
+    }
+    return 0;
+  }
+
+  const maxPrice: number = getMaxPrice();
+  const totalPrice: number = totalProduct + maxPrice;
 
   const selectedCountry: string | null = searchParams.get("dest");
 
@@ -53,17 +65,6 @@ const ExpeditionFees = ({
       scroll: false,
     });
   }
-
-  // function priceExtraction(data: any) {
-  //   if (data !== undefined && data !== null) {
-  //     return {
-  //       tiragePrice: data[`tirage_${width_threshold_tirage}`],
-  //       tirageTime: data.delay_tirage,
-  //       mountedPrice: data[`${prodTypeMax_mounted}_${width_threshold_mounted}`],
-  //       mountedTime: data[`delay_${prodTypeMax_mounted}`],
-  //     };
-  //   }
-  // }
 
   return (
     <div className={styles.form_countainer}>
@@ -85,21 +86,31 @@ const ExpeditionFees = ({
       </form>
       <div>
         {expeditionData !== null && (
-          <>
-            <h5>
-              price expedition{" "}
-              {expeditionData.tiragePrice > expeditionData.mountedPrice
-                ? expeditionData.tiragePrice
-                : expeditionData.mountedPrice}
-            </h5>
-            <h5>
-              expedition time{" "}
-              {expeditionData.tirageTime > expeditionData.mountedTime
-                ? expeditionData.tirageTime
-                : expeditionData.mountedTime}
-            </h5>
-          </>
+          <div className={styles.exportationInfo}>
+            <div className={styles.infoLigne}>
+              <p className={`detail_02 ${styles.details}`}>Expedition:</p>
+              <p>{maxPrice}€</p>
+            </div>
+            <div className={styles.infoLigne}>
+              <p className={`detail_02 ${styles.details}`}>
+                Expected expedition time:{" "}
+              </p>
+              <p>
+                {expeditionData.tirageTime > expeditionData.mountedTime
+                  ? expeditionData.tirageTime
+                  : expeditionData.mountedTime}{" "} days
+              </p>
+            </div>
+            <div className={styles.infoLigne}>
+              <p className={`detail_02 ${styles.details}`}>All artwork:</p>
+              <p>{totalProduct}€</p>
+            </div>
+          </div>
         )}
+        <h5 className={styles.totalPrice}>
+          <span className={styles.totalTxt}>total:</span>{" "}
+          {totalPrice.toFixed(2)}€
+        </h5>
       </div>
     </div>
   );

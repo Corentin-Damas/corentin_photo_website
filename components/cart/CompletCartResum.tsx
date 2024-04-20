@@ -22,6 +22,18 @@ function CompletCartResum({
   const selectedCountry: string | null = searchParams.get("dest");
   const [is_AskAdvice, setIs_AskAdvice] = useState<boolean>(false);
 
+
+  function getMaxPrice(): number {
+    if (expeditionData !== null) {
+      return expeditionData.tiragePrice > expeditionData.mountedPrice
+        ? expeditionData.tiragePrice
+        : expeditionData.mountedPrice;
+    }
+    return 0;
+  }
+
+
+
   const router = useRouter();
 
   let total: number = 0;
@@ -80,13 +92,17 @@ function CompletCartResum({
     mountedType = "frame";
   }
 
+
+  const maxPrice: number = getMaxPrice();
+  const totalPrice: number = total + maxPrice;
+  
   const checkout = async () => {
     await fetch("http://localhost:3000/api/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ products: cartList }),
+      body: JSON.stringify({ products: cartList, price: totalPrice }),
     })
       .then((response) => {
         return response.json();
@@ -284,10 +300,20 @@ function CompletCartResum({
               ))}
             </div>
             <div className={styles.cartFooter}>
-              <h5 className={styles.totalPrice}>
-                <span className={styles.totalTxt}>total:</span>{" "}
-                {total.toFixed(2)}€
-              </h5>
+              <div className={styles.expedition}>
+                {cartList.length > 0 && (
+                  <ExpeditionFees
+                    allCountries={allCountries}
+                    qtyThreshold={qtyThreshold}
+                    maxW_Mounted_threshold={maxW_Mounted_threshold}
+                    maxW_Tirage_threshold={maxW_Tirage_threshold}
+                    mountedType={mountedType}
+                    expeditionData={expeditionData}
+                    totalProduct = {total}
+                  />
+                )}
+              </div>
+
               <button
                 className={`${styles.majorLink} ${styles.orderLink} `}
                 onClick={checkout}
@@ -313,19 +339,6 @@ function CompletCartResum({
           <Form context={"advice"} />
         </div>
       )}
-      <div className={styles.expedition}>
-        <h5>test:</h5>
-        {cartList.length > 0 && (
-          <ExpeditionFees
-            allCountries={allCountries}
-            qtyThreshold={qtyThreshold}
-            maxW_Mounted_threshold={maxW_Mounted_threshold}
-            maxW_Tirage_threshold={maxW_Tirage_threshold}
-            mountedType={mountedType}
-            expeditionData = {expeditionData}
-          />
-        )}
-      </div>
     </section>
   );
 }
