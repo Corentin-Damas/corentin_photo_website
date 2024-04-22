@@ -34,7 +34,7 @@ function Select_img({
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
-// as keyof
+  // as keyof
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const addToCart = useCartProduct((state) => state.addToCart);
   const searchParams = useSearchParams();
@@ -608,7 +608,10 @@ function Select_img({
     if (frameSize !== undefined) {
       res += (frameSize * 2) / 10;
     }
-    if (product?.name == "Solid Wood Frame With Passe_Partout" && passSize !== undefined) {
+    if (
+      product?.name == "Solid Wood Frame With Passe_Partout" &&
+      passSize !== undefined
+    ) {
       res += passSize * 2;
     }
     return res;
@@ -620,7 +623,7 @@ function Select_img({
       productResume = {
         img: selectedImg,
         imgSize: prodSize,
-        totalPrice: subTotal,
+        totalPrice: subTotal + (10 / 100) * subTotal,
         nameDisplayMethod: product.name,
         border: borderSize,
         paper: paper?.name,
@@ -799,7 +802,7 @@ function Select_img({
                   <p className={styles.neural_50}>Check my Cart</p>
                 </Link>
               )}
-              <h6>{(quantityProd * subTotal).toFixed(2)}€</h6>
+              <h6>{(quantityProd * (((10 / 100) * subTotal)+ subTotal)).toFixed(2)}€</h6>
             </div>
           )}
           {selectedImg == "" || typeof selectedImg !== "string" ? (

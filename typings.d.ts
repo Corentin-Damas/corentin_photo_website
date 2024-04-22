@@ -15,11 +15,9 @@ type productResumeType = {
   protection?: string;
   quantity: number;
   date: number;
-  prodType: string
+  prodType: string;
   maxSize: number;
 };
-
-
 
 type pictureInfoType = {
   name: string;
@@ -46,8 +44,6 @@ type productInfoType = {
   bordLarge_80: number;
   bordLarge_90: number;
 };
-
-
 
 type expeditionInfoType = {
   id: string;
@@ -81,23 +77,67 @@ type shortExpeditionInfo = {
   country: string;
 };
 
-
 type expeditionIdBase = {
   country: string;
   min_quantity: 1 | 3 | 6;
 };
 
 type expeditionResType = {
-  tiragePrice: number
-  tirageTime: number
-  mountedPrice:number
-  mountedTime:number
-}
+  tiragePrice: number;
+  tirageTime: number;
+  mountedPrice: number;
+  mountedTime: number;
+};
 
 type paramsChoice = {
   dest: string;
   qty?: string;
   tTh?: string;
   mTh?: string;
-  ty?:  string
-}
+  ty?: string;
+};
+
+type coutryTableType = {
+  germany: string;
+  austria: string;
+  france: string;
+  guernesey: string;
+  "honk-kong": string;
+  india: string;
+  ireland: string;
+  italy: string;
+  japan: string;
+  jersey: string;
+  finland: string;
+  iceland: string;
+  switzerland: string;
+  latvia: string;
+  liechtenstein: string;
+  lithuania: string;
+  luxembourg: string;
+  malta: string;
+  monaco: string;
+  netherlands: string;
+  norway: string;
+  poland: string;
+  portugal: string;
+  czechia: string;
+  romania: string;
+  denmark: string;
+  greece: string;
+  "united-kingdom": string;
+  slovakia: string;
+  slovenia: string;
+  spain: string;
+  belgium: string;
+  bulgaria: string;
+  canada: string;
+  "united-states": string;
+  korea: string;
+  china: string;
+  croatia: string;
+  estonia: string;
+  sweden: string;
+};
+
+type kCountry = keyof coutryTableType

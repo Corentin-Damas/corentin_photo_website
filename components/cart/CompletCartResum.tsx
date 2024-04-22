@@ -22,7 +22,6 @@ function CompletCartResum({
   const selectedCountry: string | null = searchParams.get("dest");
   const [is_AskAdvice, setIs_AskAdvice] = useState<boolean>(false);
 
-
   function getMaxPrice(): number {
     if (expeditionData !== null) {
       return expeditionData.tiragePrice > expeditionData.mountedPrice
@@ -32,7 +31,48 @@ function CompletCartResum({
     return 0;
   }
 
-
+  const coutryTable: coutryTableType = {
+    germany: "DE",
+    austria: "AT",
+    france: "FR",
+    guernesey: "GG",
+    "honk-kong": "HK",
+    india: "IN",
+    ireland: "IE",
+    italy: "IT",
+    japan: "JP",
+    jersey: "JE",
+    finland: "FI",
+    iceland: "IS",
+    switzerland: "CH",
+    latvia: "LV",
+    liechtenstein: "LI",
+    lithuania: "LT",
+    luxembourg: "LU",
+    malta: "MT",
+    monaco: "MC",
+    netherlands: "NL",
+    norway: "NO",
+    poland: "PL",
+    portugal: "PT",
+    czechia: "CZ",
+    romania: "RO",
+    denmark: "DK",
+    greece: "GR",
+    "united-kingdom": "GB",
+    slovakia: "SK",
+    slovenia: "SI",
+    spain: "ES",
+    belgium: "BE",
+    bulgaria: "BG",
+    canada: "CA",
+    "united-states": "US",
+    korea: "KR",
+    china: "CN",
+    croatia: "HR",
+    estonia: "EE",
+    sweden: "SE",
+  };
 
   const router = useRouter();
 
@@ -92,17 +132,30 @@ function CompletCartResum({
     mountedType = "frame";
   }
 
-
   const maxPrice: number = getMaxPrice();
   const totalPrice: number = total + maxPrice;
-  
+  const allowedCountry: string =
+    selectedCountry !== null ? coutryTable[selectedCountry as kCountry] : "FR";
+
+  const minimumExp: number =
+    expeditionData !== null ? expeditionData.tirageTime : 7;
+  const maximumExp: number =
+    expeditionData !== null ? expeditionData.tirageTime : 15;
+
   const checkout = async () => {
     await fetch("http://localhost:3000/api/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ products: cartList, price: totalPrice }),
+      body: JSON.stringify({
+        products: cartList,
+        price: total,
+        countryCode: allowedCountry,
+        shippingCoast: maxPrice,
+        minExp: minimumExp,
+        maxExp: maximumExp,
+      }),
     })
       .then((response) => {
         return response.json();
@@ -309,7 +362,7 @@ function CompletCartResum({
                     maxW_Tirage_threshold={maxW_Tirage_threshold}
                     mountedType={mountedType}
                     expeditionData={expeditionData}
-                    totalProduct = {total}
+                    totalProduct={total}
                   />
                 )}
               </div>
