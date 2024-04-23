@@ -41,7 +41,9 @@
     height: 220px;
   }
   @media only screen and (max-width: 38.5em) {
-    height: 100%;
+    height: auto;
+    width: 100%;
+    padding-left: var(--spacing-M);
   }
 }
 .card:last-child {
@@ -156,13 +158,19 @@
   transition: all 0.2s;
   cursor: pointer;
   border-radius: 50%;
+  @media only screen and (max-width: 55em){
+    height: var(--spacing-LM);
+    width: var(--spacing-LM);
+  }  
 }
-.bookmark_empty_containeur{
+.bookmark_empty_containeur {
   opacity: 0;
+  @media only screen and (max-width: 71em) {
+    opacity: 100;
+  }
 }
-.bookmark_full_containeur{
+.bookmark_full_containeur {
   opacity: 100;
-  
 }
 
 .bookmark_empty,

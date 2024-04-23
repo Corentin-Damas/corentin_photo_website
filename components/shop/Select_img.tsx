@@ -623,7 +623,7 @@ function Select_img({
       productResume = {
         img: selectedImg,
         imgSize: prodSize,
-        totalPrice: subTotal + (10 / 100) * subTotal,
+        totalPrice: parseFloat((subTotal + (10 / 100) * subTotal).toFixed(2)),
         nameDisplayMethod: product.name,
         border: borderSize,
         paper: paper?.name,
@@ -650,6 +650,7 @@ function Select_img({
       addToCart(productResume);
       setIs_addCartClicked(true);
     }
+    setQuantityProd(1);
   }
 
   function handleInfoBox(title: string) {
@@ -802,7 +803,10 @@ function Select_img({
                   <p className={styles.neural_50}>Check my Cart</p>
                 </Link>
               )}
-              <h6>{(quantityProd * (((10 / 100) * subTotal)+ subTotal)).toFixed(2)}€</h6>
+              <h6>
+                {(quantityProd * ((10 / 100) * subTotal + subTotal)).toFixed(2)}
+                €
+              </h6>
             </div>
           )}
           {selectedImg == "" || typeof selectedImg !== "string" ? (

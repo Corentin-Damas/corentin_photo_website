@@ -19,18 +19,19 @@ export const POST = async (request: any) => {
 
   try {
     for (const product of data) {
+      const productName: string = `${product.nameDisplayMethod}_${
+        product.color ? product.color : ""
+      }_${new Date(product.date).toLocaleString()}`;
+
       const stripeProduct = activeProducts?.find(
         (stripeProduct: any) =>
-          stripeProduct?.name?.toLowerCase() ==
-          product?.nameDisplayMethod?.toLowerCase()
+          stripeProduct?.name?.toLowerCase() == productName
       );
       if (stripeProduct == undefined) {
         const prod = await stripe.products.create({
-          name: `${
-            product.nameDisplayMethod
-          }__${product.date.toLocaleString()}`,
+          name: productName,
           default_price_data: {
-            unit_amount: Math.round(totalPrice * 100),
+            unit_amount: Math.round(product.totalPrice * 100),
             currency: "eur",
           },
         });
@@ -46,9 +47,11 @@ export const POST = async (request: any) => {
   // with one is adding a new product to the list of product registered?
 
   for (const product of data) {
+    const productName: string = `${product.nameDisplayMethod}_${
+      product.color ? product.color : ""
+    }_${new Date(product.date).toLocaleString()}`;
     const stripeProduct = activeProducts?.find(
-      (prod: any) =>
-        prod?.name?.toLowerCase() == product?.nameDisplayMethod?.toLowerCase()
+      (prod: any) => prod?.name?.toLowerCase() == productName.toLowerCase()
     );
 
     if (stripeProduct) {

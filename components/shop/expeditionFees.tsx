@@ -103,7 +103,7 @@ const ExpeditionFees = ({
             </div>
             <div className={styles.infoLigne}>
               <p className={`detail_02 ${styles.details}`}>All artwork:</p>
-              <p>{totalProduct}€</p>
+              <p>{totalProduct.toFixed(2)}€</p>
             </div>
           </div>
         )}
