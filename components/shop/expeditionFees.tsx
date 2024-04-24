@@ -1,8 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styles from "../shop/ExpeditionFees.module.css";
-import { useExpeditionInfo } from "../../providers/expedition-provider";
-import { queryExpedition } from "../../providers/utils/getQueryOutput";
-import { useCartProduct } from "../../providers/cart-provider";
 
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
