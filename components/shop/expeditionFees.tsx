@@ -40,6 +40,11 @@ const ExpeditionFees = ({
 
   function getMaxPrice(): number {
     if (expeditionData !== null) {
+      if (expeditionData.tiragePrice == undefined){
+        return expeditionData.mountedPrice 
+      }else if (expeditionData.mountedPrice == undefined){
+        return expeditionData.tiragePrice
+      }
       return expeditionData.tiragePrice > expeditionData.mountedPrice
         ? expeditionData.tiragePrice
         : expeditionData.mountedPrice;
@@ -50,7 +55,6 @@ const ExpeditionFees = ({
   const maxPrice: number = getMaxPrice();
   const totalPrice: number = totalProduct + maxPrice;
 
-  const selectedCountry: string | null = searchParams.get("dest");
 
   function onCountryChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const pToadd: paramsChoice = {
@@ -89,7 +93,7 @@ const ExpeditionFees = ({
           <div className={styles.exportationInfo}>
             <div className={styles.infoLigne}>
               <p className={`detail_02 ${styles.details}`}>Expedition:</p>
-              <p>{maxPrice}€</p>
+              <p>{maxPrice.toFixed(2)}€</p>
             </div>
             <div className={styles.infoLigne}>
               <p className={`detail_02 ${styles.details}`}>
@@ -98,7 +102,8 @@ const ExpeditionFees = ({
               <p>
                 {expeditionData.tirageTime > expeditionData.mountedTime
                   ? expeditionData.tirageTime
-                  : expeditionData.mountedTime}{" "} days
+                  : expeditionData.mountedTime}{" "}
+                days
               </p>
             </div>
             <div className={styles.infoLigne}>

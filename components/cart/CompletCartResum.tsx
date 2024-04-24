@@ -24,12 +24,18 @@ function CompletCartResum({
 
   function getMaxPrice(): number {
     if (expeditionData !== null) {
+      if (expeditionData.tiragePrice == undefined){
+        return expeditionData.mountedPrice 
+      }else if (expeditionData.mountedPrice == undefined){
+        return expeditionData.tiragePrice
+      }
       return expeditionData.tiragePrice > expeditionData.mountedPrice
         ? expeditionData.tiragePrice
         : expeditionData.mountedPrice;
     }
     return 0;
   }
+
 
   const coutryTable: coutryTableType = {
     germany: "DE",
