@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Form from "../main_section/Form";
 import { useSearchParams } from "next/navigation";
-import ExpeditionFees from "../shop/ExpeditionFees";
+import ExpeditionFees from "../shop/expeditionFees";
 
 function CompletCartResum({
   allCountries,
@@ -24,10 +24,10 @@ function CompletCartResum({
 
   function getMaxPrice(): number {
     if (expeditionData !== null) {
-      if (expeditionData.tiragePrice == undefined){
-        return expeditionData.mountedPrice 
-      }else if (expeditionData.mountedPrice == undefined){
-        return expeditionData.tiragePrice
+      if (expeditionData.tiragePrice == undefined) {
+        return expeditionData.mountedPrice;
+      } else if (expeditionData.mountedPrice == undefined) {
+        return expeditionData.tiragePrice;
       }
       return expeditionData.tiragePrice > expeditionData.mountedPrice
         ? expeditionData.tiragePrice
@@ -35,7 +35,6 @@ function CompletCartResum({
     }
     return 0;
   }
-
 
   const coutryTable: coutryTableType = {
     germany: "DE",

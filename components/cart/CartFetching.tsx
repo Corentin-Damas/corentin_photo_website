@@ -5,11 +5,10 @@ import {
   queryExpedition,
 } from "../../providers/utils/getQueryOutput";
 import { useExpeditionInfo } from "../../providers/expedition-provider";
-import ExpeditionFees from "../shop/ExpeditionFees";
+import ExpeditionFees from "../shop/expeditionFees";
 import CompletCartResum from "./CompletCartResum";
 
 // RESWITCH TOO DANS UN COMPOSANT SERVEUR
-
 
 const CartFetching = async ({ searchParams }: { searchParams: any }) => {
   // const expeditionInfo = await queryExpedition();
@@ -30,18 +29,26 @@ const CartFetching = async ({ searchParams }: { searchParams: any }) => {
     data = await queryExpedition(destination, quantity);
   }
 
-  let finalData:expeditionResType | null = null ;
+  let finalData: expeditionResType | null = null;
 
   if (data !== undefined && data !== null && tirage_threshold !== null) {
-    finalData =  {
-      tiragePrice: data[`tirage_${tirage_threshold}` as keyof expeditionInfoType ] as number,
+    finalData = {
+      tiragePrice: data[
+        `tirage_${tirage_threshold}` as keyof expeditionInfoType
+      ] as number,
       tirageTime: data.delay_tirage,
-      mountedPrice: data[`${prodTypeMax_mounted}_${montage_threshold}` as keyof expeditionInfoType ] as number,
-      mountedTime: data[`delay_${prodTypeMax_mounted}`as keyof expeditionInfoType ] as number,
+      mountedPrice: data[
+        `${prodTypeMax_mounted}_${montage_threshold}` as keyof expeditionInfoType
+      ] as number,
+      mountedTime: data[
+        `delay_${prodTypeMax_mounted}` as keyof expeditionInfoType
+      ] as number,
     };
   }
 
-  return <CompletCartResum allCountries={countryArr} expeditionData={finalData} />;
+  return (
+    <CompletCartResum allCountries={countryArr} expeditionData={finalData} />
+  );
 };
 
 export default CartFetching;
