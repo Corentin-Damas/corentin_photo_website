@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Form from "../main_section/Form";
 import { useSearchParams } from "next/navigation";
-import ExpeditionFees from "../shop/expeditionFees";
+import ExpeditionInfos from "../shop/ExpeditionInfos";
 
 function CompletCartResum({
   allCountries,
@@ -360,7 +360,7 @@ function CompletCartResum({
             <div className={styles.cartFooter}>
               <div className={styles.expedition}>
                 {cartList.length > 0 && (
-                  <ExpeditionFees
+                  <ExpeditionInfos
                     allCountries={allCountries}
                     qtyThreshold={qtyThreshold}
                     maxW_Mounted_threshold={maxW_Mounted_threshold}

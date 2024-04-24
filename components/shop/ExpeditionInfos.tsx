@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
-import styles from "../shop/ExpeditionFees.module.css";
+import styles from "../shop/ExpeditionInfos.module.css";
 
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-const ExpeditionFees = ({
+const ExpeditionInfos = ({
   allCountries,
   qtyThreshold,
   maxW_Mounted_threshold,
@@ -118,4 +118,4 @@ const ExpeditionFees = ({
   );
 };
 
-export default ExpeditionFees;
+export default ExpeditionInfos;

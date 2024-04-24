@@ -1,0 +1,30 @@
+.form_countainer {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+  }
+  
+  .option_txt {
+    text-transform: capitalize;
+  }
+  
+  .details {
+    color: var(--font-color-gray);
+    
+  }
+  .exportationInfo {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+  }
+  .infoLigne{
+      display: flex;
+      justify-content: space-between;
+      gap: var(--spacing-S);
+  }
+  .workingDays{
+      display: flex;
+      justify-content: right;
+  }
