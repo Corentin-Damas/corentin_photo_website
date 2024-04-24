@@ -4,8 +4,6 @@ import {
   queryCountries,
   queryExpedition,
 } from "../../providers/utils/getQueryOutput";
-import { useExpeditionInfo } from "../../providers/expedition-provider";
-import ExpeditionFees from "../shop/ExpeditionInfos";
 import CompletCartResum from "./CompletCartResum";
 
 // RESWITCH TOO DANS UN COMPOSANT SERVEUR
