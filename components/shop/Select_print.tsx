@@ -23,8 +23,8 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
   }
   const productStringify = JSON.stringify(productQuery);
 
-  // console.log(imgStringify);
-  // console.log(productStringify);
+  console.log(imgStringify);
+  console.log(productStringify);
   // console.log("searchParams ->" + JSON.stringify(searchParams));
   return <Select_img objImg={imgStringify} objProduct={productStringify} />;
 };

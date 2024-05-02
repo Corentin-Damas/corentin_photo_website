@@ -26,6 +26,7 @@ function Select_img({
   objProduct: any;
 }) {
   let imgInfos: pictureInfoType | null = null;
+  console.log(objImg);
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
@@ -35,7 +36,6 @@ function Select_img({
     imgProduct = JSON.parse(objProduct);
   }
   // as keyof
-  const cartList = useCartProduct((state) => state.cartOfProduct);
   const addToCart = useCartProduct((state) => state.addToCart);
   const searchParams = useSearchParams();
 
@@ -1247,7 +1247,9 @@ function Select_img({
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
-            <h4>Available Size </h4>
+            <h4>
+              Available Size for {selectedImg}, {selectedProduct}{" "}
+            </h4>
           </div>
           <div className={styles.select_container}>
             {selectedImg == null ||
@@ -1259,39 +1261,43 @@ function Select_img({
                 the available sizes.
               </p>
             ) : (
-              <div className={styles.frames_solutions}>
-                {imgInfos != null &&
-                  Object.keys(imgInfos).includes("WidthCM") &&
-                  imgProduct !== null &&
-                  imgProduct.format !== "" &&
-                  Object.entries(imgProduct).map(
-                    ([key, val]) =>
-                      imgInfos !== null &&
-                      key.slice(0, -2) == "bordLarge_" &&
-                      (key.slice(-2) as unknown as number) < imgInfos.WidthCM &&
-                      (val as number) > 0 && (
-                        <button
-                          key={key}
-                          className={`${styles.btn_selector} ${
-                            prodSize != null &&
-                            key.slice(-2) == prodSize &&
-                            styles.selectedFrame
-                          }`}
-                          onClick={() =>
-                            router.push(
-                              `/shop?${createQueryString(
-                                "size",
-                                key.slice(-2)
-                              )}`,
-                              { scroll: false }
-                            )
-                          }
-                        >
-                          {key.slice(-2)} {val}
-                        </button>
-                      )
-                  )}
-              </div>
+              <>
+                <div className={styles.frames_solutions}>
+                  {imgInfos != null &&
+                    Object.keys(imgInfos).includes("WidthCM") &&
+                    imgProduct !== null &&
+                    imgProduct.format !== "" &&
+                    Object.entries(imgProduct).map(
+                      ([key, val]) =>
+                        imgInfos !== null &&
+                        key.slice(0, -2) == "bordLarge_" &&
+                        (key.slice(-2) as unknown as number) <
+                          imgInfos.WidthCM &&
+                        (val as number) > 0 && (
+                          <button
+                            key={key}
+                            className={`${styles.btn_selector} ${
+                              prodSize != null &&
+                              key.slice(-2) == prodSize &&
+                              styles.selectedFrame
+                            }`}
+                            onClick={() =>
+                              router.push(
+                                `/shop?${createQueryString(
+                                  "size",
+                                  key.slice(-2)
+                                )}`,
+                                { scroll: false }
+                              )
+                            }
+                          >
+                            {key.slice(-2)} {val}
+                          </button>
+                        )
+                    )}
+                </div>
+                <p>oops somthing whent wrong</p>
+              </>
             )}
           </div>
         </div>
