@@ -26,7 +26,7 @@ function Select_img({
   objProduct: any;
 }) {
   let imgInfos: pictureInfoType | null = null;
-  console.log(objImg);
+  console.log("inside selected img:", objImg);
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
@@ -1248,7 +1248,7 @@ function Select_img({
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
             <h4>
-              Available Size for {selectedImg}, {selectedProduct}{" "}
+              Available Size
             </h4>
           </div>
           <div className={styles.select_container}>
