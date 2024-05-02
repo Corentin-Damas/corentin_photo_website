@@ -8,6 +8,7 @@ export const queryImg = async (searchParams: any) => {
         name: query,
       },
     });
+    console.log("query result: ", queryOutput);
     return queryOutput;
   } catch (error) {
     console.log(error);
@@ -33,7 +34,7 @@ export const queryFrame = async (searchParams: any, format: string) => {
   }
 };
 export const queryExpedition = async (country: string, quantity: string) => {
-  let searchId:string = `${country}_${quantity}`;
+  let searchId: string = `${country}_${quantity}`;
 
   try {
     const queryOutput = await prisma.expedition.findUnique({
@@ -47,12 +48,13 @@ export const queryExpedition = async (country: string, quantity: string) => {
   } finally {
     prisma.$disconnect();
   }
-}
+};
 export const queryCountries = async () => {
-  let searchId:string ;
+  let searchId: string;
 
   try {
-    const queryOutput:shortExpeditionInfo[] = await prisma.$queryRaw`SELECT id,country FROM expedition ORDER BY id  `
+    const queryOutput: shortExpeditionInfo[] =
+      await prisma.$queryRaw`SELECT id,country FROM expedition ORDER BY id  `;
     return queryOutput;
   } catch (error) {
     console.log(error);
