@@ -19,14 +19,29 @@ type productResumeType = {
   maxSize: number;
 };
 
+// type pictureInfoType = {
+//   name: string;
+//   WidthPix: number;
+//   heightPix: number;
+//   WidthCM: number;
+//   heightCM: number;
+//   format: string;
+//   film?: boolean;
+// };
+type picturesNamesTypes = {
+  [key: string]: pictureInfoType;
+};
 type pictureInfoType = {
   name: string;
-  WidthPix: number;
-  heightPix: number;
-  WidthCM: number;
-  heightCM: number;
+  width: number;
+  height: number;
+  widthCm: number;
+  heightCm: number;
   format: string;
-  film: boolean;
+};
+
+type productNamesType = {
+  [key: string]: productInfoType;
 };
 type productInfoType = {
   id: string;
@@ -98,46 +113,7 @@ type paramsChoice = {
 };
 
 type coutryTableType = {
-  germany: string;
-  austria: string;
-  france: string;
-  guernesey: string;
-  "honk-kong": string;
-  india: string;
-  ireland: string;
-  italy: string;
-  japan: string;
-  jersey: string;
-  finland: string;
-  iceland: string;
-  switzerland: string;
-  latvia: string;
-  liechtenstein: string;
-  lithuania: string;
-  luxembourg: string;
-  malta: string;
-  monaco: string;
-  netherlands: string;
-  norway: string;
-  poland: string;
-  portugal: string;
-  czechia: string;
-  romania: string;
-  denmark: string;
-  greece: string;
-  "united-kingdom": string;
-  slovakia: string;
-  slovenia: string;
-  spain: string;
-  belgium: string;
-  bulgaria: string;
-  canada: string;
-  "united-states": string;
-  korea: string;
-  china: string;
-  croatia: string;
-  estonia: string;
-  sweden: string;
+  [key: string]: string;
 };
 
-type kCountry = keyof coutryTableType
+type kCountry = keyof coutryTableType;

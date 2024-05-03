@@ -1,33 +1,32 @@
 import React from "react";
 import { queryImg, queryFrame } from "../../providers/utils/getQueryOutput";
 import Select_img from "./Select_img";
+import {imagesInfos} from "./images"
+import {framesInfos} from "./frames"
 
 const Select_print = async ({ searchParams }: { searchParams: any }) => {
-  console.log(searchParams)
   if (typeof searchParams.img !== "string") {
     return <Select_img objImg={null} objProduct={null} />;
   }
 
+  // Retrive image informations
   let imgQuery: pictureInfoType | undefined | null;
-  if (searchParams.img == null || searchParams.img == undefined) {
-    return undefined
-  } else {
-    imgQuery = await queryImg(searchParams.img);
-    console.log(imgQuery)
+  if (searchParams.img !== null || searchParams.img !== undefined) {
+    // imgQuery = await queryImg(searchParams.img);
+    imgQuery = imagesInfos[`${searchParams.img}`]
+
   }
-  // console.log(imgQuery);
   const imgStringify = JSON.stringify(imgQuery);
+  
 
+  // Retrive Product informations
   let productQuery: null | undefined | productInfoType;
-
   if (imgQuery !== null && imgQuery !== undefined) {
-    productQuery = await queryFrame(searchParams.product, imgQuery.format);
+    // productQuery = await queryFrame(searchParams.product, imgQuery.format);
+    productQuery = framesInfos[`${searchParams.product}_${imgQuery.format.replace('/', ":")}`];
   }
   const productStringify = JSON.stringify(productQuery);
 
-  // console.log("selected print", imgStringify);
-  // console.log("selected print", productStringify);
-  // console.log("searchParams ->" + JSON.stringify(searchParams));
   return <Select_img objImg={imgStringify} objProduct={productStringify} />;
 };
 

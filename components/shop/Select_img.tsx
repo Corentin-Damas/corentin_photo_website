@@ -26,15 +26,15 @@ function Select_img({
   objProduct: any;
 }) {
   let imgInfos: pictureInfoType | null = null;
-  console.log("inside selected img:", objImg);
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
-
+   
   let imgProduct: productInfoType | null = null;
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
+ 
   // as keyof
   const addToCart = useCartProduct((state) => state.addToCart);
   const searchParams = useSearchParams();
@@ -1264,7 +1264,7 @@ function Select_img({
               <>
                 <div className={styles.frames_solutions}>
                   {imgInfos != null &&
-                    Object.keys(imgInfos).includes("WidthCM") &&
+                    Object.keys(imgInfos).includes("widthCm") &&
                     imgProduct !== null &&
                     imgProduct.format !== "" &&
                     Object.entries(imgProduct).map(
@@ -1272,7 +1272,7 @@ function Select_img({
                         imgInfos !== null &&
                         key.slice(0, -2) == "bordLarge_" &&
                         (key.slice(-2) as unknown as number) <
-                          imgInfos.WidthCM &&
+                          imgInfos.widthCm &&
                         (val as number) > 0 && (
                           <button
                             key={key}
