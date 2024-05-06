@@ -19,13 +19,13 @@ export const possileFrames = {
     paper: {
       glossy: {
         name: "Fuji crystal archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
         blackAndWitePaper: true,
         modifier: { s: 7, m: 15, l: 30 },
       },
@@ -33,12 +33,12 @@ export const possileFrames = {
     glass: {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
-        desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        desc: "Classic presentation with a layer of acrylic glass on top of the picture.",
         modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
-        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light ",
+        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light.",
         modifier: { s: 13, m: 20, l: 40 },
       },
     },
@@ -50,13 +50,13 @@ export const possileFrames = {
       5: { modifier: { s: 35, m: 60, l: 76 } },
       8: { modifier: { s: 65, m: 116, l: 136 } },
       12: { modifier: { s: 97, m: 177, l: 188 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size.",
     },
   },
 
   solid_wood_frame_with_passe_partout: {
     name: "Solid Wood Frame With Passe_Partout",
-    desc: "Classic elegant wooden frame with a passepartout that add an additional frame for your picture. The distance between the glass and the picture surface is increased and a depth effect is created, which draws even more attention to the picture. ",
+    desc: "Classic elegant wooden frame with a passepartout that add an additional frame for your picture. The distance between the glass and the picture surface is increased and a depth effect is created, which draws even more attention to the picture.",
     tltr: "Classic elegant wooden frame with a passepartout.",
     spec: " Width: 20mm or 40mm, Depth: 30mm",
     category: "frame",
@@ -79,20 +79,20 @@ export const possileFrames = {
     paper: {
       matte: {
         name: "Fuji Crystal Archive matte",
-        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
 
       fineArt: {
         name: "Hahnemühle FineArt Baryta",
-        desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
+        desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties.",
         fav: true,
         colorPaper: true,
         blackAndWitePaper: true,
@@ -100,13 +100,13 @@ export const possileFrames = {
       },
       bwMatte: {
         name: "ilford matte black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen.",
         modifier: { s: 6, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
         modifier: { s: 6, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -118,16 +118,16 @@ export const possileFrames = {
     glass: {
       glossy: {
         name: "Glossy float glass",
-        desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        desc: "Classic presentation with a layer of acrylic glass on top of the picture.",
       },
       matte: {
         name: "Matte float glass",
-        desc: "Matte surface reduces reflections and are suitable for rooms with strong light",
+        desc: "Matte surface reduces reflections and are suitable for rooms with strong light.",
         modifier: { s: 7, m: 12, l: 15 },
       },
       museum: {
         name: "Museum glass",
-        desc: "Anti-reflective, protection from UV",
+        desc: "Anti-reflective, protection from UV.",
         speModifier: {
           16: 5,
           20: 8,
@@ -165,13 +165,13 @@ export const possileFrames = {
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen.",
         modifier: { s: 7, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -179,12 +179,12 @@ export const possileFrames = {
     glass: {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
-        desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        desc: "Classic presentation with a layer of acrylic glass on top of the picture.",
         modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
-        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light ",
+        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light.",
         modifier: { s: 13, m: 20, l: 40 },
       },
     },
@@ -209,19 +209,19 @@ export const possileFrames = {
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Fuji Crystal Archive matte",
-        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and subtle silky sheen.",
         modifier: { s: 7, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -239,12 +239,12 @@ export const possileFrames = {
     glass: {
       glossy: {
         name: "Acrylic glass 2mm, glossy",
-        desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        desc: "Classic presentation with a layer of acrylic glass on top of the picture.",
         modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Acrylic glass 2mm, matte",
-        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light ",
+        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light.",
         modifier: { s: 13, m: 20, l: 40 },
       },
     },
@@ -253,25 +253,25 @@ export const possileFrames = {
   aluminum_dibond: {
     name: "Aluminum Dibond",
     framed: false,
-    desc: "This a way to present the fine art prints in a clean and pure way. Long-lasting with a UV protective laminate",
-    tltr: "Present the prints in a clean and pure way",
+    desc: "This a way to present the fine art prints in a clean and pure way. Long-lasting with a UV protective laminate.",
+    tltr: "Present the prints in a clean and pure way.",
     category: "dibon",
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       matte: {
         name: "Fuji Crystal Archive matte",
-        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+        desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
         modifier: { s: 7, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -279,7 +279,7 @@ export const possileFrames = {
     glass: {
       matte: {
         name: "Matte Lamination",
-        desc: "Matte surface reduces reflections and are suitable for rooms with strong light",
+        desc: "Matte surface reduces reflections and are suitable for rooms with strong light.",
       },
     },
     hanging: {
@@ -303,7 +303,7 @@ export const possileFrames = {
   fine_art_dibond: {
     name: "Fine Art Dibond",
     framed: false,
-    desc: "This a way to present the fine art prints in a clean and pure way, Just the print on the wall an nothing else. Constituted of four layers, the print, two aluminium layers to keep the presentation flat and clean and the core, a Black polythylene core. No frame, No glass. ",
+    desc: "This a way to present the fine art prints in a clean and pure way, Just the print on the wall an nothing else. Constituted of four layers, the print, two aluminium layers to keep the presentation flat and clean and the core, a Black polythylene core. No frame, No glass.",
     tltr: "Present the prints in a clean and pure way with a more refined paper",
     category: "dibon",
     warning:
@@ -311,7 +311,7 @@ export const possileFrames = {
     paper: {
       fineArt: {
         name: "Hahnemühle FineArt Baryta",
-        desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
+        desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties.",
         fav: true,
         colorPaper: true,
         blackAndWitePaper: true,
@@ -332,7 +332,7 @@ export const possileFrames = {
       5: { modifier: { s: 27, m: 50, l: 60 } },
       8: { modifier: { s: 45, m: 80, l: 115 } },
       12: { modifier: { s: 76, m: 120, l: 145 } },
-      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size",
+      spec: "Border is in cm, dosn't change the size of the image, it influence only the paper size.",
     },
   },
 
@@ -341,17 +341,17 @@ export const possileFrames = {
     framed: false,
     category: "dibon",
     desc: "The photo is set behind a protective glossy acrylic glass with a solid aluminium dibond backing. Acrylic glass is light, shatterproof and resistant to temperature fluctuations.",
-    tltr: "The photo is set behind a protective glossy acrylic glass",
+    tltr: "The photo is set behind a protective glossy acrylic glass.",
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
         modifier: { s: 7, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -359,7 +359,7 @@ export const possileFrames = {
     glass: {
       glossy: {
         name: "Acrylic glass glossy",
-        desc: "Classic presentation with a layer of acrylic glass on top of the picture",
+        desc: "Classic presentation with a layer of acrylic glass on top of the picture.",
       },
     },
     glassThickness: {
@@ -389,19 +389,19 @@ export const possileFrames = {
     name: "Under matte acrylic glass",
     category: "dibon",
     framed: false,
-    tltr: "The photo is set behind a protective matte acrylic glass",
+    tltr: "The photo is set behind a protective matte acrylic glass.",
 
     desc: "The photo is set behind a protective glossy acrylic glass with a solid aluminium dibond backing. Acrylic glass is light, shatterproof and resistant to temperature fluctuations. The matte glass reduce reflexions and glare.",
     paper: {
       glossy: {
         name: "Fuji Crystal Archive glossy",
-        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
+        desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
         colorPaper: true,
         modifier: { s: 0, m: 0, l: 0 },
       },
       bwGlossy: {
         name: "ilford glossy black and white paper",
-        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
+        desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
         modifier: { s: 7, m: 15, l: 30 },
         blackAndWitePaper: true,
       },
@@ -409,7 +409,7 @@ export const possileFrames = {
     glass: {
       matte: {
         name: "Acrylic glass matte",
-        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light ",
+        desc: "Compared to the classic presentation with glossy glass, the matte glass reflect's less light.",
         modifier: { s: 13, m: 20, l: 40 },
       },
     },
@@ -438,8 +438,8 @@ export const possileFrames = {
 
   fuji_crystal_archive_glossy: {
     name: "Fuji crystal archive glossy",
-    desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts",
-    tltr: "Standard quality colored glossy paper",
+    desc: "Neutral base tone, glossy surface that ensure bright colors and high contrasts.",
+    tltr: "Standard quality colored glossy paper.",
     spec: "Simple print",
     category: "tirage",
     framed: false,
@@ -462,8 +462,8 @@ export const possileFrames = {
   },
   fuji_crystal_archive_matte: {
     name: "Fuji Crystal Archive matte",
-    tltr: "Standard quality colored matte paper",
-    desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors",
+    tltr: "Standard quality colored matte paper.",
+    desc: "Neutral base tone, matte surface that reduce reflexions and with softer colors.",
     category: "tirage",
     spec: "Simple print",
     framed: false,
@@ -486,9 +486,9 @@ export const possileFrames = {
   },
   hahnemühle_fineart_baryta: {
     name: "Hahnemühle FineArt Baryta",
-    tltr: "Premimum quality colored paper, my favorite",
+    tltr: "Premimum quality colored paper, my favorite.",
     category: "tirage",
-    desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties",
+    desc: "Glossy surface, High contrast range and color depth, Greater detail and definition, Excellent archival properties.",
     spec: "Simple print",
     framed: false,
     colorPaper: true,
@@ -507,8 +507,8 @@ export const possileFrames = {
   ilford_glossy_black_and_white_paper: {
     name: "ilford glossy black and white paper",
     category: "tirage",
-    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs",
-    tltr: "Standard quality glossy paper for black and white",
+    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Glossy surface particularly emphasizes the constasts of the motifs.",
+    tltr: "Standard quality glossy paper for black and white.",
     spec: "Simple print",
     framed: false,
     blackAndWitePaper: true,
@@ -534,9 +534,9 @@ export const possileFrames = {
   },
   ilford_matte_black_and_white_paper: {
     name: "ilford matte black and white paper",
-    tltr: "Standard quality matte paper for black and white",
+    tltr: "Standard quality matte paper for black and white.",
     category: "tirage",
-    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts",
+    desc: "Pure black-and-white paper that provides rich blacks and bright whites, without color casts. Matte surface that reduce reflexions and with softer contrasts.",
     spec: "Simple print",
     framed: false,
     blackAndWitePaper: true,

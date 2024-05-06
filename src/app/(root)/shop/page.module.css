@@ -33,6 +33,7 @@ display:flex;
 justify-content: flex-start;
 align-items: center;
 flex-direction: column;
+margin-top: var(--spacing-LM);
 margin-bottom: var(--spacing-M);
 width: 100%;
 height: 100%;

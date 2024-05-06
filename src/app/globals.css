@@ -29,6 +29,7 @@
   --font-size-bodyText_01: 1.6rem;
   --line-height-body_01: 2.5rem;
   --font-size-bodyText_02: 1.4rem;
+  --line-height-body_02: 2.24rem;
   --font-size-bodyText_03: 1.2rem;
 
   --font-size-detail_01: 1rem;
@@ -52,11 +53,15 @@
   --bg-nav-transparency-end_init: hsla(210, 40%, 98%, 0);
   --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
   --border-menu: hsla(204, 64%, 18%, 0.75);
-
+  
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
-  --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
   --bg-transparency-smallScreen: hsla(210, 11%, 93%, 0.9);
+  
+  
+  --shop-info-transparency: hsla(204, 50%, 62%, 0.15);
+  --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
+
 
   --bg-txt-multiplier: hsla(210, 11%, 93%, 0.9);
   --shop-dropshadow: hsla(204, 64%, 18%, 0.75);
@@ -104,6 +109,7 @@
   --sec-50: #eaf2f8;
   --sec-100: #bcd7e9;
   --sec-300: #6fa9cf;
+  --sec-300: hsl(204, 50%, 62%);
   --sec-500-main: #287fb8;
   --sec-700: #1c5a83;
   --sec-900: #11354d;
@@ -112,6 +118,14 @@
   --warning: #fcd34d;
   --error: #ef4444;
   --information: #0891b2;
+
+  --borderRadiusBtn-very-soft: 1rem;
+  --borderRadiusBtn-soft: 2rem;
+  --borderRadiusBtn-mid: 4rem;
+  --borderRadiusBtn-round: 50%;
+
+  --btnSeclection-width: 25rem;
+  --btnSeclection-height: 7rem;
 
   /* Spacing */
   --padding-inLine: 3vw;
@@ -174,6 +188,9 @@ html.dark {
   --bg-nav-transparency-end: hsla(208, 29%, 10%, 0.4);
   --bg-nav-smallScreenIcone: hsla(210, 31%, 10%, 0.7);
   --border-menu: #eaecee;
+
+
+  --shop-info-transparency: hsla(204, 64%, 18%, 0.75);
 
   --info-bg-n500: hsl(211, 30%, 24%);
   --bg-txt-transparency: hsla(208, 29%, 10%, 0.98);

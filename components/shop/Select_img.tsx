@@ -29,12 +29,12 @@ function Select_img({
   if (typeof objImg === "string") {
     imgInfos = JSON.parse(objImg);
   }
-   
+
   let imgProduct: productInfoType | null = null;
   if (typeof objProduct === "string") {
     imgProduct = JSON.parse(objProduct);
   }
- 
+
   // as keyof
   const addToCart = useCartProduct((state) => state.addToCart);
   const searchParams = useSearchParams();
@@ -957,7 +957,9 @@ function Select_img({
       </div>
 
       <div className={styles.fram__content__right}>
-        <h4>Select your image</h4>
+        <h4 className={`${styles.box_title} ${styles.box_title_first}`}>
+          Select your image
+        </h4>
         <div className={styles.select_container}>
           <ul className={styles.imgs_flex}>
             {imgList.map((el) => (
@@ -1002,7 +1004,7 @@ function Select_img({
           </ul>
           <div className={styles.recommandation_title}>
             <hr className={styles.smallHR} />
-            <h6 className={styles.other_text}> you might also like </h6>
+            <h6 className={styles.other_text}>My recommendations</h6>
             <hr className={styles.smallHR} />
           </div>
           <ul className={styles.imgs_flex}>
@@ -1042,9 +1044,7 @@ function Select_img({
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
-            <h4 className={styles.sectionTitle}>
-              Framing, Mounting and Prints
-            </h4>
+            <h4 className={`${styles.box_title}`}>Display methods</h4>
             <Link href={`?img=${selectedImg}`} scroll={false}>
               <button
                 className={styles.btn_reset}
@@ -1088,7 +1088,7 @@ function Select_img({
                             : ""
                         }`}
                       >
-                        {el.name}
+                        {el.name.replaceAll("_", " ")}
                       </button>
                     </Link>
                   )
@@ -1099,7 +1099,9 @@ function Select_img({
                   onClick={() => handleInfoBox("")}
                 >
                   <PiInfo className={styles.insideBtnIcone} />
-                  More information: {product.name}
+                  <p className={styles.more_infoText}>
+                    More information : {product.name}
+                  </p>
                 </button>
               )}
             </div>
@@ -1147,7 +1149,9 @@ function Select_img({
                     onClick={() => handleInfoBox("")}
                   >
                     <PiInfo className={styles.insideBtnIcone} />
-                    More information: {product.name}
+                    <p className={styles.more_infoText}>
+                      More information : {product.name}
+                    </p>
                   </button>
                 )}
             </div>
@@ -1195,7 +1199,7 @@ function Select_img({
                     onClick={() => setInfoBoxOpen(!infoBoxOpen)}
                   >
                     <PiInfo className={styles.insideBtnIcone} />
-                    Paper info
+                    <p className={styles.more_infoText}>Paper info</p>
                   </button>
                 )}
             </div>
@@ -1247,9 +1251,7 @@ function Select_img({
 
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
-            <h4>
-              Available Size
-            </h4>
+            <h4 className={`${styles.box_title}`}>Available Size</h4>
           </div>
           <div className={styles.select_container}>
             {selectedImg == null ||
@@ -1277,6 +1279,8 @@ function Select_img({
                           <button
                             key={key}
                             className={`${styles.btn_selector} ${
+                              styles.btn_selector
+                            } ${styles.btn_selector_lower} ${
                               prodSize != null &&
                               key.slice(-2) == prodSize &&
                               styles.selectedFrame
@@ -1291,12 +1295,11 @@ function Select_img({
                               )
                             }
                           >
-                            {key.slice(-2)} {val}
+                            {key.slice(-2)} cm
                           </button>
                         )
                     )}
                 </div>
-                <p>oops somthing whent wrong</p>
               </>
             )}
           </div>
@@ -1304,13 +1307,7 @@ function Select_img({
         {/* ============================= Personalizing ==================================== */}
         <div className={styles.fram_module}>
           <div className={styles.section_header}>
-            <h4>Personalizing</h4>
-            <button
-              className={styles.btn_reset}
-              disabled={productDesc == "" ? true : false}
-            >
-              Undo all
-            </button>
+            <h4 className={`${styles.box_title}`}>Personalizing</h4>
           </div>
           <div className={styles.select_container}>
             {prodSize == null && typeof prodSizeInt == "boolean" ? (
@@ -1380,7 +1377,9 @@ function Select_img({
                         {product.frameSize !== undefined &&
                           Object.entries(product.frameSize).map(([k, el]) => (
                             <button
-                              className={`${styles.btn_selector}  ${
+                              className={`${styles.btn_selector} ${
+                                styles.btn_selector_lower
+                              }  ${
                                 frameSizeNorm == k ? styles.selectedFrame : ""
                               }`}
                               key={el.mm}
@@ -1413,7 +1412,9 @@ function Select_img({
                               typeof el !== "string" &&
                               el.size !== undefined && (
                                 <button
-                                  className={`${styles.btn_selector}  ${
+                                  className={`${styles.btn_selector} ${
+                                    styles.btn_selector_lower
+                                  } ${
                                     selectedPassSizeNormed == k
                                       ? styles.selectedFrame
                                       : ""
@@ -1435,11 +1436,13 @@ function Select_img({
                                 </button>
                               )
                           )}
-                        <p>
-                          {product !== null &&
-                            product.passPartoutSize !== undefined &&
-                            "Border is in cm, max is 120 x 90"}
-                        </p>
+                        {product !== null &&
+                          product.passPartoutSize !== undefined && (
+                            <div className={styles.sec_info}>
+                              <PiInfo className={styles.info_icone} />
+                              <p>Border is in cm, max is 120 x 90</p>
+                            </div>
+                          )}
                       </div>
                     </>
                   )}
@@ -1527,9 +1530,12 @@ function Select_img({
                               </button>
                             )
                         )}
-                      <p>
-                        {paper !== null && paper !== undefined && paper.desc}
-                      </p>
+                      {paper !== null && paper !== undefined && (
+                        <div className={styles.sec_info}>
+                          <PiInfo className={styles.info_icone} />
+                          <p>{paper.desc}</p>
+                        </div>
+                      )}
                     </div>
                   </>
                 )}
@@ -1562,11 +1568,12 @@ function Select_img({
                             {el.name}
                           </button>
                         ))}
-                      <p>
-                        {protection !== null &&
-                          protection !== undefined &&
-                          protection.desc}
-                      </p>
+                      {protection !== null && protection !== undefined && (
+                        <div className={styles.sec_info}>
+                          <PiInfo className={styles.info_icone} />
+                          <p>{protection.desc}</p>
+                        </div>
+                      )}
                     </div>
                   </>
                 )}
@@ -1582,7 +1589,9 @@ function Select_img({
                           Object.entries(product.glassThickness).map(
                             ([key, el]) => (
                               <button
-                                className={`${styles.btn_selector}  ${
+                                className={`${styles.btn_selector} ${
+                                  styles.btn_selector_lower
+                                } ${
                                   glassThickness !== undefined &&
                                   glassThickness.mm == el.mm
                                     ? styles.selectedFrame
@@ -1617,7 +1626,9 @@ function Select_img({
                               el != "spec" &&
                               typeof prodSizeInt == "number" && (
                                 <button
-                                  className={`${styles.btn_selector}  ${
+                                  className={`${styles.btn_selector} ${
+                                    styles.btn_selector_lower
+                                  } ${
                                     borderSize == (el as unknown as number)
                                       ? styles.selectedFrame
                                       : ""
@@ -1639,10 +1650,16 @@ function Select_img({
                                 </button>
                               )
                           )}
-                        <p>
-                          {product.border !== undefined &&
-                            "Border is in cm, dosn't change the size of the image, it influence only the paper size"}
-                        </p>
+                        {product.border !== undefined && (
+                          <div className={styles.sec_info}>
+                            <PiInfo className={styles.info_icone} />
+
+                            <p>
+                              Border is in cm, dosn&apos;t change the size of
+                              the image, it influence only the paper size.
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </>
                   )}
