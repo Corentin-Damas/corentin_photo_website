@@ -144,13 +144,14 @@
   transition: all 0.2s;
 }
 .link_txt:hover {
-  transform: scale(1.05);
-  border-bottom: 1px solid var(--rules-color);
-  transform-origin: bottom right;
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: var(--spacing-XXS);
 }
 .link_txt:active {
-  transform: scale(1.03);
-  transition: all 0.1s;
+  transform: scale(0.95);
+  transition: all 0.2s;
   border-bottom: 1px solid var(--prim-500-main);
 }
 

@@ -364,12 +364,11 @@ p.detail_02 {
 }
 .gallery_Link:hover,
 .gallery_Link:focus {
-  transform: scale(1.1);
   border-bottom: 1px solid var(--prim-500-main);
 }
 
 .gallery_Link:active {
-  transform: scale(1.03);
+  transform: scale(9.5);
   transition: transform 0.1s;
 }
 

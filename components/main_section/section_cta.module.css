@@ -1,4 +1,4 @@
-/* .link__container */
+/* .form__title */
 .sectionCta__Grid {
   position: relative;
   height: 100vh;
@@ -28,6 +28,7 @@
   grid-row: 1/2;
   height: 100%;
   width: 100%;
+  cursor: default;
 
   display: flex;
   justify-content: center;
@@ -48,6 +49,9 @@
 
 .myName {
   padding-bottom: 2.4rem;
+  font-family: var(--font-geologica-Regular);
+  font-size: var(--font-size-subTitle_02);
+  letter-spacing: var(--letter-spacing-XS);
   @media only screen and (max-width: 43.75em) {
     padding-bottom: 0;
   }
@@ -60,7 +64,8 @@
   text-orientation: sideways;
   border-top: 1px solid var(--rules-color);
   padding: 1rem;
-  transform: translateY(2.3rem);
+  transform: translateY(-5rem);
+  cursor: default;
 
   @media only screen and (max-width: 43.75em) {
     grid-column: 1/-1;
@@ -317,10 +322,10 @@
     flex-direction: column;
     gap: var(--spacing-XS);
   }
-  @media only screen and (max-width: 27em){
+  @media only screen and (max-width: 27em) {
     width: 120%;
     transform: translateX(-10%);
-  }  
+  }
 }
 .feedbackIcone {
   width: var(--icone-S);

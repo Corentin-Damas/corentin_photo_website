@@ -25,7 +25,7 @@ function Footer() {
         </div>
         <div className={styles.right}>
           <h5
-            className={`${styles.footer__Nav} ${styles.footer__columnHead}  ${styles.grey}`}
+            className={`${styles.footer__Nav} ${styles.footer__columnHead}`}
           >
             Navigation
           </h5>

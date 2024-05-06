@@ -9,7 +9,7 @@ function section_cta() {
       <section className={styles.sectionCta__Grid}>
         <h6 className={styles.side}>Photographer</h6>
         <div className={styles.presentation}>
-          <h4 className={styles.myName}>Corentin Damas</h4>
+          <h5 className={styles.myName}>Corentin Damas</h5>
           <div className={styles.proposition}>
             <p>Digital & Films</p>
             <div className={styles.dot}></div>

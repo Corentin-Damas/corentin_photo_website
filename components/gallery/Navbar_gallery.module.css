@@ -35,11 +35,14 @@
 }
 
 .myNameLink:hover {
-  color: var(--font-color-gray);
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: var(--spacing-XXS);
 }
 .myNameLink:active,
 .myNameLink:focus {
-  color: var(--font-color-gray);
+  text-decoration-color: var(--prim-500-main);
 }
 
 .links__List {

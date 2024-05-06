@@ -43,8 +43,8 @@ function section_01() {
             <div className={styles.img_caption__down}>
               <p className="detail_01">
                 Kyoto
-                <br />
-                Kyoto Prefecture
+                {/* <br />
+                Kyoto Prefecture */}
                 <br />
                 Japan
               </p>
@@ -63,8 +63,8 @@ function section_01() {
             <div className={styles.img_caption__down}>
               <p className="detail_01">
                 Kobe
-                <br />
-                Hyōgo Prefecture
+                {/* <br />
+                Hyōgo Prefecture */}
                 <br />
                 Japan
               </p>
@@ -119,7 +119,7 @@ function section_01() {
         <Link href={"/gallery/morning_shadows"} className={styles.link__city}>
           <div className={styles.img__container_city}>
             <Image
-              src="/morning_shadows/L/06-Morning_Shadows.jpg"
+              src="/morning_shadows/L/06-morning_shadows.jpg"
               alt="View on the city of london in the morning light"
               className={`${styles.imgCityPreview}`}
               sizes="100vw"
@@ -133,9 +133,6 @@ function section_01() {
           <div className={styles.img_caption__right}>
             <div className={styles.img_caption__up}>
               <p className="detail_01">Old Father Thames</p>
-              <p className={`${styles.sec_color_txt} detail_02 japanese`}>
-                Ten Trinity Square
-              </p>
             </div>
             <div className={styles.img_caption__down}>
               <p className="detail_01">

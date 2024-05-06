@@ -73,21 +73,25 @@
 .links > * {
   transition: all 0.2s;
 }
-.links > *:hover,
-.links > *:focus {
-  color: var(--netral-200);
-  text-decoration: underline solid var(--prim-500-main);
+.links > *:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: var(--spacing-XXS);
   transition: all 0.2s;
 }
-.links > *:active {
+.links > *:active,
+.links > *:focus {
   transition: all 0.1s;
   transform: scale(0.95);
-  background-color: var(--active-link-transparency);
 }
 
 .footer__columnHead {
   margin-bottom: var(--spacing-S);
   text-align: center;
+  font-family: var(--font-geologica-Regular);
+  font-size: var(--font-size-subTitle_01);
+  letter-spacing: var(--letter-spacing-XS);
 }
 h2.footer__columnHead {
   color: var(--neutral-50);
@@ -95,15 +99,13 @@ h2.footer__columnHead {
 
 .footer__Nav {
   line-height: var(--font-size-Title_01);
-  text-transform: uppercase;
+  font-size: var(--font-size-subTitle_02);
   font-weight: 200;
+  border-bottom: 1px solid var(--white-bar);
 }
 
 .red {
   color: var(--prim-500-main);
-}
-.grey {
-  color: var(--netral-200);
 }
 
 .footer__btn {
