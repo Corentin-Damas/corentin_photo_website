@@ -22,7 +22,7 @@ function Hero_gallery({
           Corentin Damas
         </Link>
         <div className={styles.title_container}>
-          <h2>{title}</h2>
+          <h2 className={styles.title_txt}>{title}</h2>
           <div className={styles.keywords}>
             <p className={`${styles.presentation__sub_txt} body_02`}>{c1}</p>
             <div className={styles.dot}></div>
@@ -32,9 +32,7 @@ function Hero_gallery({
           </div>
         </div>
         <div className={styles.theme_container}>
-          <ThemeSwitch />
-          <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
-          <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
+          <ThemeSwitch context={"gallery"} />
         </div>
         <div className={styles.navSmall_container}>
           <Nav_gallerySmallSize />

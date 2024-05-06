@@ -118,23 +118,24 @@ function Navbar_gallery() {
             href="/gallery"
             className={`${styles.normal__link} ${
               path == "/gallery" ? styles.currPage : ""
-            }`}
-          >
+            } ${styles.first_normal__link}`}
+  
+            >
             Gallery
           </Link>
-          <Link href="/about" className={styles.normal__link}>
+          <Link href="/about" className={`${styles.normal__link}`}>
             About
           </Link>
           <Link
             href="/shop"
             className={`${styles.normal__link} ${styles.gift__link} `}
-          >
+            >
             Shop
             <p
               className={`${styles.dot} ${
                 imgList.length > 0 ? styles.dot_on : ""
               }`}
-            ></p>
+              ></p>
           </Link>
         </ul>
         <Link href="/contact">

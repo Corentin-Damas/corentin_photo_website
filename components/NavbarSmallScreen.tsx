@@ -27,17 +27,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
           Corentin Damas
         </Link>
         <div className={styles.actions}>
-          <div className={styles.theme_container}>
-            <ThemeSwitch />
-            <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
-            <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
-          </div>
-
-          <Link href="/gallery" className={styles.cta__btn}>
-            <button className="btn" tabIndex={6}>
-              Gallery
-            </button>
-          </Link>
+          <ThemeSwitch />
         </div>
       </div>
       {!menuOpen ? (

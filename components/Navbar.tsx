@@ -6,7 +6,6 @@ import ThemeSwitch from "./ThemeSwitch";
 import NavbarSmallScreen from "./NavbarSmallScreen";
 import { usePathname } from "next/navigation";
 import CartNavBtn from "./CartNavBtn";
-import { useCartProduct } from "../providers/cart-provider";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {
   const path = usePathname();
@@ -20,7 +19,7 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
     if (currentScroll <= 0) {
       setNavState(possibeState.init);
     } else {
-      if (currentScroll < lastScroll && currentScroll > 100) {
+      if (currentScroll < lastScroll && currentScroll > 200) {
         setNavState(possibeState.fixed);
       }
       if (currentScroll > lastScroll) {
@@ -93,11 +92,8 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
           <div className={styles.actions}>
             <CartNavBtn />
 
-            <div className={styles.theme_container}>
-              <ThemeSwitch />
-              <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
-              <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
-            </div>
+            <ThemeSwitch context={"landing"} />
+            
 
             <Link href="/contact">
               <button className="btn" tabIndex={6}>

@@ -1,3 +1,5 @@
+
+
 .smallGalleryNav {
   @media only screen and (min-width: 77em) {
     display: none;
@@ -15,7 +17,11 @@
   z-index: 990;
   transition: all 0.3s;
   border-radius: 50%;
-  backdrop-filter: blur(2px);
+
+  padding: 1rem;
+  background-color: var(--background-color-transparency);
+  border: 1px solid var(--border-menu);
+  backdrop-filter: blur(10px);
 
   @media only screen and (min-width: 77em) {
     display: none;
@@ -96,6 +102,8 @@
 
     min-height: 700px;
     color: var(--font-color-main);
+    margin-top: var(--spacing-S);
+    margin-bottom: var(--spacing-M);
   }
   @media only screen and (max-width: 65em) {
     padding-inline: var(--spacing-LM);
@@ -113,14 +121,14 @@
   gap: var(--spacing-SS);
 }
 .myNameLink {
-  font-family: var(--font-Lateef-Regular);
+  font-family: var(--font-geologica-light);
   font-size: var(--font-size-subTitle_01);
-  line-height: var(--font-size-subTitle_01);
-  letter-spacing: 3px;
+  line-height: var(--font-size-Title_02);
+
   color: var(--font-color-main);
-  @media only screen and (max-height: 50em) {
-    font-size: var(--font-size-subTitle_01);
-    line-height: var(--font-size-subTitle_01);
+
+  @media only screen and (min-width: 43.75em) {
+    display: none;
   }
 }
 

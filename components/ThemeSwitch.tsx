@@ -5,7 +5,7 @@ import { TbHaze, TbHazeMoon } from "react-icons/tb";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-function ThemeSwitch() {
+function ThemeSwitch({ context }: { context: string }) {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
   useEffect(() => setMounted(true), []);
@@ -24,20 +24,30 @@ function ThemeSwitch() {
     );
   if (resolvedTheme === "dark") {
     return (
-      <TbHaze
-        tabIndex={5}
-        className={styles.icone}
-        onClick={() => setTheme("light")}
-      />
+      <div className={styles.theme_container}>
+        <TbHaze
+          tabIndex={5}
+          className={`${styles.icone} ${
+            context == "landing" ? styles.icone_landing : styles.icone_gallery
+          }`}
+          onClick={() => setTheme("light")}
+        />
+        <p className={`${styles.theme_txt} dark_mode_only`}>light mode</p>
+      </div>
     );
   }
   if (resolvedTheme === "light") {
     return (
-      <TbHazeMoon
-        tabIndex={5}
-        className={styles.icone}
-        onClick={() => setTheme("dark")}
-      />
+      <div className={styles.theme_container}>
+        <TbHazeMoon
+          tabIndex={5}
+          className={`${styles.icone} ${
+            context == "landing" ? styles.icone_landing : styles.icone_gallery
+          }`}
+          onClick={() => setTheme("dark")}
+        />
+        <p className={`${styles.theme_txt} light_mode_only`}>dark mode</p>
+      </div>
     );
   }
 }

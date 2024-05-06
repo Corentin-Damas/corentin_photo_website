@@ -6,9 +6,6 @@ function layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className={styles.gallery__grid}>
-        <div className={styles.gallery__grid_top}>
-          
-        </div>
         <div className={styles.gallery__grid_left}>
           <Navbar_gallery />
         </div>

@@ -19,9 +19,10 @@
   --line-height-Title_01: 6.72rem;
 
   --font-size-Title_02: 4.2rem;
+  --font-size-Title_03: 3.6rem;
+
   --font-size-subTitle_01: 3.2rem;
   --font-size-subTitle_02: 2.4rem;
-
   --font-size-subTitle_03: 2.1rem;
   --line-height-subTitle_03: 3.36rem;
 
@@ -33,10 +34,25 @@
   --font-size-detail_01: 1rem;
   --font-size-detail_02: 0.8rem;
 
+  --letter-spacing-XS: 1px;
+  --letter-spacing-S: 3px;
+  --letter-spacing-M: 5px;
+
+  --transi-time-S: 0.2s;
+
   --background-color: #f8fafc;
 
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
+
+  /* Nav */
+  --bg-nav-transparency-start_init: hsla(210, 40%, 98%, 0.95);
+  --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.85);
+  --bg-nav-transparency-end: hsla(210, 40%, 98%, 0.8);
+  --bg-nav-transparency-end_init: hsla(210, 40%, 98%, 0);
+  --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
+  --border-menu: hsla(204, 64%, 18%, 0.75);
+
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
@@ -52,9 +68,6 @@
 
   --netral-700-transparent: hsla(212, 30%, 17%, 0.9);
 
-  --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.9);
-  --bg-nav-transparency-end: hsla(210, 40%, 98%, 0);
-  --bg-nav-float-transparency-end: hsla(210, 40%, 98%, 0.3);
   --bg-p1-transparency: hsla(210, 40%, 98%, 0.7);
   --bg-p1-brightness: 1.15;
   --bg-navMobile-brightness: 1.4;
@@ -73,6 +86,7 @@
 
   --neutral-50: #eaecee;
   --netral-100: #bdc3c9;
+  --netral-200: #9da6af;
   --netral-200: #9da6af;
   --netral-300: #717d8a;
   --netral-400: #556473;
@@ -104,6 +118,7 @@
   --padding-vertical: 3vh;
   --window-height: 100vh;
 
+  --spacing-XXS: 0.4rem;
   --spacing-XS: 0.8rem;
   --spacing-SS: 1.6rem;
   --spacing-S: 2.4rem;
@@ -120,6 +135,7 @@
   --max-width-MS: 1100px;
 
   --img-preview-M: 30rem;
+  --icone-XS: 3rem;
   --icone-S: 5rem;
   --icone-M: 8rem;
   --border-radius: 12px;
@@ -148,15 +164,20 @@
 }
 
 html.dark {
-  --info-bg-n500: #2b3d50;
   --background-color: #121a22;
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
   --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
+
+  --bg-nav-transparency-start_init: hsla(208, 29%, 10%, 0.9);
+  --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.7);
+  --bg-nav-transparency-end_init: hsla(208, 29%, 10%, 0);
+  --bg-nav-transparency-end: hsla(208, 29%, 10%, 0.4);
+  --bg-nav-smallScreenIcone: hsla(210, 31%, 10%, 0.7);
+  --border-menu: #eaecee;
+
+  --info-bg-n500: hsl(211, 30%, 24%);
   --bg-txt-transparency: hsla(208, 29%, 10%, 0.98);
   --bg-txt-multiplier: hsla(208, 29%, 5%, 0.918);
-  --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.9);
-  --bg-nav-transparency-end: hsla(208, 29%, 10%, 0);
-  --bg-nav-float-transparency-end: hsla(208, 29%, 10%, 0.5);
   --bg-p1-transparency: hsla(208, 29%, 10%, 0.5);
   --bg-p1-brightness: 0.4;
   --bg-navMobile-brightness: 0.9;
@@ -374,15 +395,14 @@ p.detail_02 {
   transition: all 0.2s;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   transition: all 0.2s;
-  transform: scale(1.03);
   background-color: var(--prim-500-main);
 }
-.btn:active {
+
+.btn:active,
+.btn:focus {
   transition: all 0.1s;
-  transform: scale(0.99);
   background-color: var(--prim-300);
 }
 

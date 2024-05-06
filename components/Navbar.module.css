@@ -1,15 +1,18 @@
 .myNameLink {
-  font-family: var(--font-Lateef-Regular);
-  font-size: var(--font-size-Title_02);
   line-height: var(--line-height-Title_02);
-  letter-spacing: 3px;
-  color: var(--font-color-main);
-  transition: all 0.2s;
+  letter-spacing: var(--letter-spacing-XS);
+  
 }
 
-.myNameLink:hover {
-  color: var(--font-color-gray);
-  transform: scale(1.05);
+.myNameLink,
+.link {
+  font-family: var(--font-geologica-light);
+  font-size: var(--font-size-subTitle_01);
+  transition: all var(--transi-time-S);
+  color: var(--font-color-main);
+  @media only screen and (max-width: 84em){
+    font-size: var(--font-size-subTitle_02);
+  } 
 }
 
 .nav {
@@ -27,9 +30,10 @@
   position: absolute;
   background: linear-gradient(
     180deg,
-    var(--bg-nav-transparency-start) 10%,
-    var(--bg-nav-transparency-end) 100%
+    var(--bg-nav-transparency-start_init) 10%,
+    var(--bg-nav-transparency-end_init) 100%
   );
+
   @media only screen and (max-width: 65em) {
     display: none;
   }
@@ -39,8 +43,8 @@
   opacity: 100;
   display: flex;
   justify-content: space-between;
-  letter-spacing: 1px;
   align-items: center;
+
   height: 100%;
   width: 100%;
   max-width: var(--max-width-L);
@@ -53,68 +57,71 @@
 
 .nav_init {
   top: 0rem;
-  opacity: 100;
-  transition: all 0.3s;
 }
 
 .nav_unfixed {
-  opacity: 0;
   top: -10rem;
   position: fixed;
   background: linear-gradient(
     180deg,
     var(--bg-nav-transparency-start) 50%,
-    var(--bg-nav-float-transparency-end) 100%
+    var(--bg-nav-transparency-end) 100%
   );
-  transition: all 0.3s;
+  transition: all var(--transi-time-S);
 }
 
 .nav_fixed {
-  opacity: 100;
-  top: -2rem;
+  top: 0rem;
+  padding-bottom: var(--spacing-S);
   position: fixed;
   background: linear-gradient(
     180deg,
-    var(--bg-nav-transparency-start) 50%,
-    var(--bg-nav-float-transparency-end) 100%
+    var(--bg-nav-transparency-start) 80%,
+    var(--bg-nav-transparency-end) 100%
   );
-  transition: all 0.3s;
-  backdrop-filter: blur(5px);
+  transition: all var(--transi-time-S);
+  backdrop-filter: blur(10px) brightness(110%);
 }
 
 .links_fullSize {
-  font-family: var(--font-geologica-Cursive-Regular);
-  font-size: var(--font-size-subTitle_02);
-
   display: flex;
   align-items: center;
   gap: var(--spacing-LM);
+  
+  @media only screen and (max-width: 84em){
+    gap: var(--spacing-M);
+  } 
 
-  @media only screen and (max-width: 71em) {
-    gap: var(--spacing-S);
-  }
   @media only screen and (max-width: 65em) {
     display: none;
   }
 }
 
 .link {
-  transition: all 0.2s;
-  color: var(--font-color-main);
+  font-family: var(--font-geologica-Cursive-Regular);
+  letter-spacing: var(--letter-spacing-S);
+  @media only screen and (max-width: 84em){
+    font-size: var(--font-size-subTitle_02);
+  } 
+
 }
 
-.link:hover,
-.link:focus {
+.myNameLink:hover,
+.link:hover {
   text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: var(--spacing-XXS);
   transition: all 0.2s;
-  transform: scale(1.05);
   transform-origin: bottom;
 }
-.link:active {
-  text-decoration-color: var(--font-color-main);
-  transform: scale(0.95);
-  background-color: var(--active-link-transparency);
+
+.myNameLink:active,
+.myNameLink:focus,
+.link:active,
+.link:focus {
   transition: all 0.1s;
+  text-decoration-color: var(--prim-500-main);
 }
 
 .actions {
@@ -125,37 +132,6 @@
   @media only screen and (max-width: 71em) {
     gap: var(--spacing-S);
   }
-}
-
-.theme_container {
-  width: 5rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: all 0.2s;
-}
-
-.theme_txt {
-  position: absolute;
-  width: max-content;
-  text-align: center;
-  bottom: 0;
-  left: 50%;
-  user-select: none;
-  transform: translate(-50%, 44%);
-  opacity: 0;
-  transition: all 0.2s;
-  font-size: var(--font-size-bodyText_03);
-}
-.theme_container:hover .theme_txt {
-  opacity: 100;
-}
-
-.theme_container:hover {
-  transform: scale(1.1);
-  transition: all 0.2s;
 }
 
 .currPage {

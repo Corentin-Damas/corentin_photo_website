@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useCartProduct } from "../providers/cart-provider";
 import Link from "next/link";

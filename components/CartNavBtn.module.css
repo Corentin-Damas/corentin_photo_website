@@ -1,10 +1,24 @@
 .cart__container {
   position: relative;
 }
-.cartIcone {
+
+.cart__lock,
+.cartIcone{
   height: var(--icone-S);
   width: var(--icone-S);
+  @media only screen and (max-width: 84em){
+    height: var(--icone-XS);
+    width: var(--icone-XS);
+  } 
+}
+
+.cartIcone {
   color: var(--font-color-main);
+}
+
+.cart__lock {
+  color: var(--icones_locked);
+  opacity: 0.5;
 }
 
 .cartHeader {
@@ -56,12 +70,6 @@
 }
 .redDote > p {
   line-height: var(--font-size-bodyText_01);
-}
-.cart__lock {
-  color: var(--icones_locked);
-  height: var(--icone-S);
-  width: var(--icone-S);
-  opacity: 0.5;
 }
 .txt {
   color: var(--neutral-50);
