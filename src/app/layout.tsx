@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { Providers } from "../../providers/theme-provider";
 import { ChakraProviders } from "../../providers/chakra-provider";
+import LocalStorage from "../../components/LocalStorage";
 
 export const metadata: Metadata = {
   title: "Corentin Damas - Artefact",

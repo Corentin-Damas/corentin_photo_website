@@ -13,7 +13,7 @@ const LocalStorage = () => {
     );
     if (cartList.length == 0 && cartFromLocalStorage.length > 0) {
       retriveFromLocalStorage(cartFromLocalStorage);
-    } else if(cartList.length > cartFromLocalStorage.length ){
+    } else {
       localStorage.setItem("cart", JSON.stringify(cartList))
     }
   });

@@ -6,9 +6,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useImgSelected } from "../../providers/imgFav-provider";
+import LocalStorage from "../LocalStorage";
 
 function Navbar_gallery() {
   const path = usePathname();
+  LocalStorage()
 
   const imgList = useImgSelected((state) => state.imgSelected);
   return (

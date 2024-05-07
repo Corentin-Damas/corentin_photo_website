@@ -6,12 +6,15 @@ import ThemeSwitch from "./ThemeSwitch";
 import NavbarSmallScreen from "./NavbarSmallScreen";
 import { usePathname } from "next/navigation";
 import CartNavBtn from "./CartNavBtn";
+import LocalStorage from "./LocalStorage";
 
 function Navbar({ linkMyName }: { linkMyName: string }) {
   const path = usePathname();
   const possibeState = { fixed: "fixed", unFixed: "", init: "init" };
   const [navState, setNavState] = useState(possibeState.init);
   const [lastScroll, setLastScoll] = useState<number>(0);
+
+  LocalStorage()
 
   const scrollBehaviour = () => {
     const currentScroll = window.scrollY;

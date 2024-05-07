@@ -6,9 +6,11 @@ import styles from "../gallery/nav_gallerySmallSize.module.css";
 import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
+import LocalStorage from "../LocalStorage";
 
 function Nav_gallerySmallSize() {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
+  LocalStorage()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

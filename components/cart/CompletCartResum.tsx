@@ -19,6 +19,7 @@ function CompletCartResum({
 }) {
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const remFromCart = useCartProduct((state) => state.removeFromCart);
+  const modifyQty = useCartProduct((state) => state.modifyQuantity);
 
   const searchParams = useSearchParams();
   const selectedCountry: string | null = searchParams.get("dest");
@@ -40,6 +41,11 @@ function CompletCartResum({
     return 0;
   }
   // form
+
+  const quantitySelect: number[] = [];
+  for (let i = 1; i <= 30; i++) {
+    quantitySelect.push(i);
+  }
 
   const coutryTable: coutryTableType = {
     germany: "DE",
@@ -176,6 +182,8 @@ function CompletCartResum({
       });
   };
 
+  function handleQuantityChange(e: React.FormEvent<HTMLOptionElement>) {}
+
   useEffect(() => {
     if (selectedCountry == null || cartList.length < 1) {
       router.push("/cart", { scroll: false });
@@ -205,7 +213,40 @@ function CompletCartResum({
                 <div key={el.date} className={styles.resume}>
                   <div className={`detail_01 ${styles.res_head}`}>
                     <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
-                    <p>x{el.quantity}</p>
+                    <p>quantity: {el.quantity}</p>
+                    <div className={styles.actions_btn}>
+                      <div className={styles.quantity_wrap}>
+
+                      <label htmlFor="quantity" className={styles.qtyLabel}>adjust quantity:</label>
+                      <select
+                      className={styles.quantityDropDown}
+                      name=""
+                      value={el.quantity}
+                      id="quantity"
+                      onChange={(e) =>
+                        modifyQty(el, e.target.value as unknown as number)
+                      }
+                      >
+                        {quantitySelect.map((qtyNum: number) => (
+                          <option key={qtyNum} value={qtyNum}>
+                            {qtyNum}
+                          </option>
+                        ))}
+                      </select>
+                      <span className={styles.customArrow}></span>
+                        </div>
+                      <button
+                        className={styles.removeBtn}
+                        onClick={() => {
+                          if (cartList.length == 1) {
+                            localStorage.removeItem("cart");
+                          }
+                          remFromCart(el);
+                        }}
+                      >
+                        remove
+                      </button>
+                    </div>
                   </div>
                   <div className={styles.res_Left}>
                     {el.color !== undefined && (
@@ -269,19 +310,6 @@ function CompletCartResum({
                     <p className={`detail_02 ${styles.res_price}`}>
                       unity: {el.totalPrice.toFixed(2)}€
                     </p>
-                    <div className={styles.actions_btn}>
-                      <button
-                        className={styles.removeBtn}
-                        onClick={() => {
-                          if (cartList.length == 1) {
-                            localStorage.removeItem("cart");
-                          }
-                          remFromCart(el);
-                        }}
-                      >
-                        remove
-                      </button>
-                    </div>
                   </div>
                   <div className={styles.res_Right}>
                     <Image

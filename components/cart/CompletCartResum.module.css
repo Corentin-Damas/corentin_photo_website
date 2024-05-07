@@ -1,4 +1,4 @@
-/* majorLink */
+/* actions_btn */
 
 .cart__section {
   display: flex;
@@ -96,13 +96,80 @@
 }
 
 .actions_btn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: var(--spacing-S);
+}
+
+.qtyLabel{
+  color: var(--font-color-main);
+  font-family: var(--font-geologica-Regular);
+  font-size: var(--font-size-bodyText_01);
+}
+
+.quantity_wrap {
+  position: relative;
+}
+.quantityDropDown {
+  color: var(--font-color-main);
+  text-transform: capitalize;
+  height: var(--spacing-S);
+  padding-inline: var(--spacing-SS);
+  font-family: var(--font-geologica-Regular);
+  font-size: var(--font-size-bodyText_01);
+  margin-left: var(--spacing-S);
+  border-radius: var(--borderRadiusBtn-very-soft);
+  background-color: var(--dropDown-Coutry-bg);
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid var(--sec-300);
+}
+
+.select_box:focus {
+  outline: none;
+}
+
+.customArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: block;
+  background-color: transparent;
+  height: 100%;
+  width: var(--spacing-SS);
+  pointer-events: none;
+  border-top-right-radius: var(--borderRadiusBtn-very-soft);
+  border-bottom-right-radius: var(--borderRadiusBtn-very-soft);
+  border-top: 1px solid var(--sec-300);
+  border-bottom: 1px solid var(--sec-300);
+  border-right: 1px solid var(--sec-300);
+}
+
+.customArrow::before,
+.customArrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.customArrow::before {
+  border-left: var(--arrow-S) solid transparent;
+  border-right: var(--arrow-S) solid transparent;
+  border-bottom: var(--arrow-S) solid var(--font-color-sec);
+  top: 30%;
+}
+.customArrow::after {
+  border-left: var(--arrow-S) solid transparent;
+  border-right: var(--arrow-S) solid transparent;
+  border-top: var(--arrow-S) solid var(--font-color-sec);
+  top: 70%;
 }
 
 .removeBtn {
@@ -150,7 +217,7 @@
 }
 
 .links {
-  border-bottom:thick double var(--font-color-gray);
+  border-bottom: thick double var(--font-color-gray);
 }
 
 .majorLink {
@@ -160,7 +227,7 @@
   height: var(--btnSeclection-height-M);
 
   border-radius: var(--borderRadiusBtn-very-soft);
-    border: 1px solid var(--sec-300);
+  border: 1px solid var(--sec-300);
   cursor: pointer;
   transition: all 0.2s;
   padding-inline: var(--spacing-S);
@@ -186,12 +253,11 @@
   font-family: var(--font-geologica-light);
   font-size: var(--font-size-bodyText_02);
 }
-.expedition{
-  display:flex;
+.expedition {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .imgPreview {
   height: auto;

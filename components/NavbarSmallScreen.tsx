@@ -7,6 +7,7 @@ import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import CartNavBtn from "./CartNavBtn";
+import LocalStorage from "./LocalStorage";
 
 function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
@@ -15,6 +16,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
     setMenuOpen(!menuOpen);
   };
   const path = usePathname();
+  LocalStorage()
 
   return (
     <nav className={styles.smallScreenNav}>

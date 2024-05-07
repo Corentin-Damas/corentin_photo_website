@@ -59,7 +59,12 @@ function CartNavBtn() {
                   </p>
                   <button
                     className={styles.removeBtn}
-                    onClick={() => remFromCart(el)}
+                    onClick={() => {
+                      if (cartList.length == 1) {
+                        localStorage.removeItem("cart");
+                      }
+                      remFromCart(el);
+                    }}
                   >
                     remove
                   </button>
@@ -80,19 +85,17 @@ function CartNavBtn() {
           </div>
           <div className={styles.cartFooter}>
             <h5 className={styles.totalPrice}>
-              <span className={styles.totalTxt}>total :</span> {total.toFixed(2)}
-              €* <br /> <span className={styles.priceDetail}>*without transport fee</span>
-            </h5> 
+              <span className={styles.totalTxt}>total :</span>{" "}
+              {total.toFixed(2)}
+              €* <br />{" "}
+              <span className={styles.priceDetail}>*without transport fee</span>
+            </h5>
             <Link
               className={`${styles.majorLink}`}
               href="/cart"
               onClick={() => setIsOpen(false)}
             >
-              <p
-                className={`${styles.linkTxt} `}
-              >
-                Order now
-              </p>
+              <p className={`${styles.linkTxt} `}>Order now</p>
             </Link>
           </div>
         </div>
