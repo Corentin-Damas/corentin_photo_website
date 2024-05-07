@@ -1,5 +1,4 @@
 import React from "react";
-import { queryImg, queryFrame } from "../../providers/utils/getQueryOutput";
 import Select_img from "./Select_img";
 import {imagesInfos} from "./images"
 import {framesInfos} from "./frames"
@@ -26,6 +25,8 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
     productQuery = framesInfos[`${searchParams.product}_${imgQuery.format.replace('/', ":")}`];
   }
   const productStringify = JSON.stringify(productQuery);
+
+
 
   return <Select_img objImg={imgStringify} objProduct={productStringify} />;
 };

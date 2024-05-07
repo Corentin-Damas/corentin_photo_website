@@ -87,7 +87,6 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
             >
               Shop
             </Link>
-            {/* <Link href="/your_print">Your Print</Link> */}
           </ul>
           <div className={styles.actions}>
             <CartNavBtn />

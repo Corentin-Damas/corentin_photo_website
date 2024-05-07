@@ -154,19 +154,19 @@
 }
 
 .majorLink {
-  width: 70%;
+  width: 100%;
   text-align: center;
   color: var(--neutral-50);
+  height: var(--btnSeclection-height-M);
 
-  border-radius: 2rem;
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--sec-300);
+  border-radius: var(--borderRadiusBtn-very-soft);
+    border: 1px solid var(--sec-300);
   cursor: pointer;
   transition: all 0.2s;
-}
-
-.majorLink:hover {
-  transform: scale(1.04);
+  padding-inline: var(--spacing-S);
+  font-family: var(--font-geologica-Regular);
+  letter-spacing: 1px;
+  font-size: var(--font-size-bodyText_01);
 }
 
 .orderLink {
@@ -177,7 +177,8 @@
 }
 
 .orderLink:hover,
-.cartLink:hover {
+.cartLink:hover,
+.adviceLink:hover {
   background-color: var(--prim-700);
 }
 

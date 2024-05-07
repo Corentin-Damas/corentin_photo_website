@@ -29,10 +29,8 @@ function CartNavBtn() {
       />
 
       {cartList.length > 0 && isOpen && (
-        <div
-          className={styles.cartNav__container}
-        >
-          <div className={styles.cartHeader}>
+        <div className={styles.cartNav__container}>
+          {/* <div className={styles.cartHeader}>
             <Link
               href="/cart"
               className={`${styles.majorLink} ${styles.cartLink}`}
@@ -43,7 +41,7 @@ function CartNavBtn() {
             <p className={`${styles.majorLink} ${styles.orderLink}`}>
               Order now
             </p>
-          </div>
+          </div> */}
           <div className={styles.cartMainContent}>
             {cartList.map((el) => (
               <div key={el.totalPrice} className={styles.resume}>
@@ -82,14 +80,20 @@ function CartNavBtn() {
           </div>
           <div className={styles.cartFooter}>
             <h5 className={styles.totalPrice}>
-              <span className={styles.totalTxt}>total:</span> {total.toFixed(2)}
-              €
-            </h5>
-            <p
-              className={`${styles.majorLink} ${styles.orderLink} ${styles.finalOrderLink}`}
+              <span className={styles.totalTxt}>total :</span> {total.toFixed(2)}
+              €* <br /> <span className={styles.priceDetail}>*without transport fee</span>
+            </h5> 
+            <Link
+              className={`${styles.majorLink}`}
+              href="/cart"
+              onClick={() => setIsOpen(false)}
             >
-              Order now
-            </p>
+              <p
+                className={`${styles.linkTxt} `}
+              >
+                Order now
+              </p>
+            </Link>
           </div>
         </div>
       )}

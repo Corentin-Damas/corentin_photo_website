@@ -27,7 +27,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
           Corentin Damas
         </Link>
         <div className={styles.actions}>
-          <ThemeSwitch />
+          <ThemeSwitch context={"landing"} />
         </div>
       </div>
       {!menuOpen ? (

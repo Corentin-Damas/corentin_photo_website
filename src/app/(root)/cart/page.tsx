@@ -3,7 +3,6 @@ import Navbar from "../../../../components/Navbar";
 import styles from "./page.module.css";
 import Footer from "../../../../components/Footer";
 
-import CompletCartResum from "../../../../components/cart/CompletCartResum";
 import CartFetching from "../../../../components/cart/CartFetching";
 
 function page({searchParams}:{searchParams:any}) {

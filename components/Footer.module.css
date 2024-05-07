@@ -92,8 +92,6 @@
   font-family: var(--font-geologica-Regular);
   font-size: var(--font-size-subTitle_01);
   letter-spacing: var(--letter-spacing-XS);
-}
-h2.footer__columnHead {
   color: var(--neutral-50);
 }
 

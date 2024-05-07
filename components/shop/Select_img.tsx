@@ -15,6 +15,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCartProduct } from "../../providers/cart-provider";
+import LocalStorage from "../LocalStorage";
 
 // shop
 
@@ -35,10 +36,11 @@ function Select_img({
     imgProduct = JSON.parse(objProduct);
   }
 
-  // as keyof
   const addToCart = useCartProduct((state) => state.addToCart);
-  const searchParams = useSearchParams();
 
+  LocalStorage();
+
+  const searchParams = useSearchParams();
   const selectedImg = searchParams.get("img");
   const selectedImgExtention = selectedImg + ".jpg";
   const selectedProduct: string | null = searchParams.get("product");
@@ -648,9 +650,16 @@ function Select_img({
       };
 
       addToCart(productResume);
+      transfertToLocalStorage();
       setIs_addCartClicked(true);
     }
     setQuantityProd(1);
+  }
+
+  const cartList = useCartProduct((state) => state.cartOfProduct);
+
+  function transfertToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cartList));
   }
 
   function handleInfoBox(title: string) {

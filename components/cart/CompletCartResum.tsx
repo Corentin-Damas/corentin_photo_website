@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Form from "../main_section/Form";
 import { useSearchParams } from "next/navigation";
 import ExpeditionInfos from "../shop/ExpeditionInfos";
+import LocalStorage from "../LocalStorage";
 
 function CompletCartResum({
   allCountries,
@@ -18,9 +19,12 @@ function CompletCartResum({
 }) {
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const remFromCart = useCartProduct((state) => state.removeFromCart);
+
   const searchParams = useSearchParams();
   const selectedCountry: string | null = searchParams.get("dest");
   const [is_AskAdvice, setIs_AskAdvice] = useState<boolean>(false);
+
+  LocalStorage();
 
   function getMaxPrice(): number {
     if (expeditionData !== null) {
@@ -35,6 +39,7 @@ function CompletCartResum({
     }
     return 0;
   }
+  // form
 
   const coutryTable: coutryTableType = {
     germany: "DE",
@@ -138,7 +143,6 @@ function CompletCartResum({
   }
 
   const maxPrice: number = getMaxPrice();
-  const totalPrice: number = total + maxPrice;
   const allowedCountry: string =
     selectedCountry !== null ? coutryTable[selectedCountry as kCountry] : "FR";
 
@@ -268,7 +272,12 @@ function CompletCartResum({
                     <div className={styles.actions_btn}>
                       <button
                         className={styles.removeBtn}
-                        onClick={() => remFromCart(el)}
+                        onClick={() => {
+                          if (cartList.length == 1) {
+                            localStorage.removeItem("cart");
+                          }
+                          remFromCart(el);
+                        }}
                       >
                         remove
                       </button>

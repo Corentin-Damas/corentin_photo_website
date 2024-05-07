@@ -23,6 +23,7 @@ const ExpeditionInfos = ({
 }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [dropOpen, setDropOpen] = useState<boolean>(false);
 
   const createQueryString = useCallback(
     (prm: paramsChoice) => {
@@ -37,10 +38,10 @@ const ExpeditionInfos = ({
 
   function getMaxPrice(): number {
     if (expeditionData !== null) {
-      if (expeditionData.tiragePrice == undefined){
-        return expeditionData.mountedPrice 
-      }else if (expeditionData.mountedPrice == undefined){
-        return expeditionData.tiragePrice
+      if (expeditionData.tiragePrice == undefined) {
+        return expeditionData.mountedPrice;
+      } else if (expeditionData.mountedPrice == undefined) {
+        return expeditionData.tiragePrice;
       }
       return expeditionData.tiragePrice > expeditionData.mountedPrice
         ? expeditionData.tiragePrice
@@ -51,7 +52,6 @@ const ExpeditionInfos = ({
 
   const maxPrice: number = getMaxPrice();
   const totalPrice: number = totalProduct + maxPrice;
-
 
   function onCountryChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const pToadd: paramsChoice = {
@@ -69,21 +69,32 @@ const ExpeditionInfos = ({
 
   return (
     <div className={styles.form_countainer}>
-      <form action="" id={"country__form"}>
+      <form id={"country__form"} className={styles.form}>
+        <label htmlFor="country" className={styles.labelCountrySelect}>
+          Select the destination country
+        </label>
         <select
           id={"country"}
           name={"destination country"}
-          className={styles.option_txt}
-          onChange={(e) => onCountryChange(e)}
+          className={`${styles.select_box} ${dropOpen && styles.dropOpen} `}
+          onChange={(e) => {
+            setDropOpen(false);
+            onCountryChange(e);
+          }}
+          onClick={() => setDropOpen(true)}
+          onBlur={() => setDropOpen(false)}
         >
-          <option value="">Select destination country</option>
+          <option value="" hidden>
+            Destination
+          </option>
           {allCountries !== undefined &&
             allCountries.map((cnt: any) => (
-              <option key={cnt} value={cnt}>
+              <option className={styles.option} key={cnt} value={cnt}>
                 {cnt}
               </option>
             ))}
         </select>
+        <span className={styles.customArrow}></span>
       </form>
       <div>
         {expeditionData !== null && (

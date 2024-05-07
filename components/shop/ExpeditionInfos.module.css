@@ -1,30 +1,114 @@
+/* totalPrice */
 .form_countainer {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  gap: var(--spacing-M);
+}
+
+.form {
+  position: relative;
+}
+
+.labelCountrySelect {
+  position: absolute;
+  top: calc(var(--spacing-S) * -1);
+  left: 0;
+  font-family: var(--font-geologica-light);
+  font-size: var(--font-size-bodyText_01);
+  color: var(--font-color-main);
+}
+
+.select_box {
+  color: var(--font-color-main);
+  text-transform: capitalize;
+  height: var(--icone-S);
+  width: var(--btnSeclection-width);
+  padding-inline: var(--spacing-S);
+  font-family: var(--font-geologica-light);
+  font-size: var(--font-size-bodyText_01);
+  margin-left: var(--spacing-S);
+  border-radius: var(--borderRadiusBtn-very-soft);
+  background-color: var(--dropDown-Coutry-bg);
+  cursor: pointer;
+  appearance: none;
   
-  .option_txt {
-    text-transform: capitalize;
-  }
-  
-  .details {
-    color: var(--font-color-gray);
-    
-  }
-  .exportationInfo {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-  }
-  .infoLigne{
-      display: flex;
-      justify-content: space-between;
-      gap: var(--spacing-S);
-  }
-  .workingDays{
-      display: flex;
-      justify-content: right;
-  }
+  border: 1px solid var(--sec-300);
+}
+.select_box:focus{
+  outline: none;
+}
+
+.dropOpen{
+  border: 1px solid var(--prim-500-main);
+}
+
+.customArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: block;
+  background-color: var(--dropDown-Coutry-arrow-bg);
+  height: 100%;
+  width: var(--icone-XS);
+  pointer-events: none;
+  border-top-right-radius:var(--borderRadiusBtn-very-soft) ;
+  border-bottom-right-radius:var(--borderRadiusBtn-very-soft) ;
+  border-top: 1px solid var(--sec-300);
+  border-bottom: 1px solid var(--sec-300);
+  border-right: 1px solid var(--sec-300);
+}
+
+.customArrow::before,
+.customArrow::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.customArrow::before {
+  border-left: var(--arrow-S) solid transparent;
+  border-right: var(--arrow-S) solid transparent;
+  border-bottom: var(--arrow-S) solid var(--font-color-sec);
+  top: 30%;
+}
+.customArrow::after {
+  border-left: var(--arrow-S) solid transparent;
+  border-right: var(--arrow-S) solid transparent;
+  border-top: var(--arrow-S) solid var(--font-color-sec);
+  top: 70%;
+}
+
+
+.option {
+  min-height: 4rem;
+}
+
+.details {
+  color: var(--font-color-gray);
+}
+.exportationInfo {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+.infoLigne {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-S);
+}
+.workingDays {
+  display: flex;
+  justify-content: right;
+}
+
+.totalPrice{
+  padding-top: var(--spacing-S);
+}
