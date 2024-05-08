@@ -705,7 +705,7 @@ function Select_img({
 
     if (windSizeWidth <= 660 && currentScroll > 40) {
       setNavState(possibleState.smallFixed);
-    } else if (currentScroll >= height - (windSize + foot_height)) {
+    } else if (currentScroll >= height - (windSize + foot_height + 100) ) {
       setNavState(possibleState.fixed);
     } else {
       setNavState(possibleState.unFixed);
@@ -754,7 +754,7 @@ function Select_img({
               onClick={() => setEnlarger(!enlarger)}
             >
               <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
-              <IoIosExpand className={styles.icone} />
+              <IoIosExpand className={`${styles.icone} ${styles.enlargeIcone}`} />
             </button>
           )}
           <div className={styles.backgroundMobile}></div>
@@ -823,13 +823,13 @@ function Select_img({
               src="/util_img/wall_img01.jpg"
               alt="Corentin Damas with one of is framed picture on a customer's wall"
               className={` ${styles.img__wall} `}
-              sizes="100vw"
-              width={0}
+              sizes="(max-width: 480px) 100vw, 33vw"
+              width={720}
               height={0}
               quality={80}
             />
           ) : (
-            //  ============================= REFACTOR IMG MOKEUP ==================================== imageEnlarger
+            //  ============================= REFACTOR IMG MOKEUP ==================================
             <div className={`${styles.mokeup_container} `}>
               {selectedImg != "" && (
                 <Image
@@ -936,8 +936,8 @@ function Select_img({
                 ${passColor == "white" ? "" : styles.blackPass}
                 
                 `}
-                  sizes="100vw"
-                  width={0}
+                  sizes="(max-width: 360px) 70vw, 33vw"
+                  width={420}
                   height={0}
                   quality={80}
                 />
@@ -954,10 +954,10 @@ function Select_img({
                 className={`${styles.img__mokeup} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"
                 }`}
-                sizes="100vw"
-                width={0}
+                sizes="(max-width: 480px) 100vw, 33vw"
+                width={720}
                 height={0}
-                quality={80}
+                quality={75}
                 onLoad={() => setImageLoading(false)}
               />
             </div>
@@ -1908,7 +1908,7 @@ function Select_img({
                   
                   `}
                 sizes="100vw"
-                width={0}
+                width={420}
                 height={0}
                 quality={80}
               />
@@ -1926,7 +1926,7 @@ function Select_img({
                 isImageLoading ? "unLoaded" : "remove-unLoaded"
               }`}
               sizes="100vw"
-              width={0}
+              width={480}
               height={0}
               quality={80}
               onLoad={() => setImageLoading(false)}

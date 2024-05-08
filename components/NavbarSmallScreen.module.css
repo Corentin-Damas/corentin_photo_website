@@ -1,4 +1,4 @@
-/* .link */
+/* .actions */
 .smallScreenNav {
   @media only screen and (min-width: 65em) {
     display: none;
@@ -43,8 +43,8 @@
 .icone_SmallScreen_menu,
 .icone_SmallScreen_close {
   position: fixed;
-  right: 3vw;
-  top: 2.5rem;
+  right: 5vw;
+  top: 2rem;
   color: var(--font-color-main);
   width: var(--icone-S);
   height: var(--icone-S);
@@ -105,6 +105,7 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-M);
+  padding-right: var(--spacing-SS);
 }
 
 .myNameLink {
@@ -114,7 +115,6 @@
   letter-spacing: var(--letter-spacing-XS);
   color: var(--font-color-main);
   transition: all 0.2s;
-
 }
 
 .theme_container {

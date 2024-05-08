@@ -37,8 +37,8 @@ function section_cta() {
               alt="Photography of Corentin Damas author of the website and photographies "
               className={`${styles.imgHeadS}`}
               sizes="100vw"
-              width={0}
-              height={0}
+              width={720}
+              height={480}
               quality={80}
             />
           </Link>

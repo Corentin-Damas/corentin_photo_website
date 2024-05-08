@@ -1,6 +1,6 @@
 .close_component,
 .info_component {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
   cursor: pointer;
   z-index: 1000;
   display: flex;
@@ -22,10 +22,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 .project_bubble_close {
-  transform: translateY(-0.8rem);
+  transform: translateY(-0.5rem);
 }
 
 .project_bubble_info {
@@ -36,9 +36,7 @@
 .project_bubble_info:focus,
 .close_component:hover .project_bubble_close,
 .close_component:focus .project_bubble_close {
-  letter-spacing: -5px;
-  transform-origin: top;
-  transform: scale(1.05);
+  color: var(--btn-background);
 }
 
 .close_component:hover .icone,
@@ -59,6 +57,7 @@
   background-color: var(--bg-txt-transparency);
   width: calc(100% - 3.6rem);
   padding-inline: var(--spacing-M);
+  cursor: default;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -67,7 +66,7 @@
   justify-items: center;
   gap: var(--spacing-LM);
   opacity: 100;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   z-index: 300;
 
   @media only screen and (max-width: 57em) {

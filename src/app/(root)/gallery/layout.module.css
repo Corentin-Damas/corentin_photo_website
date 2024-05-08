@@ -8,7 +8,7 @@
   padding-top: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
   padding-inline: var(--padding-inLine);
-  max-width: 1600px;
+  max-width: var(--max-width-L);
   margin: auto;
 
   @media only screen and (max-width: 84em) {

@@ -11,10 +11,10 @@ function section_03() {
           src="/earth_and_sky/L/13-earth_and_sky.jpg"
           alt="Photography of a Beach with a natural rock arch at night time"
           className={`${styles.imgLandPreview}`}
-          sizes="100vw"
-          width={0}
-          height={0}
+          width={1280}
+          height={853}
           quality={80}
+          sizes="(max-width: 768px) 100vw, 75vw"
 
         />
       </Link>
@@ -31,10 +31,10 @@ function section_03() {
           src="/infrared/L/01-infrared.jpg"
           alt="Infrared photoghaphy of a tree near the sea. The tree has pink leaves "
           className={`${styles.imgInfraPreview}`}
-          sizes="100vw"
-          width={0}
-          height={0}
+          width={1280}
+          height={853}
           quality={80}
+          sizes="(max-width: 768px) 100vw, 75vw"
 
         />
       </Link>
@@ -52,10 +52,10 @@ function section_03() {
           src="/black_and_white/L/02-black_and_white.jpg"
           alt="Black and white photography with three trunk in the snow in front of a beach and the sea"
           className={`${styles.imgBandWPreview}`}
-          sizes="100vw"
-          width={0}
-          height={0}
+          width={1280}
+          height={853}
           quality={80}
+          sizes="(max-width: 768px) 100vw, 75vw"
 
         />
       </Link>

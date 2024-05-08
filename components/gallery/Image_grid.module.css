@@ -70,7 +70,7 @@
   top: 0;
   left: 0;
 
-  z-index: 500;
+  z-index: 600;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,15 +97,18 @@
 
   top: 4rem;
   right: 4rem;
-  height: var(--icone-M);
-  width: var(--icone-M);
-  z-index: 510;
+  height: var(--icone-S);
+  width: var(--icone-S);
+  z-index: 610;
   display: flex;
   justify-content: center;
   align-items: center;
 
   border-radius: 50%;
   cursor: pointer;
+  @media only screen and (max-width: 41.25em) {
+    top: 83.4%;
+  }
 }
 
 .close {
@@ -115,27 +118,43 @@
 
 .icone {
   position: absolute;
-  width: var(--icone-M);
-  height: var(--icone-M);
+  width: var(--icone-S);
+  height: var(--icone-S);
   color: var(--font-color-main);
   z-index: 900;
   transition: all 0.3s;
   cursor: pointer;
   background-color: var(--background-color-transparency);
   border-radius: 50%;
+  border: 1px solid var(--font-color-main);
+
   @media only screen and (max-width: 65em) {
     width: var(--icone-S);
     height: var(--icone-S);
   }
 }
 
+.icone_left,
+.icone_right {
+  top: calc(50% - (var(--icone-S) / 2)); 
+  @media only screen and (max-width: 41.25em) {
+    top: 85%;
+  } 
+}
 .icone_left {
-  left: 2vw;
-  top: calc(50% - (var(--icone-M) / 2));
+  left: 10vw;
+  @media only screen and (max-width: 41.25em) {
+    left: calc(50vw - (var(--icone-S) + var(--spacing-SS)));
+    
+  } 
+  
 }
 .icone_right {
-  top: calc(50% - (var(--icone-M) / 2));
-  right: 2vw;
+  right: 10vw;
+  @media only screen and (max-width: 41.25em) {
+    right: calc(50vw - (var(--icone-S) + var(--spacing-SS)));
+    
+  } 
 }
 
 .icone:hover {

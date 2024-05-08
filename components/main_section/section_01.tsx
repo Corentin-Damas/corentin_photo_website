@@ -15,19 +15,20 @@ function section_01() {
             src="/a_year_in_japan/L/01-a_year_in_japan.jpg"
             alt="Couples sitting by the Kamo River at night Kyoto, Japan"
             className={`${styles.imgJapPreview} dark_mode_only`}
-            sizes="100vw"
-            width={0}
-            height={0}
+            sizes="(max-width: 768px) 100vw, 85vw"
+            width={1280}
+            height={853}
             quality={80}
+
           />
 
           <Image
-            src="/a_year_in_japan/XL/24-a_year_in_japan-XL.jpg"
+            src="/a_year_in_japan/L/24-a_year_in_japan.jpg"
             alt="View on the arbor of Kobe (Japan) with his landmark: the red kobe port tower"
             className={`${styles.imgJapPreview} ${styles.imgJapPreview__position}  light_mode_only`}
-            sizes="100vw"
-            width={0}
-            height={0}
+            sizes="(max-width: 768px) 100vw, 85vw"
+            width={1280}
+            height={853}
             quality={80}
           />
         </Link>
@@ -122,10 +123,10 @@ function section_01() {
               src="/morning_shadows/L/06-morning_shadows.jpg"
               alt="View on the city of london in the morning light"
               className={`${styles.imgCityPreview}`}
-              sizes="100vw"
-              width={0}
-              height={0}
+              width={1280}
+              height={853}
               quality={80}
+              sizes="(max-width: 768px) 100vw, 75vw"
             />
           </div>
         </Link>
@@ -161,10 +162,10 @@ function section_01() {
               src="/museums/L/03-museums.jpg"
               alt="Entrance of the Natural History Museum of London (UK), statue of Charles Darwin"
               className={`${styles.imgMuseumPreview}`}
-              sizes="100vw"
-              width={0}
-              height={0}
+              width={1280}
+              height={853}
               quality={80}
+              sizes="(max-width: 768px) 100vw, 75vw"
             />
           </div>
         </Link>

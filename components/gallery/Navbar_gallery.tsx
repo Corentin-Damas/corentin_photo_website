@@ -101,7 +101,7 @@ function Navbar_gallery() {
                   path == "/gallery/infrared" ? styles.currPage : ""
                 }`}
               >
-                the world in Infrared
+                The world in infrared
               </Link>
               <p className={styles.number}>
                 _7 <span className={styles.bar}>|</span>{" "}

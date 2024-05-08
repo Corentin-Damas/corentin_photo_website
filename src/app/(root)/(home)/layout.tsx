@@ -19,7 +19,8 @@ function layout({ children }: { children: React.ReactNode }) {
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.bgImg} dark_mode_only`}
           quality={100}
-          fill
+          width={0}
+          height={0}
           sizes="100vw"
           priority
         />
@@ -27,7 +28,8 @@ function layout({ children }: { children: React.ReactNode }) {
           src="/landingpage/XL/landscapes-Landing2-XL.png"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.bgImg} ${styles.bglight} light_mode_only`}
-          fill
+          width={0}
+          height={0}
           sizes="100vw"
           quality={100}
           priority

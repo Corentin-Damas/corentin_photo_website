@@ -114,7 +114,7 @@ function Nav_gallerySmallSize() {
                   path == "/gallery/infrared" ? styles.currPage : ""
                 }`}
               >
-                the world in Infrared
+                The world in infrared
               </Link>
             </div>
             <div className={styles.link}>

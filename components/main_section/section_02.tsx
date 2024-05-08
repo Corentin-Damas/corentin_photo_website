@@ -21,10 +21,10 @@ function section_02() {
           src="/tsuzukitai/XL/37-tsuzukitai.jpg"
           alt="Bridge named rainbow Bridge from Tokyo, Japan"
           className={`${styles.imgCovTsuzukitai}`}
+          width={1920}
+          height={1080}
+          quality={100}
           sizes="100vw"
-          width={0}
-          height={0}
-          quality={80}
         />
       </Link>
       <Link
