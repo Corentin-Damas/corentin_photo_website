@@ -107,7 +107,7 @@
   border-radius: 50%;
   cursor: pointer;
   @media only screen and (max-width: 41.25em) {
-    top: 83.4%;
+    top: 85%;
   }
 }
 
