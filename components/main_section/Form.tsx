@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "../main_section/section_cta.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
@@ -23,6 +23,8 @@ const possibleStates = {
 function Form({ context }: { context: string }) {
   const cartList = useCartProduct((state) => state.cartOfProduct);
 
+  const ref = useRef<HTMLFormElement>(null);
+
   const [state, setState] = useState(initState);
   const [isValidName, setIsValidName] = useState(possibleStates.initial);
   const [isValidEmail, setIsValidEmail] = useState(possibleStates.initial);
@@ -32,7 +34,7 @@ function Form({ context }: { context: string }) {
 
   const [emailSent, setEmailSent] = useState<string>(possibleStates.initial);
 
-  const test = false;
+  const test = true;
   const { values } = state;
 
   const onBlur = function (e: any) {
@@ -120,6 +122,15 @@ function Form({ context }: { context: string }) {
     return true;
   }
 
+  function resetAll() {
+    values.name = "";
+    values.email = "";
+    values.message = "";
+    setIsValidName(possibleStates.initial);
+    setIsValidEmail(possibleStates.initial);
+    setIsValideMessage(possibleStates.initial);
+  }
+
   const sendEmail = async (e: any) => {
     e.preventDefault();
 
@@ -128,6 +139,7 @@ function Form({ context }: { context: string }) {
         isValidEmail == possibleStates.valid &&
         isValidName == possibleStates.valid
       ) {
+        resetAll();
         setEmailSent(possibleStates.valid);
       }
     } else if (
@@ -154,11 +166,13 @@ function Form({ context }: { context: string }) {
       });
       const res = await response.json();
       if (res.error == null) {
+        resetAll();
         setEmailSent(possibleStates.valid);
       } else {
         setEmailSent(possibleStates.invalid);
       }
     }
+
   };
 
   return (
@@ -167,6 +181,8 @@ function Form({ context }: { context: string }) {
         className={styles.formular__grid}
         autoComplete="false"
         onSubmit={sendEmail}
+        id="email_form"
+        ref={ref}
       >
         <div className={`${styles.form__group} `}>
           <input
@@ -297,7 +313,7 @@ function Form({ context }: { context: string }) {
           type="submit"
           disabled={handleCheckAllValid()}
         >
-          {emailSent == possibleStates.valid ? "Thanks You" : "Submit"}
+          {emailSent == possibleStates.valid ? "Thank You" : "Submit"}
         </button>
       </form>
       {emailSent == possibleStates.valid ? (
