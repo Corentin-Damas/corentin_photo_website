@@ -23,9 +23,7 @@ function BookMarkIcon({ imgName }: { imgName: string }) {
           className={styles.bookmark_empty_containeur}
           onClick={() => addImg(imgName)}
         >
-          <FaRegBookmark
-            className={styles.bookmark_empty}
-          />
+          <FaRegBookmark className={styles.bookmark_empty} />
         </div>
       )}
     </>

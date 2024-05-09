@@ -95,7 +95,7 @@
 .close_container {
   position: fixed;
 
-  top: 4rem;
+  bottom: 6.2rem;
   right: 4rem;
   height: var(--icone-S);
   width: var(--icone-S);
@@ -109,6 +109,26 @@
   @media only screen and (max-width: 41.25em) {
     top: 85%;
   }
+}
+.fav_container {
+  position: absolute;
+  left: 50%;
+  top: 85vh;
+  width: 4rem;
+  height: 4rem;
+  z-index: 700;
+  transform: translateX(-50%);
+  @media only screen and (max-width: 41.25em) {
+    transform: translateX(0%);
+    top: 83.2vh;
+
+    left: 4rem;
+  }
+}
+.fav_divAligne {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
 }
 
 .close {
@@ -136,25 +156,22 @@
 
 .icone_left,
 .icone_right {
-  top: calc(50% - (var(--icone-S) / 2)); 
+  top: calc(50% - (var(--icone-S) / 2));
   @media only screen and (max-width: 41.25em) {
     top: 85%;
-  } 
+  }
 }
 .icone_left {
   left: 10vw;
   @media only screen and (max-width: 41.25em) {
     left: calc(50vw - (var(--icone-S) + var(--spacing-SS)));
-    
-  } 
-  
+  }
 }
 .icone_right {
   right: 10vw;
   @media only screen and (max-width: 41.25em) {
     right: calc(50vw - (var(--icone-S) + var(--spacing-SS)));
-    
-  } 
+  }
 }
 
 .icone:hover {
@@ -176,10 +193,11 @@
   transition: all 0.2s;
   cursor: pointer;
   border-radius: 50%;
-  @media only screen and (max-width: 55em){
-    height: var(--spacing-LM);
-    width: var(--spacing-LM);
-  }  
+  border: 1px solid var(--rules-color);
+  @media only screen and (max-width: 65em) {
+    width: var(--icone-S);
+    height: var(--icone-S);
+  }
 }
 .bookmark_empty_containeur {
   opacity: 0;

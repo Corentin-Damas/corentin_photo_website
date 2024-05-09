@@ -162,7 +162,7 @@
   opacity: 100;
   transform: scale(100%);
   animation: pulsing 4s ease-in-out infinite;
-  z-index: 950;
+  z-index: 990;
 }
 @keyframes pulsing{
   0%{
@@ -175,6 +175,11 @@
   100%{
     transform: scale(100%);
   }
+}
+
+.redDoteMenu{
+  top: 0.8rem;
+  right: 0.8rem;
 }
 /* .test{
   background-color: green;

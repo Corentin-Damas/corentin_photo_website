@@ -180,6 +180,12 @@ const GalleryImg = ({
             <div className={styles.close_container}>
               <GrFormClose className={styles.icone} onClick={handleClose} />
             </div>
+            <div className={styles.fav_container}>
+              <div className={styles.fav_divAligne}>
+
+                <BookMarkIcon imgName={images[imgSelected]} />
+              </div>
+            </div>
           </>
         )}
       </div>

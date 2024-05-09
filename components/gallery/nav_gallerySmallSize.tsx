@@ -26,10 +26,13 @@ function Nav_gallerySmallSize() {
           onClick={toggleMenu}
         />
       ) : (
-        <CgMenuRightAlt
-          className={styles.icone_SmallScreen_menu}
-          onClick={toggleMenu}
-        />
+        <>
+          <CgMenuRightAlt
+            className={styles.icone_SmallScreen_menu}
+            onClick={toggleMenu}
+          />
+          {imgList.length > 0 && <span className={`${styles.redDote} ${styles.redDoteMenu}`}> </span>}
+        </>
       )}
       <div
         className={`${styles.nav_SmallScreen} ${

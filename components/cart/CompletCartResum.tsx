@@ -9,7 +9,6 @@ import Form from "../main_section/Form";
 import { useSearchParams } from "next/navigation";
 import ExpeditionInfos from "../shop/ExpeditionInfos";
 import LocalStorage from "../LocalStorage";
-import { Console } from "console";
 
 function CompletCartResum({
   allCountries,
@@ -159,32 +158,37 @@ function CompletCartResum({
     expeditionData !== null ? expeditionData.tirageTime : 15;
 
   const checkout = async () => {
-    console.log(cartList,total, maxPrice, minimumExp, maximumExp)
-    await fetch("http://localhost:3000/api/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
-      },
-      body: JSON.stringify({
-        products: cartList,
-        price: total,
-        countryCode: allowedCountry,
-        shippingCoast: maxPrice,
-        minExp: minimumExp,
-        maxExp: maximumExp,
-      }),
-    })
-      .then((response) => {
-        return response.json();
+    console.log(cartList, total, maxPrice, minimumExp, maximumExp);
+    try {
+      await fetch("http://localhost:3000/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // "Access-Control-Allow-Headers": "Content-Type",
+          // "Access-Control-Allow-Origin": "*",
+          // "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+        },
+        body: JSON.stringify({
+          products: cartList,
+          price: total,
+          countryCode: allowedCountry,
+          shippingCoast: maxPrice,
+          minExp: minimumExp,
+          maxExp: maximumExp,
+        }),
       })
-      .then((response) => {
-        if (response.url) {
-          router.push(response.url);
-        }
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          if (response.url) {
+            router.push(response.url);
+          }
+        });
+    } catch (err) {
+      // Do A cleanner output
+      console.log("Got a problem will doing the chekout");
+    }
   };
 
   useEffect(() => {
@@ -216,7 +220,7 @@ function CompletCartResum({
                 <div key={el.date} className={styles.resume}>
                   <div className={`detail_01 ${styles.res_head}`}>
                     <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
-                    <p>quantity: {el.quantity}</p>
+                    {/* <p>quantity: {el.quantity}</p> */}
                     <div className={styles.actions_btn}>
                       <div className={styles.quantity_wrap}>
                         <label htmlFor="quantity" className={styles.qtyLabel}>
