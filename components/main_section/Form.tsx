@@ -34,7 +34,7 @@ function Form({ context }: { context: string }) {
 
   const [emailSent, setEmailSent] = useState<string>(possibleStates.initial);
 
-  const test = true;
+  const test = false;
   const { values } = state;
 
   const onBlur = function (e: any) {
