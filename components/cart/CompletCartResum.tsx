@@ -164,9 +164,9 @@ function CompletCartResum({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // "Access-Control-Allow-Headers": "Content-Type",
-          // "Access-Control-Allow-Origin": "*",
-          // "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+          "Access-Control-Allow-Origin": "no-cors",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
         },
         body: JSON.stringify({
           products: cartList,
@@ -220,8 +220,6 @@ function CompletCartResum({
                 <div key={el.date} className={styles.resume}>
                   <div className={`detail_01 ${styles.res_head}`}>
                     <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
-                    {/* <p>quantity: {el.quantity}</p> */}
-                    <div className={styles.actions_btn}>
                       <div className={styles.quantity_wrap}>
                         <label htmlFor="quantity" className={styles.qtyLabel}>
                           adjust quantity:
@@ -254,7 +252,6 @@ function CompletCartResum({
                       >
                         remove
                       </button>
-                    </div>
                   </div>
                   <div className={styles.res_Left}>
                     {el.color !== undefined && (

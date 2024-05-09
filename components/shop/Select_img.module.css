@@ -4,7 +4,6 @@ img_fixed
 */
 
 .fram__content__container {
-  
   max-width: var(--max-width-ML);
   padding-inline: var(--padding-vertical);
   width: 100%;
@@ -47,8 +46,6 @@ img_fixed
   padding-top: var(--spacing-M);
   margin-right: var(--spacing-L);
   justify-self: right;
-  
-  
 
   @media only screen and (max-width: 84em) {
     margin-right: var(--spacing-M);
@@ -66,7 +63,6 @@ img_fixed
   }
 }
 .fram__content__right {
-  
   align-self: baseline;
   justify-self: baseline;
   width: 100%;
@@ -120,7 +116,6 @@ img_fixed
     transform: scale(0.5) translate(25%, 0%);
   }
 
-
   @media only screen and (max-width: 41.25em) {
     margin-top: 0rem;
     transform: scale(0.85) translate(0%, -10%);
@@ -149,9 +144,8 @@ img_fixed
   transition: bottom 0.2s;
   @media only screen and (max-width: 41.25em) {
     transition: top 0.15s;
-    top:10rem;
+    top: 10rem;
   }
-
 }
 
 /* .fram__content__left:has(.img_fixed) {
@@ -169,7 +163,6 @@ img_fixed
   margin-top: var(--spacing-XS);
   height: 40rem;
   top: -20vh;
-  
 }
 .img_smallFixed .mokeup_container {
   transform: scale(0.4) translate(0%, 30%);
@@ -297,7 +290,6 @@ img_fixed
     bottom: 6rem;
     right: 2.4rem;
     gap: var(--spacing-SS);
-
   }
 }
 
@@ -1531,4 +1523,8 @@ img_fixed
 
 .neural_50 {
   color: var(--neutral-50);
+}
+
+.verticalAdjus {
+  transform: scale(0.65) translate(-100%, -60%);
 }

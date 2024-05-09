@@ -497,10 +497,10 @@ export const imagesInfos: picturesNamesTypes = {
   },
   "02-morning_shadows": {
     name: "02-morning_shadows",
-    width: 5184,
-    height: 3456,
-    widthCm: 54,
-    heightCm: 36,
+    width: 3456,
+    height: 5184,
+    heightCm: 54,
+    widthCm: 36,
     format: "3/2",
   },
   "03-morning_shadows": {

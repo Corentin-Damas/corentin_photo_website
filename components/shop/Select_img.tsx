@@ -60,6 +60,12 @@ function Select_img({
     "05-black_and_white.jpg",
   ];
 
+  let isVertical: boolean = false;
+
+  if (imgInfos != undefined) {
+    isVertical = imgInfos.heightCm > imgInfos.widthCm ? true : false;
+  }
+
   let subImage = "";
   if (
     !imgList.includes(selectedImgExtention) &&
@@ -705,7 +711,7 @@ function Select_img({
 
     if (windSizeWidth <= 660 && currentScroll > 40) {
       setNavState(possibleState.smallFixed);
-    } else if (currentScroll >= height - (windSize + foot_height + 100) ) {
+    } else if (currentScroll >= height - (windSize + foot_height + 100)) {
       setNavState(possibleState.fixed);
     } else {
       setNavState(possibleState.unFixed);
@@ -754,7 +760,9 @@ function Select_img({
               onClick={() => setEnlarger(!enlarger)}
             >
               <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
-              <IoIosExpand className={`${styles.icone} ${styles.enlargeIcone}`} />
+              <IoIosExpand
+                className={`${styles.icone} ${styles.enlargeIcone}`}
+              />
             </button>
           )}
           <div className={styles.backgroundMobile}></div>
@@ -822,7 +830,7 @@ function Select_img({
             <Image
               src="/util_img/wall_img01.jpg"
               alt="Corentin Damas with one of is framed picture on a customer's wall"
-              className={` ${styles.img__wall} `}
+              className={` ${styles.img__wall}  `}
               sizes="(max-width: 480px) 100vw, 33vw"
               width={720}
               height={0}
@@ -838,7 +846,9 @@ function Select_img({
                   onError={() => redirectToBasUrl()}
                   className={`${styles.img__selected} ${
                     isImageLoading ? "unLoaded" : "remove-unLoaded"
-                  } 
+                  }  ${
+                    isVertical && styles.verticalAdjus
+                  }
                   ${
                     prodSize == "16"
                       ? styles.size16
@@ -1283,7 +1293,7 @@ function Select_img({
                         imgInfos !== null &&
                         key.slice(0, -2) == "bordLarge_" &&
                         (key.slice(-2) as unknown as number) <
-                          imgInfos.widthCm &&
+                          Math.max(imgInfos.widthCm, imgInfos.heightCm) &&
                         (val as number) > 0 && (
                           <button
                             key={key}
