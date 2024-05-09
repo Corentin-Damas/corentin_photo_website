@@ -9,6 +9,7 @@ import Form from "../main_section/Form";
 import { useSearchParams } from "next/navigation";
 import ExpeditionInfos from "../shop/ExpeditionInfos";
 import LocalStorage from "../LocalStorage";
+import { Console } from "console";
 
 function CompletCartResum({
   allCountries,
@@ -158,6 +159,7 @@ function CompletCartResum({
     expeditionData !== null ? expeditionData.tirageTime : 15;
 
   const checkout = async () => {
+    console.log(cartList,total, maxPrice, minimumExp, maximumExp)
     await fetch("http://localhost:3000/api/checkout", {
       method: "POST",
       headers: {
