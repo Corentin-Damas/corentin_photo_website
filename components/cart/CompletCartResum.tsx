@@ -162,6 +162,9 @@ function CompletCartResum({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
       },
       body: JSON.stringify({
         products: cartList,
@@ -214,25 +217,26 @@ function CompletCartResum({
                     <p>quantity: {el.quantity}</p>
                     <div className={styles.actions_btn}>
                       <div className={styles.quantity_wrap}>
-
-                      <label htmlFor="quantity" className={styles.qtyLabel}>adjust quantity:</label>
-                      <select
-                      className={styles.quantityDropDown}
-                      name=""
-                      value={el.quantity}
-                      id="quantity"
-                      onChange={(e) =>
-                        modifyQty(el, e.target.value as unknown as number)
-                      }
-                      >
-                        {quantitySelect.map((qtyNum: number) => (
-                          <option key={qtyNum} value={qtyNum}>
-                            {qtyNum}
-                          </option>
-                        ))}
-                      </select>
-                      <span className={styles.customArrow}></span>
-                        </div>
+                        <label htmlFor="quantity" className={styles.qtyLabel}>
+                          adjust quantity:
+                        </label>
+                        <select
+                          className={styles.quantityDropDown}
+                          name=""
+                          value={el.quantity}
+                          id="quantity"
+                          onChange={(e) =>
+                            modifyQty(el, e.target.value as unknown as number)
+                          }
+                        >
+                          {quantitySelect.map((qtyNum: number) => (
+                            <option key={qtyNum} value={qtyNum}>
+                              {qtyNum}
+                            </option>
+                          ))}
+                        </select>
+                        <span className={styles.customArrow}></span>
+                      </div>
                       <button
                         className={styles.removeBtn}
                         onClick={() => {
