@@ -1,4 +1,4 @@
-/* .form__title */
+/* .informationBuble */
 .sectionCta__Grid {
   position: relative;
   height: 100vh;
@@ -213,8 +213,8 @@
 
 .informationBuble {
   position: absolute;
-  bottom: 0rem;
-  left: 0;
+  bottom: -2.8rem;
+  left: 0rem;
 }
 
 .form__field_initial {

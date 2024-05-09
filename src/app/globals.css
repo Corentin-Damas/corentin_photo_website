@@ -397,7 +397,6 @@ p.detail_02 {
 }
 
 .gallery_Link:active {
-  transform: scale(9.5);
   transition: transform 0.1s;
 }
 

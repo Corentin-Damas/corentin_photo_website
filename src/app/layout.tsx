@@ -2,8 +2,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { Providers } from "../../providers/theme-provider";
-import { ChakraProviders } from "../../providers/chakra-provider";
-import LocalStorage from "../../components/LocalStorage";
+
 
 export const metadata: Metadata = {
   title: "Corentin Damas - Artefact",
@@ -85,9 +84,9 @@ export default function RootLayout({
       <body
         className={`${geologicaRomMedium.variable} ${geologicaRomLight.variable} ${geologicaRomRegular.variable} ${geologicaLight.variable} ${geologicaRegular.variable} ${geologicaCursiveRegu.variable} ${lateefRegular.variable} ${sawarabiMincho.variable}`}
       >
-        <ChakraProviders>
+
           <Providers>{children}</Providers>
-        </ChakraProviders>
+
       </body>
     </html>
   );

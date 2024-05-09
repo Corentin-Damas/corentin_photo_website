@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../main_section/section_cta.module.css";
-import { FormControl, FormErrorMessage } from "@chakra-ui/react";
 import { useCartProduct } from "../../providers/cart-provider";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 
@@ -118,7 +117,6 @@ function Form({ context }: { context: string }) {
       }
     }
 
-
     return true;
   }
 
@@ -171,86 +169,78 @@ function Form({ context }: { context: string }) {
         onSubmit={sendEmail}
       >
         <div className={`${styles.form__group} `}>
-          <FormControl
-            isRequired
-            isInvalid={isValidName == possibleStates.invalid}
-          >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your Name"
-              value={values.name}
-              onBlur={onBlur}
-              onChange={handleChange}
-              className={`${styles.formular__Name} ${styles.form__field}  ${
-                isValidName == possibleStates.valid
-                  ? styles.form__field_valid
-                  : isValidName == possibleStates.invalid
-                  ? styles.form__field_inValid
-                  : isValidName == possibleStates.initial
-                  ? styles.form__field_initial
-                  : styles.form__field_waiting
-              } `}
-            />
-            <label htmlFor="name" className={`${styles.form__label}`}>
-              Your name
-            </label>
+          <input
+            type="text"
+            // isInvalid={isValidName == possibleStates.invalid}
+            required
+            name="name"
+            id="name"
+            placeholder="Your Name"
+            value={values.name}
+            onBlur={onBlur}
+            onChange={handleChange}
+            className={`${styles.formular__Name} ${styles.form__field}  ${
+              isValidName == possibleStates.valid
+                ? styles.form__field_valid
+                : isValidName == possibleStates.invalid
+                ? styles.form__field_inValid
+                : isValidName == possibleStates.initial
+                ? styles.form__field_initial
+                : styles.form__field_waiting
+            } `}
+          />
+          <label htmlFor="name" className={`${styles.form__label}`}>
+            Your name
+          </label>
 
-            <div className={styles.informationBlock}>
-              <FormErrorMessage>
-                <p className={styles.informationBuble}>
-                  * Required: Please provide your name
-                </p>
-              </FormErrorMessage>
-            </div>
-          </FormControl>
+          <div className={styles.informationBlock}>
+            {isValidName == possibleStates.invalid && (
+              <p className={styles.informationBuble}>
+                * Required: Please provide your name
+              </p>
+            )}
+          </div>
         </div>
 
         <div className={styles.form__group}>
-          <FormControl
-            isRequired
-            isInvalid={isValidEmail == possibleStates.invalid}
-          >
-            <input
-              className={`${styles.email} ${styles.form__field} ${
-                isValidEmail == possibleStates.valid
-                  ? styles.form__field_valid
-                  : isValidEmail == possibleStates.invalid
-                  ? styles.form__field_inValid
-                  : isValidEmail == possibleStates.initial
-                  ? styles.form__field_initial
-                  : styles.form__field_waiting
-              } `}
-              type="text"
-              placeholder="Your Email"
-              name="email"
-              id="email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-            <label htmlFor="email" className={`${styles.form__label}`}>
-              Your Email
-            </label>
-            <div className={styles.informationBlock}>
-              <FormErrorMessage>
-                <p className={styles.informationBuble}>
-                  * Required: Please provide your Email
-                </p>
-              </FormErrorMessage>
-            </div>
-          </FormControl>
+          {/* <FormControl isInvalid={isValidEmail == possibleStates.invalid}> */}
+          <input
+            className={`${styles.email} ${styles.form__field} ${
+              isValidEmail == possibleStates.valid
+                ? styles.form__field_valid
+                : isValidEmail == possibleStates.invalid
+                ? styles.form__field_inValid
+                : isValidEmail == possibleStates.initial
+                ? styles.form__field_initial
+                : styles.form__field_waiting
+            } `}
+            type="text"
+            required
+            placeholder="Your Email"
+            name="email"
+            id="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={onBlur}
+          />
+          <label htmlFor="email" className={`${styles.form__label}`}>
+            Your Email
+          </label>
+          <div className={styles.informationBlock}>
+            {isValidEmail == possibleStates.invalid && (
+              <p className={styles.informationBuble}>
+                * Required: Please provide a valid Email
+              </p>
+            )}
+          </div>
         </div>
 
         <div className={styles.form__group}>
           {context === "advice" ? (
-            <FormControl
-              isRequired
-              isInvalid={isValideMessage == possibleStates.invalid}
-            >
+            <>
               <textarea
                 name="message"
+                required
                 id="message"
                 cols={30}
                 rows={3}
@@ -276,14 +266,14 @@ function Form({ context }: { context: string }) {
               <div
                 className={`${styles.informationBlock} ${styles.informationBlock_advice} `}
               >
-                <FormErrorMessage>
+                {isValideMessage == possibleStates.invalid && (
                   <p className={styles.informationBuble}>
                     * Required: Please tell me what you want to know so i can
                     advice you the best I can
                   </p>
-                </FormErrorMessage>
+                )}
               </div>
-            </FormControl>
+            </>
           ) : (
             <>
               <textarea
@@ -344,8 +334,8 @@ function Form({ context }: { context: string }) {
           <>
             <PiSealWarningBold className={styles.feedbackIcone} />
             <p>
-              Opss! Something went Wrong (Probably in our side)! Please try later or send a mail
-              directly to: corentin.damasphoto@gmail.com
+              Opss! Something went Wrong (Probably in our side)! Please try
+              later or send a mail directly to: corentin.damasphoto@gmail.com
             </p>
           </>
         </div>

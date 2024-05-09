@@ -67,7 +67,7 @@ function section_03() {
       </div>
 
       <Link
-        href={"/gallerie"}
+        href={"/gallery"}
         className={`${styles.part03__link} gallery_Link`}
       >
         See Gallery _<span className="main-Color">&gt;</span>
