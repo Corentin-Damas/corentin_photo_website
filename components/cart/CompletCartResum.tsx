@@ -158,15 +158,12 @@ function CompletCartResum({
     expeditionData !== null ? expeditionData.tirageTime : 15;
 
   const checkout = async () => {
-    console.log(cartList, total, maxPrice, minimumExp, maximumExp);
+    // console.log(cartList, total, maxPrice, minimumExp, maximumExp);
     try {
       await fetch("http://localhost:3000/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "no-cors",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
         },
         body: JSON.stringify({
           products: cartList,
