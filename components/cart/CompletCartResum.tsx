@@ -158,7 +158,6 @@ function CompletCartResum({
     expeditionData !== null ? expeditionData.tirageTime : 15;
 
   const checkout = async () => {
-    console.log()
     await fetch("http://localhost:3000/api/checkout", {
       method: "POST",
       headers: {
@@ -174,7 +173,6 @@ function CompletCartResum({
       }),
     })
       .then((response) => {
-        console.log(response)
         return response.json();
       })
       .then((response) => {
