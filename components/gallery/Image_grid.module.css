@@ -94,8 +94,9 @@
 
 .close_container {
   position: fixed;
+  top: 4rem;
 
-  bottom: 6.2rem;
+  /* bottom: 6.2rem; */
   right: 4rem;
   height: var(--icone-S);
   width: var(--icone-S);
@@ -106,6 +107,10 @@
 
   border-radius: 50%;
   cursor: pointer;
+  @media only screen and (max-width: 77em) {
+    top: calc(var(--spacing-M) + var(--spacing-M));
+    right: var(--padding-inLine);
+  }
   @media only screen and (max-width: 41.25em) {
     top: 85%;
   }
@@ -122,7 +127,7 @@
     transform: translateX(0%);
     top: 83.2vh;
 
-    left: 4rem;
+    left: var(--padding-inLine);
   }
 }
 .fav_divAligne {
