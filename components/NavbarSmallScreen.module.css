@@ -61,6 +61,35 @@
   }
 }
 
+.redDote{
+  position: fixed;
+  right: calc(5vw + 0.4rem);
+  top: 2.2rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  z-index: 941;
+  background-color: var(--prim-500-main);
+  
+  transform: scale(100%);
+  animation: pulsing 4s ease-in-out infinite;
+
+}
+
+@keyframes pulsing{
+  0%{
+    transform: scale(100%);
+  }
+  50%{
+    transform: scale(90%);
+    background-color: var(--prim-700);
+  }
+  100%{
+    transform: scale(100%);
+  }
+}
+
+
 .icone_SmallScreen_close {
   border: 2px solid var(--font-color-main);
 }

@@ -1,5 +1,6 @@
-export const expeditionInfos = {
+export const expeditionInfos: expeditionObjectType = {
   austria_1: {
+    id: "austria_1",
     country: "austria",
     min_quantity: 1,
     tirage_25: 10.95,
@@ -25,6 +26,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   austria_3: {
+    id: "austria_3",
     country: "austria",
     min_quantity: 3,
     tirage_25: 10.95,
@@ -50,6 +52,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   austria_6: {
+    id: "austria_6",
     country: "austria",
     min_quantity: 6,
     tirage_25: 10.95,
@@ -75,6 +78,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   germany_1: {
+    id: "germany_1",
     country: "germany",
     min_quantity: 1,
     tirage_25: 4.91,
@@ -100,6 +104,7 @@ export const expeditionInfos = {
     delay_frame: 9,
   },
   germany_3: {
+    id: "germany_3",
     country: "germany",
     min_quantity: 3,
     tirage_25: 4.91,
@@ -125,6 +130,7 @@ export const expeditionInfos = {
     delay_frame: 9,
   },
   germany_6: {
+    id: "germany_6",
     country: "germany",
     min_quantity: 6,
     tirage_25: 4.91,
@@ -150,6 +156,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   france_1: {
+    id: "france_1",
     country: "france",
     min_quantity: 1,
     tirage_25: 5.95,
@@ -175,6 +182,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   france_3: {
+    id: "france_3",
     country: "france",
     min_quantity: 3,
     tirage_25: 5.95,
@@ -200,6 +208,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   france_6: {
+    id: "france_6",
     country: "france",
     min_quantity: 6,
     tirage_25: 5.95,
@@ -225,6 +234,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   guernesey_1: {
+    id: "guernesey_1",
     country: "guernesey",
     min_quantity: 1,
     tirage_25: 33.29,
@@ -250,6 +260,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   guernesey_3: {
+    id: "guernesey_3",
     country: "guernesey",
     min_quantity: 3,
     tirage_25: 33.29,
@@ -275,6 +286,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   guernesey_6: {
+    id: "guernesey_6",
     country: "guernesey",
     min_quantity: 6,
     tirage_25: 33.29,
@@ -300,6 +312,7 @@ export const expeditionInfos = {
     delay_frame: 17,
   },
   "hong-kong_1": {
+    id: "hong-kong_1",
     country: "hong-kong",
     min_quantity: 1,
     tirage_25: 16.63,
@@ -325,6 +338,7 @@ export const expeditionInfos = {
     delay_frame: 14,
   },
   "hong-kong_3": {
+    id: "hong-kong_3",
     country: "hong-kong",
     min_quantity: 3,
     tirage_25: 16.63,
@@ -350,6 +364,7 @@ export const expeditionInfos = {
     delay_frame: 14,
   },
   "hong-kong_6": {
+    id: "hong-kong_6",
     country: "hong-kong",
     min_quantity: 6,
     tirage_25: 16.63,
@@ -375,6 +390,7 @@ export const expeditionInfos = {
     delay_frame: 15,
   },
   india_1: {
+    id: "india_1",
     country: "india",
     min_quantity: 1,
     tirage_25: 33.29,
@@ -400,6 +416,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   india_3: {
+    id: "india_3",
     country: "india",
     min_quantity: 3,
     tirage_25: 33.29,
@@ -425,6 +442,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   india_6: {
+    id: "india_6",
     country: "india",
     min_quantity: 6,
     tirage_25: 33.29,
@@ -450,6 +468,7 @@ export const expeditionInfos = {
     delay_frame: 17,
   },
   ireland_1: {
+    id: "ireland_1",
     country: "ireland",
     min_quantity: 1,
     tirage_25: 6.1,
@@ -475,6 +494,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   ireland_3: {
+    id: "ireland_3",
     country: "ireland",
     min_quantity: 3,
     tirage_25: 6.1,
@@ -500,6 +520,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   ireland_6: {
+    id: "ireland_6",
     country: "ireland",
     min_quantity: 6,
     tirage_25: 6.1,
@@ -525,6 +546,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   italy_1: {
+    id: "italy_1",
     country: "italy",
     min_quantity: 1,
     tirage_25: 6.1,
@@ -550,6 +572,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   italy_3: {
+    id: "italy_3",
     country: "italy",
     min_quantity: 3,
     tirage_25: 6.1,
@@ -575,6 +598,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   italy_6: {
+    id: "italy_6",
     country: "italy",
     min_quantity: 6,
     tirage_25: 6.1,
@@ -600,6 +624,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   japan_1: {
+    id: "japan_1",
     country: "japan",
     min_quantity: 1,
     tirage_25: 16.63,
@@ -625,6 +650,7 @@ export const expeditionInfos = {
     delay_frame: 14,
   },
   japan_3: {
+    id: "japan_3",
     country: "japan",
     min_quantity: 3,
     tirage_25: 16.63,
@@ -650,6 +676,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   japan_6: {
+    id: "japan_6",
     country: "japan",
     min_quantity: 6,
     tirage_25: 16.63,
@@ -675,6 +702,7 @@ export const expeditionInfos = {
     delay_frame: 15,
   },
   jersey_1: {
+    id: "jersey_1",
     country: "jersey",
     min_quantity: 1,
     tirage_25: 33.29,
@@ -700,6 +728,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   jersey_3: {
+    id: "jersey_3",
     country: "jersey",
     min_quantity: 3,
     tirage_25: 33.29,
@@ -725,6 +754,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   jersey_6: {
+    id: "jersey_6",
     country: "jersey",
     min_quantity: 6,
     tirage_25: 33.29,
@@ -750,6 +780,7 @@ export const expeditionInfos = {
     delay_frame: 17,
   },
   finland_1: {
+    id: "finland_1",
     country: "finland",
     min_quantity: 1,
     tirage_25: 6.15,
@@ -775,6 +806,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   finland_3: {
+    id: "finland_3",
     country: "finland",
     min_quantity: 3,
     tirage_25: 6.15,
@@ -800,6 +832,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   finland_6: {
+    id: "finland_6",
     country: "finland",
     min_quantity: 6,
     tirage_25: 6.15,
@@ -825,6 +858,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   iceland_1: {
+    id: "iceland_1",
     country: "iceland",
     min_quantity: 1,
     tirage_25: 33.29,
@@ -850,6 +884,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   iceland_3: {
+    id: "iceland_3",
     country: "iceland",
     min_quantity: 3,
     tirage_25: 33.29,
@@ -875,6 +910,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   iceland_6: {
+    id: "iceland_6",
     country: "iceland",
     min_quantity: 6,
     tirage_25: 33.29,
@@ -900,7 +936,8 @@ export const expeditionInfos = {
     delay_frame: 17,
   },
   switzerland_1: {
-    country: "switzerland",
+    id: "switzerland_1",
+    country:"switzerland",
     min_quantity: 1,
     tirage_25: 17.98,
     tirage_60: 21.58,
@@ -925,7 +962,8 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   switzerland_3: {
-    country: "switzerland",
+    id: "switzerland_3",
+    country:"switzerland",
     min_quantity: 3,
     tirage_25: 17.98,
     tirage_60: 21.58,
@@ -950,7 +988,8 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   switzerland_6: {
-    country: "switzerland",
+    id: "switzerland_6",
+    country:"switzerland",
     min_quantity: 6,
     tirage_25: 17.98,
     tirage_60: 21.58,
@@ -975,6 +1014,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   latvia_1: {
+    id: "latvia_1",
     country: "latvia",
     min_quantity: 1,
     tirage_25: 6.0,
@@ -1000,6 +1040,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   latvia_3: {
+    id: "latvia_3",
     country: "latvia",
     min_quantity: 3,
     tirage_25: 6.0,
@@ -1025,6 +1066,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   latvia_6: {
+    id: "latvia_6",
     country: "latvia",
     min_quantity: 6,
     tirage_25: 6.0,
@@ -1050,6 +1092,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   liechtenstein_1: {
+    id: "liechtenstein_1",
     country: "liechtenstein",
     min_quantity: 1,
     tirage_25: 16.63,
@@ -1075,6 +1118,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   liechtenstein_3: {
+    id: "liechtenstein_3",
     country: "liechtenstein",
     min_quantity: 3,
     tirage_25: 16.63,
@@ -1100,6 +1144,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   liechtenstein_6: {
+    id: "liechtenstein_6",
     country: "liechtenstein",
     min_quantity: 6,
     tirage_25: 16.63,
@@ -1125,6 +1170,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   lithuania_1: {
+    id: "lithuania_1",
     country: "lithuania",
     min_quantity: 1,
     tirage_25: 6.0,
@@ -1150,6 +1196,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   lithuania_3: {
+    id: "lithuania_3",
     country: "lithuania",
     min_quantity: 3,
     tirage_25: 6.0,
@@ -1175,6 +1222,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   lithuania_6: {
+    id: "lithuania_6",
     country: "lithuania",
     min_quantity: 6,
     tirage_25: 6.0,
@@ -1200,7 +1248,8 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   luxembourg_1: {
-    country: "luxembourg",
+    id: "luxembourg_1",country: 
+    "luxembourg",
     min_quantity: 1,
     tirage_25: 5.75,
     tirage_60: 8.65,
@@ -1225,7 +1274,8 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   luxembourg_3: {
-    country: "luxembourg",
+    id: "luxembourg_3",country: 
+    "luxembourg",
     min_quantity: 3,
     tirage_25: 5.75,
     tirage_60: 8.65,
@@ -1250,7 +1300,8 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   luxembourg_6: {
-    country: "luxembourg",
+    id: "luxembourg_6",country: 
+    "luxembourg",
     min_quantity: 6,
     tirage_25: 5.75,
     tirage_60: 8.65,
@@ -1275,6 +1326,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   malta_1: {
+    id: "malta_1",
     country: "malta",
     min_quantity: 1,
     tirage_25: 5.86,
@@ -1300,6 +1352,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   malta_3: {
+    id: "malta_3",
     country: "malta",
     min_quantity: 3,
     tirage_25: 5.86,
@@ -1325,6 +1378,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   malta_6: {
+    id: "malta_6",
     country: "malta",
     min_quantity: 6,
     tirage_25: 5.86,
@@ -1350,6 +1404,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   monaco_1: {
+    id: "monaco_1",
     country: "monaco",
     min_quantity: 1,
     tirage_25: 5.95,
@@ -1375,6 +1430,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   monaco_3: {
+    id: "monaco_3",
     country: "monaco",
     min_quantity: 3,
     tirage_25: 5.95,
@@ -1400,6 +1456,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   monaco_6: {
+    id: "monaco_6",
     country: "monaco",
     min_quantity: 6,
     tirage_25: 5.95,
@@ -1425,6 +1482,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   netherlands_1: {
+    id: "netherlands_1",
     country: "netherlands",
     min_quantity: 1,
     tirage_25: 11.1,
@@ -1450,6 +1508,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   netherlands_3: {
+    id: "netherlands_3",
     country: "netherlands",
     min_quantity: 3,
     tirage_25: 11.1,
@@ -1475,6 +1534,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   netherlands_6: {
+    id: "netherlands_6",
     country: "netherlands",
     min_quantity: 6,
     tirage_25: 11.1,
@@ -1500,6 +1560,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   norway_1: {
+    id: "norway_1",
     country: "norway",
     min_quantity: 1,
     tirage_25: 20.79,
@@ -1525,6 +1586,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   norway_3: {
+    id: "norway_3",
     country: "norway",
     min_quantity: 3,
     tirage_25: 20.79,
@@ -1550,6 +1612,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   norway_6: {
+    id: "norway_6",
     country: "norway",
     min_quantity: 6,
     tirage_25: 20.79,
@@ -1575,6 +1638,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   poland_1: {
+    id: "poland_1",
     country: "poland",
     min_quantity: 1,
     tirage_25: 6.1,
@@ -1600,6 +1664,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   poland_3: {
+    id: "poland_3",
     country: "poland",
     min_quantity: 3,
     tirage_25: 6.1,
@@ -1625,6 +1690,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   poland_6: {
+    id: "poland_6",
     country: "poland",
     min_quantity: 6,
     tirage_25: 6.1,
@@ -1650,6 +1716,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   portugal_1: {
+    id: "portugal_1",
     country: "portugal",
     min_quantity: 1,
     tirage_25: 6.1,
@@ -1675,6 +1742,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   portugal_3: {
+    id: "portugal_3",
     country: "portugal",
     min_quantity: 3,
     tirage_25: 6.1,
@@ -1700,6 +1768,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   portugal_6: {
+    id: "portugal_6",
     country: "portugal",
     min_quantity: 6,
     tirage_25: 6.1,
@@ -1725,6 +1794,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   czechia_1: {
+    id: "czechia_1",
     country: "czechia",
     min_quantity: 1,
     tirage_25: 6.0,
@@ -1750,6 +1820,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   czechia_3: {
+    id: "czechia_3",
     country: "czechia",
     min_quantity: 3,
     tirage_25: 6.0,
@@ -1775,6 +1846,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   czechia_6: {
+    id: "czechia_6",
     country: "czechia",
     min_quantity: 6,
     tirage_25: 6.0,
@@ -1800,6 +1872,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   romania_1: {
+    id: "romania_1",
     country: "romania",
     min_quantity: 1,
     tirage_25: 5.9,
@@ -1825,6 +1898,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   romania_3: {
+    id: "romania_3",
     country: "romania",
     min_quantity: 3,
     tirage_25: 5.9,
@@ -1850,6 +1924,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   romania_6: {
+    id: "romania_6",
     country: "romania",
     min_quantity: 6,
     tirage_25: 5.9,
@@ -1875,6 +1950,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   denmark_1: {
+    id: "denmark_1",
     country: "denmark",
     min_quantity: 1,
     tirage_25: 6.2,
@@ -1900,6 +1976,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   denmark_3: {
+    id: "denmark_3",
     country: "denmark",
     min_quantity: 3,
     tirage_25: 6.2,
@@ -1925,6 +2002,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   denmark_6: {
+    id: "denmark_6",
     country: "denmark",
     min_quantity: 6,
     tirage_25: 6.2,
@@ -1950,6 +2028,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   greece_1: {
+    id: "greece_1",
     country: "greece",
     min_quantity: 1,
     tirage_25: 6.15,
@@ -1975,6 +2054,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   greece_3: {
+    id: "greece_3",
     country: "greece",
     min_quantity: 3,
     tirage_25: 6.15,
@@ -2000,6 +2080,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   greece_6: {
+    id: "greece_6",
     country: "greece",
     min_quantity: 6,
     tirage_25: 6.15,
@@ -2025,6 +2106,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   "united-kingdom_1": {
+    id: "united-kingdom_1",
     country: "united-kingdom",
     min_quantity: 1,
     tirage_25: 19.95,
@@ -2050,6 +2132,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   "united-kingdom_3": {
+    id: "united-kingdom_3",
     country: "united-kingdom",
     min_quantity: 3,
     tirage_25: 19.95,
@@ -2075,6 +2158,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   "united-kingdom_6": {
+    id:"united-kingdom_6",
     country: "united-kingdom",
     min_quantity: 6,
     tirage_25: 19.95,
@@ -2100,6 +2184,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   slovakia_1: {
+    id: "slovakia_1",
     country: "slovakia",
     min_quantity: 1,
     tirage_25: 5.95,
@@ -2125,6 +2210,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   slovakia_3: {
+    id: "slovakia_3",
     country: "slovakia",
     min_quantity: 3,
     tirage_25: 5.95,
@@ -2150,6 +2236,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   slovakia_6: {
+    id: "slovakia_6",
     country: "slovakia",
     min_quantity: 6,
     tirage_25: 5.95,
@@ -2175,6 +2262,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   slovenia_1: {
+    id: "slovenia_1",
     country: "slovenia",
     min_quantity: 1,
     tirage_25: 6.1,
@@ -2200,6 +2288,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   slovenia_3: {
+    id: "slovenia_3",
     country: "slovenia",
     min_quantity: 3,
     tirage_25: 6.1,
@@ -2225,6 +2314,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   slovenia_6: {
+    id: "slovenia_6",
     country: "slovenia",
     min_quantity: 6,
     tirage_25: 6.1,
@@ -2250,6 +2340,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   spain_1: {
+    id: "spain_1",
     country: "spain",
     min_quantity: 1,
     tirage_25: 6.0,
@@ -2275,6 +2366,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   spain_3: {
+    id: "spain_3",
     country: "spain",
     min_quantity: 3,
     tirage_25: 6.0,
@@ -2300,6 +2392,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   spain_6: {
+    id: "spain_6",
     country: "spain",
     min_quantity: 6,
     tirage_25: 6.0,
@@ -2325,6 +2418,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   belgium_1: {
+    id: "belgium_1",
     country: "belgium",
     min_quantity: 1,
     tirage_25: 11.1,
@@ -2350,6 +2444,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   belgium_3: {
+    id: "belgium_3",
     country: "belgium",
     min_quantity: 3,
     tirage_25: 11.1,
@@ -2375,6 +2470,7 @@ export const expeditionInfos = {
     delay_frame: 10,
   },
   belgium_6: {
+    id: "belgium_6",
     country: "belgium",
     min_quantity: 6,
     tirage_25: 11.1,
@@ -2400,6 +2496,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   bulgaria_1: {
+    id: "bulgaria_1",
     country: "bulgaria",
     min_quantity: 1,
     tirage_25: 5.95,
@@ -2425,6 +2522,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   bulgaria_3: {
+    id: "bulgaria_3",
     country: "bulgaria",
     min_quantity: 3,
     tirage_25: 5.95,
@@ -2450,6 +2548,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   bulgaria_6: {
+    id: "bulgaria_6",
     country: "bulgaria",
     min_quantity: 6,
     tirage_25: 5.95,
@@ -2475,6 +2574,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   canada_1: {
+    id: "canada_1",
     country: "canada",
     min_quantity: 1,
     tirage_25: 18.29,
@@ -2500,6 +2600,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   canada_3: {
+    id: "canada_3",
     country: "canada",
     min_quantity: 3,
     tirage_25: 18.29,
@@ -2525,6 +2626,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   canada_6: {
+    id: "canada_6",
     country: "canada",
     min_quantity: 6,
     tirage_25: 18.29,
@@ -2550,6 +2652,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   "united-states_1": {
+    id: "united-states_1",
     country: "united-states",
     min_quantity: 1,
     tirage_25: 18.29,
@@ -2575,7 +2678,8 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   "united-states_3": {
-    country: "united-states",
+    id: "united-states_3",
+    country:"united-states",
     min_quantity: 3,
     tirage_25: 18.29,
     tirage_60: 19.96,
@@ -2600,6 +2704,7 @@ export const expeditionInfos = {
     delay_frame: 11,
   },
   "united-states_6": {
+    id: "united-states_6",
     country: "united-states",
     min_quantity: 6,
     tirage_25: 18.29,
@@ -2625,6 +2730,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   korea_1: {
+    id: "korea_1",
     country: "korea",
     min_quantity: 1,
     tirage_25: 33.29,
@@ -2650,6 +2756,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   korea_3: {
+    id: "korea_3",
     country: "korea",
     min_quantity: 3,
     tirage_25: 33.29,
@@ -2675,6 +2782,7 @@ export const expeditionInfos = {
     delay_frame: 16,
   },
   korea_6: {
+    id: "korea_6",
     country: "korea",
     min_quantity: 6,
     tirage_25: 33.29,
@@ -2700,6 +2808,7 @@ export const expeditionInfos = {
     delay_frame: 17,
   },
   china_1: {
+    id: "china_1",
     country: "china",
     min_quantity: 1,
     tirage_25: 20.79,
@@ -2725,6 +2834,7 @@ export const expeditionInfos = {
     delay_frame: 14,
   },
   china_3: {
+    id: "china_3",
     country: "china",
     min_quantity: 3,
     tirage_25: 20.79,
@@ -2750,6 +2860,7 @@ export const expeditionInfos = {
     delay_frame: 14,
   },
   china_6: {
+    id: "china_6",
     country: "china",
     min_quantity: 6,
     tirage_25: 20.79,
@@ -2775,6 +2886,7 @@ export const expeditionInfos = {
     delay_frame: 15,
   },
   croatia_1: {
+    id: "croatia_1",
     country: "croatia",
     min_quantity: 1,
     tirage_25: 6.2,
@@ -2800,6 +2912,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   croatia_3: {
+    id: "croatia_3",
     country: "croatia",
     min_quantity: 3,
     tirage_25: 6.2,
@@ -2825,6 +2938,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   croatia_6: {
+    id: "croatia_6",
     country: "croatia",
     min_quantity: 6,
     tirage_25: 6.2,
@@ -2850,6 +2964,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   estonia_1: {
+    id: "estonia_1",
     country: "estonia",
     min_quantity: 1,
     tirage_25: 5.95,
@@ -2875,6 +2990,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   estonia_3: {
+    id: "estonia_3",
     country: "estonia",
     min_quantity: 3,
     tirage_25: 5.95,
@@ -2900,6 +3016,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   estonia_6: {
+    id: "estonia_6",
     country: "estonia",
     min_quantity: 6,
     tirage_25: 5.95,
@@ -2925,6 +3042,7 @@ export const expeditionInfos = {
     delay_frame: 13,
   },
   sweden_1: {
+    id: "sweden_1",
     country: "sweden",
     min_quantity: 1,
     tirage_25: 6.2,
@@ -2950,6 +3068,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   sweden_3: {
+    id: "sweden_3",
     country: "sweden",
     min_quantity: 3,
     tirage_25: 6.2,
@@ -2975,6 +3094,7 @@ export const expeditionInfos = {
     delay_frame: 12,
   },
   sweden_6: {
+    id: "sweden_6",
     country: "sweden",
     min_quantity: 6,
     tirage_25: 6.2,

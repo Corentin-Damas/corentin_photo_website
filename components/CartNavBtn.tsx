@@ -30,18 +30,6 @@ function CartNavBtn() {
 
       {cartList.length > 0 && isOpen && (
         <div className={styles.cartNav__container}>
-          {/* <div className={styles.cartHeader}>
-            <Link
-              href="/cart"
-              className={`${styles.majorLink} ${styles.cartLink}`}
-              onClick={()=>setIsOpen(false)}
-            >
-              <p>My cart</p>
-            </Link>
-            <p className={`${styles.majorLink} ${styles.orderLink}`}>
-              Order now
-            </p>
-          </div> */}
           <div className={styles.cartMainContent}>
             {cartList.map((el) => (
               <div key={el.totalPrice} className={styles.resume}>

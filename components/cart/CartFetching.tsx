@@ -1,19 +1,19 @@
 import React from "react";
 
-import {
-  queryCountries,
-  queryExpedition,
-} from "../../providers/utils/getQueryOutput";
 import CompletCartResum from "./CompletCartResum";
+import { expeditionInfos } from "../shop/expedition";
 
 // RESWITCH TOO DANS UN COMPOSANT SERVEUR
 
-const CartFetching = async ({ searchParams }: { searchParams: any }) => {
+const CartFetching = ({ searchParams }: { searchParams: any }) => {
   // const expeditionInfo = await queryExpedition();
+  const allCountries:string[] =  []
+ Object.values(expeditionInfos).map((el)=>{
+    allCountries.push(el.country)
+  })
 
-  const allCountries = await queryCountries();
   const coutrySet = new Set<string>();
-  allCountries?.map((el) => coutrySet.add(el.country));
+  allCountries.map((el) => coutrySet.add(el));
   const countryArr: string[] = Array.from(coutrySet);
 
   const destination: string | null = searchParams.dest;
@@ -22,10 +22,10 @@ const CartFetching = async ({ searchParams }: { searchParams: any }) => {
   const montage_threshold: string | null = searchParams.mTh;
   const prodTypeMax_mounted: string | null = searchParams.ty;
 
-  let data: expeditionInfoType | undefined | null;
-  if (destination !== null && quantity !== null) {
-    data = await queryExpedition(destination, quantity);
-  }
+  if (destination !== null && quantity != null){
+  } 
+  const data: expeditionInfoType | undefined | null = expeditionInfos[`${destination}_${quantity}` as keyof expeditionObjectType];
+  
 
   let finalData: expeditionResType | null = null;
 

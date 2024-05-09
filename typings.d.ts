@@ -60,6 +60,10 @@ type productInfoType = {
   bordLarge_90: number;
 };
 
+type expeditionObjectType = {
+  [key: string]: expeditionInfoType;
+}
+
 type expeditionInfoType = {
   id: string;
   country: string;

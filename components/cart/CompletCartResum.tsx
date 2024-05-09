@@ -182,8 +182,6 @@ function CompletCartResum({
       });
   };
 
-  function handleQuantityChange(e: React.FormEvent<HTMLOptionElement>) {}
-
   useEffect(() => {
     if (selectedCountry == null || cartList.length < 1) {
       router.push("/cart", { scroll: false });

@@ -1,6 +1,6 @@
-export const framesInfos:productNamesType = {
+export const framesInfos: productNamesType = {
   "ilford_glossy_black_and_white_paper_1:1": {
-    id:"ilford_glossy_black_and_white_paper_1:1",
+    id: "ilford_glossy_black_and_white_paper_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 16.95,
@@ -16,7 +16,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "ilford_glossy_black_and_white_paper_4:3": {
-    id:"ilford_glossy_black_and_white_paper_4:3",
+    id: "ilford_glossy_black_and_white_paper_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 14.95,
@@ -32,7 +32,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "ilford_glossy_black_and_white_paper_3:2": {
-    id:"ilford_glossy_black_and_white_paper_3:2",
+    id: "ilford_glossy_black_and_white_paper_3:2",
     format: "3/2",
     bordLarge_16: 12.95,
     bordLarge_20: 0.0,
@@ -48,7 +48,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 63.95,
   },
   "ilford_glossy_black_and_white_paper_5:7": {
-    id:"ilford_glossy_black_and_white_paper_5:7",
+    id: "ilford_glossy_black_and_white_paper_5:7",
     format: "5/7",
     bordLarge_16: 14.95,
     bordLarge_20: 0.0,
@@ -64,7 +64,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 74.95,
   },
   "ilford_glossy_black_and_white_paper_16:9": {
-    id:"ilford_glossy_black_and_white_paper_16:9",
+    id: "ilford_glossy_black_and_white_paper_16:9",
     format: "16/9",
     bordLarge_16: 11.95,
     bordLarge_20: 0.0,
@@ -80,7 +80,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_glossy_1:1": {
-    id:"fuji_crystal_archive_glossy_1:1",
+    id: "fuji_crystal_archive_glossy_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 9.95,
@@ -96,7 +96,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_glossy_4:3": {
-    id:"fuji_crystal_archive_glossy_4:3",
+    id: "fuji_crystal_archive_glossy_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 7.95,
@@ -112,7 +112,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_glossy_3:2": {
-    id:"fuji_crystal_archive_glossy_3:2",
+    id: "fuji_crystal_archive_glossy_3:2",
     format: "3/2",
     bordLarge_16: 6.95,
     bordLarge_20: 0.0,
@@ -128,7 +128,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 33.95,
   },
   "fuji_crystal_archive_glossy_5:7": {
-    id:"fuji_crystal_archive_glossy_5:7",
+    id: "fuji_crystal_archive_glossy_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 7.95,
@@ -144,7 +144,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 38.95,
   },
   "fuji_crystal_archive_glossy_16:9": {
-    id:"fuji_crystal_archive_glossy_16:9",
+    id: "fuji_crystal_archive_glossy_16:9",
     format: "16/9",
     bordLarge_16: 6.95,
     bordLarge_20: 0.0,
@@ -160,7 +160,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fujiFlexGloss_1:1": {
-    id:"fujiFlexGloss_1:1",
+    id: "fujiFlexGloss_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 28.95,
@@ -176,7 +176,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fujiFlexGloss_4:3": {
-    id:"fujiFlexGloss_4:3",
+    id: "fujiFlexGloss_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 24.95,
@@ -192,7 +192,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fujiFlexGloss_3:2": {
-    id:"fujiFlexGloss_3:2",
+    id: "fujiFlexGloss_3:2",
     format: "3/2",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -208,7 +208,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 105.95,
   },
   "fujiFlexGloss_5:7": {
-    id:"fujiFlexGloss_5:7",
+    id: "fujiFlexGloss_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 22.95,
@@ -224,7 +224,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 122.95,
   },
   "fujiFlexGloss_16:9": {
-    id:"fujiFlexGloss_16:9",
+    id: "fujiFlexGloss_16:9",
     format: "16/9",
     bordLarge_16: 18.95,
     bordLarge_20: 0.0,
@@ -240,7 +240,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "aluminum_dibond_1:1": {
-    id:"aluminum_dibond_1:1",
+    id: "aluminum_dibond_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 33.95,
@@ -256,7 +256,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "aluminum_dibond_4:3": {
-    id:"aluminum_dibond_4:3",
+    id: "aluminum_dibond_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 27.95,
@@ -272,7 +272,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "aluminum_dibond_3:2": {
-    id:"aluminum_dibond_3:2",
+    id: "aluminum_dibond_3:2",
     format: "3/2",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -288,7 +288,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 193.95,
   },
   "aluminum_dibond_5:7": {
-    id:"aluminum_dibond_5:7",
+    id: "aluminum_dibond_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -304,7 +304,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 216.95,
   },
   "aluminum_dibond_16:9": {
-    id:"aluminum_dibond_16:9",
+    id: "aluminum_dibond_16:9",
     format: "16/9",
     bordLarge_16: 17.95,
     bordLarge_20: 0.0,
@@ -320,7 +320,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fine_art_dibond_1:1": {
-    id:"fine_art_dibond_1:1",
+    id: "fine_art_dibond_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 47.95,
@@ -336,7 +336,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fine_art_dibond_4:3": {
-    id:"fine_art_dibond_4:3",
+    id: "fine_art_dibond_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 37.95,
@@ -352,7 +352,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fine_art_dibond_3:2": {
-    id:"fine_art_dibond_3:2",
+    id: "fine_art_dibond_3:2",
     format: "3/2",
     bordLarge_16: 27.95,
     bordLarge_20: 0.0,
@@ -368,7 +368,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 259.95,
   },
   "fine_art_dibond_5:7": {
-    id:"fine_art_dibond_5:7",
+    id: "fine_art_dibond_5:7",
     format: "5/7",
     bordLarge_16: 31.95,
     bordLarge_20: 30.95,
@@ -384,7 +384,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 293.95,
   },
   "fine_art_dibond_16:9": {
-    id:"fine_art_dibond_16:9",
+    id: "fine_art_dibond_16:9",
     format: "16/9",
     bordLarge_16: 25.95,
     bordLarge_20: 0.0,
@@ -400,7 +400,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "floater_frame_1:1": {
-    id:"floater_frame_1:1",
+    id: "floater_frame_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 79.95,
@@ -416,7 +416,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "floater_frame_4:3": {
-    id:"floater_frame_4:3",
+    id: "floater_frame_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 54.95,
@@ -432,7 +432,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "floater_frame_3:2": {
-    id:"floater_frame_3:2",
+    id: "floater_frame_3:2",
     format: "3/2",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -448,7 +448,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 287.95,
   },
   "floater_frame_5:7": {
-    id:"floater_frame_5:7",
+    id: "floater_frame_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -464,7 +464,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 317.95,
   },
   "floater_frame_16:9": {
-    id:"floater_frame_16:9",
+    id: "floater_frame_16:9",
     format: "16/9",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -480,7 +480,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "solid_wood_frame_with_passe_partout_1:1": {
-    id:"solid_wood_frame_with_passe_partout_1:1",
+    id: "solid_wood_frame_with_passe_partout_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 112.95,
@@ -496,7 +496,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "solid_wood_frame_with_passe_partout_4:3": {
-    id:"solid_wood_frame_with_passe_partout_4:3",
+    id: "solid_wood_frame_with_passe_partout_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 107.95,
@@ -512,7 +512,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "solid_wood_frame_with_passe_partout_3:2": {
-    id:"solid_wood_frame_with_passe_partout_3:2",
+    id: "solid_wood_frame_with_passe_partout_3:2",
     format: "3/2",
     bordLarge_16: 91.95,
     bordLarge_20: 0.0,
@@ -528,7 +528,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 231.95,
   },
   "solid_wood_frame_with_passe_partout_5:7": {
-    id:"solid_wood_frame_with_passe_partout_5:7",
+    id: "solid_wood_frame_with_passe_partout_5:7",
     format: "5/7",
     bordLarge_16: 102.95,
     bordLarge_20: 0.0,
@@ -544,7 +544,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "solid_wood_frame_with_passe_partout_16:9": {
-    id:"solid_wood_frame_with_passe_partout_16:9",
+    id: "solid_wood_frame_with_passe_partout_16:9",
     format: "16/9",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -560,7 +560,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "gallery_frame_1:1": {
-    id:"gallery_frame_1:1",
+    id: "gallery_frame_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 77.95,
@@ -576,7 +576,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "gallery_frame_4:3": {
-    id:"gallery_frame_4:3",
+    id: "gallery_frame_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 52.95,
@@ -592,7 +592,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "gallery_frame_3:2": {
-    id:"gallery_frame_3:2",
+    id: "gallery_frame_3:2",
     format: "3/2",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -608,7 +608,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 355.95,
   },
   "gallery_frame_5:7": {
-    id:"gallery_frame_5:7",
+    id: "gallery_frame_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -624,7 +624,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "gallery_frame_16:9": {
-    id:"gallery_frame_16:9",
+    id: "gallery_frame_16:9",
     format: "16/9",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -640,7 +640,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_glossy_acrylic_glass_16:9": {
-    id:"under_glossy_acrylic_glass_16:9",
+    id: "under_glossy_acrylic_glass_16:9",
     format: "16/9",
     bordLarge_16: 23.06,
     bordLarge_20: 0.0,
@@ -656,7 +656,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_glossy_acrylic_glass_5:7": {
-    id:"under_glossy_acrylic_glass_5:7",
+    id: "under_glossy_acrylic_glass_5:7",
     format: "5/7",
     bordLarge_16: 29.36,
     bordLarge_20: 0.0,
@@ -672,7 +672,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 312.89,
   },
   "under_glossy_acrylic_glass_3:2": {
-    id:"under_glossy_acrylic_glass_3:2",
+    id: "under_glossy_acrylic_glass_3:2",
     format: "3/2",
     bordLarge_16: 23.06,
     bordLarge_20: 0.0,
@@ -688,7 +688,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 275.16,
   },
   "under_glossy_acrylic_glass_4:3": {
-    id:"under_glossy_acrylic_glass_4:3",
+    id: "under_glossy_acrylic_glass_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 33.56,
@@ -704,7 +704,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_glossy_acrylic_glass_1:1": {
-    id:"under_glossy_acrylic_glass_1:1",
+    id: "under_glossy_acrylic_glass_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 41.96,
@@ -720,7 +720,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_matte_acrylic_glass_16:9": {
-    id:"under_matte_acrylic_glass_16:9",
+    id: "under_matte_acrylic_glass_16:9",
     format: "16/9",
     bordLarge_16: 25.16,
     bordLarge_20: 0.0,
@@ -736,7 +736,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_matte_acrylic_glass_5:7": {
-    id:"under_matte_acrylic_glass_5:7",
+    id: "under_matte_acrylic_glass_5:7",
     format: "5/7",
     bordLarge_16: 34.61,
     bordLarge_20: 0.0,
@@ -752,7 +752,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 362.34,
   },
   "under_matte_acrylic_glass_3:2": {
-    id:"under_matte_acrylic_glass_3:2",
+    id: "under_matte_acrylic_glass_3:2",
     format: "3/2",
     bordLarge_16: 26.21,
     bordLarge_20: 0.0,
@@ -768,7 +768,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 316.13,
   },
   "under_matte_acrylic_glass_4:3": {
-    id:"under_matte_acrylic_glass_4:3",
+    id: "under_matte_acrylic_glass_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 37.76,
@@ -784,7 +784,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "under_matte_acrylic_glass_1:1": {
-    id:"under_matte_acrylic_glass_1:1",
+    id: "under_matte_acrylic_glass_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 44.06,
@@ -800,7 +800,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "hahnemühle_fineart_baryta_16:9": {
-    id:"hahnemühle_fineart_baryta_16:9",
+    id: "hahnemühle_fineart_baryta_16:9",
     format: "16/9",
     bordLarge_16: 12.95,
     bordLarge_20: 0.0,
@@ -816,7 +816,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "hahnemühle_fineart_baryta_5:7": {
-    id:"hahnemühle_fineart_baryta_5:7",
+    id: "hahnemühle_fineart_baryta_5:7",
     format: "5/7",
     bordLarge_16: 15.95,
     bordLarge_20: 0.0,
@@ -832,7 +832,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 82.95,
   },
   "hahnemühle_fineart_baryta_3:2": {
-    id:"hahnemühle_fineart_baryta_3:2",
+    id: "hahnemühle_fineart_baryta_3:2",
     format: "3/2",
     bordLarge_16: 13.95,
     bordLarge_20: 0.0,
@@ -848,7 +848,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 70.95,
   },
   "hahnemühle_fineart_baryta_4:3": {
-    id:"hahnemühle_fineart_baryta_4:3",
+    id: "hahnemühle_fineart_baryta_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 16.95,
@@ -864,7 +864,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "hahnemühle_fineart_baryta_1:1": {
-    id:"hahnemühle_fineart_baryta_1:1",
+    id: "hahnemühle_fineart_baryta_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 17.95,
@@ -880,7 +880,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_matte_16:9": {
-    id:"fuji_crystal_archive_matte_16:9",
+    id: "fuji_crystal_archive_matte_16:9",
     format: "16/9",
     bordLarge_16: 6.95,
     bordLarge_20: 0.0,
@@ -896,7 +896,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_matte_1:1": {
-    id:"fuji_crystal_archive_matte_1:1",
+    id: "fuji_crystal_archive_matte_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 9.95,
@@ -912,7 +912,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_matte_3:2": {
-    id:"fuji_crystal_archive_matte_3:2",
+    id: "fuji_crystal_archive_matte_3:2",
     format: "3/2",
     bordLarge_16: 6.95,
     bordLarge_20: 0.0,
@@ -928,7 +928,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 33.95,
   },
   "fuji_crystal_archive_matte_4:3": {
-    id:"fuji_crystal_archive_matte_4:3",
+    id: "fuji_crystal_archive_matte_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 7.95,
@@ -944,7 +944,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "fuji_crystal_archive_matte_5:7": {
-    id:"fuji_crystal_archive_matte_5:7",
+    id: "fuji_crystal_archive_matte_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 7.95,
@@ -960,7 +960,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 38.95,
   },
   "ilford_matte_black_and_white_paper_16:9": {
-    id:"ilford_matte_black_and_white_paper_16:9",
+    id: "ilford_matte_black_and_white_paper_16:9",
     format: "16/9",
     bordLarge_16: 11.95,
     bordLarge_20: 0.0,
@@ -976,7 +976,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "ilford_matte_black_and_white_paper_1:1": {
-    id:"ilford_matte_black_and_white_paper_1:1",
+    id: "ilford_matte_black_and_white_paper_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 16.95,
@@ -992,7 +992,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "ilford_matte_black_and_white_paper_3:2": {
-    id:"ilford_matte_black_and_white_paper_3:2",
+    id: "ilford_matte_black_and_white_paper_3:2",
     format: "3/2",
     bordLarge_16: 12.95,
     bordLarge_20: 0.0,
@@ -1008,7 +1008,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 63.95,
   },
   "ilford_matte_black_and_white_paper_4:3": {
-    id:"ilford_matte_black_and_white_paper_4:3",
+    id: "ilford_matte_black_and_white_paper_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 14.95,
@@ -1024,7 +1024,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "ilford_matte_black_and_white_paper_5:7": {
-    id:"ilford_matte_black_and_white_paper_5:7",
+    id: "ilford_matte_black_and_white_paper_5:7",
     format: "5/7",
     bordLarge_16: 14.95,
     bordLarge_20: 0.0,
@@ -1040,7 +1040,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 74.95,
   },
   "artbox_16:9": {
-    id:"artbox_16:9",
+    id: "artbox_16:9",
     format: "16/9",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -1056,7 +1056,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "artbox_5:7": {
-    id:"artbox_5:7",
+    id: "artbox_5:7",
     format: "5/7",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -1072,7 +1072,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 217.95,
   },
   "artbox_3:2": {
-    id:"artbox_3:2",
+    id: "artbox_3:2",
     format: "3/2",
     bordLarge_16: 0.0,
     bordLarge_20: 0.0,
@@ -1088,7 +1088,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 199.95,
   },
   "artbox_4:3": {
-    id:"artbox_4:3",
+    id: "artbox_4:3",
     format: "4/3",
     bordLarge_16: 0.0,
     bordLarge_20: 37.95,
@@ -1104,7 +1104,7 @@ export const framesInfos:productNamesType = {
     bordLarge_90: 0.0,
   },
   "artbox_1:1": {
-    id:"artbox_1:1",
+    id: "artbox_1:1",
     format: "1/1",
     bordLarge_16: 0.0,
     bordLarge_20: 46.95,

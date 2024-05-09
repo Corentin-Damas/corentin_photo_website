@@ -8,15 +8,19 @@ import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import CartNavBtn from "./CartNavBtn";
 import LocalStorage from "./LocalStorage";
+import { useCartProduct } from "../providers/cart-provider";
 
 function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
+  const cartList = useCartProduct((state) => state.cartOfProduct);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
   const path = usePathname();
-  LocalStorage()
+  LocalStorage();
+
+  const isCartFilled:boolean = cartList.length > 0? true: false
 
   return (
     <nav className={styles.smallScreenNav}>
@@ -34,14 +38,20 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
       </div>
       {!menuOpen ? (
         <GrFormClose
-          className={styles.icone_SmallScreen_close}
+          className={`${styles.icone_SmallScreen_close} `}
           onClick={toggleMenu}
         />
       ) : (
-        <CgMenuRightAlt
-          className={styles.icone_SmallScreen_menu}
-          onClick={toggleMenu}
-        />
+        <>
+          <CgMenuRightAlt
+            className={`${styles.icone_SmallScreen_menu} `}
+            onClick={toggleMenu}
+          />
+          { isCartFilled &&
+
+            <span className={styles.redDote}>{" "}</span>
+          }
+        </>
       )}
       <div
         className={`${styles.nav_SmallScreen} ${

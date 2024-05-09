@@ -7,10 +7,12 @@ import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import LocalStorage from "../LocalStorage";
+import { useImgSelected } from "../../providers/imgFav-provider";
 
 function Nav_gallerySmallSize() {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
-  LocalStorage()
+  const imgList = useImgSelected((state) => state.imgSelected);
+  LocalStorage();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -39,7 +41,7 @@ function Nav_gallerySmallSize() {
           <ul className={styles.links_smallSize} onBlur={toggleMenu}>
             <div className={styles.link}>
               <Link href="/" className={styles.myNameLink}>
-                Corentin Damas 
+                Corentin Damas
               </Link>
             </div>
             <div className={styles.link}>
@@ -130,7 +132,10 @@ function Nav_gallerySmallSize() {
             </div>
             <Link href="/about">about</Link>
             <Link href="/contact">contact</Link>
-            <Link href="/shop">shop</Link>
+            <Link href="/shop" className={styles.shopLink}>
+              shop{" "}
+              {imgList.length > 0 && <p className={styles.redDote}>&nbsp;</p>}
+            </Link>
           </ul>
         </div>
       </div>
