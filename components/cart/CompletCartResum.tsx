@@ -160,7 +160,7 @@ function CompletCartResum({
   const checkout = async () => {
     // console.log(cartList, total, maxPrice, minimumExp, maximumExp);
     try {
-      await fetch("http://localhost:3000/api/checkout", {
+      await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
