@@ -43,7 +43,6 @@ export const POST = async (request: any) => {
   activeProducts = await getActiveProducts();
   let stripeItems: any = [];
 
-
   for (const product of data) {
     const productName: string = `${product.nameDisplayMethod}_${
       product.color ? product.color : ""
@@ -89,8 +88,8 @@ export const POST = async (request: any) => {
     shipping_address_collection: {
       allowed_countries: [countryCode],
     },
-    success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/cancel",
+    success_url: "/success",
+    cancel_url: "/cancel",
   });
 
   return NextResponse.json({ url: session.url });
