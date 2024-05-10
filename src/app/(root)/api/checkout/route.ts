@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 const stripe = require("stripe")(process.env.STRIPE_API_KEY_TEST);
 
 const getActiveProducts = async () => {
@@ -9,7 +10,16 @@ const getActiveProducts = async () => {
   return availableProducts;
 };
 
+export const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production")
+    return `https://${process.env.VERCEL_URL}`;
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  return "http://localhost:3000";
+};
+
 export const POST = async (request: any) => {
+  console.log(getBaseUrl())
   const { products, price, shippingCoast, countryCode, minExp, maxExp } =
     await request.json();
   const data: productResumeType[] = products;
@@ -88,8 +98,8 @@ export const POST = async (request: any) => {
     shipping_address_collection: {
       allowed_countries: [countryCode],
     },
-    success_url: "/success",
-    cancel_url: "/cancel",
+    success_url: `${getBaseUrl()}/success`,
+    cancel_url: `${getBaseUrl()}/cancel`,
   });
 
   return NextResponse.json({ url: session.url });
