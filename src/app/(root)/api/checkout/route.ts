@@ -10,21 +10,24 @@ const getActiveProducts = async () => {
   return availableProducts;
 };
 
-export const getBaseUrl = () => {
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production")
-    return `https://${process.env.VERCEL_URL}`;
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
-    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-  return "http://localhost:3000";
-};
+
 
 export const POST = async (request: any) => {
-  console.log(getBaseUrl())
   const { products, price, shippingCoast, countryCode, minExp, maxExp } =
-    await request.json();
+  await request.json();
   const data: productResumeType[] = products;
-
+  
   let activeProducts = await getActiveProducts();
+  
+  const getBaseUrl = () => {
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production")
+      return `https://${process.env.VERCEL_URL}`;
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
+      return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    return "http://localhost:3000";
+  };
+  console.log(getBaseUrl())
+
 
   try {
     for (const product of data) {
