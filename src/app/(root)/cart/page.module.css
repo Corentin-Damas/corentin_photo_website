@@ -5,7 +5,7 @@
 }
 
 .heroSection {
-  padding-top: var(--spacing-LM);
+  padding-top: var(--spacing-M);
   position: relative;
   width: 100%;
   display: flex;

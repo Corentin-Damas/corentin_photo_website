@@ -1,0 +1,94 @@
+
+
+/* enlargeBtn */
+
+
+  
+
+  
+  /* .
+  mokeup_container {
+    @media only screen and (max-width: 50em) {
+      transform: scale(0.5) translate(25%, 0%);
+    }
+    @media only screen and (max-height: 50em) {
+      transform: scale(0.5) translate(25%, 0%);
+    }
+  
+    @media only screen and (max-width: 41.25em) {
+      margin-top: 0rem;
+      transform: scale(0.85) translate(0%, -10%);
+    }
+  }
+  .backgroundMobile {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    backdrop-filter: blur(3px);
+    background: linear-gradient(
+      180deg,
+      var(--background-color) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    width: 400vw;
+    height: 185%;
+  } */
+  
+  /* TO FIX */
+  
+  /* .fram__content__left:has(.img_fixed) {
+    position: absolute;
+  } */
+  /* .img_fixed.img_container {
+    position: absolute;
+    bottom: 100px;
+    align-self: flex-end;
+    justify-self: last baseline;
+    transition: bottom 0.2s;
+  }
+  .img_smallFixed.img_container {
+    margin-top: var(--spacing-XS);
+    height: 40rem;
+    top: -20vh;
+  }
+
+  .img_smallFixed .mokeup_container {
+    transform: scale(0.4) translate(0%, 30%);
+  }
+  .img_smallFixed .img__wall {
+    transform: scale(0.4) translate(0%, 30%);
+  } 
+  */
+  
+  
+  /* .img_smallFixed .suggestedTxt {
+    z-index: 920;
+    top: 19.5rem;
+    left: 12rem;
+  
+    width: 90rem;
+  } */
+  
+
+  
+  
+  .img_smallFixed .backgroundMobile {
+    height: 215%;
+  }
+  
+
+
+  
+  .img_smallFixed .totalPrice {
+    bottom: -4.4rem;
+    right: 0rem;
+    gap: calc(var(--spacing-S) + 0.7rem);
+    align-items: flex-start;
+  }
+  
+  
+ 
+  
+
+  
+  

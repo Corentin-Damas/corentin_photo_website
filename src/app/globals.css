@@ -76,7 +76,8 @@
   --bg-p1-transparency: hsla(210, 40%, 98%, 0.7);
   --bg-p1-brightness: 1.15;
   --bg-navMobile-brightness: 1.4;
-  /* --gallery-title-transparency: hsla(6, 59%, 24%, 0.9); */
+
+
   --font-color-main: #1f2b39;
   --font-color-sec: #2b3d50;
   --font-color-gray: #556473;
@@ -500,6 +501,10 @@ Phones
 @media only screen and (max-width: 33em){} 
 512px 32em 
 @media only screen and (max-width: 32em){} 
+
+480px 30em
+@media only screen and (max-width: 30em){} 
+
 432px 27em
 @media only screen and (max-width: 27em){}  
 

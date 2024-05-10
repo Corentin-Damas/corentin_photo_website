@@ -18,6 +18,7 @@ import { useCartProduct } from "../../providers/cart-provider";
 import LocalStorage from "../LocalStorage";
 
 // shop
+// fram__content__left
 
 function Select_img({
   objImg,
@@ -709,7 +710,7 @@ function Select_img({
 
     const foot_height = foot == undefined ? 0 : foot.scrollHeight;
 
-    if (windSizeWidth <= 660 && currentScroll > 40) {
+    if (windSizeWidth <= 700 && currentScroll > 150) {
       setNavState(possibleState.smallFixed);
     } else if (currentScroll >= height - (windSize + foot_height + 100)) {
       setNavState(possibleState.fixed);
@@ -744,109 +745,51 @@ function Select_img({
         <div
           id="imgContainer"
           className={`${styles.img_container} ${
-            navState == possibleState.fixed
-              ? `${styles.img_fixed} `
-              : navState == possibleState.unFixed
-              ? `${styles.img_unfixed}`
-              : `${styles.img_smallFixed} `
-          }`}
+            navState == possibleState.smallFixed && styles.img_smallFixed
+          }              
+          `}
         >
           {selectedImg !== null && (
-            <p className={styles.suggestedTxt}> Suggested display </p>
-          )}
-          {selectedImg !== null && (
-            <button
-              className={`${styles.enlargeBtn}`}
-              onClick={() => setEnlarger(!enlarger)}
+            <p
+              className={`${styles.suggestedTxt} ${
+                navState == possibleState.smallFixed && styles.img_smallFixed
+              } `}
             >
-              <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
-              <IoIosExpand
-                className={`${styles.icone} ${styles.enlargeIcone}`}
-              />
-            </button>
+              {" "}
+              Suggested display{" "}
+            </p>
           )}
-          <div className={styles.backgroundMobile}></div>
-          {/*==================== Left Btn add to cart ============================*/}
-          {product !== undefined && prodSize !== null && (
-            <div className={styles.totalPrice}>
-              {!is_addCartClicked ? (
-                <div className={styles.btn_addToCart_complet}>
-                  <button
-                    className={styles.btn_addToCart}
-                    onClick={handleAddToCart}
-                  >
-                    <MdAddShoppingCart className={styles.miniIcone} /> Add
-                    <span className={styles.cart__quantity}>
-                      {quantityProd}
-                    </span>
-                    to cart
-                  </button>
 
-                  <div className={styles.right__btns}>
-                    <button
-                      className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
-                    >
-                      <p
-                        onClick={() =>
-                          quantityProd > 0 && setQuantityProd(quantityProd + 1)
-                        }
-                        className={styles.neural_50}
-                      >
-                        +
-                      </p>
-                    </button>
-                    <button
-                      className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}
-                    >
-                      <p
-                        onClick={() =>
-                          quantityProd !== 1 &&
-                          quantityProd >= 2 &&
-                          setQuantityProd(quantityProd - 1)
-                        }
-                        className={styles.neural_50}
-                      >
-                        -
-                      </p>
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  href={"./cart"}
-                  className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}
-                >
-                  <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
-                  <p className={styles.neural_50}>Check my Cart</p>
-                </Link>
-              )}
-              <h6>
-                {(quantityProd * ((10 / 100) * subTotal + subTotal)).toFixed(2)}
-                €
-              </h6>
-            </div>
-          )}
+          {/* <div className={styles.backgroundMobile}></div> */}
+
           {selectedImg == "" || typeof selectedImg !== "string" ? (
             <Image
               src="/util_img/wall_img01.jpg"
               alt="Corentin Damas with one of is framed picture on a customer's wall"
-              className={` ${styles.img__wall}  `}
+              className={` ${styles.img__wall} ${
+                navState == possibleState.smallFixed && styles.img_smallFixed
+              }  `}
               sizes="(max-width: 480px) 100vw, 33vw"
               width={720}
               height={0}
               quality={80}
             />
           ) : (
-            //  ============================= REFACTOR IMG MOKEUP ==================================
-            <div className={`${styles.mokeup_container} `}>
+            //  ============================= REFACTOR IMG MOKEUP =======txtEnlarge ===========================
+            <div
+              className={`${styles.mokeup_container} ${
+                navState == possibleState.smallFixed && styles.img_smallFixed
+              }`}
+            >
               {selectedImg != "" && (
                 <Image
                   src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
                   alt="Actual selected pîcture"
                   onError={() => redirectToBasUrl()}
-                  className={`${styles.img__selected} ${
-                    isImageLoading ? "unLoaded" : "remove-unLoaded"
-                  }  ${
+                  className={`${styles.img__selected}  ${
+                    navState == possibleState.smallFixed &&
+                    styles.img_smallFixed
+                  } ${isImageLoading ? "unLoaded" : "remove-unLoaded"}  ${
                     isVertical && styles.verticalAdjus
                   }
                   ${
@@ -963,6 +906,8 @@ function Select_img({
                 alt="image of a living room used has a mokeup for the selected picture"
                 className={`${styles.img__mokeup} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"
+                } ${
+                  navState == possibleState.smallFixed && styles.img_smallFixed
                 }`}
                 sizes="(max-width: 480px) 100vw, 33vw"
                 width={720}
@@ -970,6 +915,84 @@ function Select_img({
                 quality={75}
                 onLoad={() => setImageLoading(false)}
               />
+              {selectedImg !== null && (
+                <button
+                  className={`${styles.enlargeBtn} ${
+                    navState == possibleState.smallFixed &&
+                    styles.img_smallFixed
+                  }`}
+                  onClick={() => setEnlarger(!enlarger)}
+                >
+                  <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
+                  <IoIosExpand
+                    className={`${styles.icone} ${styles.enlargeIcone}`}
+                  />
+                </button>
+              )}
+            </div>
+          )}
+          {/*==================== Left Btn add to cart ============================*/}
+          {product !== undefined && prodSize !== null && (
+            <div
+              className={`${styles.totalPrice} ${
+                navState == possibleState.smallFixed && styles.img_smallFixed
+              }     `}
+            >
+              {!is_addCartClicked ? (
+                <div className={styles.btn_addToCart_complet}>
+                  <button
+                    className={styles.btn_addToCart}
+                    onClick={handleAddToCart}
+                  >
+                    <MdAddShoppingCart className={styles.miniIcone} /> Add{" "}
+                    <span className={styles.cart__quantity}>
+                      {quantityProd}
+                    </span>
+                    to cart
+                  </button>
+
+                  <div className={styles.right__btns}>
+                    <button
+                      className={`${styles.btn__symbs} ${styles.btn__symbs__top}`}
+                    >
+                      <p
+                        onClick={() =>
+                          quantityProd > 0 && setQuantityProd(quantityProd + 1)
+                        }
+                        className={styles.neural_50}
+                      >
+                        +
+                      </p>
+                    </button>
+                    <button
+                      className={`${styles.btn__symbs} ${styles.btn__symbs__bot}`}
+                    >
+                      <p
+                        onClick={() =>
+                          quantityProd !== 1 &&
+                          quantityProd >= 2 &&
+                          setQuantityProd(quantityProd - 1)
+                        }
+                        className={styles.neural_50}
+                      >
+                        -
+                      </p>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={"./cart"}
+                  className={`${styles.btn_goToCartv2} ${styles.btn_goToCartv2_floater}`}
+                >
+                  <MdOutlineShoppingCartCheckout className={styles.miniIcone} />
+                  <p className={styles.neural_50}>Check my Cart</p>
+                </Link>
+              )}
+              <h6>
+                {(quantityProd * ((10 / 100) * subTotal + subTotal)).toFixed(2)}
+                €
+              </h6>
             </div>
           )}
         </div>
