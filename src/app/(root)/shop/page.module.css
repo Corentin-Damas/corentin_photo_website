@@ -1,3 +1,4 @@
+/* overflow */
 
 
 .header {
@@ -37,11 +38,14 @@
   margin-top: var(--spacing-S);
   margin-bottom: var(--spacing-M);
   width: 100%;
-  height: 80vh;
-  @media only screen and (max-width: 43.75em){
+  max-width: var(--max-width-L);
+  margin-inline: auto;
+
+  /* height: 80vh; */
+  /* @media only screen and (max-width: 43.75em){
     
     height: calc(45rem + 80vh);
-  }
+  } */
 
 }
 
@@ -66,8 +70,10 @@
 display:flex;
 justify-content: center;
 align-items: center;
-width: 100%;
-height: 10rem;
+width: max-content;
+height: max-content;
+margin-inline: auto;
+margin-bottom: var(--spacing-M);
 }
 
 .hero_title {

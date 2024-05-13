@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./../gallery/Image_grid.module.css";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 import { motion } from "framer-motion";
+import { imagesInfos } from "../shop/images";
 
 import BookMarkIcon from "../BookMarkIcon";
 
@@ -116,9 +117,12 @@ const GalleryImg = ({
               src={`/${currentDir}/S/${el}`}
               className={`${styles.img} ${
                 isImageLoading ? "unLoaded" : "remove-unLoaded"
+              } ${
+                imagesInfos[el.slice(0,-4)].form == "vertical" &&
+                styles.verticalAdjus
               }`}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              width={720}
+              sizes="(max-width: 768px) 100vw, 75vw"
+              width={1080}
               height={0}
               quality={80}
               alt={`picture from the photo series ${currentDir}`}

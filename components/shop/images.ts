@@ -6,6 +6,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "02-a_year_in_japan": {
     name: "02-a_year_in_japan",
@@ -14,6 +15,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "03-a_year_in_japan": {
     name: "03-a_year_in_japan",
@@ -22,6 +24,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "04-a_year_in_japan": {
     name: "04-a_year_in_japan",
@@ -30,6 +33,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "05-a_year_in_japan": {
     name: "05-a_year_in_japan",
@@ -38,6 +42,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 48,
     heightCm: 32,
     format: "3/2",
+    form: "horizontal",
   },
   "06-a_year_in_japan": {
     name: "06-a_year_in_japan",
@@ -46,6 +51,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 50,
     heightCm: 33,
     format: "3/2",
+    form: "horizontal",
   },
   "07-a_year_in_japan": {
     name: "07-a_year_in_japan",
@@ -54,6 +60,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "19/9",
+    form: "horizontal",
   },
   "08-a_year_in_japan": {
     name: "08-a_year_in_japan",
@@ -62,6 +69,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "09-a_year_in_japan": {
     name: "09-a_year_in_japan",
@@ -70,6 +78,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "10-a_year_in_japan": {
     name: "10-a_year_in_japan",
@@ -78,6 +87,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "11-a_year_in_japan": {
     name: "11-a_year_in_japan",
@@ -86,6 +96,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "12-a_year_in_japan": {
     name: "12-a_year_in_japan",
@@ -94,6 +105,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "13-a_year_in_japan": {
     name: "13-a_year_in_japan",
@@ -102,6 +114,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "14-a_year_in_japan": {
     name: "14-a_year_in_japan",
@@ -110,6 +123,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "15-a_year_in_japan": {
     name: "15-a_year_in_japan",
@@ -118,6 +132,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "16-a_year_in_japan": {
     name: "16-a_year_in_japan",
@@ -126,6 +141,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "17-a_year_in_japan": {
     name: "17-a_year_in_japan",
@@ -134,6 +150,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "18-a_year_in_japan": {
     name: "18-a_year_in_japan",
@@ -142,6 +159,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 44,
     heightCm: 31,
     format: "5/7",
+    form: "vertical",
   },
   "19-a_year_in_japan": {
     name: "19-a_year_in_japan",
@@ -150,6 +168,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 34,
     format: "3/2",
+    form: "vertical",
   },
   "20-a_year_in_japan": {
     name: "20-a_year_in_japan",
@@ -158,6 +177,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "21-a_year_in_japan": {
     name: "21-a_year_in_japan",
@@ -166,6 +186,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "22-a_year_in_japan": {
     name: "22-a_year_in_japan",
@@ -174,6 +195,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "23-a_year_in_japan": {
     name: "23-a_year_in_japan",
@@ -182,6 +204,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 43,
     format: "5/7",
+    form: "vertical",
   },
   "24-a_year_in_japan": {
     name: "24-a_year_in_japan",
@@ -190,6 +213,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "25-a_year_in_japan": {
     name: "25-a_year_in_japan",
@@ -198,6 +222,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "26-a_year_in_japan": {
     name: "26-a_year_in_japan",
@@ -206,6 +231,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "27-a_year_in_japan": {
     name: "27-a_year_in_japan",
@@ -214,6 +240,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 16,
     heightCm: 11,
     format: "5/7",
+    form: "horizontal",
   },
   "28-a_year_in_japan": {
     name: "28-a_year_in_japan",
@@ -222,6 +249,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "01-black_and_white": {
     name: "01-black_and_white",
@@ -230,6 +258,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 48,
     heightCm: 34,
     format: "5/7",
+    form: "horizontal",
   },
   "02-black_and_white": {
     name: "02-black_and_white",
@@ -238,6 +267,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 40,
     heightCm: 32,
     format: "5/7",
+    form: "vertical",
   },
   "03-black_and_white": {
     name: "03-black_and_white",
@@ -246,6 +276,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 49,
     heightCm: 32,
     format: "3/2",
+    form: "horizontal",
   },
   "04-black_and_white": {
     name: "04-black_and_white",
@@ -254,6 +285,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "05-black_and_white": {
     name: "05-black_and_white",
@@ -262,6 +294,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "06-black_and_white": {
     name: "06-black_and_white",
@@ -270,6 +303,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "vertical",
   },
   "07-black_and_white": {
     name: "07-black_and_white",
@@ -278,6 +312,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "08-black_and_white": {
     name: "08-black_and_white",
@@ -286,6 +321,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 72,
     heightCm: 57,
     format: "5/7",
+    form: "horizontal",
   },
   "09-black_and_white": {
     name: "09-black_and_white",
@@ -294,6 +330,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 67,
     heightCm: 51,
     format: "5/7",
+    form: "horizontal",
   },
   "10-black_and_white": {
     name: "10-black_and_white",
@@ -302,6 +339,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 91,
     heightCm: 61,
     format: "3/2",
+    form: "horizontal",
   },
   "11-black_and_white": {
     name: "11-black_and_white",
@@ -310,6 +348,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "12-black_and_white": {
     name: "12-black_and_white",
@@ -318,6 +357,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 67,
     heightCm: 44,
     format: "3/2",
+    form: "horizontal",
   },
   "13-black_and_white": {
     name: "13-black_and_white",
@@ -326,6 +366,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "14-black_and_white": {
     name: "14-black_and_white",
@@ -334,6 +375,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "15-black_and_white": {
     name: "15-black_and_white",
@@ -342,6 +384,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 56,
     heightCm: 56,
     format: "1/1",
+    form: "horizontal",
   },
   "16-black_and_white": {
     name: "16-black_and_white",
@@ -350,6 +393,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 32,
     heightCm: 23,
     format: "3/2",
+    form: "horizontal",
   },
   "01-infrared": {
     name: "01-infrared",
@@ -358,6 +402,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 92,
     heightCm: 61,
     format: "3/2",
+    form: "horizontal",
   },
   "02-infrared": {
     name: "02-infrared",
@@ -366,6 +411,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "03-infrared": {
     name: "03-infrared",
@@ -374,6 +420,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 50,
     heightCm: 33,
     format: "3/2",
+    form: "vertical",
   },
   "04-infrared": {
     name: "04-infrared",
@@ -382,6 +429,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "05-infrared": {
     name: "05-infrared",
@@ -390,6 +438,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 59,
     heightCm: 33,
     format: "3/2",
+    form: "horizontal",
   },
   "06-infrared": {
     name: "06-infrared",
@@ -398,6 +447,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "07-infrared": {
     name: "07-infrared",
@@ -406,6 +456,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 43,
     heightCm: 35,
     format: "5/7",
+    form: "vertical",
   },
   "08-infrared": {
     name: "08-infrared",
@@ -414,6 +465,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 40,
     format: "5/7",
+    form: "horizontal",
   },
   "09-infrared": {
     name: "09-infrared",
@@ -422,6 +474,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "10-infrared": {
     name: "10-infrared",
@@ -430,6 +483,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "11-infrared": {
     name: "11-infrared",
@@ -438,6 +492,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "12-infrared": {
     name: "12-infrared",
@@ -446,6 +501,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 36,
     heightCm: 36,
     format: "1/1",
+    form: "horizontal",
   },
   "13-infrared": {
     name: "13-infrared",
@@ -454,6 +510,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "14-infrared": {
     name: "14-infrared",
@@ -462,6 +519,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "15-infrared": {
     name: "15-infrared",
@@ -470,6 +528,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 43,
     format: "5/7",
+    form: "horizontal",
   },
   "16-infrared": {
     name: "16-infrared",
@@ -478,6 +537,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "vertical",
   },
   "17-infrared": {
     name: "17-infrared",
@@ -486,6 +546,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 86,
     heightCm: 57,
     format: "3/2",
+    form: "vertical",
   },
   "01-morning_shadows": {
     name: "01-morning_shadows",
@@ -494,14 +555,16 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "02-morning_shadows": {
     name: "02-morning_shadows",
-    width: 3456,
-    height: 5184,
-    heightCm: 54,
-    widthCm: 36,
+    width: 5184,
+    height: 3456,
+    widthCm: 54,
+    heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "03-morning_shadows": {
     name: "03-morning_shadows",
@@ -510,6 +573,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 36,
     heightCm: 29,
     format: "5/7",
+    form: "vertical",
   },
   "04-morning_shadows": {
     name: "04-morning_shadows",
@@ -518,6 +582,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "05-morning_shadows": {
     name: "05-morning_shadows",
@@ -526,6 +591,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "06-morning_shadows": {
     name: "06-morning_shadows",
@@ -534,6 +600,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "07-morning_shadows": {
     name: "07-morning_shadows",
@@ -542,6 +609,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "08-morning_shadows": {
     name: "08-morning_shadows",
@@ -550,6 +618,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "09-morning_shadows": {
     name: "09-morning_shadows",
@@ -558,6 +627,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "10-morning_shadows": {
     name: "10-morning_shadows",
@@ -566,6 +636,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "11-morning_shadows": {
     name: "11-morning_shadows",
@@ -574,6 +645,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "12-morning_shadows": {
     name: "12-morning_shadows",
@@ -582,6 +654,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "13-morning_shadows": {
     name: "13-morning_shadows",
@@ -590,6 +663,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "14-morning_shadows": {
     name: "14-morning_shadows",
@@ -598,6 +672,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "15-morning_shadows": {
     name: "15-morning_shadows",
@@ -606,6 +681,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "16-morning_shadows": {
     name: "16-morning_shadows",
@@ -614,6 +690,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "17-morning_shadows": {
     name: "17-morning_shadows",
@@ -622,6 +699,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "18-morning_shadows": {
     name: "18-morning_shadows",
@@ -630,6 +708,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "19-morning_shadows": {
     name: "19-morning_shadows",
@@ -638,6 +717,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "20-morning_shadows": {
     name: "20-morning_shadows",
@@ -646,6 +726,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "21-morning_shadows": {
     name: "21-morning_shadows",
@@ -654,6 +735,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "vertical",
   },
   "01-museums": {
     name: "01-museums",
@@ -662,6 +744,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 50,
     heightCm: 33,
     format: "3/2",
+    form: "horizontal",
   },
   "02-museums": {
     name: "02-museums",
@@ -670,6 +753,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "03-museums": {
     name: "03-museums",
@@ -678,6 +762,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "04-museums": {
     name: "04-museums",
@@ -686,6 +771,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "05-museums": {
     name: "05-museums",
@@ -694,6 +780,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "06-museums": {
     name: "06-museums",
@@ -702,6 +789,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 52,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "07-museums": {
     name: "07-museums",
@@ -710,6 +798,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "08-museums": {
     name: "08-museums",
@@ -718,6 +807,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "09-museums": {
     name: "09-museums",
@@ -726,6 +816,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "vertical",
   },
   "10-museums": {
     name: "10-museums",
@@ -734,6 +825,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "11-museums": {
     name: "11-museums",
@@ -742,6 +834,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "12-museums": {
     name: "12-museums",
@@ -750,6 +843,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "13-museums": {
     name: "13-museums",
@@ -758,6 +852,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "14-museums": {
     name: "14-museums",
@@ -766,6 +861,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "15-museums": {
     name: "15-museums",
@@ -774,6 +870,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "01-earth_and_sky": {
     name: "01-earth_and_sky",
@@ -782,6 +879,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 84,
     heightCm: 60,
     format: "5/7",
+    form: "horizontal",
   },
   "02-earth_and_sky": {
     name: "02-earth_and_sky",
@@ -790,6 +888,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 76,
     heightCm: 61,
     format: "5/7",
+    form: "horizontal",
   },
   "03-earth_and_sky": {
     name: "03-earth_and_sky",
@@ -798,6 +897,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 91,
     heightCm: 73,
     format: "5/7",
+    form: "horizontal",
   },
   "04-earth_and_sky": {
     name: "04-earth_and_sky",
@@ -806,6 +906,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "05-earth_and_sky": {
     name: "05-earth_and_sky",
@@ -814,6 +915,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "06-earth_and_sky": {
     name: "06-earth_and_sky",
@@ -822,6 +924,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 91,
     heightCm: 61,
     format: "3/2",
+    form: "horizontal",
   },
   "07-earth_and_sky": {
     name: "07-earth_and_sky",
@@ -830,6 +933,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "08-earth_and_sky": {
     name: "08-earth_and_sky",
@@ -838,6 +942,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "09-earth_and_sky": {
     name: "09-earth_and_sky",
@@ -846,6 +951,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 64,
     heightCm: 41,
     format: "3/2",
+    form: "horizontal",
   },
   "10-earth_and_sky": {
     name: "10-earth_and_sky",
@@ -854,6 +960,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "11-earth_and_sky": {
     name: "11-earth_and_sky",
@@ -862,6 +969,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "12-earth_and_sky": {
     name: "12-earth_and_sky",
@@ -870,6 +978,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "13-earth_and_sky": {
     name: "13-earth_and_sky",
@@ -878,6 +987,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 91,
     heightCm: 61,
     format: "3/2",
+    form: "horizontal",
   },
   "14-earth_and_sky": {
     name: "14-earth_and_sky",
@@ -886,6 +996,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 74,
     heightCm: 49,
     format: "3/2",
+    form: "horizontal",
   },
   "15-earth_and_sky": {
     name: "15-earth_and_sky",
@@ -894,6 +1005,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "16-earth_and_sky": {
     name: "16-earth_and_sky",
@@ -902,6 +1014,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 82,
     heightCm: 54,
     format: "3/2",
+    form: "horizontal",
   },
   "17-earth_and_sky": {
     name: "17-earth_and_sky",
@@ -910,6 +1023,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "18-earth_and_sky": {
     name: "18-earth_and_sky",
@@ -918,6 +1032,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "19-earth_and_sky": {
     name: "19-earth_and_sky",
@@ -926,6 +1041,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 90,
     heightCm: 60,
     format: "3/2",
+    form: "horizontal",
   },
   "01-tsuzukitai": {
     name: "01-tsuzukitai",
@@ -934,6 +1050,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "3/2",
+    form: "horizontal",
   },
   "02-tsuzukitai": {
     name: "02-tsuzukitai",
@@ -942,6 +1059,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 51,
     heightCm: 34,
     format: "5/7",
+    form: "vertical",
   },
   "03-tsuzukitai": {
     name: "03-tsuzukitai",
@@ -950,6 +1068,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 11,
     heightCm: 11,
     format: "1/1",
+    form: "horizontal",
   },
   "04-tsuzukitai": {
     name: "04-tsuzukitai",
@@ -958,6 +1077,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "05-tsuzukitai": {
     name: "05-tsuzukitai",
@@ -966,6 +1086,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 16,
     heightCm: 10,
     format: "16/9",
+    form: "horizontal",
   },
   "06-tsuzukitai": {
     name: "06-tsuzukitai",
@@ -974,6 +1095,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 17,
     heightCm: 10,
     format: "3/2",
+    form: "horizontal",
   },
   "07-tsuzukitai": {
     name: "07-tsuzukitai",
@@ -982,6 +1104,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "08-tsuzukitai": {
     name: "08-tsuzukitai",
@@ -990,6 +1113,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "09-tsuzukitai": {
     name: "09-tsuzukitai",
@@ -998,6 +1122,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "10-tsuzukitai": {
     name: "10-tsuzukitai",
@@ -1006,6 +1131,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 11,
     heightCm: 11,
     format: "1/1",
+    form: "horizontal",
   },
   "11-tsuzukitai": {
     name: "11-tsuzukitai",
@@ -1014,6 +1140,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "12-tsuzukitai": {
     name: "12-tsuzukitai",
@@ -1022,6 +1149,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "13-tsuzukitai": {
     name: "13-tsuzukitai",
@@ -1030,6 +1158,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "14-tsuzukitai": {
     name: "14-tsuzukitai",
@@ -1038,6 +1167,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "15-tsuzukitai": {
     name: "15-tsuzukitai",
@@ -1046,6 +1176,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "16-tsuzukitai": {
     name: "16-tsuzukitai",
@@ -1054,6 +1185,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "17-tsuzukitai": {
     name: "17-tsuzukitai",
@@ -1062,6 +1194,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 46,
     heightCm: 31,
     format: "3/2",
+    form: "horizontal",
   },
   "18-tsuzukitai": {
     name: "18-tsuzukitai",
@@ -1070,6 +1203,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 41,
     heightCm: 33,
     format: "5/7",
+    form: "horizontal",
   },
   "19-tsuzukitai": {
     name: "19-tsuzukitai",
@@ -1078,6 +1212,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 53,
     heightCm: 35,
     format: "3/2",
+    form: "horizontal",
   },
   "20-tsuzukitai": {
     name: "20-tsuzukitai",
@@ -1086,6 +1221,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "21-tsuzukitai": {
     name: "21-tsuzukitai",
@@ -1094,6 +1230,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "22-tsuzukitai": {
     name: "22-tsuzukitai",
@@ -1102,6 +1239,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "23-tsuzukitai": {
     name: "23-tsuzukitai",
@@ -1110,6 +1248,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "24-tsuzukitai": {
     name: "24-tsuzukitai",
@@ -1118,6 +1257,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "25-tsuzukitai": {
     name: "25-tsuzukitai",
@@ -1126,6 +1266,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "vertical",
   },
   "26-tsuzukitai": {
     name: "26-tsuzukitai",
@@ -1134,6 +1275,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "27-tsuzukitai": {
     name: "27-tsuzukitai",
@@ -1142,6 +1284,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
   "28-tsuzukitai": {
     name: "28-tsuzukitai",
@@ -1150,6 +1293,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "29-tsuzukitai": {
     name: "29-tsuzukitai",
@@ -1158,6 +1302,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "30-tsuzukitai": {
     name: "30-tsuzukitai",
@@ -1166,6 +1311,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "31-tsuzukitai": {
     name: "31-tsuzukitai",
@@ -1174,6 +1320,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "32-tsuzukitai": {
     name: "32-tsuzukitai",
@@ -1182,6 +1329,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "33-tsuzukitai": {
     name: "33-tsuzukitai",
@@ -1190,6 +1338,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 46,
     heightCm: 30,
     format: "3/2",
+    form: "horizontal",
   },
   "34-tsuzukitai": {
     name: "34-tsuzukitai",
@@ -1198,6 +1347,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "35-tsuzukitai": {
     name: "35-tsuzukitai",
@@ -1206,6 +1356,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "36-tsuzukitai": {
     name: "36-tsuzukitai",
@@ -1214,6 +1365,7 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 54,
     heightCm: 36,
     format: "3/2",
+    form: "horizontal",
   },
   "37-tsuzukitai": {
     name: "37-tsuzukitai",
@@ -1222,5 +1374,6 @@ export const imagesInfos: picturesNamesTypes = {
     widthCm: 20,
     heightCm: 11,
     format: "16/9",
+    form: "horizontal",
   },
 };

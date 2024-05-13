@@ -38,6 +38,7 @@ type pictureInfoType = {
   widthCm: number;
   heightCm: number;
   format: string;
+  form: "horizontal" | "vertical"
 };
 
 type productNamesType = {

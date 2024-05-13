@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar_gallery from "../../../../components/gallery/Navbar_gallery";
 import styles from "./layout.module.css";
+import Footer from "../../../../components/Footer";
 
 function layout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ function layout({ children }: { children: React.ReactNode }) {
         </div>
         <div className={styles.gallery__grid_right}>{children}</div>
       </div>
+      <Footer/>
     </>
   );
 }

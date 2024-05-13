@@ -5,6 +5,7 @@ import styles from "../shop/Select_img.module.css";
 import Image from "next/image";
 import { useImgSelected } from "../../providers/imgFav-provider";
 import { possileFrames } from "./productInfos";
+import { imagesInfos } from "./images";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 import { IoIosCloseCircleOutline, IoIosExpand } from "react-icons/io";
 import {
@@ -59,13 +60,8 @@ function Select_img({
     "01-earth_and_sky.jpg",
     "03-earth_and_sky.jpg",
     "05-black_and_white.jpg",
+    "24-tsuzukitai.jpg",
   ];
-
-  let isVertical: boolean = false;
-
-  if (imgInfos != undefined) {
-    isVertical = imgInfos.heightCm > imgInfos.widthCm ? true : false;
-  }
 
   let subImage = "";
   if (
@@ -790,7 +786,8 @@ function Select_img({
                     navState == possibleState.smallFixed &&
                     styles.img_smallFixed
                   } ${isImageLoading ? "unLoaded" : "remove-unLoaded"}  ${
-                    isVertical && styles.verticalAdjus
+                    imagesInfos[selectedImg].form == "vertical" &&
+                    styles.verticalAdjus
                   }
                   ${
                     prodSize == "16"
@@ -811,11 +808,13 @@ function Select_img({
                       ? styles.size60
                       : prodSize == "70"
                       ? styles.size70
+                      : prodSize == "75"
+                      ? styles.size75
                       : prodSize == "80"
                       ? styles.size80
                       : prodSize == "90"
                       ? styles.size90
-                      : styles.size50
+                      : styles.sizeStd
                   }
                   
                   ${
@@ -1316,7 +1315,7 @@ function Select_img({
                         imgInfos !== null &&
                         key.slice(0, -2) == "bordLarge_" &&
                         (key.slice(-2) as unknown as number) <
-                          Math.max(imgInfos.widthCm, imgInfos.heightCm) &&
+                          imgInfos.widthCm &&
                         (val as number) > 0 && (
                           <button
                             key={key}
@@ -1666,6 +1665,7 @@ function Select_img({
                           Object.keys(product.border).map(
                             (el) =>
                               el != "spec" &&
+                              el !== "12" &&
                               typeof prodSizeInt == "number" && (
                                 <button
                                   className={`${styles.btn_selector} ${
