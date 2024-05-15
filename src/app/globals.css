@@ -448,6 +448,51 @@ p.detail_02 {
   opacity: 0.8;
 }
 
+/* Not found page */
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: var(--spacing-M);
+}
+
+.notFoundMyName{
+  font-family: var(--font-geologica-light);
+  font-weight: 300;
+}
+
+.notFoundTxt{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-M);
+  /* 
+  padding: var(--spacing-S) var(--spacing-M);
+  background-color: var(--shop-info-transparency); 
+  */
+}
+
+.notFoundLogo{
+  width: var(--icone-S);
+  height: var(--icone-S);
+}
+
+.notFoundImg{
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 20/9;
+  max-width: 600px;
+}
+.notFoundTitle {
+  border-right: 1px solid var(--rules-color);
+}
+.notFoundLink {
+  text-decoration: underline 1px var(--rules-color);
+}
+
 /*
 
 

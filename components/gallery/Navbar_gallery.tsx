@@ -10,7 +10,7 @@ import LocalStorage from "../LocalStorage";
 
 function Navbar_gallery() {
   const path = usePathname();
-  LocalStorage()
+  LocalStorage();
 
   const imgList = useImgSelected((state) => state.imgSelected);
   return (
@@ -21,11 +21,7 @@ function Navbar_gallery() {
         </Link>
         <ul className={styles.links__List}>
           <h6 className={styles.link__group_name}>Projects</h6>
-          <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ ease: "easeOut", duration: 0.6 }}
-          >
+          <div>
             <ul className={`${styles.link__group} ${styles.link__first}`}>
               <p className={styles.number}>
                 _1 <span className={styles.bar}>|</span>{" "}
@@ -73,7 +69,7 @@ function Navbar_gallery() {
                 Museums
               </Link>
             </ul>
-          </motion.div>
+          </div>
           <h6 className={styles.link__group_name}>Side works</h6>
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -121,8 +117,7 @@ function Navbar_gallery() {
             className={`${styles.normal__link} ${
               path == "/gallery" ? styles.currPage : ""
             } ${styles.first_normal__link}`}
-  
-            >
+          >
             Gallery
           </Link>
           <Link href="/about" className={`${styles.normal__link}`}>
@@ -131,17 +126,17 @@ function Navbar_gallery() {
           <Link
             href="/shop"
             className={`${styles.normal__link} ${styles.gift__link} `}
-            >
+          >
             Shop
             <p
               className={`${styles.dot} ${
                 imgList.length > 0 ? styles.dot_on : ""
               }`}
-              ></p>
+            ></p>
           </Link>
-        <Link href="/contact">
-          <button className={`${styles.contactMe} btn`}>contact me</button>
-        </Link>
+          <Link href="/contact">
+            <button className={`${styles.contactMe} btn`}>contact me</button>
+          </Link>
         </ul>
       </nav>
     </>
