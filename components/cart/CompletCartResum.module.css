@@ -1,5 +1,3 @@
-/* actions_btn */
-
 .cart__section {
   display: flex;
   justify-content: center;
@@ -98,6 +96,12 @@
   grid-column: 1/3;
   text-align: left;
 }
+
+.resumeTitle {
+  font-size: var(--font-size-subTitle_03);
+  text-transform: capitalize;
+}
+
 .res_detail {
   color: var(--font-color-gray);
 }

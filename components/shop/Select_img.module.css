@@ -1,14 +1,9 @@
-/* 
-img__wall
-*/
-
 .fram__content__container {
   position: relative;
   max-width: var(--max-width-L);
 
   padding-inline: var(--padding-inLine);
   width: 100%;
-  /* height: 100%; */
   display: grid;
 
   grid-template-columns: 45rem 1fr;
@@ -72,7 +67,6 @@ img__wall
 
   height: 100%;
   z-index: 100;
-  /* overflow-y: scroll; */
   overflow-x: hidden;
   background-color: var(--shop-right-transparency);
   padding: var(--spacing-S);
@@ -227,7 +221,6 @@ img__wall
   justify-content: center;
   align-items: center;
   padding-top: 6rem;
-  /* overflow: hidden; */
 }
 
 .txtEnlarge {
@@ -237,7 +230,6 @@ img__wall
 
 .mokeup_container_enlarge {
   position: relative;
-  /* width: 40rem; */
   min-width: 40rem;
   width: max-content;
 }
@@ -309,7 +301,6 @@ img__wall
   border-radius: 1rem;
   padding: var(--spacing-SS);
   position: relative;
-  /* overflow: hidden; */
 }
 
 .img {
@@ -858,12 +849,6 @@ img__wall
   outline-color: var(--maple-White);
 }
 
-/* .bigFrame {
-  outline-width: 20px;
-}
-.smallFrame {
-  outline-width: 10px;
-} */
 .woodDot {
   width: var(--font-size-subTitle_02);
   height: var(--font-size-subTitle_02);
@@ -1018,7 +1003,6 @@ img__wall
     top: 4rem;
   }
 }
-
 
 .border01 {
   background-color: var(--neutral-50);
@@ -1956,15 +1940,6 @@ img__wall
 .size90.bigFrame {
   outline-width: 6px;
 }
-
-/* .passSizeSmall {
-  width: 73%;
-  padding: 6px;
-}
-.passSizeBig {
-  width: 85%;
-  padding: 30px;
-} */
 
 .warning_container {
   background-color: var(--shop-info-transparency);

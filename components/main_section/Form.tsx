@@ -172,7 +172,6 @@ function Form({ context }: { context: string }) {
         setEmailSent(possibleStates.invalid);
       }
     }
-
   };
 
   return (

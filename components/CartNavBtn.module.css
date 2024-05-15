@@ -1,4 +1,3 @@
-/* totalPrice */
 .cart__container {
   position: relative;
   cursor: pointer;
@@ -62,7 +61,7 @@
   font-family: var(--font-geologica-light);
   font-size: var(--font-size-bodyText_02);
 }
-.totalPrice{
+.totalPrice {
   line-height: var(--font-size-bodyText_01);
 }
 
@@ -161,7 +160,7 @@
 .cartFooter {
   margin-top: auto;
   width: 100%;
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   align-items: center;

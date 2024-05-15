@@ -1,7 +1,6 @@
 .myNameLink {
   line-height: var(--line-height-Title_02);
   letter-spacing: var(--letter-spacing-XS);
-  
 }
 
 .myNameLink,
@@ -10,14 +9,14 @@
   font-size: var(--font-size-subTitle_01);
   transition: all var(--transi-time-S);
   color: var(--font-color-main);
-  @media only screen and (max-width: 84em){
+  @media only screen and (max-width: 84em) {
     font-size: var(--font-size-subTitle_02);
-  } 
+  }
 }
 
 .nav {
   padding-top: var(--padding-vertical);
-  
+
   width: 100%;
   height: max-content;
   display: flex;
@@ -32,10 +31,9 @@
     180deg,
     var(--bg-nav-transparency-start_init) 10%,
     var(--bg-nav-transparency-end_init) 100%
-    );
-    
-    @media only screen and (max-width: 65em) {
-    
+  );
+
+  @media only screen and (max-width: 65em) {
     display: none;
   }
 }
@@ -88,10 +86,10 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-LM);
-  
-  @media only screen and (max-width: 84em){
+
+  @media only screen and (max-width: 84em) {
     gap: var(--spacing-M);
-  } 
+  }
 
   @media only screen and (max-width: 65em) {
     display: none;
@@ -101,10 +99,9 @@
 .link {
   font-family: var(--font-geologica-Cursive-Regular);
   letter-spacing: var(--letter-spacing-S);
-  @media only screen and (max-width: 84em){
+  @media only screen and (max-width: 84em) {
     font-size: var(--font-size-subTitle_02);
-  } 
-
+  }
 }
 
 .myNameLink:hover,

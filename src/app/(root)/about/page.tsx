@@ -14,13 +14,13 @@ function page() {
           <h3 className={styles.hero_title}>About me</h3>
 
           <div className={styles.keywords}>
+            <p className={`${styles.presentation__sub_txt} body_02`}>
+              Wandering
+            </p>
+            <div className={styles.dot}></div>
             <p className={`${styles.presentation__sub_txt} body_02`}> Travel</p>
             <div className={styles.dot}></div>
             <p className={`${styles.presentation__sub_txt} body_02`}>Culture</p>
-            <div className={styles.dot}></div>
-            <p className={`${styles.presentation__sub_txt} body_02`}>
-              Wondering
-            </p>
           </div>
         </div>
       </header>

@@ -3,14 +3,11 @@ import React from "react";
 import CompletCartResum from "./CompletCartResum";
 import { expeditionInfos } from "../shop/expedition";
 
-// RESWITCH TOO DANS UN COMPOSANT SERVEUR
-
 const CartFetching = ({ searchParams }: { searchParams: any }) => {
-  // const expeditionInfo = await queryExpedition();
-  const allCountries:string[] =  []
- Object.values(expeditionInfos).map((el)=>{
-    allCountries.push(el.country)
-  })
+  const allCountries: string[] = [];
+  Object.values(expeditionInfos).map((el) => {
+    allCountries.push(el.country);
+  });
 
   const coutrySet = new Set<string>();
   allCountries.map((el) => coutrySet.add(el));
@@ -22,10 +19,10 @@ const CartFetching = ({ searchParams }: { searchParams: any }) => {
   const montage_threshold: string | null = searchParams.mTh;
   const prodTypeMax_mounted: string | null = searchParams.ty;
 
-  if (destination !== null && quantity != null){
-  } 
-  const data: expeditionInfoType | undefined | null = expeditionInfos[`${destination}_${quantity}` as keyof expeditionObjectType];
-  
+  if (destination !== null && quantity != null) {
+  }
+  const data: expeditionInfoType | undefined | null =
+    expeditionInfos[`${destination}_${quantity}` as keyof expeditionObjectType];
 
   let finalData: expeditionResType | null = null;
 

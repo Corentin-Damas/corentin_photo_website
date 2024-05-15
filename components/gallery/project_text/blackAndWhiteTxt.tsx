@@ -9,7 +9,8 @@ function BlackAndWhiteTxt() {
       </h5>
       <p className={styles.popUpInformation_txt}>
         02 - <br />
-        From Film (and my darkroom)<br />
+        From Film (and my darkroom)
+        <br />
         From travelling. <br />
         From Infrared. <br />
         From walking. <br />

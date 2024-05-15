@@ -12,13 +12,13 @@ function InfraredTxt() {
       <p className={styles.popUpInformation_txt}>
         02 - Infrared pictures are really not new even at the very start of
         photography we had film that are only sensitive to few different colors
-        (in black and white) or only blue. To give you an idea of the result :
+        (in black and white) or only blue. To give you an idea of the result:
         Blue skies with cloud formations photographed would appear white
         overexposed with nothing in it just white. Bright yellows and reds
         appeared nearly black. Most skin tones will turn unnaturally dark, and
-        uneven or freckled. Tone and color values are messed up. That could be a
-        bad things but it good sometime to experiment with unnatural thing to
-        came ou with new perspectives.
+        uneven or freckled. Tone, and color values are messed up. It could be
+        considered has a bad things but it turn out that experimenting, and
+        randomness brings new perspectives.
       </p>
     </div>
   );

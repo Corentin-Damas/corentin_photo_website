@@ -11,7 +11,6 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
   // Retrive image informations
   let imgQuery: pictureInfoType | undefined | null;
   if (searchParams.img !== null || searchParams.img !== undefined) {
-    // imgQuery = await queryImg(searchParams.img);
     imgQuery = imagesInfos[`${searchParams.img}`]
 
   }
@@ -21,7 +20,6 @@ const Select_print = async ({ searchParams }: { searchParams: any }) => {
   // Retrive Product informations
   let productQuery: null | undefined | productInfoType;
   if (imgQuery !== null && imgQuery !== undefined) {
-    // productQuery = await queryFrame(searchParams.product, imgQuery.format);
     productQuery = framesInfos[`${searchParams.product}_${imgQuery.format.replace('/', ":")}`];
   }
   const productStringify = JSON.stringify(productQuery);

@@ -216,39 +216,41 @@ function CompletCartResum({
               {cartList.map((el) => (
                 <div key={el.date} className={styles.resume}>
                   <div className={`detail_01 ${styles.res_head}`}>
-                    <p>{el.nameDisplayMethod.replaceAll("_", "-")}</p>
-                      <div className={styles.quantity_wrap}>
-                        <label htmlFor="quantity" className={styles.qtyLabel}>
-                          adjust quantity:
-                        </label>
-                        <select
-                          className={styles.quantityDropDown}
-                          name=""
-                          value={el.quantity}
-                          id="quantity"
-                          onChange={(e) =>
-                            modifyQty(el, e.target.value as unknown as number)
-                          }
-                        >
-                          {quantitySelect.map((qtyNum: number) => (
-                            <option key={qtyNum} value={qtyNum}>
-                              {qtyNum}
-                            </option>
-                          ))}
-                        </select>
-                        <span className={styles.customArrow}></span>
-                      </div>
-                      <button
-                        className={styles.removeBtn}
-                        onClick={() => {
-                          if (cartList.length == 1) {
-                            localStorage.removeItem("cart");
-                          }
-                          remFromCart(el);
-                        }}
+                    <p className={styles.resumeTitle}>
+                      {el.nameDisplayMethod.replaceAll("_", "-")}
+                    </p>
+                    <div className={styles.quantity_wrap}>
+                      <label htmlFor="quantity" className={styles.qtyLabel}>
+                        adjust quantity:
+                      </label>
+                      <select
+                        className={styles.quantityDropDown}
+                        name=""
+                        value={el.quantity}
+                        id="quantity"
+                        onChange={(e) =>
+                          modifyQty(el, e.target.value as unknown as number)
+                        }
                       >
-                        remove
-                      </button>
+                        {quantitySelect.map((qtyNum: number) => (
+                          <option key={qtyNum} value={qtyNum}>
+                            {qtyNum}
+                          </option>
+                        ))}
+                      </select>
+                      <span className={styles.customArrow}></span>
+                    </div>
+                    <button
+                      className={styles.removeBtn}
+                      onClick={() => {
+                        if (cartList.length == 1) {
+                          localStorage.removeItem("cart");
+                        }
+                        remFromCart(el);
+                      }}
+                    >
+                      remove
+                    </button>
                   </div>
                   <div className={styles.res_Left}>
                     {el.color !== undefined && (

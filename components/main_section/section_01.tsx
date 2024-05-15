@@ -19,7 +19,6 @@ function section_01() {
             width={1280}
             height={853}
             quality={80}
-
           />
 
           <Image
@@ -32,7 +31,7 @@ function section_01() {
             quality={80}
           />
         </Link>
-        <div className={`${styles.img_caption__containeur} dark_mode_only`}>
+        {/* <div className={`${styles.img_caption__containeur} dark_mode_only`}>
           <div className={styles.img_caption__left}></div>
           <div className={styles.img_caption__right}>
             <div className={styles.img_caption__up}>
@@ -44,14 +43,12 @@ function section_01() {
             <div className={styles.img_caption__down}>
               <p className="detail_01">
                 Kyoto
-                {/* <br />
-                Kyoto Prefecture */}
                 <br />
                 Japan
               </p>
             </div>
           </div>
-        </div>
+        </div> 
         <div className={`${styles.img_caption__containeur} light_mode_only`}>
           <div className={styles.img_caption__left}></div>
           <div className={styles.img_caption__right}>
@@ -64,14 +61,13 @@ function section_01() {
             <div className={styles.img_caption__down}>
               <p className="detail_01">
                 Kobe
-                {/* <br />
-                Hyōgo Prefecture */}
                 <br />
                 Japan
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        */}
 
         <h1 className={`${styles.kanji} japanese`}>
           日 <br /> 本
@@ -130,7 +126,7 @@ function section_01() {
             />
           </div>
         </Link>
-        <div className={`${styles.img_caption__containeur_city}`}>
+        {/* <div className={`${styles.img_caption__containeur_city}`}>
           <div className={styles.img_caption__right}>
             <div className={styles.img_caption__up}>
               <p className="detail_01">Old Father Thames</p>
@@ -143,7 +139,7 @@ function section_01() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={styles.legend__city}>
           <Link href={"/gallery/morning_shadows"} className={styles.link_txt}>
             <h6 className={styles.legend__city_txt}> The city</h6>
@@ -169,7 +165,7 @@ function section_01() {
             />
           </div>
         </Link>
-        <div className={`${styles.img_caption__containeur_museum}`}>
+        {/* <div className={`${styles.img_caption__containeur_museum}`}>
           <div className={styles.img_caption__right}>
             <div className={styles.img_caption__up}>
               <p className="detail_01">Charles Darwin</p>
@@ -185,7 +181,7 @@ function section_01() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={styles.legend__museums}>
           <Link href={"/gallery/museums"} className={styles.link_txt}>
             <h6 className={styles.legend__museums_txt}> London & Amsterdam</h6>

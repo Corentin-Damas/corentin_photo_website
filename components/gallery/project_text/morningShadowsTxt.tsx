@@ -11,12 +11,12 @@ function MorningShadowsTxt() {
         <br /> A routine that never stoped throught war and pease.
       </h5>
       <p className={styles.popUpInformation_txt}>
-        02 - The city holds a city status, status granted by the British monarch.
-        It&apos;s the place where most of the United Kingdom&apos;s financial
-        trade is done. The City has its own mayor, the Lord Mayor of London, an
-        office separate from the Mayor of London. The city also has its own
-        police force, the City of London Police.<br/> 
-
+        02 - The city holds a city status, status granted by the British
+        monarch. It&apos;s the place where most of the United Kingdom&apos;s
+        financial trade is done. The City has its own mayor, the Lord Mayor of
+        London, an office separate from the Mayor of London. The city also has
+        its own police force, the City of London Police.
+        <br />
       </p>
     </div>
   );

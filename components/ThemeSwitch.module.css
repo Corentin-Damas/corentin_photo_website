@@ -4,14 +4,13 @@
   color: var(--font-color-main);
   z-index: 510;
 
-
   @media only screen and (max-width: 65em) {
     height: var(--icone-S);
     width: var(--icone-S);
   }
 }
 
-.icone_landing{
+.icone_landing {
   @media only screen and (max-width: 84em) {
     height: var(--icone-XS);
     width: var(--icone-XS);

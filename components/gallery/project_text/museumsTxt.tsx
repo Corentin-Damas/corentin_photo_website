@@ -23,7 +23,14 @@ function MuseumsTxt() {
           related to that new hobbit about the thing you saw in that random
           museum.
         </p>
-        <h5><br />Go to museum it&apos; for your mental health <p>even if you don&apos;t understand what&apos;s going on you don&apos;t need to understand, you just need to go.</p> </h5>
+        <h5>
+          <br />
+          Go to museum it&apos; for your mental health{" "}
+          <p>
+            even if you don&apos;t understand what&apos;s going on you
+            don&apos;t need to understand, you just need to go.
+          </p>{" "}
+        </h5>
       </div>
     </div>
   );

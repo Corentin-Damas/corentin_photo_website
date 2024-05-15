@@ -5,7 +5,7 @@ import Footer from "../../../../components/Footer";
 
 import CartFetching from "../../../../components/cart/CartFetching";
 
-function page({searchParams}:{searchParams:any}) {
+function page({ searchParams }: { searchParams: any }) {
   return (
     <>
       <header className={styles.header}>

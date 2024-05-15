@@ -12,9 +12,9 @@ function TsuzukitaiTxt() {
       </p>
       <p className={styles.popUpInformation_txt}>
         02 - Trapped memories is second name of this project and goes along with
-        the first one 続きたい. Between nostalgia and passed moments of hapiness
-        that we are continuously coming back to in an infernal loop that keeping
-        us from continuing our journey;
+        the first one 続きたい. Between nostalgia and passed moments of
+        happiness that we are continuously coming back to in an infernal loop
+        that keeping us from continuing our hazardous journey;
       </p>
     </div>
   );

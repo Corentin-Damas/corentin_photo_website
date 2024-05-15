@@ -12,10 +12,10 @@ function Footer() {
           <h2 className={styles.footer__columnHead}>Corentin Damas</h2>
           <div>
             <p className={styles.footer__text}>
-              Fra _<span className="main-Color">&gt;</span> 0668911893
+              France _<span className="main-Color">&gt;</span> 0668911893
             </p>
             <p className={styles.footer__text}>
-              Int _<span className="main-Color">&gt;</span> +33668911893
+              International _<span className="main-Color">&gt;</span> +33 668911893
             </p>
             <p className={styles.footer__text}>corentin.damasphoto@gmail.com</p>
           </div>

@@ -15,7 +15,7 @@ function Hero() {
         transition={{ ease: "easeInOut", duration: 0.4, delay: 0.3 }}
       >
         <div className={styles.presentation__sub}>
-          <p className={`${styles.presentation__sub_txt} body_02`}>Wondering</p>
+          <p className={`${styles.presentation__sub_txt} body_02`}>Wandering</p>
           <div className={styles.dot}></div>
           <p className={`${styles.presentation__sub_txt} body_02`}>Travel</p>
           <div className={styles.dot}></div>

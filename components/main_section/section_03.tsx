@@ -15,7 +15,6 @@ function section_03() {
           height={853}
           quality={80}
           sizes="(max-width: 768px) 100vw, 75vw"
-
         />
       </Link>
       <div className={styles.legend__Landscape}>
@@ -35,7 +34,6 @@ function section_03() {
           height={853}
           quality={80}
           sizes="(max-width: 768px) 100vw, 75vw"
-
         />
       </Link>
       <div className={styles.legend__infra}>
@@ -56,7 +54,6 @@ function section_03() {
           height={853}
           quality={80}
           sizes="(max-width: 768px) 100vw, 75vw"
-
         />
       </Link>
       <div className={styles.legend__BandW}>
@@ -66,10 +63,7 @@ function section_03() {
         <div className={styles.verticalRule}></div>
       </div>
 
-      <Link
-        href={"/gallery"}
-        className={`${styles.part03__link} gallery_Link`}
-      >
+      <Link href={"/gallery"} className={`${styles.part03__link} gallery_Link`}>
         See Gallery _<span className="main-Color">&gt;</span>
       </Link>
     </div>
