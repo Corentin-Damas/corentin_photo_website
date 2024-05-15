@@ -26,7 +26,7 @@ export const POST = async (request: any) => {
       return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
     return "http://localhost:3000";
   };
-  console.log(getBaseUrl())
+
 
 
   try {

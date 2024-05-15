@@ -54,6 +54,7 @@ function Select_img({
 
   const addImg = useImgSelected((state) => state.addImgSelected);
   const imgList = useImgSelected((state) => state.imgSelected);
+  const removeImgList = useImgSelected((state) => state.removeImgSelected);
   const myImageSelection = [
     "01-a_year_in_japan.jpg",
     "02-a_year_in_japan.jpg",
@@ -128,18 +129,6 @@ function Select_img({
     [searchParams]
   );
 
-  // function removeQueryParam(param: string){
-  //   const {pathname, query} = router;
-  //   const params = new URLSearchParams(query);
-  //   params.delete(param);
-  //   router.replace(
-  //       { pathname, query: params.toString() },
-  //       undefined,
-  //       { shallow: true }
-  //   );
-  // }
-
-  // URL checker
   if (
     (prodSize != null &&
       imgProduct !== null &&
@@ -665,6 +654,23 @@ function Select_img({
     localStorage.setItem("cart", JSON.stringify(cartList));
   }
 
+  const getBaseUrl = () => {
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production")
+      return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview")
+      return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    return "http://localhost:3000";
+  };
+
+  function handleRemoveImg(el: string) {
+    removeImgList(el);
+    if (imgList.length <= 1) {
+      const url = new URL(getBaseUrl());
+      const params = new URLSearchParams(url.search);
+      params.delete("img");
+    }
+  }
+
   function handleInfoBox(title: string) {
     if (title == "framed") {
       setSection("Framed picture");
@@ -689,32 +695,6 @@ function Select_img({
     windowLenght = window.innerWidth;
   }
 
-  const [navState, setNavState] = useState(possibleState.unFixed);
-  const scrollBehaviour = () => {
-    const currentScroll = window.scrollY;
-    const windSize = window.innerHeight;
-    const windSizeWidth = window.innerWidth;
-    // 660px width change
-    const height = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
-    const foot = document.getElementById("footer_id");
-
-    const foot_height = foot == undefined ? 0 : foot.scrollHeight;
-
-    if (windSizeWidth <= 700 && currentScroll > 150) {
-      setNavState(possibleState.smallFixed);
-    } else if (currentScroll >= height - (windSize + foot_height + 100)) {
-      setNavState(possibleState.fixed);
-    } else {
-      setNavState(possibleState.unFixed);
-    }
-  };
-
   function keyDownDetected() {
     window.addEventListener("keydown", function (e) {
       if (e.key == "Escape") {
@@ -728,6 +708,18 @@ function Select_img({
     return window.removeEventListener("keydown", keyDownDetected);
   });
 
+
+  const [navState, setNavState] = useState(possibleState.unFixed);
+  const scrollBehaviour = () => {
+    const currentScroll = window.scrollY;
+    const windSizeWidth = window.innerWidth;
+   
+    if (windSizeWidth <= 700 && currentScroll > 150) {
+      setNavState(possibleState.smallFixed);
+    } else {
+      setNavState(possibleState.unFixed);
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", scrollBehaviour);
     return () => {
@@ -738,22 +730,9 @@ function Select_img({
   return (
     <div className={`${styles.fram__content__container}`}>
       <div className={`${styles.fram__content__left} `}>
-        <div
-          id="imgContainer"
-          className={`${styles.img_container} ${
-            navState == possibleState.smallFixed && styles.img_smallFixed
-          }              
-          `}
-        >
+        <div id="imgContainer" className={`${styles.img_container}  ${navState == possibleState.smallFixed && styles.phoneScroll }`}>
           {selectedImg !== null && (
-            <p
-              className={`${styles.suggestedTxt} ${
-                navState == possibleState.smallFixed && styles.img_smallFixed
-              } `}
-            >
-              {" "}
-              Suggested display{" "}
-            </p>
+            <p className={`${styles.suggestedTxt}`}> Suggested display </p>
           )}
 
           {/* <div className={styles.backgroundMobile}></div> */}
@@ -762,30 +741,22 @@ function Select_img({
             <Image
               src="/util_img/wall_img01.jpg"
               alt="Corentin Damas with one of is framed picture on a customer's wall"
-              className={` ${styles.img__wall} ${
-                navState == possibleState.smallFixed && styles.img_smallFixed
-              }  `}
+              className={` ${styles.img__wall}`}
               sizes="(max-width: 480px) 100vw, 33vw"
               width={720}
               height={0}
               quality={80}
             />
           ) : (
-            //  ============================= REFACTOR IMG MOKEUP =======txtEnlarge ===========================
-            <div
-              className={`${styles.mokeup_container} ${
-                navState == possibleState.smallFixed && styles.img_smallFixed
-              }`}
-            >
+            //  ============================= REFACTOR IMG MOKEUP ==================================
+            <div className={`${styles.mokeup_container} `}>
               {selectedImg != "" && (
                 <Image
                   src={`/${selectedImg.slice(3)}/S/${selectedImg}.jpg`}
                   alt="Actual selected pîcture"
                   onError={() => redirectToBasUrl()}
-                  className={`${styles.img__selected}  ${
-                    navState == possibleState.smallFixed &&
-                    styles.img_smallFixed
-                  } ${isImageLoading ? "unLoaded" : "remove-unLoaded"}  ${
+                  className={`${styles.img__selected}  
+                  ${isImageLoading ? "unLoaded" : "remove-unLoaded"}  ${
                     imagesInfos[selectedImg].form == "vertical" &&
                     styles.verticalAdjus
                   }
@@ -885,8 +856,7 @@ function Select_img({
                     ? styles.border03
                     : styles.border15)
                 }
-                ${passColor == "white" ? "" : styles.blackPass}
-                
+                ${passColor == "white" ? "" : styles.blackPass}                
                 `}
                   sizes="(max-width: 360px) 70vw, 33vw"
                   width={420}
@@ -905,8 +875,6 @@ function Select_img({
                 alt="image of a living room used has a mokeup for the selected picture"
                 className={`${styles.img__mokeup} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"
-                } ${
-                  navState == possibleState.smallFixed && styles.img_smallFixed
                 }`}
                 sizes="(max-width: 480px) 100vw, 33vw"
                 width={720}
@@ -916,10 +884,7 @@ function Select_img({
               />
               {selectedImg !== null && (
                 <button
-                  className={`${styles.enlargeBtn} ${
-                    navState == possibleState.smallFixed &&
-                    styles.img_smallFixed
-                  }`}
+                  className={`${styles.enlargeBtn}`}
                   onClick={() => setEnlarger(!enlarger)}
                 >
                   <h5 className={styles.txtEnlarge}> Enlarge</h5>{" "}
@@ -932,11 +897,7 @@ function Select_img({
           )}
           {/*==================== Left Btn add to cart ============================*/}
           {product !== undefined && prodSize !== null && (
-            <div
-              className={`${styles.totalPrice} ${
-                navState == possibleState.smallFixed && styles.img_smallFixed
-              }     `}
-            >
+            <div className={`${styles.totalPrice}`}>
               {!is_addCartClicked ? (
                 <div className={styles.btn_addToCart_complet}>
                   <button
@@ -1019,6 +980,22 @@ function Select_img({
                     onClick={() => setIs_addCartClicked(false)}
                     onError={() => redirectToBasUrl()}
                   />
+                </Link>
+                <Link
+                  href={
+                    imgList.length > 1 && el !== selectedImgExtention
+                      ? ""
+                      : "/shop"
+                  }
+                  scroll={false}
+                >
+                  <button
+                    className={styles.removeImgBtn}
+                    onClick={() => handleRemoveImg(el)}
+                  >
+                    {/* <p>remove</p> */}
+                    <IoIosCloseCircleOutline className={styles.icone} />
+                  </button>
                 </Link>
               </li>
             ))}
@@ -1823,7 +1800,7 @@ function Select_img({
           </div>
         )}
       </div>
-      {/*==================== helper image ============================*/}
+      {/*==================== helper image ======= .img__selected_enlarged=====================*/}
 
       {enlarger && (
         <div className={`${enlarger && styles.imageEnlarger} `}>
@@ -1842,7 +1819,10 @@ function Select_img({
                 onError={() => redirectToBasUrl()}
                 className={`${styles.img__selected_enlarged} ${
                   isImageLoading ? "unLoaded" : "remove-unLoaded"
-                } 
+                }  ${
+                  imagesInfos[selectedImg].form == "vertical" &&
+                  styles.verticalAdjus
+                }
             ${
               prodSize == "16"
                 ? styles.size16
@@ -1862,11 +1842,13 @@ function Select_img({
                 ? styles.size60
                 : prodSize == "70"
                 ? styles.size70
+                : prodSize == "75"
+                ? styles.size75
                 : prodSize == "80"
                 ? styles.size80
                 : prodSize == "90"
                 ? styles.size90
-                : styles.size50
+                : styles.sizeStd
             }
                   
                   ${
@@ -1941,7 +1923,7 @@ function Select_img({
                   
                   `}
                 sizes="100vw"
-                width={420}
+                width={720}
                 height={0}
                 quality={80}
               />
@@ -1955,11 +1937,11 @@ function Select_img({
                   : "1"
               }.jpg`}
               alt="image of a living room used has a mokeup for the selected picture"
-              className={`${styles.img__mokeup} ${
+              className={`${styles.img__mokeup} ${styles.img__mokeup_enlarged} ${
                 isImageLoading ? "unLoaded" : "remove-unLoaded"
               }`}
               sizes="100vw"
-              width={480}
+              width={720}
               height={0}
               quality={80}
               onLoad={() => setImageLoading(false)}

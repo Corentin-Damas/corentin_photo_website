@@ -139,10 +139,10 @@ function Navbar_gallery() {
               }`}
               ></p>
           </Link>
-        </ul>
         <Link href="/contact">
           <button className={`${styles.contactMe} btn`}>contact me</button>
         </Link>
+        </ul>
       </nav>
     </>
   );

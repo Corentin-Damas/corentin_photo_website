@@ -7,6 +7,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media only screen and (max-width: 77em) {
+    width: calc(100vw - (var(--padding-inLine) * 2));
+  }
+  @media only screen and (max-width: 43.75em) {
+    width: 100%;
+  }
 }
 
 .myNameLink {
@@ -17,7 +24,7 @@
   font-size: var(--font-size-subTitle_01);
   line-height: var(--font-size-Title_02);
   width: max-content;
-  
+
   color: var(--font-color-main);
   transition: all 0.2s;
   z-index: 150;
@@ -28,10 +35,10 @@
   @media only screen and (max-width: 65em) {
     font-size: var(--font-size-subTitle_02);
   }
-  @media only screen and (max-width: 50em){
+  @media only screen and (max-width: 50em) {
     width: min-content;
     line-height: var(--font-size-Title_03);
-  } 
+  }
   @media only screen and (max-width: 43.75em) {
     display: none;
   }
@@ -43,15 +50,15 @@
 }
 
 .title_container {
-  padding-right: 12rem;
   margin-inline: 10vw;
   text-align: center;
+
   @media only screen and (max-width: 77em) {
     padding-right: 0rem;
   }
 }
 
-.title_txt{
+.title_txt {
   font-family: var(--font-geologica-Regular);
   font-size: var(--font-size-subTitle_01);
   letter-spacing: var(--letter-spacing-XS);

@@ -1,8 +1,15 @@
+/* bubble_containeur */
+
 .close_component,
 .info_component {
+  position: absolute;
+  top: 0;
+  right: -4.6rem;
+
+
   transition: all 0.15s ease-in-out;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 600;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +58,7 @@
 .popUpInformation {
   position: absolute;
   top: 0%;
-  left: 0;
+  right: 0;
   height: 100vh;
   max-height: 720px;
   background-color: var(--bg-txt-transparency);

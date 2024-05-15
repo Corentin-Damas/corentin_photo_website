@@ -13,7 +13,7 @@ function page() {
     <div className={styles.page}>
       <Hero_gallery
         title="A year in japan"
-        c1="Wondering"
+        c1="Wandering"
         c2="2016 - 2018"
         c3="Japan"
       />

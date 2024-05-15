@@ -3,9 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./../gallery/Image_grid.module.css";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
+import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { imagesInfos } from "../shop/images";
-
 import BookMarkIcon from "../BookMarkIcon";
 
 const GalleryImg = ({
@@ -118,7 +118,7 @@ const GalleryImg = ({
               className={`${styles.img} ${
                 isImageLoading ? "unLoaded" : "remove-unLoaded"
               } ${
-                imagesInfos[el.slice(0,-4)].form == "vertical" &&
+                imagesInfos[el.slice(0, -4)].form == "vertical" &&
                 styles.verticalAdjus
               }`}
               sizes="(max-width: 768px) 100vw, 75vw"
@@ -184,15 +184,35 @@ const GalleryImg = ({
             <div className={styles.close_container}>
               <GrFormClose className={styles.icone} onClick={handleClose} />
             </div>
-            <div className={styles.fav_container}>
+            <div className={`${styles.fav_container} ${styles.mobileContre}`}>
               <div className={styles.fav_divAligne}>
-
                 <BookMarkIcon imgName={images[imgSelected]} />
               </div>
             </div>
           </>
         )}
       </div>
+      <FaArrowUp
+        className={styles.upIcone}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      />
+
+      {dialog && (
+        <div className={styles.mobilAction}>
+          <BookMarkIcon imgName={images[imgSelected]} />
+          <div className={styles.mobile_arrows}>
+            <GrFormPrevious
+              className={`${styles.icone_mobile} ${styles.icone_left_mobile}`}
+              onClick={handlePrev}
+            />
+            <GrFormNext
+              className={`${styles.icone_mobile} ${styles.icone_right_mobile}`}
+              onClick={handleNext}
+            />
+          </div>
+          <GrFormClose className={styles.icone_mobile} onClick={handleClose} />
+        </div>
+      )}
     </>
   );
 };

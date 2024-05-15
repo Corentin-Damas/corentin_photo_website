@@ -164,6 +164,7 @@ function Page() {
           <h5 className={styles.project_title}>About</h5>
         </Link>
       </div>
+
     </section>
   );
 }
