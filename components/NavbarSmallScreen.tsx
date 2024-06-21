@@ -10,7 +10,7 @@ import CartNavBtn from "./CartNavBtn";
 import LocalStorage from "./LocalStorage";
 import { useCartProduct } from "../providers/cart-provider";
 
-function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
+function NavbarSmallScreen() {
   const [menuOpen, setMenuOpen] = useState<boolean>(true);
   const cartList = useCartProduct((state) => state.cartOfProduct);
 
@@ -27,7 +27,7 @@ function NavbarSmallScreen({ linkMyName }: { linkMyName: string }) {
       <div className={styles.smallScreenTop}>
         <Link
           tabIndex={1}
-          href={`/${linkMyName}`}
+          href={`/`}
           className={styles.myNameLink}
         >
           Corentin Damas

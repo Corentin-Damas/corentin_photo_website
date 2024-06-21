@@ -1,12 +1,13 @@
 :root {
   /* Font
+  --font-geologica
+  --font-geologica-light
+  --font-geologica-Cursive
   --font-geologica-Roman-Medium
   --font-geologica-Roman-Regular
-  --font-geologica-light
-  --font-geologica-Regular
-  --font-geologica-Cursive-Regular
-  --font-Lateef-Regular
-  --font-SawarabiMincho-Regular
+
+  --font-atom
+  --font-SawarabiMincho
   */
 
   /* --bg-txt-multiplier */
@@ -16,24 +17,23 @@
   --font-size-Display_03: 6rem;
 
   --font-size-Title_01: 4.8rem;
-  --line-height-Title_01: 6.72rem;
-
   --font-size-Title_02: 4.2rem;
   --font-size-Title_03: 3.6rem;
-
+  
   --font-size-subTitle_01: 3.2rem;
   --font-size-subTitle_02: 2.4rem;
   --font-size-subTitle_03: 2.1rem;
-  --line-height-subTitle_03: 3.36rem;
-
+  
   --font-size-bodyText_01: 1.6rem;
-  --line-height-body_01: 2.5rem;
   --font-size-bodyText_02: 1.4rem;
-  --line-height-body_02: 2.24rem;
   --font-size-bodyText_03: 1.2rem;
-
   --font-size-detail_01: 1rem;
   --font-size-detail_02: 0.8rem;
+
+  --line-height-Title_01: 6.72rem;
+  --line-height-subTitle_03: 3.36rem;
+  --line-height-body_01: 2.5rem;
+  --line-height-body_02: 2.24rem;
 
   --letter-spacing-XS: 1px;
   --letter-spacing-S: 3px;
@@ -41,8 +41,8 @@
 
   --transi-time-S: 0.2s;
 
+  
   --background-color: #f8fafc;
-
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
 
@@ -286,6 +286,8 @@ body {
   background-color: var(--background-color);
   box-sizing: border-box;
   margin: auto;
+  font-family: var(--font-geologica-Cursive), Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 a {
@@ -300,7 +302,7 @@ h1 {
 h2 {
   font-size: var(--font-size-Title_01);
   line-height: var(--font-size-Title_01);
-  font-family: var(--font-Lateef-Regular);
+  font-family: var(--font-atom);
   color: var(--font-color-main);
   letter-spacing: 3px;
   font-weight: 400;
@@ -352,7 +354,7 @@ p.detail_02 {
 }
 
 .geologicaReg {
-  font-family: var(--font-geologica-Regular);
+  font-family: var(--font-geologica);
 }
 .geologicaRom {
   font-family: var(--font-geologica-Roman-light);
@@ -367,9 +369,8 @@ p.detail_02 {
 .main-Color {
   color: var(--prim-500-main);
 }
-.prim-100 {
-  color: var(--prim-100);
-}
+
+
 .alder_brown {
   background: var(--alder-Brown);
 }
@@ -458,13 +459,13 @@ p.detail_02 {
   gap: var(--spacing-M);
 }
 
-.notFoundMyName{
+.notFoundMyName {
   font-family: var(--font-geologica-light);
   font-weight: 300;
 }
 
-.notFoundTxt{
-  display:flex;
+.notFoundTxt {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-M);
@@ -474,12 +475,12 @@ p.detail_02 {
   */
 }
 
-.notFoundLogo{
+.notFoundLogo {
   width: var(--icone-S);
   height: var(--icone-S);
 }
 
-.notFoundImg{
+.notFoundImg {
   object-fit: cover;
   height: auto;
   width: 100%;

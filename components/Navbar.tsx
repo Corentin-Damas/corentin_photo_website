@@ -8,56 +8,19 @@ import { usePathname } from "next/navigation";
 import CartNavBtn from "./CartNavBtn";
 import LocalStorage from "./LocalStorage";
 
-function Navbar({ linkMyName }: { linkMyName: string }) {
+function Navbar() {
   const path = usePathname();
-  const possibeState = { fixed: "fixed", unFixed: "", init: "init" };
-  const [navState, setNavState] = useState(possibeState.init);
-  const [lastScroll, setLastScoll] = useState<number>(0);
-
   LocalStorage()
 
-  const scrollBehaviour = () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll <= 0) {
-      setNavState(possibeState.init);
-    } else {
-      if (currentScroll < lastScroll && currentScroll > 200) {
-        setNavState(possibeState.fixed);
-      }
-      if (currentScroll > lastScroll) {
-        setNavState(possibeState.unFixed);
-      }
-    }
-
-    setLastScoll(currentScroll);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", scrollBehaviour);
-    return () => {
-      window.removeEventListener("scroll", scrollBehaviour);
-    };
-  });
-
-  if (linkMyName == undefined) {
-    linkMyName = "";
-  }
   return (
     <>
       <nav
-        className={`${styles.nav} ${
-          navState == possibeState.fixed
-            ? `${styles.nav_fixed} `
-            : navState == possibeState.unFixed
-            ? `${styles.nav_unfixed}`
-            : `${styles.nav_init}`
-        } `}
+        className={`${styles.nav} `}
       >
         <div className={styles.nav__items}>
           <Link
             tabIndex={1}
-            href={`/${linkMyName}`}
+            href={`/`}
             className={styles.myNameLink}
           >
             Corentin Damas
@@ -105,7 +68,7 @@ function Navbar({ linkMyName }: { linkMyName: string }) {
           </div>
         </div>
       </nav>
-      <NavbarSmallScreen linkMyName={linkMyName} />
+      <NavbarSmallScreen />
     </>
   );
 }
