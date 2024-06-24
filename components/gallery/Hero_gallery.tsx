@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../gallery/Hero_gallery.module.css";
-import ThemeSwitch from "../ThemeSwitch";
+import ThemeSwitch from "../navigation/ThemeSwitch";
 import Link from "next/link";
 import Nav_gallerySmallSize from "./nav_gallerySmallSize";
 

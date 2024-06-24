@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { useCartProduct } from "../providers/cart-provider";
+import { useCartProduct } from "../../providers/cart-provider";
 import Link from "next/link";
 
 import styles from "./CartNavBtn.module.css";
@@ -22,13 +22,11 @@ function CartNavBtn() {
         </div>
       )}
       <MdOutlineShoppingCart
-        className={`${styles.cartIcone} ${
-          cartList.length < 1 && styles.cart__lock
-        }  `}
+        className={`${styles.cartIcone}`}
         onClick={() => setIsOpen(!isOpen)}
       />
 
-      {cartList.length > 0 && isOpen && (
+      {isOpen && (
         <div className={styles.cartNav__container}>
           <div className={styles.cartMainContent}>
             {cartList.map((el) => (
@@ -71,21 +69,31 @@ function CartNavBtn() {
               </div>
             ))}
           </div>
-          <div className={styles.cartFooter}>
-            <h5 className={styles.totalPrice}>
-              <span className={styles.totalTxt}>total :</span>{" "}
-              {total.toFixed(2)}
-              €* <br />{" "}
-              <span className={styles.priceDetail}>*without transport fee</span>
-            </h5>
-            <Link
-              className={`${styles.majorLink}`}
-              href="/cart"
-              onClick={() => setIsOpen(false)}
-            >
-              <p className={`${styles.linkTxt} `}>Order now</p>
-            </Link>
-          </div>
+          {cartList.length <= 0 ? (
+            <div>
+              <h5>
+                You have nothing yet in your cart, check the gallery or the shop
+              </h5>
+            </div>
+          ) : (
+            <div className={styles.cartFooter}>
+              <h5 className={styles.totalPrice}>
+                <span className={styles.totalTxt}>total :</span>{" "}
+                {total.toFixed(2)}
+                €* <br />{" "}
+                <span className={styles.priceDetail}>
+                  *without transport fee
+                </span>
+              </h5>
+              <Link
+                className={`${styles.majorLink}`}
+                href="/cart"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className={`${styles.linkTxt} `}>Order now</p>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </div>

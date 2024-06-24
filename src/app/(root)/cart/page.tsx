@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../../../../components/Navbar";
+import Navbar from "../../../../components/shop/navigation/Navbar";
 import styles from "./page.module.css";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer/Footer";
 
 import CartFetching from "../../../../components/cart/CartFetching";
 

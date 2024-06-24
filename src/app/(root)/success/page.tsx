@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
-import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
+import Navbar from "../../../../components/shop/navigation/Navbar";
+import Footer from "../../../../components/footer/Footer";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 import Link from "next/link";
 
@@ -23,7 +23,8 @@ function page() {
           Please make sure to check your mails and to keep them. It will be the
           only way (for the moment) to keep track of your order.
           <br />
-          If you have any question don&apos;t hesitate to go on the <Link href={"/contact"} className={styles.informations__links}>
+          If you have any question don&apos;t hesitate to go on the{" "}
+          <Link href={"/contact"} className={styles.informations__links}>
             contact page{" "}
           </Link>
           or send a message to: corentin.damasphoto@gmail.com .

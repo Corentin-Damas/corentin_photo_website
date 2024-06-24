@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../../../../components/Navbar";
+import Navbar from "../../../../components/shop/navigation/Navbar";
 import styles from "./page.module.css";
-import Footer from "../../../../components/Footer";
-import SectionCta from "../../../../components/main_section/section_cta";
+import Footer from "../../../../components/footer/Footer";
+import SectionCta from "../../../../components/landingPage/section_cta";
 
 function page() {
   return (

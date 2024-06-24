@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../about/page.module.css";
-import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
+import Navbar from "../../../../components/shop/navigation/Navbar";
+import Footer from "../../../../components/footer/Footer";
 
 function page() {
   return (

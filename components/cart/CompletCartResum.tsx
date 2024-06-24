@@ -5,7 +5,7 @@ import styles from "./CompletCartResum.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Form from "../main_section/Form";
+import Form from "../utils/Form";
 import { useSearchParams } from "next/navigation";
 import ExpeditionInfos from "../shop/ExpeditionInfos";
 import LocalStorage from "../LocalStorage";

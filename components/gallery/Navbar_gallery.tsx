@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
 import styles from "../gallery/Navbar_gallery.module.css";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import { usePathname } from "next/navigation";
 import { useImgSelected } from "../../providers/imgFav-provider";
-import LocalStorage from "../LocalStorage";
+import LocalStorage from "../utils/LocalStorage";
 
 function Navbar_gallery() {
   const path = usePathname();
@@ -71,11 +69,7 @@ function Navbar_gallery() {
             </ul>
           </div>
           <h6 className={styles.link__group_name}>Side works</h6>
-          <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ ease: "easeOut", duration: 0.6 }}
-          >
+          <div>
             <ul className={styles.link__group}>
               <p className={styles.number}>
                 _5 <span className={styles.bar}>|</span>{" "}
@@ -111,7 +105,7 @@ function Navbar_gallery() {
                 Work in black and white
               </Link>
             </ul>
-          </motion.div>
+          </div>
           <Link
             href="/gallery"
             className={`${styles.normal__link} ${

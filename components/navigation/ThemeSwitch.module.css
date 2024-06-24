@@ -1,13 +1,9 @@
-.icone {
+ .icone {
   height: var(--icone-S);
   width: var(--icone-S);
   color: var(--font-color-main);
-  z-index: 510;
+  user-select: none;
 
-  @media only screen and (max-width: 65em) {
-    height: var(--icone-S);
-    width: var(--icone-S);
-  }
 }
 
 .icone_landing {
@@ -24,12 +20,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: all 0.2s;
-}
-.theme_container:hover {
+  transition: all var(--transi-time-M);
   cursor: pointer;
-  transition: all 0.2s;
 }
+
 
 .theme_txt {
   position: absolute;
@@ -40,7 +34,7 @@
   user-select: none;
   transform: translate(-50%, -55%);
   opacity: 0;
-  transition: all 0.2s;
+  transition: all var(--transi-time-M);
   font-size: var(--font-size-bodyText_03);
   z-index: 500;
   @media only screen and (max-width: 65em) {
@@ -51,4 +45,22 @@
 
 .theme_container:hover .theme_txt {
   opacity: 100;
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid var(--rules-color); /* Blue color for the top border */
+  border-radius: 50%;
+  height: var(--icone-S);
+  width: var(--icone-S);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

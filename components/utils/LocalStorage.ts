@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useCartProduct } from "../providers/cart-provider";
+import { useCartProduct } from "../../providers/cart-provider";
 const LocalStorage = () => {
   const retriveFromLocalStorage = useCartProduct(
     (state) => state.localStorageCart

@@ -6,7 +6,7 @@ import styles from "../gallery/nav_gallerySmallSize.module.css";
 import { GrFormClose } from "react-icons/gr";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { usePathname } from "next/navigation";
-import LocalStorage from "../LocalStorage";
+import LocalStorage from "../utils/LocalStorage";
 import { useImgSelected } from "../../providers/imgFav-provider";
 
 function Nav_gallerySmallSize() {

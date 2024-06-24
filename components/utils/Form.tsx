@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import styles from "../main_section/section_cta.module.css";
+import styles from "../landingPage/section_cta.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
 

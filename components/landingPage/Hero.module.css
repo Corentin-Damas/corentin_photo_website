@@ -1,52 +1,54 @@
-.presentation {
+.landing__bg{
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bgDark{
+  object-fit: cover;
+  object-position: 50% 10%; 
+}
+.bglight {
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.landing__hero {
   position: relative;
-  z-index: 10;
-  max-width: var(--max-width-L);
-  padding-inline: var(--padding-inLine);
-  margin: auto;
-  padding-top: var(--spacing-L);
+  padding-top: var(--spacing-M);
   height: calc(
     var(--window-height) -
-      (var(--padding-vertical) + var(--line-height-Title_01))
-  );
-  @media only screen and (max-width: 125em) {
-    max-width: var(--max-width-M);
-  }
-
-  @media only screen and (max-width: 120em) {
-    padding-top: calc(var(--spacing-L) - var(--spacing-S));
-  }
-  @media only screen and (max-width: 90em){
-    
+      (var(--nav-height))
+  );    
+ 
+  @media only screen and (max-width: 90em){    
     padding-top: var(--spacing-LM);
-  }  
+  }    
 
   @media only screen and (max-width: 65em) {
     padding-top: 0;
-  }
-}
+  }  
+}  
 
-.presentation__containeur {
+.presentation {
   display: inline-flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 
-  padding-left: 7vw;
-
   @media only screen and (max-width: 65em){
     align-items: center;
     width: 100%;
-    padding-left: 0;
     transform: translate(-50%, -50%);
-
   }
   @media only screen and (max-width: 37.5em){
     padding-top: var(--spacing-M);
-
   } 
-
 }
+
 .presentation__main {
   margin-bottom: var(--spacing-XS);
 
@@ -54,7 +56,6 @@
     font-size: var(--font-size-subTitle_01);
   }
 }
-
 .presentation__sub {
   align-self: flex-end;
   display: flex;
@@ -74,14 +75,13 @@
   background: var(--prim-500-main);
   border-radius: 50%;
 }
-
 .presentation__sub_txt {
   letter-spacing: 1px;
 }
 
 .img_caption__containeur {
   position: absolute;
-  right: var(--padding-inLine);
+  right: 0;
   text-align: right;
   bottom: calc(var(--padding-vertical) + var(--spacing-LM));
   display: flex;
@@ -107,3 +107,11 @@
 .sec_color_txt {
   color: var(--font-color-body_02);
 }
+
+.header {
+  position: relative;
+  height: var(--window-height);
+  padding-top: var(--spacing-LM);
+}
+
+

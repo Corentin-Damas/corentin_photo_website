@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Hero from "../components/Hero";
+import Hero from "../components/landingPage/Hero";
 
 describe("Hero", () => {
   it("Key word in the Hero section", () => {

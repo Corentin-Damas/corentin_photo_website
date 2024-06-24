@@ -1,7 +1,7 @@
-import styles from "../main_section/section_cta.module.css";
+import styles from "./section_cta.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Form from "./Form";
+import Form from "../utils/Form";
 
 function section_cta() {
   return (

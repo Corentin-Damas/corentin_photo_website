@@ -1,0 +1,89 @@
+.nav {
+  position: sticky;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 500;
+
+  border-bottom: 1px solid var(--border-menu);
+  transition: var(--transi-time-S);
+
+  @media only screen and (max-width: 65em) {
+    display: none;
+  }
+}
+.nav__bg{
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(4px) var(--bg-brightness);
+}
+
+.nav__items {
+  font-family: var(--font-geologica-light);
+  font-size: var(--font-size-subTitle_01);
+  letter-spacing: var(--letter-spacing-XS);
+  color: var(--font-color-main);
+
+  height: var(--nav-height);
+  max-width: var(--max-width-L);
+  padding-inline: var(--padding-inLine);
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (max-width: 125em) {
+    max-width: var(--max-width-M);
+  } 
+  @media only screen and (max-width: 84em) {
+    font-size: var(--font-size-subTitle_02);
+  }
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-LM);
+
+  @media only screen and (max-width: 84em) {
+    gap: var(--spacing-M);
+  }
+
+  @media only screen and (max-width: 65em) {
+    display: none;
+  }
+}
+
+.nav__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-SM);
+  @media only screen and (max-width: 71em) {
+    gap: var(--spacing-S);
+  }
+}
+.currPage {
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+}
+
+
+.myLogo:hover,
+.link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--rules-color);
+  text-decoration-thickness: 2px;
+  text-underline-offset: var(--spacing-XXS);
+}
+
+.myLogo:active,
+.myLogo:focus,
+.link:active,
+.link:focus {
+  text-decoration-color: var(--prim-500-main);
+}
+
+

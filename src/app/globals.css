@@ -12,7 +12,7 @@
 
   /* --bg-txt-multiplier */
 
-  --font-size-Display_01: 9.6rem;
+  --font-size-Display_01: 9.6rem; 
   --font-size-Display_02: 7.2rem;
   --font-size-Display_03: 6rem;
 
@@ -39,7 +39,8 @@
   --letter-spacing-S: 3px;
   --letter-spacing-M: 5px;
 
-  --transi-time-S: 0.2s;
+  --transi-time-S: 100ms;
+  --transi-time-M: 200ms;
 
   
   --background-color: #f8fafc;
@@ -47,12 +48,14 @@
   --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
 
   /* Nav */
-  --bg-nav-transparency-start_init: hsla(210, 40%, 98%, 0.95);
-  --bg-nav-transparency-start: hsla(210, 40%, 98%, 0.85);
-  --bg-nav-transparency-end: hsla(210, 40%, 98%, 0.8);
-  --bg-nav-transparency-end_init: hsla(210, 40%, 98%, 0);
-  --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
+  --nav-height: 8rem;
+  --bg-nav: hsla(210, 40%, 98%, 0.9);
+  --bg-brightness: brightness(1.1) ;
+
+
+  
   --border-menu: hsla(204, 64%, 18%, 0.75);
+  --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
 
   --bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
   --active-link-transparency: hsla(204, 64%, 18%, 0.3);
@@ -84,7 +87,7 @@
   --font-color-body_02: #2b3d50;
   --link-color-underline: #717d8a;
   --section-2-band: #121a22;
-  --btn-background: #1c5a83;
+  --btn-background: #1f2b39;
 
   --dropDown-Coutry-bg: #f8fafc;
   --dropDown-Coutry-arrow-bg: #bdc3c9;
@@ -190,12 +193,12 @@ html.dark {
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
   --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
 
-  --bg-nav-transparency-start_init: hsla(208, 29%, 10%, 0.9);
-  --bg-nav-transparency-start: hsla(208, 29%, 10%, 0.7);
-  --bg-nav-transparency-end_init: hsla(208, 29%, 10%, 0);
-  --bg-nav-transparency-end: hsla(208, 29%, 10%, 0.4);
+  --bg-nav: hsla(208, 29%, 10%, 0.4);
+  --bg-brightness: brightness(0.4) ;
+
+
   --bg-nav-smallScreenIcone: hsla(210, 31%, 10%, 0.7);
-  --border-menu: #eaecee;
+  --border-menu: hsla(210, 11%, 93%, 0.5);
 
   --info-bg-n500: hsl(211, 30%, 24%);
   --bg-txt-transparency: hsla(208, 29%, 10%, 0.98);
@@ -217,7 +220,7 @@ html.dark {
   --font-color-body_02: #bcd7e9;
   --rules-color: #f8fafc;
   --section-2-band: #612019;
-  --btn-background: #287fb8;
+  --btn-background: #a4372b;
 
   --dropDown-Coutry-bg: #1f2b39;
   --dropDown-Coutry-arrow-bg: #556473;
@@ -312,15 +315,15 @@ h3 {
   color: var(--font-color-main);
 }
 h4 {
-  font-size: var(--font-size-subTitle_01);
-  font-family: var(--font-Lateef-Regular);
+  font-size: var(--font-size-Title_02);
+  font-family: var(--font-atom), Times, 'Times New Roman', serif;
   color: var(--font-color-main);
   font-weight: 300;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
 }
 h5 {
   font-size: var(--font-size-subTitle_02);
-  font-family: var(--font-geologica-Regular);
+  font-family: var(--font-geologica);
   color: var(--font-color-main);
   font-weight: 400;
 }
@@ -332,7 +335,7 @@ h6 {
 }
 p {
   font-size: var(--font-size-bodyText_01);
-  font-family: var(--font-geologica-Regular);
+  font-family: var(--font-geologica);
   color: var(--font-color-main);
   line-height: var(--line-height-body_01);
 }
@@ -340,7 +343,6 @@ p {
 p.body_02 {
   font-size: var(--font-size-bodyText_02);
   font-family: var(--font-geologica-light);
-  color: var(--font-color-body_02);
   line-height: var(--line-height-body_01);
 }
 p.detail_01 {
@@ -363,7 +365,8 @@ p.detail_02 {
 }
 
 .japanese {
-  font-family: var(--font-SawarabiMincho-Regular);
+  font-family: var(--font-SawarabiMincho);
+  font-weight: 400;
 }
 
 .main-Color {
@@ -406,10 +409,10 @@ p.detail_02 {
   margin-top: var(--special_link);
 }
 
-.btn {
+.btn-cta {
   user-select: none;
 
-  font-family: var(--font-geologica-Cursive-Regular);
+  font-family: var(--font-geologica-Cursive);
   font-size: var(--font-size-bodyText_01);
   letter-spacing: 1px;
   color: var(--sec-50);
@@ -560,5 +563,10 @@ Phones
 
 432px 27em
 @media only screen and (max-width: 27em){}  
+
+index:
+
+
+500 navbar
 
 */

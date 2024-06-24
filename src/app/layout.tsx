@@ -11,8 +11,8 @@ import {
 } from "../../public/font/handleFont";
 import type { Metadata } from "next";
 import { Providers } from "../../providers/theme-provider";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/navigation/Navbar";
+import Footer from "../../components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Corentin Damas - Artefact",
@@ -56,8 +56,8 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
-          <Footer/>
-          </Providers>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

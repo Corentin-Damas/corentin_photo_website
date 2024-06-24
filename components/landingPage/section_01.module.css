@@ -38,29 +38,9 @@
 
 /* === part 1 === */
 
-.img_caption__containeur {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  align-self: self-end;
-  justify-self: right;
-  opacity: 0;
-
-  width: 24rem;
-  padding-left: 0.8rem;
-
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: var(--spacing-XS);
-  transition: all 0.2s;
-  z-index: 100;
-  @media only screen and (max-width: 65em) {
-    display: none;
-  }
-}
 
 .link__img {
-  grid-row: 2/3;
+  grid-row: 1/2;
   grid-column: 1/2;
   width: 100%;
   height: 100%;

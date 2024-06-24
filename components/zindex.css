@@ -1,0 +1,106 @@
+:root{
+  /* --font-geologica
+  --font-geologica-Cursive
+  --font-geologica-Roman-Medium
+  --font-geologica-Roman-Regular
+
+  --font-SawarabiMincho 
+  --bg-p1-transparency
+
+  */
+
+--letter-spacing-S: 3px;
+--letter-spacing-M: 5px;
+
+--background-color-transparency: hsla(210, 40%, 98%, 0.9);
+--background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
+
+--bg-nav: hsla(210, 40%, 98%, 0.9);
+
+
+--bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
+
+--bg-txt-transparency: hsla(210, 40%, 98%, 0.98);
+--active-link-transparency: hsla(204, 64%, 18%, 0.3);
+--bg-transparency-smallScreen: hsla(210, 11%, 93%, 0.9);
+
+--shop-info-transparency: hsla(204, 50%, 62%, 0.15);
+--shop-right-transparency: hsla(210, 11%, 93%, 0.35);
+
+--gallery-title-transparency: hsla(204, 64%, 18%, 0.75);
+--gallery-arrow-blend-color: #eaecee;
+
+--bg-txt-multiplier: hsla(210, 11%, 93%, 0.9);
+--shop-dropshadow: hsla(204, 64%, 18%, 0.75);
+--info-bg-n500: #eaecee;
+--icones: #11354d;
+--icones_locked: #9da6af;
+--sec-btn: #287fb8;
+--prim-btn: #ef887c;
+
+--netral-700-transparent: hsla(212, 30%, 17%, 0.9);
+
+--bg-p1-transparency: hsla(210, 40%, 98%, 0.7);
+--bg-p1-brightness: 1.15;
+--bg-navMobile-brightness: 1.4;
+
+
+--font-color-gray: #556473;
+
+--section-2-band: #121a22;
+--btn-background: #1f2b39;
+
+--dropDown-Coutry-bg: #f8fafc;
+--dropDown-Coutry-arrow-bg: #bdc3c9;
+
+--white-bar: #eaecee;
+
+--neutral-50: #eaecee;
+--netral-100: #bdc3c9;
+--netral-200: #9da6af;
+--netral-300: #717d8a;
+--netral-400: #556473;
+--netral-500: #2b3d50;
+--netral-700: #1f2b39;
+--netral-900: #121a22;
+--netral-black: #1a1a1a;
+
+--prim-100: #f8c8c3;
+
+--prim-700: #a4372b;
+--prim-900: #612019;
+
+--sec-50: #eaf2f8;
+--sec-100: #bcd7e9;
+--sec-300: #6fa9cf;
+--sec-700: #1c5a83;
+--sec-900: #11354d;
+
+--padding-vertical: 3vh;
+--img-preview-M: 30rem;
+
+--max-width-MS: 1100px;
+--max-width-MM: 1200px;
+--max-width-ML: 1900px;
+
+
+--borderRadiusBtn-very-soft: 0.5rem;
+--borderRadiusBtn-soft: 2rem;
+--borderRadiusBtn-mid: 4rem;
+--borderRadiusBtn-round: 50%;
+
+--btnSeclection-height-S: 3.6rem;
+--btnSeclection-height-M: 4.8rem;
+--btnSeclection-height: 7rem;
+--btnSeclection-width: 25rem;
+
+--arrow-S: 0.5rem;
+
+--icone-M: 8rem;
+--border-radius: 12px;
+--footerSize: 45rem;
+--footerSizeMobile: 70rem;
+
+--special_link: 0.8rem;
+
+}

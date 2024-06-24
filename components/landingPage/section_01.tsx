@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../main_section/section_01.module.css";
+import styles from "./section_01.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +19,7 @@ function section_01() {
             width={1280}
             height={853}
             quality={80}
+            loading="lazy"
           />
 
           <Image
@@ -29,6 +30,7 @@ function section_01() {
             width={1280}
             height={853}
             quality={80}
+            loading="lazy"
           />
         </Link>
         {/* <div className={`${styles.img_caption__containeur} dark_mode_only`}>
@@ -99,7 +101,6 @@ function section_01() {
           <div className={styles.p1__link__containeur}>
             <Link
               href={"/gallery/a_year_in_japan"}
-              tabIndex={9}
               className="gallery_Link"
             >
               See Gallery _<span className="main-Color">&gt;</span>
