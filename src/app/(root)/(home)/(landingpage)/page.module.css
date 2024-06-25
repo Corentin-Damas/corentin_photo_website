@@ -1,4 +1,4 @@
-.landingPage__container{
+.landingPage__container:not(.full-width){
   max-width: var(--max-width-L);
   padding-inline: var(--padding-inLine);
   margin: 0 auto;

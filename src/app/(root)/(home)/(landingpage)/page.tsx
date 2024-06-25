@@ -1,24 +1,29 @@
 import React from "react";
-
-import Section02 from "../../../../../components/landingPage/section_02";
-import Section03 from "../../../../../components/landingPage/section_03";
-import SectionCta from "../../../../../components/landingPage/section_cta";
-import Hero from "../../../../../components/landingPage/Hero";
-
 import styles from "./page.module.css";
+
+import Hero from "../../../../../components/landingPage/Hero";
 import Section_Japan from "../../../../../components/landingPage/Section_Japan";
 import Section_Europe from "../../../../../components/landingPage/Section_Europe";
+import Section_Memories from "../../../../../components/landingPage/Section_Memories";
+import Section_SideProjects from "../../../../../components/landingPage/Section_SideProjects";
+import Section_Form from "../../../../../components/landingPage/Section_Form";
 
 const page = () => {
   return (
-    <div className={styles.landingPage__container}>
-      <Hero />
-      <Section_Japan/>
-      <Section_Europe/>
+    <div>
+      <div className={styles.landingPage__container}>
+        <Hero />
+        <Section_Japan />
+        <Section_Europe />
+      </div>
 
-      <Section02 />
-      <Section03 />
-      <SectionCta />
+      <Section_Memories/>
+
+      <div className={styles.landingPage__container}>
+        <Section_SideProjects/>
+        <Section_Form/>
+      </div>
+      
     </div>
   );
 };

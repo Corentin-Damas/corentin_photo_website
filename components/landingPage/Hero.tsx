@@ -21,7 +21,7 @@ function Hero() {
         />
         <Image
           src={bgLight}
-          alt="Bridge named rainbow Bridge from Tokyo, Japan"
+          alt="Floating torii from Miyajima, Japan"
           className={`${styles.bglight} light_mode_only`}
           quality={100}
           placeholder="blur"

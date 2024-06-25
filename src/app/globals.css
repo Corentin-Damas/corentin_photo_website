@@ -12,18 +12,18 @@
 
   /* --bg-txt-multiplier */
 
-  --font-size-Display_01: 9.6rem; 
+  --font-size-Display_01: 9.6rem;
   --font-size-Display_02: 7.2rem;
   --font-size-Display_03: 6rem;
 
   --font-size-Title_01: 4.8rem;
   --font-size-Title_02: 4.2rem;
   --font-size-Title_03: 3.6rem;
-  
+
   --font-size-subTitle_01: 3.2rem;
   --font-size-subTitle_02: 2.4rem;
   --font-size-subTitle_03: 2.1rem;
-  
+
   --font-size-bodyText_01: 1.6rem;
   --font-size-bodyText_02: 1.4rem;
   --font-size-bodyText_03: 1.2rem;
@@ -41,8 +41,10 @@
 
   --transi-time-S: 100ms;
   --transi-time-M: 200ms;
+  --hover-scaling: 1.05;
+  --active-scaling: 1.02;
+  /* var(--transi-time-M) */
 
-  
   --background-color: #f8fafc;
   --background-color-transparency: hsla(210, 40%, 98%, 0.9);
   --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
@@ -50,10 +52,8 @@
   /* Nav */
   --nav-height: 8rem;
   --bg-nav: hsla(210, 40%, 98%, 0.9);
-  --bg-brightness: brightness(1.1) ;
+  --bg-brightness: brightness(1.1);
 
-
-  
   --border-menu: hsla(204, 64%, 18%, 0.75);
   --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
 
@@ -74,6 +74,8 @@
   --icones_locked: #9da6af;
   --sec-btn: #287fb8;
   --prim-btn: #ef887c;
+
+  --loading-btn: #556473;
 
   --netral-700-transparent: hsla(212, 30%, 17%, 0.9);
 
@@ -194,8 +196,7 @@ html.dark {
   --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
 
   --bg-nav: hsla(208, 29%, 10%, 0.4);
-  --bg-brightness: brightness(0.4) ;
-
+  --bg-brightness: brightness(0.4);
 
   --bg-nav-smallScreenIcone: hsla(210, 31%, 10%, 0.7);
   --border-menu: hsla(210, 11%, 93%, 0.5);
@@ -221,6 +222,8 @@ html.dark {
   --rules-color: #f8fafc;
   --section-2-band: #612019;
   --btn-background: #a4372b;
+
+  --loading-btn: #1f2b39;
 
   --dropDown-Coutry-bg: #1f2b39;
   --dropDown-Coutry-arrow-bg: #556473;
@@ -316,7 +319,7 @@ h3 {
 }
 h4 {
   font-size: var(--font-size-Title_02);
-  font-family: var(--font-atom), Times, 'Times New Roman', serif;
+  font-family: var(--font-atom), Times, "Times New Roman", serif;
   color: var(--font-color-main);
   font-weight: 300;
   letter-spacing: 6px;
@@ -328,7 +331,8 @@ h5 {
   font-weight: 400;
 }
 h6 {
-  font-size: var(--font-size-subTitle_03);
+  font-family: var(--font-atom), Times, "Times New Roman", serif;
+  font-size: var(--font-size-subTitle_01);
   color: var(--font-color-main);
   font-weight: 400;
   letter-spacing: 4px;
@@ -355,8 +359,9 @@ p.detail_02 {
   font-size: var(--font-size-bodyText_02);
 }
 
-.geologicaReg {
-  font-family: var(--font-geologica);
+.geologica {
+  font-family: var(--font-geologica), Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 .geologicaRom {
   font-family: var(--font-geologica-Roman-light);
@@ -372,7 +377,6 @@ p.detail_02 {
 .main-Color {
   color: var(--prim-500-main);
 }
-
 
 .alder_brown {
   background: var(--alder-Brown);
@@ -394,7 +398,7 @@ p.detail_02 {
   font-size: var(--font-size-bodyText_02);
 
   border-bottom: 1px solid var(--link-color-underline);
-  transition: transform 0.2s;
+  transition: transform var(--transi-time-M);
 }
 .gallery_Link:hover,
 .gallery_Link:focus {
@@ -424,18 +428,18 @@ p.detail_02 {
   height: var(--spacing-M);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transi-time-M);
 }
 
-.btn:hover {
-  transition: all 0.2s;
+.btn-cta:hover {
+  transition: all var(--transi-time-M);
   background-color: var(--prim-500-main);
 }
 
-.btn:active,
-.btn:focus {
-  transition: all 0.1s;
-  background-color: var(--prim-300);
+.btn-cta:active,
+.btn-cta:focus {
+  transition: all var(--transi-time-S);
+  background-color: var(--loading-btn);
 }
 
 .opaticity {
@@ -447,7 +451,7 @@ p.detail_02 {
   opacity: 0;
   transition: all 0.4s;
 }
-.btn:disabled {
+.btn-cta:disabled {
   background-color: var(--netral-300);
   opacity: 0.8;
 }

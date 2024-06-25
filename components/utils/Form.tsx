@@ -1,16 +1,24 @@
 "use client";
-import React, { useState, useRef } from "react";
-import styles from "../landingPage/section_cta.module.css";
+import React, { useState } from "react";
+import styles from "./Form.module.css";
 import { useCartProduct } from "../../providers/cart-provider";
 import { PiInfo, PiSealWarningBold } from "react-icons/pi";
+import { usePathname } from "next/navigation";
+import {
+  fakeReq,
+  checkEmail,
+  checkName,
+  checkMessage,
+  resetAllEntries,
+  checkMailBodyRequired,
+} from "./utilsFuncForm";
 
-interface Values {
-  name: string;
-  email: string;
-  message: string;
-}
+const initValues: Values = {
+  name: { data: "", state: { stat: "initial", error: null } },
+  email: { data: "", state: { stat: "initial", error: null } },
+  message: { data: "", state: { stat: "initial", error: null } },
+};
 
-const initValues: Values = { name: "", email: "", message: "" };
 const initState = { values: initValues };
 
 const possibleStates = {
@@ -20,138 +28,64 @@ const possibleStates = {
   loading: "loading",
 };
 
-function Form({ context }: { context: string }) {
+function Form() {
+  const test = true;
+  const path = usePathname();
+
   const cartList = useCartProduct((state) => state.cartOfProduct);
-
-  const ref = useRef<HTMLFormElement>(null);
-
   const [state, setState] = useState(initState);
-  const [isValidName, setIsValidName] = useState(possibleStates.initial);
-  const [isValidEmail, setIsValidEmail] = useState(possibleStates.initial);
-  const [isValideMessage, setIsValideMessage] = useState(
-    possibleStates.initial
-  );
+  const { values } = state;
 
   const [emailSent, setEmailSent] = useState<string>(possibleStates.initial);
 
-  const test = false;
-  const { values } = state;
-
-  const onBlur = function (e: any) {
-    checkState(e.target.name);
-  };
-
-  const handleChange = function (e: any) {
+  const handleChange = function (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) {
     setState((prev) => ({
       ...prev,
       values: {
         ...prev.values,
-        [e.target.name]: e.target.value,
+        [e.target.name]: {
+          data: e.target.value,
+          state: handleState(e.target.name),
+        },
       },
     }));
-    checkState(e.target.name);
   };
 
-  const checkEmail = function () {
-    const regex =
-      /^([a-zA-Z0-9.\_%+-]+)@([a-zA-Z0-9.-])+.([a-zA-Z]+)(.[a-z]+)?$/;
-    regex.test(values.email)
-      ? setIsValidEmail(possibleStates.valid)
-      : setIsValidEmail(possibleStates.invalid);
-  };
+  const handleState = function (el: string): statues {
+    switch (el) {
+      case "name":
+        return checkName(values.name.data);
+      case "email":
+        return checkEmail(values.email.data);
+      case "message":
+        return checkMessage(values.message.data);
 
-  const checkState = function (el: any) {
-    if (el == "name") {
-      values.name.length > 1
-        ? setIsValidName(possibleStates.valid)
-        : setIsValidName(possibleStates.invalid);
-
-      checkEmail();
-      if (context == "advice") {
-        values.message.length > 5
-          ? setIsValideMessage(possibleStates.valid)
-          : setIsValideMessage(possibleStates.invalid);
-      }
-    }
-
-    if (el == "email") {
-      values.email.length > 3
-        ? checkEmail()
-        : setIsValidEmail(possibleStates.invalid);
-
-      values.name.length > 1 && setIsValidName(possibleStates.valid);
-      if (context == "advice") {
-        values.message.length > 5
-          ? setIsValideMessage(possibleStates.valid)
-          : setIsValideMessage(possibleStates.invalid);
-      }
-    }
-
-    if (el == "message") {
-      if (context == "advice") {
-        values.message.length > 1
-          ? setIsValideMessage(possibleStates.valid)
-          : setIsValideMessage(possibleStates.invalid);
-
-        values.name.length > 1 && setIsValidName(possibleStates.valid);
-      }
+      default:
+        return {
+          stat: "invalid",
+          error:
+            "somthing went very wrong, try later or send a mail without using this formular",
+        };
     }
   };
-
-  function handleCheckAllValid(): boolean {
-    if (emailSent == possibleStates.valid) {
-      return true;
-    }
-    if (context == "advice") {
-      if (
-        isValidName == possibleStates.valid &&
-        isValidEmail == possibleStates.valid &&
-        isValideMessage == possibleStates.valid
-      ) {
-        return false;
-      }
-    } else {
-      if (
-        isValidName == possibleStates.valid &&
-        isValidEmail == possibleStates.valid
-      ) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  function resetAll() {
-    values.name = "";
-    values.email = "";
-    values.message = "";
-    setIsValidName(possibleStates.initial);
-    setIsValidEmail(possibleStates.initial);
-    setIsValideMessage(possibleStates.initial);
-  }
 
   const sendEmail = async (e: any) => {
     e.preventDefault();
 
+    setEmailSent(possibleStates.loading);
+
     if (test) {
-      if (
-        isValidEmail == possibleStates.valid &&
-        isValidName == possibleStates.valid
-      ) {
-        resetAll();
-        setEmailSent(possibleStates.valid);
-      }
-    } else if (
-      isValidEmail == possibleStates.valid &&
-      isValidName == possibleStates.valid &&
-      !test
-    ) {
-      const name = values.name;
-      const email = values.email;
-      const message = values.message;
+      fakeReq(handleMailRes);
+    } else if (checkMailBodyRequired(values)) {
+      const name = values.name.data;
+      const email = values.email.data;
+      const message = values.message.data;
       const cart = cartList;
-      // e.preventDefault();
+
       const response = await fetch("/api/send", {
         method: "POST",
         headers: {
@@ -166,13 +100,17 @@ function Form({ context }: { context: string }) {
       });
       const res = await response.json();
       if (res.error == null) {
-        resetAll();
-        setEmailSent(possibleStates.valid);
+        handleMailRes(possibleStates.valid);
       } else {
-        setEmailSent(possibleStates.invalid);
+        handleMailRes(possibleStates.valid);
       }
     }
   };
+
+  function handleMailRes(status: string) {
+    resetAllEntries(values);
+    setEmailSent(status);
+  }
 
   return (
     <>
@@ -181,25 +119,23 @@ function Form({ context }: { context: string }) {
         autoComplete="false"
         onSubmit={sendEmail}
         id="email_form"
-        ref={ref}
       >
         <div className={`${styles.form__group} `}>
           <input
             type="text"
-            // isInvalid={isValidName == possibleStates.invalid}
             required
             name="name"
             id="name"
             placeholder="Your Name"
-            value={values.name}
-            onBlur={onBlur}
+            value={values.name.data}
+            onBlur={handleChange}
             onChange={handleChange}
             className={`${styles.formular__Name} ${styles.form__field}  ${
-              isValidName == possibleStates.valid
+              values.name.state.stat == possibleStates.valid
                 ? styles.form__field_valid
-                : isValidName == possibleStates.invalid
+                : values.name.state.stat == possibleStates.invalid
                 ? styles.form__field_inValid
-                : isValidName == possibleStates.initial
+                : values.name.state.stat == possibleStates.initial
                 ? styles.form__field_initial
                 : styles.form__field_waiting
             } `}
@@ -207,25 +143,24 @@ function Form({ context }: { context: string }) {
           <label htmlFor="name" className={`${styles.form__label}`}>
             Your name
           </label>
-
           <div className={styles.informationBlock}>
-            {isValidName == possibleStates.invalid && (
+            {values.name.state.stat == possibleStates.invalid && (
               <p className={styles.informationBuble}>
-                * Required: Please provide your name
+                * Required: Please provide a valid name:{" "}
+                {values.name.state.error}.
               </p>
             )}
           </div>
         </div>
 
         <div className={styles.form__group}>
-          {/* <FormControl isInvalid={isValidEmail == possibleStates.invalid}> */}
           <input
             className={`${styles.email} ${styles.form__field} ${
-              isValidEmail == possibleStates.valid
+              values.email.state.stat == possibleStates.valid
                 ? styles.form__field_valid
-                : isValidEmail == possibleStates.invalid
+                : values.email.state.stat == possibleStates.invalid
                 ? styles.form__field_inValid
-                : isValidEmail == possibleStates.initial
+                : values.email.state.stat == possibleStates.initial
                 ? styles.form__field_initial
                 : styles.form__field_waiting
             } `}
@@ -234,90 +169,85 @@ function Form({ context }: { context: string }) {
             placeholder="Your Email"
             name="email"
             id="email"
-            value={values.email}
+            value={values.email.data}
             onChange={handleChange}
-            onBlur={onBlur}
+            onBlur={handleChange}
           />
           <label htmlFor="email" className={`${styles.form__label}`}>
             Your Email
           </label>
           <div className={styles.informationBlock}>
-            {isValidEmail == possibleStates.invalid && (
+            {values.email.state.stat == possibleStates.invalid && (
               <p className={styles.informationBuble}>
-                * Required: Please provide a valid Email
+                * Required: Please provide a valid Email.
               </p>
             )}
           </div>
         </div>
 
         <div className={styles.form__group}>
-          {context === "advice" ? (
-            <>
-              <textarea
-                name="message"
-                required
-                id="message"
-                cols={30}
-                rows={3}
-                placeholder="What do you want to know about the artwork(s) you selected?"
-                value={values.message}
-                onBlur={onBlur}
-                onChange={handleChange}
-                className={`${styles.formular__message} ${styles.form__field} ${
-                  styles.form__field_advice
-                } ${
-                  isValideMessage == possibleStates.valid
-                    ? styles.form__field_valid
-                    : isValideMessage == possibleStates.invalid
-                    ? styles.form__field_inValid
-                    : isValideMessage == possibleStates.initial
-                    ? styles.form__field_initial
-                    : styles.form__field_waiting
-                }`}
-              ></textarea>
-              <label htmlFor="message" className={`${styles.form__label}`}>
-                What do you want to know about the artwork you selected?
-              </label>
-              <div
-                className={`${styles.informationBlock} ${styles.informationBlock_advice} `}
-              >
-                {isValideMessage == possibleStates.invalid && (
-                  <p className={styles.informationBuble}>
-                    * Required: Please tell me what you want to know so i can
-                    advice you the best I can
-                  </p>
-                )}
-              </div>
-            </>
-          ) : (
-            <>
-              <textarea
-                name="message"
-                id="message"
-                cols={30}
-                rows={2}
-                placeholder="Your Message"
-                value={values.message}
-                onChange={handleChange}
-                className={`${styles.formular__message} ${styles.form__field}`}
-              ></textarea>
-              <label htmlFor="message" className={`${styles.form__label}`}>
-                Your Message
-              </label>
-            </>
-          )}
+          <textarea
+            required
+            name="message"
+            id="message"
+            cols={30}
+            rows={3}
+            placeholder={
+              path == "/shop"
+                ? " What do you want to know about the artwork you selected?"
+                : "Your message"
+            }
+            value={values.message.data}
+            onBlur={handleChange}
+            onChange={handleChange}
+            className={`${styles.formular__message} ${styles.form__field} ${
+              values.message.state.stat == possibleStates.valid
+                ? styles.form__field_valid
+                : values.message.state.stat == possibleStates.invalid
+                ? styles.form__field_inValid
+                : values.message.state.stat == possibleStates.initial
+                ? styles.form__field_initial
+                : styles.form__field_waiting
+            }`}
+          ></textarea>
+          <label htmlFor="message" className={`${styles.form__label}`}>
+            {path == "/shop"
+              ? " What do you want to know about the artwork you selected?"
+              : "Your message"}
+          </label>
+          <div
+            className={`${styles.informationBlock} ${styles.informationBlock_advice} `}
+          >
+            {values.message.state.stat == possibleStates.invalid && (
+              <p className={styles.informationBuble}>
+                * Required: Please tell me what you want to know so i can advice
+                you the best I can.
+              </p>
+            )}
+          </div>
         </div>
         <button
-          className={`${styles.formular__submit} btn`}
+          className={`${styles.formular__submit} btn-cta`}
           type="submit"
-          disabled={handleCheckAllValid()}
+          disabled={!checkMailBodyRequired(values)}
         >
-          {emailSent == possibleStates.valid ? "Thank You" : "Submit"}
+          {emailSent == possibleStates.initial ? (
+            "Submit"
+          ) : emailSent == possibleStates.loading ? (
+            <div className={styles.spinner__container}>
+              <div className={styles.spinner}></div>
+              <p>Loading...</p>
+            </div>
+          ) : emailSent == possibleStates.valid ? (
+            "Thank You"
+          ) : (
+            "Somthing went wrong"
+          )}
         </button>
       </form>
       {emailSent == possibleStates.valid ? (
         <div className={styles.mailSentInformationBox}>
-          {context == "advice" ? (
+          {path == "/shop" ? (
             <>
               <PiInfo className={styles.feedbackIcone} />
               <p>

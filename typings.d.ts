@@ -122,3 +122,24 @@ type coutryTableType = {
 };
 
 type kCountry = keyof coutryTableType;
+
+
+interface statues {
+  stat: "valid" | "initial" | "invalid" | "loading";
+  error: null | string;
+}
+
+interface Values {
+  name: Datas;
+  email: Datas;
+  message: Datas;
+}
+interface Datas {
+  data: string;
+  state: statues;
+}
+
+interface statues {
+  stat: "valid" | "initial" | "invalid" | "loading";
+  error: null | string;
+}

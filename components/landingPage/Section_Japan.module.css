@@ -32,11 +32,11 @@
 .japan__projectLink_img {
   object-fit: cover;
   object-position: 25%;
-  transition: all 0.3s;
+  transition: all var(--transi-time-M);
 }
 
 .japan__projectLink_img:hover {
-  transform: scale(1.05);
+  transform: scale(var(--hover-scaling));
 }
 
 .japan__projectLink_img_pos {

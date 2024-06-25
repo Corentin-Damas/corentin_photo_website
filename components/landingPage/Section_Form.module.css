@@ -1,0 +1,159 @@
+/* form__title */
+
+.formulare {
+  position: relative;
+  height: 100vh;
+  max-height: 750px;
+  display: grid;
+  grid-template-columns: 10rem 3fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  margin-bottom: var(--spacing-L);
+
+  @media only screen and (max-width: 43.75em) {
+    height: 80vh;
+  }
+  @media only screen and (max-width: 37.5em) {
+    grid-template-rows: 1fr 2fr;
+  }
+}
+
+.formulare__lSide {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  border-top: 1px solid var(--rules-color);
+  padding: 1rem;
+
+  cursor: default;
+
+  @media only screen and (max-width: 43.75em) {
+    grid-column: 1/-1;
+    align-self: flex-start;
+    justify-self: flex-end;
+  }
+}
+
+.formulare__presentation {
+  border-top: 1px solid var(--rules-color);
+  border-bottom: 1px solid var(--rules-color);
+  grid-column: 2/3;
+  grid-row: 1/2;
+  height: 100%;
+  width: 100%;
+  cursor: default;
+
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  gap: 2.4rem;
+  @media only screen and (max-width: 65em) {
+    border-bottom: 0px;
+    grid-column: 2/5;
+    padding-left: var(--spacing-LM);
+  }
+  @media only screen and (max-width: 43.75em) {
+    grid-column: 1/5;
+    padding-left: 0;
+    justify-content: flex-start;
+  }
+}
+
+.presentation__myName {
+  padding-bottom: var(--spacing-S);
+  font-size: var(--font-size-subTitle_02);
+  letter-spacing: var(--letter-spacing-XS);
+  @media only screen and (max-width: 43.75em) {
+    padding-bottom: 0;
+  }
+}
+
+.presentation__proposition {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: var(--spacing-S);
+
+  @media only screen and (max-width: 43.75em) {
+    flex-direction: column;
+  }
+}
+
+.presentation__proposition_txt {
+  font-family: var(--font-geologica-light);
+  font-weight: 400;
+  @media only screen and (max-width: 43.75em) {
+    display: none;
+  }
+}
+
+.form__containeur {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  padding-top: var(--spacing-LM);
+  @media only screen and (max-width: 65em) {
+    grid-column: 1/5;
+    border-left: 1px solid var(--rules-color);
+    padding-inline: var(--spacing-LM);
+    padding-top: 0rem;
+  }
+}
+
+.formulare__rSide {
+  position: relative;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid var(--rules-color);
+  border-left: 1px solid var(--rules-color);
+  padding-left: var(--spacing-SM);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-S);
+  @media only screen and (max-width: 65em) {
+    display: none;
+  }
+}
+
+.imgHeadS {
+  position: relative;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+.rSide__about_link {
+  align-self: flex-end;
+}
+
+.link__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: var(--spacing-M);
+  padding-bottom: var(--spacing-S);
+  @media only screen and (max-width: 43.75em) {
+    padding-top: var(--spacing-L);
+  }
+  @media only screen and (max-width: 37.5em) {
+    padding-top: calc(var(--spacing-L) + var(--spacing-S));
+  }
+}
+
+.dot {
+  width: var(--font-size-bodyText_03);
+  height: var(--font-size-bodyText_03);
+  background: var(--prim-500-main);
+  border-radius: 50%;
+}
