@@ -31,8 +31,6 @@
   grid-row: 1/2;
   grid-column: 2/3;
   height: 100%;
-  background-color: red;
-
 }
 .formular__message {
   resize: none;
@@ -111,7 +109,7 @@
 
 .form__field:focus {
   font-weight: 400;
-  border-bottom: 2px solid var(--white-bar);
+  border-bottom: 2px solid var(--underline-neutral);
 }
 
 .form__field:focus ~ .form__label {

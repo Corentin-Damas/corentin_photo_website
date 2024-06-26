@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Section_SideProjects.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Gallery_link from "../Links/Gallery_link";
 
 function Section_SideProjects() {
   return (
@@ -76,10 +77,10 @@ function Section_SideProjects() {
         </Link>
         <div className={styles.verticalRule}></div>
       </div>
+      <div className={styles.sideProjects__link_gal}>
 
-      <Link href={"/gallery"} className={`${styles.sideProjects__link_gal} gallery_Link`}>
-        See Gallery _<span className="main-Color">&gt;</span>
-      </Link>
+        <Gallery_link path="/gallery" content="Check the gallery" />
+      </div>
     </div>
   );
 }

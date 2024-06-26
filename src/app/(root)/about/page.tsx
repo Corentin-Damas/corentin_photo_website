@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../about/page.module.css";
-import Navbar from "../../../../components/shop/navigation/Navbar";
+
 import Footer from "../../../../components/footer/Footer";
 
 function page() {
   return (
     <>
       <header className={styles.header}>
-        <Navbar linkMyName="" />
+
         <div className={styles.heroSection}>
           <h3 className={styles.hero_title}>About me</h3>
 

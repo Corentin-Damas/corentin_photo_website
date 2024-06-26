@@ -1,14 +1,12 @@
 import React from "react";
-
-import Image_grid from "../../../../../../components/gallery/Image_grid";
-import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-
-import InfosBubble from "../../../../../../components/gallery/InfosBubble";
-import MuseumsTxt from "../../../../../../components/gallery/project_text/museumsTxt";
-
-import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../page.module.css";
+
+import Images_grid_container from "../../../../../../components/gallery/Images_grid_container";
+import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import Project_Story from "../../../../../../components/gallery/Project_Story";
+import MuseumsTxt from "../../../../../../components/gallery/project_text/MuseumsTxt";
 
 function page() {
   return (
@@ -19,10 +17,10 @@ function page() {
         c2="2018"
         c3="England - Netherlands"
       />
-      <aside className={styles.project_info_bubble}>
-        <InfosBubble txt={<MuseumsTxt />} />
-      </aside>
-      <Image_grid currentDir="museums" />
+
+      <Project_Story txt={<MuseumsTxt />} />
+
+      <Images_grid_container currentDir="museums" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link
@@ -39,7 +37,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            Morning <br /> shadows
+            3/ Morning <br /> shadows
           </h5>
         </Link>
         <Link
@@ -56,7 +54,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            Earth & <br /> sky
+           5/ Earth & <br /> sky
           </h5>
         </Link>
       </div>

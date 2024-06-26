@@ -43,7 +43,7 @@
 }
 
 .rule_vl {
-  border-left: 1px solid var(--white-bar);
+  border-left: 1px solid var(--neutral-50);
   width: 1px;
   height: var(--spacing-M);
   transform: translateY(var(--spacing-SS));
@@ -85,7 +85,7 @@
   font-size: var(--font-size-subTitle_03);
   line-height: 4rem;
   background-color: var(--section-2-band);
-  border-top: 1px solid var(--white-bar);
+  border-top: 1px solid var(--neutral-50);
   padding-top: var(--spacing-S);
   letter-spacing: 7px;
   color: var(--neutral-50);

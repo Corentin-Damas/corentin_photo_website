@@ -6,7 +6,6 @@
   align-items: center;
   justify-items: center;
 
-  padding-top: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
   padding-inline: var(--padding-inLine);
   max-width: var(--max-width-L);
@@ -27,10 +26,8 @@
   grid-column: 1/2;
   grid-row: 1/3;
   max-width: 30rem;
-  height: auto;
-  margin-right: var(--spacing-M);
-
-  align-self: stretch;
+  height: 100%;
+  border-right: 1px solid var(--border-menu);
 
   @media only screen and (max-width: 84em) {
     max-width: 20rem;
@@ -43,7 +40,10 @@
 .gallery__grid_right {
   grid-column: 2/-1;
   grid-row: 1/3;
-  padding-right: calc(var(--spacing-M) + var(--spacing-SS));
+
+  padding-top: var(--spacing-M);
+  padding-left: var(--spacing-XS);
+
   overflow: hidden;
 
   @media only screen and (max-width: 77em) {
@@ -62,104 +62,4 @@
   @media only screen and (max-width: 77em) {
     grid-column: 1/-1;
   }
-}
-.page {
-  width: 100%;
-  position: relative;
-}
-
-.seeMore__title {
-  margin-top: var(--spacing-L);
-  margin-bottom: var(--spacing-M);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--font-geologica-light);
-  letter-spacing: 0.5px;
-}
-
-.seeMore__container {
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-inline: auto;
-  gap: var(--spacing-M);
-}
-
-.seeMore__container_left {
-  width: 100%;
-  height: 100%;
-}
-
-.projectPreview {
-  position: relative;
-  height: var(--img-preview-M);
-  width: var(--img-preview-M);
-  object-fit: cover;
-  overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  align-items: center;
-  justify-items: center;
-}
-
-.projectPreview_img {
-  transition: all 0.2s;
-  grid-column: 1/2;
-  grid-row: 1/2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project_title {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  background-color: var(--gallery-title-transparency);
-  padding: var(--spacing-M);
-
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 30;
-  opacity: 0;
-  transition: opacity 0.3s;
-  color: var(--neutral-50);
-  text-align: center;
-
-  @media only screen and (max-width: 75em) {
-    opacity: 100%;
-
-    height: 25%;
-    justify-content: center;
-    align-items: center;
-    align-self: last baseline;
-  }
-}
-
-.projectPreview:hover .project_img {
-  transform: scale(1.1);
-  filter: brightness(0.5) blur(3px);
-  transition: all 0.2s;
-}
-.projectPreview:hover .project_title {
-  opacity: 100%;
-  transition: opacity 0.3s;
-}
-
-.project_info_bubble {
-  position: absolute;
-  right: 0rem;
-  top: 9.7rem;
-  width: calc(100% + 3.6rem);
-  height: 70vh;
-
-  display: flex;
-  justify-content: right;
-  align-items: baseline;
 }

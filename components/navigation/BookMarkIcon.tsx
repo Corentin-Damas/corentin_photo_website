@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import styles from "./bookMark.module.css";
 import { FaRegBookmark } from "react-icons/fa6";

@@ -11,16 +11,11 @@ function Footer() {
         <div className={styles.left}>
           <h2 className={styles.footer__columnHead}>Corentin Damas</h2>
           <div>
-            <p className={styles.footer__text}>
-              France _<span className="main-Color">&gt;</span> 0668911893
-            </p>
-            <p className={styles.footer__text}>
-              International _<span className="main-Color">&gt;</span> +33 668911893
-            </p>
+  
             <p className={styles.footer__text}>corentin.damasphoto@gmail.com</p>
           </div>
           <Link href="/contact">
-            <button className={`${styles.footer__btn} btn`}>Contact me</button>
+            <button className={`${styles.footer__btn} btn-cta`}>Contact me</button>
           </Link>
         </div>
         <div className={styles.right}>

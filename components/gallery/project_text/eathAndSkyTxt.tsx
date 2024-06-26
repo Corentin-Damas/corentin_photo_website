@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../gallery/InfosBubble.module.css";
+import styles from "./text.module.css";
 
 function EathAndSkyTxt() {
   return (

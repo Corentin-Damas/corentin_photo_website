@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../../gallery/InfosBubble.module.css";
+import styles from "./text.module.css";
 
 function YearInJapanTxt() {
   return (
-    <div className={`${styles.popUpInformation} ${styles.open}`}>
+    <div className={`${styles.popUpInformation}`}>
       <p className={styles.popUpInformation_txt}>
         01 - In 2016 after my studies at the university I wanted dreadfully to
         study Japanese, a dream I had from my childhood where I could ear the

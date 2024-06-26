@@ -1,12 +1,12 @@
 import React from "react";
-
-import Image_grid from "../../../../../../components/gallery/Image_grid";
-import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-import InfosBubble from "../../../../../../components/gallery/InfosBubble";
-import EathAndSkyTxt from "../../../../../../components/gallery/project_text/eathAndSkyTxt";
-import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../page.module.css";
+
+import Images_grid_container from "../../../../../../components/gallery/Images_grid_container";
+import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import Project_Story from "../../../../../../components/gallery/Project_Story";
+import EathAndSkyTxt from "../../../../../../components/gallery/project_text/EathAndSkyTxt";
 const date = new Date().getFullYear();
 
 function page() {
@@ -18,10 +18,10 @@ function page() {
         c2={`2016 - ${date}`}
         c3="Planet earth"
       />
-      <aside className={styles.project_info_bubble}>
-        <InfosBubble txt={<EathAndSkyTxt />} />
-      </aside>
-      <Image_grid currentDir="earth_and_sky" />
+
+      <Project_Story txt={<EathAndSkyTxt />} />
+
+      <Images_grid_container currentDir="earth_and_sky" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link href="/gallery/museums" className={`${styles.projectPreview}`}>
@@ -34,7 +34,7 @@ function page() {
             quality={80}
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
-          <h5 className={styles.project_title}>Museums</h5>
+          <h5 className={styles.project_title}>4/ Museums</h5>
         </Link>
         <Link href="/gallery/infrared" className={`${styles.projectPreview}`}>
           <Image
@@ -47,7 +47,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            World in <br /> Infrared
+            6/ World in <br /> Infrared
           </h5>
         </Link>
       </div>

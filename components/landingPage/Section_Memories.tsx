@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Section_Memories.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Gallery_link from "../Links/Gallery_link";
 
 // img__link
 
@@ -31,16 +32,10 @@ function Section_Memories() {
             height={1080}
             quality={100}
             sizes="100vw"
+            loading="lazy"
           />
         </Link>
       </div>
-      <Link
-        href={"/gallery/tsuzukitai"}
-        className={`${styles.memories__link_gal} gallery_Link`}
-      >
-        See Gallery _<span className="main-Color light_mode_only">&gt;</span>
-        <span className="prim-100 dark_mode_only">&gt;</span>
-      </Link>
     </section>
   );
 }

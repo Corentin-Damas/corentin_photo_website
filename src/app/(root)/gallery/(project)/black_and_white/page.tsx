@@ -1,11 +1,12 @@
 import React from "react";
-import Image_grid from "../../../../../../components/gallery/Image_grid";
-import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-import styles from "../../layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import InfosBubble from "../../../../../../components/gallery/InfosBubble";
-import BlackAndWhiteTxt from "../../../../../../components/gallery/project_text/blackAndWhiteTxt";
+import styles from "../page.module.css";
+
+import Images_grid_container from "../../../../../../components/gallery/Images_grid_container";
+import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import Project_Story from "../../../../../../components/gallery/Project_Story";
+import BlackAndWhiteTxt from "../../../../../../components/gallery/project_text/BlackAndWhiteTxt";
 
 function page() {
   const date = new Date().getFullYear();
@@ -17,10 +18,10 @@ function page() {
         c2={`2016 - ${date}`}
         c3="Planet earth"
       />
-      <aside className={styles.project_info_bubble}>
-        <InfosBubble txt={<BlackAndWhiteTxt />} />
-      </aside>
-      <Image_grid currentDir="black_and_white" />
+
+      <Project_Story txt={<BlackAndWhiteTxt />} />
+
+      <Images_grid_container currentDir="black_and_white" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link href="/gallery/infrared" className={`${styles.projectPreview}`}>
@@ -34,7 +35,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            World in <br /> Infrared
+            6/ World in <br /> Infrared
           </h5>
         </Link>
         <Link href="/gallery/tsuzukitai" className={`${styles.projectPreview}`}>
@@ -48,7 +49,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            Trapped <br /> memories
+            1/ Trapped <br /> memories
           </h5>
         </Link>
       </div>

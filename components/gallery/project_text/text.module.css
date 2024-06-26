@@ -1,0 +1,35 @@
+.popUpInformation {
+  height: max-content;
+
+  padding-inline: var(--spacing-M);
+  cursor: default;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: var(--spacing-M);
+  margin-bottom: var(--spacing-M);
+
+  gap: var(--spacing-L);
+
+  @media only screen and (max-width: 57em) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 900px;
+  }
+}
+
+.popUpInformation_txt {
+  width: 400px;
+  float: left;
+  text-align: start;
+
+  grid-row: 2/3;
+  @media only screen and (max-width: 32em) {
+    width: 80%;
+  }
+}

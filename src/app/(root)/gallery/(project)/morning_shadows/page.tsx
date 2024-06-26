@@ -1,12 +1,12 @@
 import React from "react";
-
-import Image_grid from "../../../../../../components/gallery/Image_grid";
-import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-import styles from "../../layout.module.css";
+import styles from "../page.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import InfosBubble from "../../../../../../components/gallery/InfosBubble";
-import MorningShadowsTxt from "../../../../../../components/gallery/project_text/morningShadowsTxt";
+
+import Images_grid_container from "../../../../../../components/gallery/Images_grid_container";
+import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import Project_Story from "../../../../../../components/gallery/Project_Story";
+import MorningShadowsTxt from "../../../../../../components/gallery/project_text/MorningShadowsTxt";
 
 function page() {
   return (
@@ -17,10 +17,10 @@ function page() {
         c2="2018"
         c3="England"
       />
-      <aside className={styles.project_info_bubble}>
-        <InfosBubble txt={<MorningShadowsTxt/>}/>
-      </aside>
-      <Image_grid currentDir="morning_shadows" />
+
+      <Project_Story txt={<MorningShadowsTxt />} />
+
+      <Images_grid_container currentDir="morning_shadows" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link
@@ -37,7 +37,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            A year in <br /> japan
+            2/ A year in <br /> japan
           </h5>
         </Link>
         <Link href="/gallery/museums" className={`${styles.projectPreview}`}>
@@ -50,7 +50,7 @@ function page() {
             quality={80}
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
-          <h5 className={styles.project_title}>Museums</h5>
+          <h5 className={styles.project_title}>4/ Museums</h5>
         </Link>
       </div>
     </div>

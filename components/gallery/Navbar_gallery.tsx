@@ -1,139 +1,98 @@
+"use client";
+
 import React from "react";
 import styles from "../gallery/Navbar_gallery.module.css";
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
-import { useImgSelected } from "../../providers/imgFav-provider";
 import LocalStorage from "../utils/LocalStorage";
 
 function Navbar_gallery() {
   const path = usePathname();
   LocalStorage();
 
-  const imgList = useImgSelected((state) => state.imgSelected);
+  const projectLinks = [
+    {
+      id: "1",
+      path: "/gallery/tsuzukitai",
+      title: "Trapped memories",
+    },
+    {
+      id: "2",
+      path: "/gallery/a_year_in_japan",
+      title: "A year in japan",
+    },
+    {
+      id: "3",
+      path: "/gallery/morning_shadows",
+      title: "Morning Shadows",
+    },
+    {
+      id: "4",
+      path: "/gallery/museums",
+      title: "Museums",
+    },
+  ];
+  const sideProjectLinks = [
+    {
+      id: "5",
+      path: "/gallery/earth_and_sky",
+      title: "Between earth and sky",
+    },
+    {
+      id: "6",
+      path: "/gallery/infrared",
+      title: "The world in infrared",
+    },
+    {
+      id: "7",
+      path: "/gallery/black_and_white",
+      title: "Work in black and white",
+    },
+  ];
+
   return (
-    <>
-      <nav className={styles.nav}>
-        <Link href="/" className={styles.myNameLink}>
-          Corentin Damas
-        </Link>
-        <ul className={styles.links__List}>
-          <h6 className={styles.link__group_name}>Projects</h6>
-          <div>
-            <ul className={`${styles.link__group} ${styles.link__first}`}>
+    <nav className={styles.nav}>
+      <div className={styles.links__list}>
+        <h6 className={styles.links__list_name}>Projects</h6>
+        <ul className={`${styles.link__group}`}>
+          {projectLinks.map((el) => (
+            <li className={styles.link__li} key={el.id}>
               <p className={styles.number}>
-                _1 <span className={styles.bar}>|</span>{" "}
+                _{el.id} <span className={styles.bar}>|</span>{" "}
               </p>
               <Link
-                href="/gallery/tsuzukitai"
-                className={`${
-                  path == "/gallery/tsuzukitai" ? styles.currPage : ""
+                href={el.path}
+                className={`${path == el.path ? styles.currPage : ""} ${
+                  styles.link__li_title
                 }`}
               >
-                Trapped memories
+                {el.title}
               </Link>
-              <p className={styles.number}>
-                _2 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/a_year_in_japan"
-                className={`${
-                  path == "/gallery/a_year_in_japan" ? styles.currPage : ""
-                }`}
-              >
-                {" "}
-                A year in japan
-              </Link>
-              <p className={styles.number}>
-                _3 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/morning_shadows"
-                className={`${
-                  path == "/gallery/morning_shadows" ? styles.currPage : ""
-                }`}
-              >
-                Morning Shadows
-              </Link>
-              <p className={styles.number}>
-                _4 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/museums"
-                className={`${
-                  path == "/gallery/museums" ? styles.currPage : ""
-                }`}
-              >
-                Museums
-              </Link>
-            </ul>
-          </div>
-          <h6 className={styles.link__group_name}>Side works</h6>
-          <div>
-            <ul className={styles.link__group}>
-              <p className={styles.number}>
-                _5 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/earth_and_sky"
-                className={`${
-                  path == "/gallery/earth_and_sky" ? styles.currPage : ""
-                }`}
-              >
-                Between earth and sky
-              </Link>
-              <p className={styles.number}>
-                _6 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/infrared"
-                className={`${
-                  path == "/gallery/infrared" ? styles.currPage : ""
-                }`}
-              >
-                The world in infrared
-              </Link>
-              <p className={styles.number}>
-                _7 <span className={styles.bar}>|</span>{" "}
-              </p>
-              <Link
-                href="/gallery/black_and_white"
-                className={`${
-                  path == "/gallery/black_and_white" ? styles.currPage : ""
-                }`}
-              >
-                Work in black and white
-              </Link>
-            </ul>
-          </div>
-          <Link
-            href="/gallery"
-            className={`${styles.normal__link} ${
-              path == "/gallery" ? styles.currPage : ""
-            } ${styles.first_normal__link}`}
-          >
-            Gallery
-          </Link>
-          <Link href="/about" className={`${styles.normal__link}`}>
-            About
-          </Link>
-          <Link
-            href="/shop"
-            className={`${styles.normal__link} ${styles.gift__link} `}
-          >
-            Shop
-            <p
-              className={`${styles.dot} ${
-                imgList.length > 0 ? styles.dot_on : ""
-              }`}
-            ></p>
-          </Link>
-          <Link href="/contact">
-            <button className={`${styles.contactMe} btn`}>contact me</button>
-          </Link>
+            </li>
+          ))}
         </ul>
-      </nav>
-    </>
+
+        <h6 className={styles.links__list_name}>Side works</h6>
+        <ul className={styles.link__group}>
+          {sideProjectLinks.map((el) => (
+            <li className={styles.link__li} key={el.id}>
+              <p className={styles.number}>
+                _{el.id} <span className={styles.bar}>|</span>{" "}
+              </p>
+              <Link
+                href={el.path}
+                className={`${path == el.path ? styles.currPage : ""}  ${
+                  styles.link__li_title
+                }`}
+              >
+                {el.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 }
 

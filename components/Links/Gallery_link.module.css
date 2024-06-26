@@ -1,0 +1,17 @@
+.gallery_Link {
+  font-family: var(--font-geologica-light);
+  color: var(--font-color-main);
+  letter-spacing: var(--letter-spacing-S);
+  font-size: var(--font-size-bodyText_02);
+
+  border-bottom: 1px solid var(--link-color-underline);
+  transition: transform var(--transi-time-M);
+}
+.gallery_Link:hover,
+.gallery_Link:focus {
+  border-bottom: 1px solid var(--prim-500-main);
+}
+
+.gallery_Link:active {
+  transition: transform (--transi-time-S);
+}

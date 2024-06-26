@@ -5,6 +5,7 @@ import styles from "./Hero.module.css";
 
 import bgDark from "../../public/landingpage/XL/rainbow-bridge-XL.jpg";
 import bgLight from "../../public/landingpage/XL/landscapes-Landing-XL.png";
+import Gallery_link from "../Links/Gallery_link";
 
 function Hero() {
   return (
@@ -43,9 +44,8 @@ function Hero() {
           <h3 className={`${styles.presentation__main} geologicaRom`}>
             Project Base Photographer
           </h3>
-          <Link href={"/gallery"} className="gallery_Link">
-            See Gallery _<span className="main-Color">&gt;</span>
-          </Link>
+          <Gallery_link path="/gallery"  content="See Gallery"/>
+          
         </div>
         <div className={`${styles.img_caption__containeur} dark_mode_only`}>
           <div className={styles.img_caption__left}>

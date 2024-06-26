@@ -23,6 +23,7 @@ function Section_Europe() {
             width={1280}
             height={853}
             quality={80}
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 75vw"
           />
         </div>
@@ -47,6 +48,7 @@ function Section_Europe() {
             width={1280}
             height={853}
             quality={80}
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 75vw"
           />
         </div>

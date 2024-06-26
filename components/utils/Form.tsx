@@ -31,12 +31,11 @@ const possibleStates = {
 function Form() {
   const test = true;
   const path = usePathname();
-
   const cartList = useCartProduct((state) => state.cartOfProduct);
   const [state, setState] = useState(initState);
   const { values } = state;
-
   const [emailSent, setEmailSent] = useState<string>(possibleStates.initial);
+
 
   const handleChange = function (
     e:
@@ -102,7 +101,7 @@ function Form() {
       if (res.error == null) {
         handleMailRes(possibleStates.valid);
       } else {
-        handleMailRes(possibleStates.valid);
+        handleMailRes(possibleStates.invalid);
       }
     }
   };

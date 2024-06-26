@@ -1,4 +1,4 @@
-.grid__container {
+.projects {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,6 +7,7 @@
   width: 100%;
   height: 100%;
 }
+
 .projects__grid {
   position: relative;
 
@@ -32,23 +33,7 @@
   }
 }
 
-.aboutPreview {
-  grid-column: 3/4;
-  @media only screen and (max-width: 62.5em) {
-    grid-column: 2/3;
-  }
-  @media only screen and (max-width: 55em) {
-    grid-column: 3/4;
-  }
-  @media only screen and (max-width: 50em) {
-    grid-column: 2/3;
-  }
-  @media only screen and (max-width: 33em) {
-    grid-column: 1/2;
-  }
-}
-
-.projectPreview {
+.project__container {
   position: relative;
   height: var(--img-preview-M);
   width: var(--img-preview-M);
@@ -57,16 +42,154 @@
   object-fit: cover;
   overflow: hidden;
   display: grid;
+
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   align-items: center;
   justify-items: center;
 }
 
-.project_img {
-  transition: all 0.3s;
+.project__img {
   grid-column: 1/2;
   grid-row: 1/2;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  transition: all var(--transi-time-M);
+}
+
+.project__title {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 60%;
+  z-index: 100;
+
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gallery-title-transparency);
+
+  opacity: 0;
+  transition: opacity var(--transi-time-M);
+  color: var(--neutral-50);
+  text-align: center;
+
+  @media only screen and (max-width: 77em) {
+    opacity: 100;
+    min-width: 100%;
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+    align-self: last baseline;
+  }
+}
+
+.project__container:hover .project__img {
+  transform: scale(var(--hover-scaling));
+  filter: brightness(0.5) blur(3px);
+  transition: all 0.2s;
+}
+.project__container:hover .project__title {
+  opacity: 100%;
+  transition: opacity 0.3s;
+}
+
+.projectPreview__shadows {
+  object-position: 25%;
+}
+
+.projectPreview__landscape {
+  object-position: 60%;
+}
+
+/* Inner page */
+
+
+.page {
+  position: relative;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.seeMore__title {
+  margin-top: var(--spacing-L);
+  margin-bottom: var(--spacing-M);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-geologica-light);
+  letter-spacing: 0.5px;
+}
+
+.seeMore__container {
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  gap: var(--spacing-M);
+}
+
+.seeMore__container_left {
+  width: 100%;
+  height: 100%;
+}
+
+.projectPreview {
+  position: relative;
+  height: var(--img-preview-M);
+  width: var(--img-preview-M);
+  object-fit: cover;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.projectPreview_img {
+  transition: all 0.2s;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project_title {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background-color: var(--gallery-title-transparency);
+  padding: var(--spacing-M);
+
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: var(--neutral-50);
+  text-align: center;
+
+  @media only screen and (max-width: 75em) {
+    opacity: 100%;
+
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+    align-self: last baseline;
+  }
 }
 
 .projectPreview:hover .project_img {
@@ -79,43 +202,3 @@
   transition: opacity 0.3s;
 }
 
-.projectPreview__img,
-.projectPreview__shadows,
-.projectPreview__landscape {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.projectPreview__shadows {
-  object-position: 25%;
-}
-
-.projectPreview__landscape {
-  object-position: 60%;
-}
-
-.project_title {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  background-color: var(--gallery-title-transparency);
-  min-width: 60%;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 30;
-  opacity: 0;
-  transition: opacity 0.3s;
-  color: var(--neutral-50);
-  text-align: center;
-  @media only screen and (max-width: 77em){
-    opacity: 100;
-    min-width: 100%;
-    height: 25%;
-    justify-content: center;
-    align-items: center;
-    align-self: last baseline;
-  } 
-}

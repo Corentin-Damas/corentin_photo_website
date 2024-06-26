@@ -1,16 +1,14 @@
-import React, { Children } from "react";
-import Image_grid from "../../../../../../components/gallery/Image_grid";
-import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
-
-import styles from "../../layout.module.css";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import InfosBubble from "../../../../../../components/gallery/InfosBubble";
-import TsuzukitaiTxt from "../../../../../../components/gallery/project_text/tsuzukitaiTxt";
+import styles from "../page.module.css";
+
+import Images_grid_container from "../../../../../../components/gallery/Images_grid_container";
+import Hero_gallery from "../../../../../../components/gallery/Hero_gallery";
+import Project_Story from "../../../../../../components/gallery/Project_Story";
+import TsuzukitaiTxt from "../../../../../../components/gallery/project_text/TsuzukitaiTxt";
 
 function page() {
-
-
   return (
     <div className={styles.page}>
       <Hero_gallery
@@ -19,10 +17,10 @@ function page() {
         c2="2016 - 2018"
         c3="Japan"
       />
-      <aside className={styles.project_info_bubble}>
-        <InfosBubble txt={<TsuzukitaiTxt/>}/>
-      </aside>
-      <Image_grid currentDir="tsuzukitai"  />
+
+      <Project_Story txt={<TsuzukitaiTxt />} />
+
+      <Images_grid_container currentDir="tsuzukitai" />
       <h4 className={styles.seeMore__title}>Also recommended:</h4>
       <div className={styles.seeMore__container}>
         <Link
@@ -39,7 +37,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            Black & <br /> white
+            7/ Black & <br /> white
           </h5>
         </Link>
         <Link
@@ -56,7 +54,7 @@ function page() {
             className={`${styles.projectPreview_img} ${styles.project_img} `}
           />
           <h5 className={styles.project_title}>
-            A year in <br /> japan
+           2/ A year in <br /> japan
           </h5>
         </Link>
       </div>
