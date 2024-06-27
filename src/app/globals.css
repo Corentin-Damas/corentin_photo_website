@@ -47,13 +47,17 @@
   /* var(--transi-time-M) */
 
   --background-color: #f8fafc;
-  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
-  --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
 
   /* Nav */
   --nav-height: 8rem;
   --bg-nav: hsla(210, 40%, 98%, 0.9);
   --bg-brightness: brightness(1.1);
+
+  /* Gallery */
+  --popup-bg-transparency: hsla(210, 40%, 98%, 0.9);
+
+  --background-color-transparency: hsla(210, 40%, 98%, 0.9);
+  --background-color-transparency-darker: hsla(210, 40%, 98%, 0.95);
 
   --border-menu: hsla(204, 64%, 18%, 0.75);
   --bg-nav-smallScreenIcone: hsla(210, 11%, 93%, 0.9);
@@ -193,6 +197,8 @@
 
 html.dark {
   --background-color: #121a22;
+  --popup-bg-transparency: hsla(208, 29%, 10%, 0.9);
+
   --background-color-transparency: hsla(208, 29%, 10%, 0.9);
   --background-color-transparency-darker: hsla(208, 29%, 10%, 0.95);
 
