@@ -1,11 +1,12 @@
-"use client"
+"use client";
 import React from "react";
-import styles from "./bookMark.module.css";
+
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import { useImgSelected } from "../../providers/imgFav-provider";
+import styles from "./Save_Icon.module.css";
 
-function BookMarkIcon({ imgName }: { imgName: string }) {
+function Save_Icon({ imgName }: { imgName: string }) {
   const imgList = useImgSelected((state) => state.imgSelected);
   const addImg = useImgSelected((state) => state.addImgSelected);
   const remImg = useImgSelected((state) => state.removeImgSelected);
@@ -31,4 +32,4 @@ function BookMarkIcon({ imgName }: { imgName: string }) {
   );
 }
 
-export default BookMarkIcon;
+export default Save_Icon;

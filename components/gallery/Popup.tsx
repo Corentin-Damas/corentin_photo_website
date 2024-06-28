@@ -1,9 +1,11 @@
-import React, { useCallback } from "react";
-import styles from "./Popup.module.css";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 
+
+import styles from "./Popup.module.css";
 import useEmblaCarousel from "embla-carousel-react";
+import Save_Icon from "./Save_Icon";
 
 function Popup({
   imgList,
@@ -16,18 +18,46 @@ function Popup({
   idxImg: number;
   closePopup: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const [currIdx, setCurrIdx] = useState<number>(idxImg);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     startIndex: idxImg,
   });
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      setCurrIdx(emblaApi.selectedScrollSnap());
+    }
   }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      setCurrIdx(emblaApi.selectedScrollSnap());
+    }
   }, [emblaApi]);
+
+  const keyDownDetected = useCallback(
+    (e: any) => {
+      if (e.key == "ArrowLeft") {
+        scrollPrev();
+      }
+      if (e.key == "ArrowRight") {
+        scrollNext();
+      }
+      if (e.key == "Escape") {
+        closePopup((show) => !show);
+      }
+    },
+    [scrollPrev, scrollNext, closePopup]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownDetected);
+    return () => document.removeEventListener("keydown", keyDownDetected);
+  });
 
   return (
     <div className={styles.popup}>
@@ -65,15 +95,10 @@ function Popup({
             className={`${styles.close} ${styles.icon}`}
             onClick={() => closePopup((show) => !show)}
           />
+          <div className={styles.bottom}>
+            <Save_Icon imgName={imgList[currIdx]} />
+          </div>
         </div>
-        <span
-          className={styles.clickLeft}
-          onClick={() => closePopup((show) => !show)}
-        ></span>
-        <span
-          className={styles.clickRight}
-          onClick={() => closePopup((show) => !show)}
-        ></span>
       </div>
     </div>
   );

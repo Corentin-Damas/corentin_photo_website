@@ -62,6 +62,7 @@ function Navbar_gallery() {
                 _{el.id} <span className={styles.bar}>|</span>{" "}
               </p>
               <Link
+                scroll={true}
                 href={el.path}
                 className={`${path == el.path ? styles.currPage : ""} ${
                   styles.link__li_title
@@ -81,6 +82,7 @@ function Navbar_gallery() {
                 _{el.id} <span className={styles.bar}>|</span>{" "}
               </p>
               <Link
+                scroll={true}
                 href={el.path}
                 className={`${path == el.path ? styles.currPage : ""}  ${
                   styles.link__li_title

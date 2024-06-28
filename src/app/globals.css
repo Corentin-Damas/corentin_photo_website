@@ -256,6 +256,7 @@ html.light .dark_mode_only {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 *,

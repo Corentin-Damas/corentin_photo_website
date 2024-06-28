@@ -1,0 +1,27 @@
+
+.bookmark_empty_containeur,
+.bookmark_full_containeur {
+  width: var(--spacing-M);
+  height: var(--spacing-M);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bg-p1-transparency);
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid var(--rules-color);
+  @media only screen and (max-width: 65em) {
+    width: var(--icone-S);
+    height: var(--icone-S);
+  }
+}
+
+.bookmark_empty,
+.bookmark_full {
+  width: var(--spacing-S);
+  height: var(--spacing-S);
+  color: var(--font-color-main);
+}

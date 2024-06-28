@@ -6,7 +6,7 @@ import { GrFormPrevious, GrFormNext, GrFormClose } from "react-icons/gr";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { imagesInfos } from "../shop/images";
-import BookMarkIcon from "../navigation/BookMarkIcon";
+import BookMarkIcon from "../utils/BookMarkIcon";
 
 const GalleryImg = ({
   images,

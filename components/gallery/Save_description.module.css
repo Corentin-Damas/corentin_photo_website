@@ -1,0 +1,26 @@
+.popupMsg {
+  margin-top: var(--spacing-M);
+  padding: var(--spacing-S);
+  border: 1px solid var(--font-color-sec);
+  border-radius: var(--borderRadiusBtn-soft);
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(15px) var(--bg-brightness);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-SS);
+}
+.popupMsg__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-SS);
+  color: var(--font-color-sec);
+}
+.popupMsg__icon {
+  height: var(--icone-XS);
+  width: var(--icone-XS);
+}
+
+.linkShop {
+  text-decoration: 1px underline var(--font-color-sec);
+}
